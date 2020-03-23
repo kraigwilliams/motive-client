@@ -1,25 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar'
+import LandingPage from './components/LandingPage/LandingPage'
+import SignUp from './components/SignUp/SignUp'
+import Login from './components/Login/Login'
+import Dashboard from './components/Dashboard/Dashboard'
+import GroupsPage from './components/GroupsPage/GroupsPage'
+import NotFoundPage from './components/Utils/NotFoundPage'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="root">
+      <NavBar/>
+      
+      <Switch>
+        <Route
+          to='/'
+          component={LandingPage}
+        />
+
+        <Route
+          to='/signup'
+          component={SignUp}
+        />
+
+        <Route 
+          to='/login'
+          component={Login}
+        />
+
+        <Route 
+          to='/dashboard'
+          component={Dashboard}
+        />
+       
+        <Route 
+          to='/groups'
+          component={GroupsPage}
+        />
+
+        <Route
+          component={NotFoundPage}
+        />
+      </Switch>
+    </main>
   );
 }
 
