@@ -1,0 +1,29 @@
+import styled from 'styled-components'
+import { colors } from '../constants'
+
+export const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #829191;
+  width: 100%;
+  
+  @media (min-width:700px) {
+      width: 70%;
+      margin: auto;
+      padding: 30px;
+      border-radius: 30px;
+  }
+`;
+
+export const SignUpWrapper = styled.div`
+  background-color: ${colors.slategrey};
+  margin: 0;
+  padding: 40px;
+  height: 100%;
+  
+  @media (min-width:500px) {
+    background-color: ${colors.offwhite};
+
+  }
+`;

@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 // import NavBar from './components/NavBar/NavBar'
 // import LandingPage from './components/LandingPage/LandingPage'
-// import SignUp from './components/SignUp/SignUp'
-// import Login from './components/Login/Login'
+import SignUp from './components/SignUp/SignUp'
+import Login from './components/Login/Login'
 // import Dashboard from './components/Dashboard/Dashboard'
 // import GroupsPage from './components/GroupsPage/GroupsPage'
 // import NotFoundPage from './components/Utils/NotFoundPage'
@@ -16,18 +16,20 @@ function App() {
       <main className="app">
       <Switch>
         <Route
+          exact
           path='/'
           // component={LandingPage}
         />
 
         <Route
+          exact
           path='/signup'
-          // component={SignUp}
+          component={SignUp}
         />
 
         <Route 
           path='/login'
-          // component={Login}
+          component={Login}
         />
 
         <Route 
