@@ -7,26 +7,88 @@ import {FormButton} from '../Button/Button'
 
 
 export default class Login extends Component {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  }
+
+  state ={ error: null }
+
+  firstInput = React.createRef()
+
+
+  handleLoginSuccess = () => {
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/'
+    history.push(destination)
+  }
+
+  hanldeSubmit = ev => {
+    ev.preventDefault()
+    const { username, password } = ev.target 
+
+    this.setState({error: null})
+
+    AuthApiService.postLogin({
+      username: username.value,
+      password: password.value,
+    })
+    .then(res => {
+      username.value = ''
+      password.value = ''
+      this.context.processLogin(res.authToken)
+      this.handleLoginSuccess()
+    })
+    .catch(res => {
+      this.setState({ error: res.error })
+    })
+  }
+
+  componentDidMount() {
+    this.firstInput.current.focus()
+  }
+
   render() {
+    const { error } = this.state;
     return(
       <LoginWrapper>
         
-        <FormWrapper>
+        <FormWrapper onSubmit={this.hanldeSubmit}>
+          <div>
+            {error && <p>{error}</p>}
+          </div>
           <FormTitle>
             Login
           </FormTitle>
 
-          <FormLabel>
+          <FormLabel htmlFor='login-username-input'>
             Username 
           </FormLabel>
-          <FormInput placeholder='Jd#12345'/>
+          <FormInput 
+            placeholder='Jd#12345'
+            ref={this.firstInput}
+            id='login-username-input'
+            name='username'
+            aria-label="Enter your username"
+            aria-required="true"
+            required
+          />
 
-          <FormLabel>
+          <FormLabel htmlFor='login-password-input'>
             Password
           </FormLabel>
-          <FormInput placeholder='password'/>
+          <FormInput 
+            placeholder='password'
+            id='login-password-input'
+            name='password'
+            aria-label="Enter your password"
+            aria-required="true"
+            required
+          />
 
-          <FormButton>
+          <FormButton type='submit'>
             Login
           </FormButton>
       </FormWrapper >

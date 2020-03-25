@@ -7,37 +7,112 @@ import { FormWrapper, SignUpWrapper } from './SignUp.style'
 
 
 export default class SignUp extends Component {
+  static defaultProps = {
+    history: {
+      push: () => {},
+    },
+  }
+
+  state = {
+    error: null
+  }
+
+  handleRegistrationSuccess = () => {
+    const { history } = this.props
+    history.push('/login')
+  }
+
+  firstInput = React.createRef()
+
+  handleSubmit = ev => {
+    ev.preventDefault()
+    const { firstname, lastname, username, password } = ev.target;
+    AuthApiService.postUser({
+      firstname: firstname.value, 
+      lastname: lastname.value,
+      username: username.value, 
+      password: password.value,
+    })
+      .then(user => {
+        firstname.value = ''
+        lastname.value = ''
+        username.value = ''
+        password.value = ''
+        this.handleRegistrationSuccess();
+      })
+      .catch(err => {
+        this.setState({ error: err.error})
+      })
+  }
+
+  componentDidMount() {
+    this.firstInput.current.focus()
+  }
+
   render() {
+    const { error } = this.state
     return(
       <SignUpWrapper>
         
-        <FormWrapper>
+        <FormWrapper onSubmit = {this.handleSubmit}>
           <FormTitle>
             Create an account
           </FormTitle>
 
+          <div>
+            {error && <p>{error}</p>}
+          </div>
 
-          <FormLabel>
+          <FormLabel htmlFor='signup-firstname-input'>
             First Name 
-          </FormLabel>
-          <FormInput placeholder='John'/>
+          </FormLabel><Required />
+          <FormInput 
+            ref={this.firstInput}
+            placeholder='John'
+            id='signup-firstname-input'
+            name='firstname'
+            aria-label="Enter your first name"
+            aria-required="true"
+            required
+          />
 
-          <FormLabel>
+          <FormLabel htmlFor='signup-lastname-input'>
             Last Name 
           </FormLabel>
-          <FormInput placeholder='Doe'/>
+          <FormInput 
+            placeholder='Doe'
+            id='signup-lastname-input'
+            name='lastname'
+            aria-label="Enter your last name"
+            aria-required="true"
+            required
+          />
 
-          <FormLabel>
+          <FormLabel htmlFor='signup-username-input'>
             Username 
           </FormLabel>
-          <FormInput placeholder='Jd#12345'/>
+          <FormInput 
+            placeholder='Jd#12345'
+            id='signup-username-input'
+            name='username'
+            aria-label="Enter your username"
+            aria-required="true"
+            required
+          />
 
-          <FormLabel>
+          <FormLabel htmlFor='signup-password-input'>
             Password
           </FormLabel>
-          <FormInput placeholder='password'/>
+          <FormInput 
+            placeholder='password'
+            id='signup-password-input'
+            name='password'
+            aria-label="Enter your password"
+            aria-required="true"
+            required
+          />
 
-          <FormButton>
+          <FormButton type='submit'>
             Sign Up
           </FormButton>
       </FormWrapper >
