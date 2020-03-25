@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 // import LandingPage from './components/LandingPage/LandingPage'
 import SignUp from './components/SignUp/SignUp'
 import Login from './components/Login/Login'
-// import Dashboard from './components/Dashboard/Dashboard'
+import Dashboard from './components/Dashboard/Dashboard'
 // import GroupsPage from './components/GroupsPage/GroupsPage'
 // import NotFoundPage from './components/Utils/NotFoundPage'
 // import './App.css';
@@ -34,7 +34,12 @@ function App() {
 
         <Route 
           path='/dashboard'
-          // component={Dashboard}
+          component={Dashboard}
+        />
+
+        <Route 
+          path='/dashboard'
+          // component={Connections}
         />
        
         <Route 
