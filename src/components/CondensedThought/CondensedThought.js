@@ -13,7 +13,7 @@ class CondensedThought extends Component {
     return (
       <Thought key={this.props.id}>
         <ThoughtTitle
-          // to={`/thought/${this.props.id}`}
+          to={`/thought/${this.props.id}`}
         >
           {this.props.title}
         </ThoughtTitle>

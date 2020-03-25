@@ -29,7 +29,7 @@ export const LoginWrapper = styled.div`
   background-color: ${colors.slategrey};
   margin: 0;
   padding: 40px;
-  height: 100%;
+  min-height: 100vh;
   
   @media (min-width:500px) {
     background-color: ${colors.offwhite};

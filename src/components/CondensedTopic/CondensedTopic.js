@@ -8,7 +8,7 @@ class CondensedTopic extends Component {
     return (
       <Topic key={this.props.id}>
         <TopicTitle 
-          // to={`topics/${this.props.id}`}
+          to={`topics/${this.props.id}`}
         >
           {this.props.title}
         </TopicTitle>

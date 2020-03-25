@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from '../../contexts/UserContext'
 import {Required, FormLabel, FormInput, FormTitle, FormWrapper, LoginWrapper } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import {FormButton} from '../Button/Button'
@@ -7,6 +8,7 @@ import {FormButton} from '../Button/Button'
 
 
 export default class Login extends Component {
+  static contextType = UserContext;
   static defaultProps = {
     location: {},
     history: {
@@ -20,8 +22,9 @@ export default class Login extends Component {
 
 
   handleLoginSuccess = () => {
+    console.log('handle log in success firing');
     const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
+    const destination = (location.state || {}).from || '/dashboard'
     history.push(destination)
   }
 

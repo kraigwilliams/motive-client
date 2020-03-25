@@ -41,21 +41,18 @@ function App() {
         />
 
         <Route 
-          path='/dashboard'
-          // component={Connections}
-        />
-       
-        <Route 
-          path='/groups'
-          // component={GroupsPage}
-        />
-        <Route 
-          path='/topic'
+          path='/topics/:topic_id'
           component={Topic}
         />
           <Route 
-          path='/thought'
+          path='/thoughts/:thought_id'
           component={Thought}
+        />
+
+           
+        <Route 
+          path='/groups'
+          // component={GroupsPage}
         />
 
         <Route
