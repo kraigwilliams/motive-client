@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
-import config from '../../config.js'
-import TokenService from '../../services/token-service'
 import ContentService from '../../services/content-service'
 import { colors, PageWrapper } from '../constants'
 import CondensedTopic from '../CondensedTopic/CondensedTopic';
@@ -49,13 +47,13 @@ componentDidMount() {
               Topics
             </h2>
 
-              {topics.map(topic => {
+              {/* {topics.map(topic => {
                 return <CondensedTopic 
                 id={topic.id}
                 title={topic.topic_title}
                 count={topic.count}
               />
-              })}
+              })} */}
 
               <CondensedTopic 
                 title='Coronavirus'
@@ -67,12 +65,12 @@ componentDidMount() {
             <h2 style={{color: colors.white}}>
               Thoughts
             </h2>
-              {thoughts.map(thought => {
+              {/* {thoughts.map(thought => {
                 return <CondensedThought 
                 id={thought.id}
                 title={thought.thought_title}
               />
-              })}
+              })} */}
 
             <CondensedThought 
               title='Meaning of Life'

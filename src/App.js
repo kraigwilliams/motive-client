@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
-// import NavBar from './components/NavBar/NavBar'
+import NavBar from './components/NavBar/NavBar'
 // import LandingPage from './components/LandingPage/LandingPage'
 import SignUp from './components/SignUp/SignUp'
 import Login from './components/Login/Login'
@@ -15,7 +15,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 function App() {
   return (
     <>
-      {/* <NavBar/> */}
+      <NavBar/>
       <main className="app">
       <Switch>
         <Route
