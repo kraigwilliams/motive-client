@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext'
 import {Required, FormLabel, FormInput, FormTitle, FormWrapper, LoginWrapper } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
@@ -70,26 +69,27 @@ export default class Login extends Component {
             Username 
           </FormLabel>
           <FormInput 
-            placeholder='Jd#12345'
+            placeholder='john_doe'
             ref={this.firstInput}
             id='login-username-input'
             name='username'
             aria-label="Enter your username"
             aria-required="true"
             required
-          />
+          /><Required />
 
           <FormLabel htmlFor='login-password-input'>
             Password
           </FormLabel>
           <FormInput 
+            type='password'
             placeholder='password'
             id='login-password-input'
             name='password'
             aria-label="Enter your password"
             aria-required="true"
             required
-          />
+          /><Required />
 
           <FormButton type='submit'>
             Login

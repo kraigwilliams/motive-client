@@ -6,9 +6,7 @@ import ContentService from '../../services/content-service'
 import { colors, PageWrapper } from '../constants'
 import CondensedTopic from '../CondensedTopic/CondensedTopic';
 import CondensedThought from '../CondensedThought/CondensedThought'
-
-import {DBHeader, Section, ContentWrapper } from './Dashboard.style'
-
+import { DBHeader, Section, ContentWrapper } from './Dashboard.style'
 
 class Dashboard extends Component {
   static contextType = UserContext;
@@ -31,8 +29,8 @@ componentDidMount() {
   .then(thoughts => {
     this.setState({ thoughts })
   })
-
 }
+
 
   render() {
   const { topics, thoughts } = this.state;
@@ -49,8 +47,9 @@ componentDidMount() {
               Topics
             </h2>
 
-              {topics.map(topic => {
+              {topics.map((topic, idx) => {
                 return <CondensedTopic 
+                key={idx}
                 id={topic.id}
                 title={topic.topic_title}
                 count={topic.count}
@@ -67,8 +66,10 @@ componentDidMount() {
             <h2 style={{color: colors.white}}>
               Thoughts
             </h2>
-              {thoughts.map(thought => {
+
+              {thoughts.map((thought, idx) => {
                 return <CondensedThought 
+                key={idx}
                 id={thought.id}
                 title={thought.thought_title}
               />
