@@ -44,14 +44,20 @@ function App() {
           // component={GroupsPage}
         />
         <Route 
-          path='/topic'
-          component={Topic}
+          path='/topic/:topic_id'
+          render={props => {return <Topic {...props} />}}
+          // component={Topic}
         />
           <Route 
-          path='/thought'
-          component={Thought}
+          path='/thought/:thought_id'
+          render={props => {return <Thought {...props} />}}
+          // component={Thought}
         />
 
+        <Route 
+          path='/groups'
+          // component={GroupsPage}
+        />
         <Route
           // component={NotFoundPage}
         />
