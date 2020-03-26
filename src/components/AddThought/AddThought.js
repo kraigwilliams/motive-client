@@ -1,34 +1,45 @@
 import React, { Component } from 'react';
-
-import Label from '../../components/Utils/Label';
-import Dropdown from '../../components/Utils/Dropdown';
-import Textarea from '../../components/Utils/Textarea';
-import Button from '../../components/Utils/Button';
-import Input from '../../components/Utils/Input';
-
+import {FormButton} from '../Button/Button';
+import { FormWrapper, FormTitle, FormLabel, FormInput, Dropdown, FormTextarea} from '../Form/Form'
+import {PageWrapper} from '../constants'
 
 export default class AddThought extends Component {
 
   render() {
     return (
-      <div>
-        {/* <Title>Create A Thought</Title> */}
-        
-        <Label>Title</Label>
-        <Input />
+      <PageWrapper padding='40px 0'>
+      
+        <FormWrapper padding='50px'>
+          <FormTitle>
+            Create a Thought
+          </FormTitle>
+          
+          <FormLabel>
+            Title
+          </FormLabel>
+          <FormInput />
 
-        <Label>Type</Label>
-        <Dropdown />
+          <FormLabel>
+            Type
+          </FormLabel>
+          <Dropdown />
 
-        <Label>Topic</Label>
-        <Dropdown />
+          <FormLabel>
+            Topic
+          </FormLabel>
+          <Dropdown />
 
-        <Label>Content</Label>
-        <Textarea />
+          <FormLabel>
+            Content
+          </FormLabel>
+          <FormTextarea />
 
-        <Button type='submit'>Submit</Button>
+          <FormButton type='submit'>
+            Submit
+          </FormButton>
 
-      </div>
+        </FormWrapper>
+      </PageWrapper>
     );
   }
 }

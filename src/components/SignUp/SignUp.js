@@ -53,7 +53,7 @@ export default class SignUp extends Component {
     return(
       <SignUpWrapper>
         
-        <FormWrapper onSubmit = {this.handleSubmit}>
+        <FormWrapper onSubmit={this.handleSubmit}>
           <FormTitle>
             Create an account
           </FormTitle>

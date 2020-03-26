@@ -36,7 +36,6 @@ export const SortLabel = styled.h3`
 `;
 
 export const SortSelectDropdown = styled.select`
-
   background: transparent;
   font-size: 1em;
   color: ${colors.white};
@@ -58,8 +57,6 @@ export const ContentWrapper = styled.div`
   padding: 30px;
   margin: 0;
   height: 100vh;
-  
-
 
   @media (min-width: 700px) {
    
