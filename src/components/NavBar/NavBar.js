@@ -30,7 +30,7 @@ class NavBar extends Component {
     return (
       <div className='logged-in'>
 
-          <DesktopNavBar toggleMobileNav={this.toggleMobileNavBar}/>
+          <DesktopNavBar />
 
           <MenuLink
             onClick={this.handleLogoutClick}
@@ -39,9 +39,6 @@ class NavBar extends Component {
           </MenuLink>
           
           <MobileButton type='button' onClick={this.toggleMobileNavBar}>
-            {/* <NavIcon>
-
-            </NavIcon> */}
             <Burger open={this.state.mobileNav}/>
           </MobileButton>
       </div>

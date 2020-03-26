@@ -13,19 +13,17 @@ const MobileNav = styled.nav`
   position: absolute;
   top: 60px;
   right: 0;
-  transition: transform 1s;
-  transform: translateX( ${ props => props.displayMobileNavBar ? ('0%') : ('calc(100% + 25px)')}   );
 
-  > li {
-    margin: none;
-    color: ${colors.darkgrey};
-  }
+  @media screen and (min-width: 768px) {
+      display: none;
+    }
+  
 `;
 
 
 const MobileNavBar = (props) => {
   return (
-    <MobileNav displayMobileNavBar = {props.displayMobileNavBar}>
+    <MobileNav displayMobileNavBar={props.displayMobileNavBar}>
       <Navigation direction='column' color={colors.darkgrey}/>
     </MobileNav>
     

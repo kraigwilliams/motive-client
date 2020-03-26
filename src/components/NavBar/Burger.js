@@ -15,7 +15,6 @@ const StyledBurger = styled.button`
   z-index: 10;
   margin-left: 10px;
 
-
   &:focus {
     outline: none;
   }
@@ -45,8 +44,6 @@ const StyledBurger = styled.button`
     }
   }
 `;
-
-
 
 
 const Burger = (props) => {

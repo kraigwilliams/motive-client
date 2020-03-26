@@ -13,6 +13,8 @@ const DesktopNav = styled.nav`
 
   .nav-links{
     margin-left: 20px;
+
+    
   @media screen and (max-width: 768px) {
       display: none;
     }
@@ -24,25 +26,12 @@ const DesktopNav = styled.nav`
   }
 `;
 
-// const MobileButton = styled.button`
-//   background: transparent;
-//   border: none;
-//   display: none;
-
-//   @media screen and (max-width: 768px) {
-//     display: block;
-//   }
-// `;
-
 const DesktopNavBar = (props) => {
   return (
     <DesktopNav>
       
       <Navigation direction='row' marginLeft='25px'/>
 
-      {/* <MobileButton type='button' onClick={props.toggleMobileNav}>
-        Icon
-      </MobileButton> */}
     </DesktopNav>
   )
 }

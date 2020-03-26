@@ -26,6 +26,7 @@ export const Logo = styled(Link)`
   align-self: center;
   :hover{
     cursor: pointer;
+    color: ${colors.teal}
   }
 `;
 
@@ -38,6 +39,7 @@ export const MenuLink = styled(Link)`
 
   :hover{
     cursor: pointer;
+    color: ${colors.coral}
   }
 `;
 
@@ -54,32 +56,3 @@ export const MobileButton = styled.button`
     cursor: pointer;
   }
 `;
-
-export const NavIcon = styled.div`
-  margin: 1em;
-  width: 20px;
-  color: ${colors.offwhite};
-
-  :after,
-  :before,
-  div {
-    border-radius: 3px;
-    content: '';
-    display: block;
-    height: 5px;
-    margin: 7px;
-    transition: all .2s ease-in-out;
-  }
-
-  :hover:before {
-    transform: translateY(12px) rotate(135deg);
-  }
-
-  :hover:after {
-    transform: translateY(-12px) rotate(-135deg);
-  }
-
-  :hover div {
-    transform: scale(0);
-  }
-`
