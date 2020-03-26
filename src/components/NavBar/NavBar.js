@@ -4,6 +4,7 @@ import DesktopNavBar from './DesktopNavBar'
 import MobileNavBar from './MobileNavBar'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext.js'
+import Burger from './Burger'
 import { NavWrapper, Logo, MenuLink, MobileButton, NavIcon } from './NavBar.style'
 
 class NavBar extends Component {
@@ -38,9 +39,10 @@ class NavBar extends Component {
           </MenuLink>
           
           <MobileButton type='button' onClick={this.toggleMobileNavBar}>
-            <NavIcon>
-              <div>X</div>
-            </NavIcon>
+            {/* <NavIcon>
+
+            </NavIcon> */}
+            <Burger open={this.state.mobileNav}/>
           </MobileButton>
       </div>
     )

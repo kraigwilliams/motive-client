@@ -50,18 +50,12 @@ componentDidMount() {
 
               {topics.map((topic, idx) => {
                 return <CondensedTopic 
-                key={idx}
-
-              {/* {topics.map(topic => {
-                return <CondensedTopic 
-                id={topic.id}
-                title={topic.topic_title}
-                count={topic.count}
-              />
-
+                  key={idx}
+                  id={topic.id}
+                  title={topic.topic_title}
+                  count={topic.count}
+                />
               })}
-
-              })} */}
 
 
               <CondensedTopic 
@@ -82,13 +76,6 @@ componentDidMount() {
                 title={thought.thought_title}
               />
               })}
-
-              {/* {thoughts.map(thought => {
-                return <CondensedThought 
-                id={thought.id}
-                title={thought.thought_title}
-              />
-              })} */}
 
 
             <CondensedThought 
