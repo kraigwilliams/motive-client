@@ -13,14 +13,14 @@ const Button = React.forwardRef(({ className, ...props }, ref) => {
 
 export const FormButton = styled(Button)`
   border: 2px solid ${colors.offwhite};
-  color: ${colors.offwhite};
+  color: ${({ color }) => color || colors.offwhite};
   padding: 10px;
   width: fit-content;
   margin: auto;
   border-radius: 30px;
   font-size: 16px;
-  margin-top: 40px;
-  background-color: ${colors.slategrey};
+  margin-top: ${({ margintop }) => margintop || "40px"};
+  background-color: ${({ backgroundColor }) => backgroundColor || colors.slategrey};
 
   :hover {
     cursor: pointer;

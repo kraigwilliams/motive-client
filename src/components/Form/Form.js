@@ -6,14 +6,14 @@ import {colors} from '../constants'
 export const FormTitle = styled.h1`
   text-align: center;
   font-size: 22px;
-  color: ${colors.teal};
+  color: ${({ color }) => color || colors.teal};
 `;
 
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: #829191;
+  background-color: ${({ backgroundcolor }) => backgroundcolor || "#829191"};
   width: 100%;
   padding: ${({padding}) => padding ? padding : '0px'};
   
@@ -66,12 +66,12 @@ export const Input =  React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormInput = styled(Input)`
-  border: 2px solid ${colors.darkgrey};
+  border: 2px solid ${colors.offwhite};
   border-radius: 40px;
   padding: 10px;
   font-size: 16px;
-  background-color: ${colors.slategrey};
-  color: ${colors.offwhite};
+  background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite};
+  color: ${({ color }) => color || colors.slategrey};
   text-align: center;
   width: 90%;
 

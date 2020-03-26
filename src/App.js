@@ -7,6 +7,7 @@ import Login from './components/Login/Login'
 import Topic from './components/Topic/Topic'
 import Thought from './components/Thought/Thought'
 import Dashboard from './components/Dashboard/Dashboard'
+import Connections from './components/Connections/Connections'
 import AddThought from './components/AddThought/AddThought'
 import AddTopic from './components/AddTopic/AddTopic'
 
@@ -40,6 +41,11 @@ function App() {
         <Route 
           path='/dashboard'
           component={Dashboard}
+        />
+
+        <Route 
+          path='/connections'
+          component={Connections}
         />
 
         <Route 
