@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import TokenService from '../../services/token-service';
-import { PageWrapper, LandingHeader, ContentWrapper, LandingText, LandingLink } from './LandingPage.style'
-
+import { PageWrapper, LandingHeader, ContentWrapper, LandingText, LandingLink, LandingImage } from './LandingPage.style'
+import cloud from './Assets/cloud.jpg';
 export default class LandingPage extends Component {
 
   render() {
@@ -19,11 +19,12 @@ export default class LandingPage extends Component {
           <LandingText>
             No matter how big or small, Motive will help you there.
           </LandingText>
+          <LandingImage src={cloud} alt='labyrinth' />
 
-          <LandingText>Demo Motive and see how you can begin cultivating your thoughts by 
-            <br />
+          <LandingText>Demo Motive and see how you can begin cultivating your thoughts! 
+            <br /> 
             <LandingLink to='/login'>
-              logging in
+              Log In
             </LandingLink> 
               with Username: admin Password: pass
           </LandingText>

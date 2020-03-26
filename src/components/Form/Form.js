@@ -14,7 +14,7 @@ export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: ${({ backgroundColor }) => backgroundColor || "#829191"};
+  background-color: ${({ backgroundcolor }) => backgroundcolor || "#829191"};
   width: 100%;
   
   @media (min-width:700px) {
@@ -66,12 +66,12 @@ export const Input =  React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormInput = styled(Input)`
-  border: 2px solid ${colors.darkgrey};
+  border: 2px solid ${colors.offwhite};
   border-radius: 40px;
   padding: 10px;
   font-size: 16px;
-  background-color: ${({ backgroundColor }) => backgroundColor || colors.slategrey};
-  color: ${colors.offwhite};
+  background-color: ${({ backgroundcolor }) => backgroundcolor || colors.slategrey};
+  color: ${({ color }) => color || colors.slategrey};
   text-align: center;
   width: 100%;
 

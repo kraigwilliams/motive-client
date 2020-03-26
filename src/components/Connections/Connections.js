@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import UserContext from '../../contexts/UserContext'
 import ContentService from '../../services/content-service'
 import{ ConnectionsPageWrapper, ConnectionsHeader, ConnectionsHeader2, ContentWrapper, Section } from './Connections.style';
 import { FormButton } from '../Button/Button';
 import { FormInput, FormWrapper, FormTitle } from '../Form/Form'
 import { colors } from '../constants'
 export default class Connections extends Component {
+  static contextType = UserContext;
   constructor(props) {
     super(props)
     this.state = {
@@ -55,7 +57,7 @@ export default class Connections extends Component {
      
       <ConnectionsPageWrapper>
           <ConnectionsHeader >
-            Your Connections
+          {this.context.user.username}'s Connections
           </ConnectionsHeader>
    
          <ContentWrapper>
@@ -65,18 +67,22 @@ export default class Connections extends Component {
               Search all Motive users:
             </FormTitle>
 
-            <FormInput onChange={this.handleInputChange} backgroundColor={colors.white} />
+            <FormInput 
+              onChange={this.handleInputChange} 
+              backgroundcolor={colors.offwhite}
+              color={colors.white} 
+            />
             
             <FormButton 
               type='submit' 
-              marginTop={'8px'} 
-              backgroundColor={colors.coral} 
+              margintop={'8px'} 
+              backgroundcolor={colors.coral} 
               color={colors.white} 
             >
               Search
             </FormButton>
 
-            <FormTitle color={colors.blue}>
+            <FormTitle color={colors.offwhite}>
               {this.state.filteredData}
               Friends listed here matching search.. with add button next to it triggering post to connection DB
             </FormTitle>
