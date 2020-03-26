@@ -31,20 +31,20 @@ const Navigation = (props) => {
   return (
     <NavLinks direction={props.direction} color={props.color}>
         <li className='nav-links' color={props.color}>
-          <NavItem>
+          <NavItem to='/'>
             About
           </NavItem>
         </li>
         
 
         <li className='nav-links' color={props.color}>
-          <NavItem>
+          <NavItem to='/dashboard'>
             Dashboard
           </NavItem>
         </li>
 
         <li className='nav-links' color={props.color}>
-          <NavItem>
+          <NavItem to='/'>
             Connections
           </NavItem>
         </li>
