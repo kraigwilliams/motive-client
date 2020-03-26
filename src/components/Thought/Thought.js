@@ -28,7 +28,7 @@ export default class Login extends Component {
   
   render() {
     const { topics, thoughts } = this.state;
-    console.log(thoughts.thought_content)
+    // console.log(thoughts.thought_content)
    
     return(
      
