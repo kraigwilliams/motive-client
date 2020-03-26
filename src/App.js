@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
-// import LandingPage from './components/LandingPage/LandingPage'
+import LandingPage from './components/LandingPage/LandingPage'
 import SignUp from './components/SignUp/SignUp'
 import Login from './components/Login/Login'
 import Topic from './components/Topic/Topic'
@@ -21,7 +21,7 @@ function App() {
         <Route
           exact
           path='/'
-          // component={LandingPage}
+          component={LandingPage}
         />
 
         <Route
