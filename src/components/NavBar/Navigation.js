@@ -44,7 +44,7 @@ const Navigation = (props) => {
         </li>
 
         <li className='nav-links' color={props.color}>
-          <NavItem to='/'>
+          <NavItem to='/connections'>
             Connections
           </NavItem>
         </li>

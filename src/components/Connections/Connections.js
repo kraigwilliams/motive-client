@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ContentService from '../../services/content-service'
 import{ ConnectionsPageWrapper, ConnectionsHeader, ConnectionsHeader2, ContentWrapper, Section } from './Connections.style';
-import Button from '../Button/Button';
+import { FormButton } from '../Button/Button';
 import { FormInput, FormWrapper, FormTitle } from '../Form/Form'
-
+import { colors } from '../constants'
 export default class Connections extends Component {
   constructor(props) {
     super(props)
@@ -60,22 +60,30 @@ export default class Connections extends Component {
    
          <ContentWrapper>
           
-          <FormWrapper>
-            <FormTitle>
+          <FormWrapper backgroundColor={'none'}>
+            <FormTitle color={colors.white}>
               Search all Motive users:
             </FormTitle>
 
-            <FormInput onChange={this.handleInputChange} />
+            <FormInput onChange={this.handleInputChange} backgroundColor={colors.white} />
             
-            <Button type='submit' >Search</Button>
+            <FormButton 
+              type='submit' 
+              marginTop={'8px'} 
+              backgroundColor={colors.coral} 
+              color={colors.white} 
+            >
+              Search
+            </FormButton>
 
-            <FormTitle>
-              Results:
+            <FormTitle color={colors.blue}>
               {this.state.filteredData}
+              Friends listed here matching search.. with add button next to it triggering post to connection DB
             </FormTitle>
           </FormWrapper>
 
           <Section>
+          <FormTitle color={colors.black}>Your Friends </FormTitle>
             {connections.map(friend => {
               return <ConnectionsHeader2>friend.name</ConnectionsHeader2>
             })}

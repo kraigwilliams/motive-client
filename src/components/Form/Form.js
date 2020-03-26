@@ -7,14 +7,14 @@ import {colors} from '../constants'
 export const FormTitle = styled.h1`
   text-align: center;
   font-size: 22px;
-  color: ${colors.teal};
+  color: ${({ color }) => color || colors.teal};
 `;
 
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: #829191;
+  background-color: ${({ backgroundColor }) => backgroundColor || "#829191"};
   width: 100%;
   
   @media (min-width:700px) {
@@ -70,7 +70,7 @@ export const FormInput = styled(Input)`
   border-radius: 40px;
   padding: 10px;
   font-size: 16px;
-  background-color: ${colors.slategrey};
+  background-color: ${({ backgroundColor }) => backgroundColor || colors.slategrey};
   color: ${colors.offwhite};
   text-align: center;
   width: 100%;
