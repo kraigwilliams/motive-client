@@ -1,31 +1,79 @@
 import React, { Component } from 'react';
-
-import Label from '../../components/Utils/Label';
-import Dropdown from '../../components/Utils/Dropdown';
-import Button from '../../components/Utils/Button';
-import Input from '../../components/Utils/Input';
+import {FormButton} from '../Button/Button';
+import { FormWrapper, FormTitle, FormLabel, FormInput, Dropdown, Required} from '../Form/Form'
+import {PageWrapper} from '../constants'
+import ContentService from '../../services/content-service'
 
 
 export default class AddTopic extends Component {
+  handleSubmit = ev => {
+    ev.preventDefault()
+    const { title, description } = ev.target;
+    ContentService.postTopic(
+      title.value,
+      description.value,
+    )
+    .then(topic => {
+      console.log(topic, '!!!');
+      const topicId = topic.id;
+      this.props.history.push(`topics/${topicId}`)
+    })
+  }
+
 
   render() {
     return (
-      <div>
-        <Label>Create a Topic</Label>
-        <Input />
+      <PageWrapper padding='40px 0'>
 
-        <Label>Description</Label>
-        <Input />
+        <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
+          <FormTitle>
+            Create a Topic
+          </FormTitle>
 
-        <Label>Add Thoughts to Topic</Label>
-        <Dropdown />
+          <FormLabel htmlFor='topic-title'>
+            Title <Required />
+          </FormLabel>
+          <FormInput 
+            id='topic-title'
+            name='title'
+            aria-label="Enter title of this topic"
+            aria-required="true"
+            required
+          />
 
-        <Label>Add Connections to Topic</Label>
-        <Dropdown />
+          <FormLabel htmlFor='topic-description'>
+            Description
+          </FormLabel>
+          <FormInput 
+            id='topic-description'
+            name='description'
+            aria-label="Enter description of this topic"
+          />
 
-        <Button type='submit'>Submit</Button>
+          {/* <FormLabel htmlFor='topic-thoughts'>
+            Add Thoughts to Topic
+          </FormLabel>
+          <Dropdown 
+            id='topic-thoughts'
+            name='thoughts'
+            aria-label="Select any exisiting thoughts that belong within this topic"
+          />
 
-      </div>
+          <FormLabel htmlFor='topic-connects'>
+            Add Connections to Topic
+          </FormLabel>
+          <Dropdown 
+            id='topic-connects'
+            name='connects'
+            aria-label="Select any connections you wish to share this topic with"
+          /> */}
+
+          <FormButton type='submit'>
+            Submit
+          </FormButton>
+
+        </FormWrapper>
+      </PageWrapper>
     );
   }
 }

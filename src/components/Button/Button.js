@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../constants'
 import cx from 'classnames'
-// import './Button.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { NavLink } from 'react-router-dom'
 
 const Button = React.forwardRef(({ className, ...props }, ref) => {
   return (
@@ -28,6 +29,33 @@ export const FormButton = styled(Button)`
   }
 `;
 
+const Add = React.forwardRef(({ className, ...props }, ref) => {
+  return (
+    <button className={cx('Button', className)} ref={ref} {...props}>
+      <NavLink to={props.to} class='button-link'>
+        <FontAwesomeIcon icon='plus' />
+      </NavLink>
+    </button>
+  )
+})
+
+export const AddButton = styled(Add)`
+  color: ${({color}) =>  color ? color : colors.coral};
+  background: transparent;
+  border: none;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 1em;
+ 
+  .button-link{
+    color: ${({color}) =>  color ? color : colors.coral};
+  }
+
+  :hover {
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+`;
 
 
 export default Button

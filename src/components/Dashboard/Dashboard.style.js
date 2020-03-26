@@ -36,3 +36,11 @@ export const Section = styled.section`
     width: 50%;
   } 
 `;
+
+export const SectionTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: auto;
+`;

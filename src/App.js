@@ -7,6 +7,8 @@ import Login from './components/Login/Login'
 import Topic from './components/Topic/Topic'
 import Thought from './components/Thought/Thought'
 import Dashboard from './components/Dashboard/Dashboard'
+import AddThought from './components/AddThought/AddThought'
+import AddTopic from './components/AddTopic/AddTopic'
 
 // import GroupsPage from './components/GroupsPage/GroupsPage'
 // import NotFoundPage from './components/Utils/NotFoundPage'
@@ -45,9 +47,19 @@ function App() {
           component={Topic}
         />
     
-          <Route 
+        <Route 
           path='/thoughts/:thought_id'
           component={Thought}
+        />
+
+        <Route 
+          path='/add-thought'
+          component={AddThought}
+        />
+
+        <Route 
+          path='/add-topic'
+          component={AddTopic}
         />
 
            

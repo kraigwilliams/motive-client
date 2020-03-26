@@ -5,7 +5,7 @@ import MobileNavBar from './MobileNavBar'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext.js'
 import Burger from './Burger'
-import { NavWrapper, Logo, MenuLink, MobileButton, NavIcon } from './NavBar.style'
+import { NavWrapper, Logo, MenuLink, MobileButton } from './NavBar.style'
 
 class NavBar extends Component {
   static contextType = UserContext

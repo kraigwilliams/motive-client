@@ -14,8 +14,12 @@ export const colors = {
 }
 
 export const PageWrapper = styled.div`
-  background-color: ${colors.offwhite};
+  background-color: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
   margin: 0;
-  padding: 0;
+  
   min-height: 100vh;
+
+  @media (min-width:700px) {
+    padding: ${({padding}) => padding ? padding : '0px'};
+  }
 `;
