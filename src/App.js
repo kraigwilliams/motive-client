@@ -44,6 +44,7 @@ function App() {
           path='/topics/:topic_id'
           component={Topic}
         />
+    
           <Route 
           path='/thoughts/:thought_id'
           component={Thought}

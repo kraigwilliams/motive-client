@@ -1,27 +1,54 @@
 import React, { Component } from 'react'
-import { FormTitle, LoginWrapper } from '../Form/Form';
-// import PageWrapper from '../constants'
-// import Thought from '../Thought/Thought';
-//import AddThoughtButton from '../Button/Button'
+import ContentService from '../../services/content-service'
+import { colors, PageWrapper } from '../constants'
+import{ TopicHeader, TopicWrapper, ContentWrapper, SortSelectDropdown, SortLabel } from './Topic.style';
+import CondensedThought from '../CondensedThought/CondensedThought'
 export default class Login extends Component {
-  
+  constructor(props) {
+    super(props)
+    this.state = {
+      topics: [],
+      thoughts: []
+    }
+  }
+
+  async componentDidMount() {
+    await ContentService.getThoughts()
+    .then(thoughts => {
+      this.setState({ thoughts })
+    })
+  }
 
   render() {
-    
-    return(
-      <LoginWrapper>
-          <FormTitle>
-            Title for Topic
-          </FormTitle>
+    const { topics, thoughts } = this.state;
 
-          
+    return(
+      <TopicWrapper>
+          <TopicHeader>
+            Hello
+            {/* {topics.topic_title} */}
+          </TopicHeader>
 
            {/* <AddThoughtButton /> */}
+           
+          
 
-          {/* GET all thoughts inside this topic */}
-    
-
-    </LoginWrapper >
+          <ContentWrapper>
+            <SortLabel>Sort</SortLabel>
+            <SortSelectDropdown>
+              <option value='A-Z'>A-Z</option>
+              <option value='Most Recent'>Most Recent</option>
+            </SortSelectDropdown>
+            {thoughts.map((thought, idx) => {
+                  return <CondensedThought 
+                    key={idx}
+                    id={thought.id}
+                    title={thought.thought_title}
+                  />
+                })
+            }
+           </ContentWrapper>
+      </TopicWrapper>
     );
   }
 }
