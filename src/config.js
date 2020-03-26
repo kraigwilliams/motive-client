@@ -1,4 +1,5 @@
 export default {
   API_ENDPOINT: 'http://localhost:8000/api',
-  TOKEN_KEY: process.env.TOKEN_KEY,
+  // API_ENDPOINT: 'https://motive-server.herokuapp.com/api',
+  TOKEN_KEY: 'motive-auth-token',
 }

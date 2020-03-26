@@ -1,11 +1,25 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import DesktopNavBar from './DesktopNavBar'
+import MobileNavBar from './MobileNavBar'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext.js'
-import './Header.css'
+import { NavWrapper, Logo, MenuLink, MobileButton, NavIcon } from './NavBar.style'
 
-class Header extends Component {
+class NavBar extends Component {
   static contextType = UserContext
+  constructor(props) {
+    super(props)
+    this.state = {
+      mobileNav: false
+    }
+  }
+
+  toggleMobileNavBar = () => {
+    this.setState({
+      mobileNav: !this.state.mobileNav
+    })
+  }
 
   handleLogoutClick = () => {
     this.context.processLogout()
@@ -13,46 +27,52 @@ class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div className='Header_nav'>
-        <span className='Header_nav User'>
-          {this.context.user.name}
-        </span>
-        <nav className='Logout_nav'>
-          <Link
-            className='Header_nav Logout'
+      <div className='logged-in'>
+
+          <DesktopNavBar toggleMobileNav={this.toggleMobileNavBar}/>
+
+          <MenuLink
             onClick={this.handleLogoutClick}
             to='/login'>
             Logout
-          </Link>
-        </nav>
+          </MenuLink>
+          
+          <MobileButton type='button' onClick={this.toggleMobileNavBar}>
+            <NavIcon>
+              <div>X</div>
+            </NavIcon>
+          </MobileButton>
       </div>
     )
   }
 
   renderLoginLink() {
     return (
-      <nav className='Header_nav'>
-        <Link to='/login' className='Header_nav Login'>Login</Link>
+      <div>
+        <MenuLink to='/login'>Login</MenuLink>
         {' '}
-        <Link to='/register' className='Header_nav Signup'>Sign up</Link>
-      </nav>
+        <MenuLink to='/signup'>Sign up</MenuLink>
+      </div>
     )
   }
 
   render() {
     return (
-      <header className='Header'>
-        <h1 className='Header_link'>
-          <Link to='/' className='Header_link'>
+      <>
+      <NavWrapper>
+        <Logo to='/'>
             MM
-          </Link>
-        </h1>
+        </Logo>
+    
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
-      </header>
+
+        {this.state.mobileNav ? <MobileNavBar displayMobileNavBar={this.state.mobileNav}/> : null}
+      </NavWrapper>
+      </>
     );
   }
 }
 
-export default Header
+export default NavBar

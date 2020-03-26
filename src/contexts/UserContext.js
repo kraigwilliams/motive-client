@@ -19,22 +19,22 @@ export default UserContext
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = {
+    this.state = {
       user: {},
       error: null,
-    }
+    };
 
     const jwtPayload = TokenService.parseAuthToken()
 
     if(jwtPayload) {
-      state.user = {
+      this.state.user = {
         id: jwtPayload.user_id,
         firstname: jwtPayload.firstname,
         lastname: jwtPayload.lastname,
         username: jwtPayload.sub,
       }
 
-    this.state = state;
+    // this.state = state;
     IdleService.setIdleCallback(this.logoutBecauseIdle)
     }
   }
@@ -67,8 +67,10 @@ export class UserProvider extends Component {
   }
 
   processLogin = authToken => {
+    console.log('!!!!!!')
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
+    console.log(jwtPayload, 'jwt payload');
     this.setUser({
       id: jwtPayload.user_id,
       firstname: jwtPayload.firstname,
