@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import config from '../../config.js'
@@ -8,9 +6,7 @@ import ContentService from '../../services/content-service'
 import { colors, PageWrapper } from '../constants'
 import CondensedTopic from '../CondensedTopic/CondensedTopic';
 import CondensedThought from '../CondensedThought/CondensedThought'
-
 import { DBHeader, Section, ContentWrapper } from './Dashboard.style'
-
 
 class Dashboard extends Component {
   static contextType = UserContext;
@@ -88,4 +84,3 @@ componentDidMount() {
 }
 
 export default Dashboard
->>>>>>> Stashed changes

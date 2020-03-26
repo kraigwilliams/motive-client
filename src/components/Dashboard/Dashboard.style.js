@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../constants'
 
-
 export const PageWrapper = styled.div`
   background-color: ${colors.offwhite};
   margin: 0;
