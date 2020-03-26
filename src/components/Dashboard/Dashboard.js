@@ -48,7 +48,7 @@ componentDidMount() {
               <h2 style={{color: colors.white}}>
                 Topics
               </h2> 
-              <AddButton type='button' to='./add-topic' color={colors.teal}/>
+              <AddButton type='button' to='./add-topic'/>
             </SectionTitle>
            
 
