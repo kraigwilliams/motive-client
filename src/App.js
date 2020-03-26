@@ -7,7 +7,7 @@ import Login from './components/Login/Login'
 import Topic from './components/Topic/Topic'
 import Thought from './components/Thought/Thought'
 import Dashboard from './components/Dashboard/Dashboard'
-
+import Connections from './components/Connections/Connections'
 // import GroupsPage from './components/GroupsPage/GroupsPage'
 // import NotFoundPage from './components/Utils/NotFoundPage'
 // import './App.css';
@@ -38,6 +38,11 @@ function App() {
         <Route 
           path='/dashboard'
           component={Dashboard}
+        />
+
+        <Route 
+          path='/connections'
+          component={Connections}
         />
 
         <Route 
