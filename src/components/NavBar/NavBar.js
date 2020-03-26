@@ -70,7 +70,9 @@ class NavBar extends Component {
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
 
-        {this.state.mobileNav ? <MobileNavBar displayMobileNavBar={this.state.mobileNav}/> : null}
+        {this.state.mobileNav && TokenService.hasAuthToken() 
+          ? <MobileNavBar displayMobileNavBar={this.state.mobileNav}/> 
+          : null}
       </NavWrapper>
       </>
     );
