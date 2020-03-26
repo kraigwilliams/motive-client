@@ -22,20 +22,22 @@ export default class Topic extends Component {
 
     //get the current topic from the server and set it in state 
     const currentTopic = await ContentService.getThisTopic(topicId, authToken)
+    console.log(currentTopic, 'current topic from service')
     this.setState({ currentTopic })
 
     //get the thoughts that belong to the current topic and set it in state 
-    const currentThoughts = await ContentService.getThoughtsInTopic()
-    this.setState({ currentThoughts })
+    // const currentThoughts = await ContentService.getThoughtsInTopic()
+    // this.setState({ currentThoughts })
   }
 
   render() {
     const { currentTopic, currentThoughts } = this.state;
-
+    console.log(currentTopic, 'current topic')
     return(
       <TopicWrapper>
           <TopicHeader>
             {currentTopic.topic_title}
+            {currentTopic.content}
           </TopicHeader>
 
            {/* <AddThoughtButton /> */}

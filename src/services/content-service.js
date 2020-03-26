@@ -50,15 +50,16 @@ const ContentService = {
         'content-type': 'application/json',
         'Authorization': `Bearer ${TokenService.getAuthToken()}`      
       }
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(err => Promise.reject(err));
-      }
-      return res.json();
-    })
-    .catch(err => {
-      console.error({err})
+      .then(res => {
+        if(!res.ok) {
+          return res.json()
+          .then(err => Promise.reject(err));
+        }
+        return res.json();
+      })
+      .catch(err => {
+        console.error({err})
+      })
     })
   },
 
@@ -88,7 +89,7 @@ const ContentService = {
   },
 
   getThisTopic(topicId, token) {
-    fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
+    return fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -100,6 +101,7 @@ const ContentService = {
         return res.json()
         .then(e => Promise.reject(e))
       }
+      // console.log(res.json())
       return res.json()
     })
     .catch(err => {
