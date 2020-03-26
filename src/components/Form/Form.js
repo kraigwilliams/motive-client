@@ -70,7 +70,7 @@ export const FormInput = styled(Input)`
   border-radius: 40px;
   padding: 10px;
   font-size: 16px;
-  background-color: ${({ backgroundcolor }) => backgroundcolor || colors.slategrey};
+  background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite};
   color: ${({ color }) => color || colors.slategrey};
   text-align: center;
   width: 100%;
