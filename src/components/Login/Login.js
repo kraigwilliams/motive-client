@@ -66,7 +66,7 @@ export default class Login extends Component {
           </FormTitle>
 
           <FormLabel htmlFor='login-username-input'>
-            Username 
+            Username <Required />
           </FormLabel>
           <FormInput 
             placeholder='john_doe'
@@ -76,10 +76,10 @@ export default class Login extends Component {
             aria-label="Enter your username"
             aria-required="true"
             required
-          /><Required />
+          />
 
           <FormLabel htmlFor='login-password-input'>
-            Password
+            Password <Required />
           </FormLabel>
           <FormInput 
             type='password'
@@ -89,7 +89,7 @@ export default class Login extends Component {
             aria-label="Enter your password"
             aria-required="true"
             required
-          /><Required />
+          />
 
           <FormButton type='submit'>
             Login

@@ -27,8 +27,8 @@ export default class SignUp extends Component {
     ev.preventDefault()
     const { firstname, lastname, username, password } = ev.target;
     AuthApiService.postUser({
-      firstname: firstname.value, 
-      lastname: lastname.value,
+      first_name: firstname.value, 
+      last_name: lastname.value,
       username: username.value, 
       password: password.value,
     })
@@ -53,7 +53,7 @@ export default class SignUp extends Component {
     return(
       <SignUpWrapper>
         
-        <FormWrapper onSubmit = {this.handleSubmit}>
+        <FormWrapper onSubmit={this.handleSubmit}>
           <FormTitle>
             Create an account
           </FormTitle>
@@ -63,8 +63,8 @@ export default class SignUp extends Component {
           </div>
 
           <FormLabel htmlFor='signup-firstname-input'>
-            First Name 
-          </FormLabel><Required />
+            First Name <Required />
+          </FormLabel>
           <FormInput 
             ref={this.firstInput}
             placeholder='John'
@@ -76,7 +76,7 @@ export default class SignUp extends Component {
           />
 
           <FormLabel htmlFor='signup-lastname-input'>
-            Last Name 
+            Last Name <Required /> 
           </FormLabel>
           <FormInput 
             placeholder='Doe'
@@ -88,10 +88,10 @@ export default class SignUp extends Component {
           />
 
           <FormLabel htmlFor='signup-username-input'>
-            Username 
+            Username <Required /> 
           </FormLabel>
           <FormInput 
-            placeholder='Jd#12345'
+            placeholder='john_doe'
             id='signup-username-input'
             name='username'
             aria-label="Enter your username"
@@ -100,9 +100,10 @@ export default class SignUp extends Component {
           />
 
           <FormLabel htmlFor='signup-password-input'>
-            Password
+            Password <Required />
           </FormLabel>
           <FormInput 
+            type='password'
             placeholder='password'
             id='signup-password-input'
             name='password'
