@@ -110,7 +110,7 @@ const ContentService = {
   },
 
   getThisThought(thoughtId, token) {
-    fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
+    return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -149,6 +149,47 @@ const ContentService = {
     })
   },
 
+  deleteTopic(topicId) {
+    fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(error => { 
+          throw error
+        })
+      }
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  },
+
+  deleteThought(thoughtId) {
+    fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(error => { 
+          throw error
+        })
+      }
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  },
+
+  
 }
 
 export default ContentService;

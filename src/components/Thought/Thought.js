@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
 import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader } from './Thought.style';
-// import Button from '../Button/Button';
+import {DeleteButton} from '../Button/Button';
 // import { colors } from '../constants'
 
 export default class Thought extends Component {
@@ -26,9 +26,6 @@ export default class Thought extends Component {
           currentThought: thought
         })
       })
-
-
-
     // await ContentService.getTopics()
     // .then(topics => {
     //   this.setState({ topics })
@@ -38,6 +35,9 @@ export default class Thought extends Component {
     // .then(thoughts => {
     //   this.setState({ thoughts })
     // })
+  }
+  handleDelete = () => {
+    ContentService.deleteThought()
   }
   
   render() {
@@ -62,7 +62,8 @@ export default class Thought extends Component {
               Comments
             </CommentHeader>
           </CommentWrapper>
-
+          
+          <DeleteButton type='submit'></DeleteButton>
     </ThoughtWrapper >
    
     )

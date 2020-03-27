@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faArrowLeft, faTrash, faTimes, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faTrash, faTimes, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { UserProvider } from './contexts/UserContext'
 import App from './App';
 import './index.css';
 // import * as serviceWorker from './serviceWorker'
 
-library.add(fab, faPlus, faTrash, faTimes, faArrowLeft)
+library.add(fab, faPlus, faMinus, faTrash, faTimes, faArrowLeft)
 
 
 ReactDOM.render(

@@ -32,7 +32,7 @@ export const FormButton = styled(Button)`
 const Add = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx('Button', className)} ref={ref} {...props}>
-      <NavLink to={props.to} class='button-link'>
+      <NavLink to={props.to} className='button-link'>
         <FontAwesomeIcon icon='plus' />
       </NavLink>
     </button>
@@ -40,6 +40,34 @@ const Add = React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const AddButton = styled(Add)`
+  color: ${({color}) =>  color ? color : colors.coral};
+  background: transparent;
+  border: none;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 1em;
+ 
+  .button-link{
+    color: ${({color}) =>  color ? color : colors.coral};
+  }
+
+  :hover {
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+`;
+
+const Delete = React.forwardRef(({ className, ...props }, ref) => {
+  return (
+    <button className={cx('Button', className)} ref={ref} {...props}>
+      <NavLink to={props.to} className='button-link'>
+        <FontAwesomeIcon icon='minus' />
+      </NavLink>
+    </button>
+  )
+})
+
+export const DeleteButton = styled(Delete)`
   color: ${({color}) =>  color ? color : colors.coral};
   background: transparent;
   border: none;
