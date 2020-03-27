@@ -27,8 +27,11 @@ export default class Topic extends Component {
     this.setState({ currentTopic })
 
     //get the thoughts that belong to the current topic and set it in state 
-    // const currentThoughts = await ContentService.getThoughtsInTopic()
-    // this.setState({ currentThoughts })
+    const currentThoughts = await ContentService.getThoughtsInTopic(topicId, authToken)
+    console.log(currentThoughts, 'current thoughts')
+    if(currentThoughts) {
+      this.setState({ currentThoughts })
+    }
   }
 
   render() {
@@ -40,7 +43,7 @@ export default class Topic extends Component {
             {currentTopic.topic_title}
             {currentTopic.content}
           </TopicHeader>
-          
+
           <ContentWrapper>
 
             <div className='top'>
@@ -54,8 +57,6 @@ export default class Topic extends Component {
               </SortWrapper>
             </div>
             
-
-
             {
               currentThoughts.map((thought, idx) => {
                 return <CondensedThought 

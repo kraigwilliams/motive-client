@@ -3,6 +3,7 @@ import {FormButton} from '../Button/Button';
 import { FormWrapper, FormTitle, FormLabel, FormInput, Required} from '../Form/Form'
 import {PageWrapper} from '../constants'
 import ContentService from '../../services/content-service'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class AddTopic extends Component {
   handleSubmit = ev => {
@@ -23,8 +24,9 @@ export default class AddTopic extends Component {
   render() {
     return (
       <PageWrapper padding='40px 0'>
-
+        
         <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
+          <FontAwesomeIcon icon='arrow-left' className='back-arrow' style={{marginLeft: '20px'}}/>
           <FormTitle>
             Create a Topic
           </FormTitle>

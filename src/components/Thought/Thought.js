@@ -17,16 +17,16 @@ export default class Thought extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const thoughtId = this.props.match.params.thought_id
     const authToken = TokenService.getAuthToken()
 
-    ContentService.getThisThought(thoughtId, authToken)
-      .then((thought) => {
-        this.setState({
-          currentThought: thought
-        })
-      })
+    const currentThought = await ContentService.getThisThought(thoughtId, authToken)
+    console.log(currentThought, 'current thought')
+    this.setState({
+      currentThought
+    })
+    
   }
 
   handleChange() {
@@ -39,9 +39,16 @@ export default class Thought extends Component {
     ev.preventDefault()
     console.log('button fired')
     // const { title, content } = ev.target;
-    // const currentThought = await ContentService.saveThoughtEdit({
+    // const topicId = this.props.match.params.topic_id
+    // const authToken = TokenService.getAuthToken()
+    // const dataToUpdate = {
     //   thought_title: title,
     //   thought_content: content
+    // }
+    // const currentThought = await ContentService.saveThoughtEdit({
+    //   topicId,
+    //   authToken,
+    //   dataToupdate
     // })
     // this.setState({
     //   currentThought
@@ -49,7 +56,7 @@ export default class Thought extends Component {
   }
   
   render() {
-    // const { currentThought } = this.state;
+    const { currentThought } = this.state;
     return(
      
       <ThoughtWrapper>
@@ -59,16 +66,14 @@ export default class Thought extends Component {
           onChange={this.handleChange.bind(this)}
         >
           <ThoughtHeader type='text'
-            // value={currentThought.thought_title} 
-            defaultValue='Jordan'
             name='title'
-            
+            defaultValue={currentThought.thought_title} 
+            // defaultValue='Jordan'
           />
           
           <ThoughtTextarea 
             name='content'
-            // value={currentThought.thought_content}
-            // onChange={this.handleChange}
+            defaultValue={currentThought.thought_content}
           />
 
           <div style={{width: 'fit-content', margin:'auto', padding: '5px'}}>

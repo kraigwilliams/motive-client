@@ -88,6 +88,30 @@ const ContentService = {
     })
   },
 
+  postThought(title, desc, topicId) {
+    return fetch(`${config.API_ENDPOINT}/thought`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({
+        //topic inputs 
+        thought_title: title,
+        thought_content: desc,
+        // thought_topic: topicId
+      })
+    })
+    .then(res => {
+      if(!res.ok) {
+        throw new Error('Something went wrong')
+      } return res.json()
+    })
+    .catch(err => {
+      console.error(err.message)
+    })
+  },
+
   getThisTopic(topicId, token) {
     return fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
       method: 'GET',
@@ -130,7 +154,7 @@ const ContentService = {
   },
 
   getThoughtsInTopic(topicId, token) {
-    fetch(`${config.API_ENDPOINT}/topic/${topicId}/thoughts`, {
+    return fetch(`${config.API_ENDPOINT}/topic/${topicId}/thoughts`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

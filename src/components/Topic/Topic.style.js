@@ -75,6 +75,7 @@ export const ContentWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin: 10px 30px;
+    padding: 5px 60px;
   }
 
   @media (min-width: 700px) {
