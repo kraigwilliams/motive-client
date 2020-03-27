@@ -31,20 +31,21 @@ export default class Thought extends Component {
 
   handleChange() {
     this.setState({
-      editted: !this.state.editted
+      editted: true
     })
   }
 
   async handleEdit(ev){
     ev.preventDefault()
-    const { title, content } = ev.target;
-    const currentThought = await ContentService.saveThoughtEdit({
-      thought_title: title,
-      thought_content: content
-    })
-    this.setState({
-      currentThought
-    })
+    console.log('button fired')
+    // const { title, content } = ev.target;
+    // const currentThought = await ContentService.saveThoughtEdit({
+    //   thought_title: title,
+    //   thought_content: content
+    // })
+    // this.setState({
+    //   currentThought
+    // })
   }
   
   render() {
@@ -55,12 +56,13 @@ export default class Thought extends Component {
           
         <ContentWrapper 
           onSubmit={this.handleEdit} 
+          onChange={this.handleChange.bind(this)}
         >
           <ThoughtHeader type='text'
             // value={currentThought.thought_title} 
             defaultValue='Jordan'
-            name='thought_title'
-            onChange={this.handleChange}
+            name='title'
+            
           />
           
           <ThoughtTextarea 
