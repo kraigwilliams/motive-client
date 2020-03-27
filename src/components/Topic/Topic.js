@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
 import{ TopicHeader, TopicWrapper, ContentWrapper, 
-  SortSelectDropdown, SortLabel } from './Topic.style';
+  SortWrapper, SortSelectDropdown, SortLabel } from './Topic.style';
 import CondensedThought from '../CondensedThought/CondensedThought'
+import {AddButton} from '../Button/Button'
 // import { colors, PageWrapper } from '../constants'
 
 export default class Topic extends Component {
@@ -26,8 +27,11 @@ export default class Topic extends Component {
     this.setState({ currentTopic })
 
     //get the thoughts that belong to the current topic and set it in state 
-    // const currentThoughts = await ContentService.getThoughtsInTopic()
-    // this.setState({ currentThoughts })
+    const currentThoughts = await ContentService.getThoughtsInTopic(topicId, authToken)
+    console.log(currentThoughts, 'current thoughts')
+    if(currentThoughts) {
+      this.setState({ currentThoughts })
+    }
   }
 
   render() {
@@ -40,22 +44,27 @@ export default class Topic extends Component {
             {currentTopic.content}
           </TopicHeader>
 
-           {/* <AddThoughtButton /> */}
-           
-          
           <ContentWrapper>
-            <SortLabel>Sort</SortLabel>
-            <SortSelectDropdown>
-              <option value='A-Z'>A-Z</option>
-              <option value='Most Recent'>Most Recent</option>
-            </SortSelectDropdown>
-            {currentThoughts.map((thought, idx) => {
-                  return <CondensedThought 
-                    key={idx}
-                    id={thought.id}
-                    title={thought.thought_title}
-                  />
-                })
+
+            <div className='top'>
+              <AddButton type='button' to='/add-thought'/>
+              <SortWrapper>
+                <SortLabel>Sort</SortLabel>
+                <SortSelectDropdown>
+                  <option value='A-Z'>A-Z</option>
+                  <option value='Most Recent'>Most Recent</option>
+                </SortSelectDropdown>
+              </SortWrapper>
+            </div>
+            
+            {
+              currentThoughts.map((thought, idx) => {
+                return <CondensedThought 
+                  key={idx}
+                  id={thought.id}
+                  title={thought.thought_title}
+                />
+              })
             }
            </ContentWrapper>
       </TopicWrapper>

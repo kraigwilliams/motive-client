@@ -20,16 +20,16 @@ class Dashboard extends Component {
   }
 
   //make get request to get all thoughts and topics for the logged in user 
-componentDidMount() {
-  ContentService.getTopics()
-  .then(topics => {
+async componentDidMount() {
+  const topics = await ContentService.getTopics()
+  if (topics) {
     this.setState({ topics })
-  })
+  }
 
-  // ContentService.getThoughts()
-  // .then(thoughts => {
-  //   this.setState({ thoughts })
-  // })
+  const thoughts = await ContentService.getThoughts()
+  if (thoughts) {
+    this.setState({ thoughts })
+  }
 }
 
 
@@ -50,21 +50,17 @@ componentDidMount() {
               </h2> 
               <AddButton type='button' to='./add-topic'/>
             </SectionTitle>
-           
 
-              {topics.map((topic, idx) => {
-                return <CondensedTopic 
-                key={idx}
-                id={topic.id}
-                title={topic.topic_title}
-                count={topic.count}
-              />
-              })}
-
-              <CondensedTopic 
-                title='Coronavirus'
-                count='3'
-              />
+              {
+                topics.map((topic, idx) => {
+                  return <CondensedTopic 
+                  key={idx}
+                  id={topic.id}
+                  title={topic.topic_title}
+                  count={topic.count}
+                />
+                })
+              }
             
           </Section>
           <Section>

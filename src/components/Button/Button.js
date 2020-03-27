@@ -12,7 +12,7 @@ const Button = React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormButton = styled(Button)`
-  border: 2px solid ${colors.offwhite};
+  border: 2px solid ${({ color }) => color || colors.offwhite};
   color: ${({ color }) => color || colors.offwhite};
   padding: 10px;
   width: fit-content;
@@ -21,11 +21,12 @@ export const FormButton = styled(Button)`
   font-size: 16px;
   margin-top: ${({ margintop }) => margintop || "40px"};
   background-color: ${({ backgroundColor }) => backgroundColor || colors.slategrey};
+  opacity: ${({disabled}) => disabled ? .5 : 1};
 
   :hover {
     cursor: pointer;
-    color: ${colors.teal};
-    border-color: ${colors.teal};
+    color: ${({disabled}) => !disabled && colors.teal};
+    border-color: ${({disabled}) => !disabled && colors.teal};
   }
 `;
 
@@ -50,6 +51,8 @@ export const AddButton = styled(Add)`
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
   }
+
+  
 
   :hover {
     cursor: pointer;

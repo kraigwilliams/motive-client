@@ -43,10 +43,13 @@ export const MenuLink = styled(Link)`
   }
 `;
 
-export const MobileButton = styled.button`
+export const MobileButton = styled.div`
   background: transparent;
   border: none;
   display: none;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
 
   @media screen and (max-width: 768px) {
     display: block;
