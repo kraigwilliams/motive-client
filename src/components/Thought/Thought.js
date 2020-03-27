@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
-import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader } from './Thought.style';
+import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader, StyledDeleteDiv } from './Thought.style';
 import {FormButton} from '../Button/Button';
 import { colors } from '../constants'
-import {DeleteButton} from '../Button/Button';
+import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
 // import { colors } from '../constants'
-
 
 export default class Thought extends Component {
   constructor(props) {
@@ -16,7 +15,8 @@ export default class Thought extends Component {
       thoughts: [],
       value: 'Write your Thought here!',
       currentThought : {},
-      editted: false
+      editted: false, 
+      deleteDiv: true,
     }
   }
 
@@ -39,6 +39,14 @@ export default class Thought extends Component {
     })
   }
 
+  toggleDeleteDiv = () => {
+    this.setState({
+      deleteDiv: !this.state.deleteDiv
+    })
+  }
+
+
+
   async handleEdit(ev){
     ev.preventDefault()
     console.log('button fired')
@@ -60,11 +68,18 @@ export default class Thought extends Component {
   }
   
   handleDelete = () => {
-    ContentService.deleteThought()
+    console.log('firing!')
+    const thoughtId = this.props.match.params.thought_id
+    ContentService.deleteThought(thoughtId)
+    this.props.history.goBack()
   }
+
+
   
   render() {
     const { currentThought } = this.state;
+
+  
     return(
      
       <ThoughtWrapper>
@@ -94,6 +109,14 @@ export default class Thought extends Component {
               save
             </FormButton>
           </div>
+
+          <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
+          
+          {!this.state.deleteDiv &&
+            <StyledDeleteDiv> Delete Thought?
+              <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
+            </StyledDeleteDiv>
+          }
           
         </ContentWrapper>
 
@@ -108,7 +131,6 @@ export default class Thought extends Component {
           {/* Input to write a new comment here */}
           {/* Add comment button */}
         </CommentWrapper>
-      <DeleteButton type='submit'></DeleteButton>
       </ThoughtWrapper>
 
     )

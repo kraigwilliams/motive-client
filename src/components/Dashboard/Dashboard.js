@@ -68,7 +68,7 @@ async componentDidMount() {
               <h2 style={{color: colors.white}}>
                 Thoughts 
               </h2>
-              <AddButton type='button' to='./add-thought'/>
+              <AddButton type='button' to='/add-thought'/>
             </SectionTitle>
             
 

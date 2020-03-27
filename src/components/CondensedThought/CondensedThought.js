@@ -11,7 +11,7 @@ class CondensedThought extends Component {
   render() {
 
     return (
-      <Thought key={this.props.id}>
+      <Thought key={this.props.key}>
         <ThoughtTitle
           to={`/thoughts/${this.props.id}`}
         >

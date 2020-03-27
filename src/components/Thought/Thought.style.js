@@ -29,6 +29,7 @@ export const ThoughtHeader = styled.input`
 export const ContentWrapper = styled.form`
   padding: 20px;
   justify-content: center;
+  text-align: center;
   margin: auto;
   
   .edit-button {
@@ -89,3 +90,20 @@ export const CommentHeader = styled.h3`
     height: 30vh;
   } 
 `;
+
+export const StyledDeleteDiv = styled.div`
+  text-align: center;
+  border-radius: 5px;
+  padding: 25px; 
+  background-color: ${colors.darkgrey};
+  color: ${colors.offwhite};
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+
+  @media (min-width: 600px) {
+  
+  } 
+`;
+
+

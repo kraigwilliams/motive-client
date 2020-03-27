@@ -83,3 +83,19 @@ export const ContentWrapper = styled.div`
   } 
 `;
 
+export const StyledDeleteDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  padding: 25px; 
+  background-color: ${colors.darkgrey};
+  color: ${colors.offwhite};
+  /* text-align: left; */
+
+  @media (min-width: 600px) {
+  
+  } 
+`;
+
