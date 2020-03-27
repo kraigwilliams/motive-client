@@ -83,7 +83,9 @@ export default class Topic extends Component {
             }
 
 
-          {this.state.currentThoughts === [] ? <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> : ''}
+          {currentThoughts.length < 1? <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> : ''}
+
+          {/* <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> */}
 
           {!this.state.deleteDiv &&
               <StyledDeleteDiv> Delete Topic?

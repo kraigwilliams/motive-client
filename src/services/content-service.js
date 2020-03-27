@@ -207,7 +207,7 @@ const ContentService = {
           throw error
         })
       }
-      // return res.json()
+      return res.json()
     })
     .catch(error => {
       console.error(error)
@@ -228,7 +228,7 @@ const ContentService = {
           throw error
         })
       }
-      // return res.json()
+      return res.json()
     })
     .catch(error => {
       console.error(error)
