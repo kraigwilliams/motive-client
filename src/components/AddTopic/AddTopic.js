@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {FormButton} from '../Button/Button';
-import { FormWrapper, FormTitle, FormLabel, FormInput, Dropdown, Required} from '../Form/Form'
+import { FormWrapper, FormTitle, FormLabel, FormInput, Required} from '../Form/Form'
 import {PageWrapper} from '../constants'
 import ContentService from '../../services/content-service'
-
 
 export default class AddTopic extends Component {
   handleSubmit = ev => {

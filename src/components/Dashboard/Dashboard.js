@@ -60,11 +60,6 @@ componentDidMount() {
                 count={topic.count}
               />
               })}
-
-              <CondensedTopic 
-                title='Coronavirus'
-                count='3'
-              />
             
           </Section>
           <Section>

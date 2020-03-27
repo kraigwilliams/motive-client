@@ -104,10 +104,11 @@ export function Textarea({ className, ...props }) {
 export const FormTextarea = styled(Textarea)`
   background: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
   width: 90%;
-  padding: 10px;
+  padding: 20px;
   font-size: 16px;
   color: ${colors.darkgrey};
-  border: 1px solid ${colors.darkgrey};
+  border: 2px solid ${colors.offwhite};
+  border-radius: 10px;
 
   @media (min-width: 700px) {
     width: 60%;

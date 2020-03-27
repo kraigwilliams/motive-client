@@ -7,49 +7,73 @@ export const ThoughtWrapper = styled.div`
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  
 `;
 
-export const ThoughtHeader = styled.h2`
-  
-  padding: 30px;
+export const ThoughtHeader = styled.input`
+  padding: 30px 50px;
   color: ${colors.white};
-  text-align: left;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  width: 100%;
+  align-self: center;
+  margin: auto;
 
   @media (min-width: 600px) {
     text-align: center;
   } 
 `;
 
-export const ContentWrapper = styled.div`
-  padding: 30px;
+export const ContentWrapper = styled.form`
+  padding: 20px;
+  justify-content: center;
+  margin: auto;
   
+  .edit-button {
+    justify-self: center;
+    margin-bottom: 20px;
+  }
 `;
 
 export const ThoughtTextarea = styled.textarea`
-  
-  padding: 10px;
+  padding: 40px;
   color: ${colors.slategrey};
   font-size: 16px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 95%;
+  width: 100%;
   height: 400px;
   opacity: 70%;
   
   @media (min-width: 600px) {
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 80%;
     height: 500px;
   } 
 `;
 
+// export const EditButton = styled.button`
+//   border: 1px solid ${colors.darkgrey};
+//   background-color: transparent;
+//   font-size: 16px;
+//   padding: 5px;
+// `;
+
 export const CommentWrapper = styled.div`
-  
   background-color: ${colors.darkgrey};
   height: 50vh;
   padding: 15px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  .edit-wrapper {
+    margin: auto;
+  }
 
   @media (min-width: 600px) {
     height: 30vh;

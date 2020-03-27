@@ -12,7 +12,7 @@ const Button = React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormButton = styled(Button)`
-  border: 2px solid ${colors.offwhite};
+  border: 2px solid ${({ color }) => color || colors.offwhite};
   color: ${({ color }) => color || colors.offwhite};
   padding: 10px;
   width: fit-content;
@@ -32,7 +32,7 @@ export const FormButton = styled(Button)`
 const Add = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx('Button', className)} ref={ref} {...props}>
-      <NavLink to={props.to} class='button-link'>
+      <NavLink to={props.to} className='button-link'>
         <FontAwesomeIcon icon='plus' />
       </NavLink>
     </button>

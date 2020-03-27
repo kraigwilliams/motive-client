@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
-import ContentService from '../../services/content-service'
+// import ContentService from '../../services/content-service'
 import{ ConnectionsPageWrapper, ConnectionsHeader, ConnectionsHeader2, ContentWrapper, Section } from './Connections.style';
 import { FormButton } from '../Button/Button';
 import { FormInput, FormWrapper, FormTitle } from '../Form/Form'
