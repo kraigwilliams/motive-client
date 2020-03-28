@@ -34,7 +34,7 @@ async componentDidMount() {
     this.setState({ allThoughts })
   }
 
-  const freeThoughts = allThoughts.filter(thought => thought.thought_topic === null)
+  const freeThoughts = allThoughts.filter(thought => thought.thought_topic === 0)
   if(freeThoughts) {
     this.setState({
       freeThoughts
