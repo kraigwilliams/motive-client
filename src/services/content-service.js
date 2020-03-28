@@ -99,7 +99,7 @@ const ContentService = {
         //topic inputs 
         thought_title: title,
         thought_content: desc,
-        // thought_topic: topicId
+        thought_topic: topicId
       })
     })
     .then(res => {
@@ -125,7 +125,6 @@ const ContentService = {
         return res.json()
         .then(e => Promise.reject(e))
       }
-      // console.log(res.json())
       return res.json()
     })
     .catch(err => {
@@ -191,6 +190,46 @@ const ContentService = {
       } return res.json()
     })
     .catch(err => console.error(err.message))
+  },
+
+  deleteTopic(topicId) {
+    fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(error => { 
+          throw error
+        })
+      }
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  },
+
+  deleteThought(thoughtId) {
+    fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(error => { 
+          throw error
+        })
+      }
+    })
+    .catch(error => {
+      console.error(error)
+    })
   },
 
 }

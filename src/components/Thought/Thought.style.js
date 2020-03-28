@@ -89,3 +89,17 @@ export const CommentHeader = styled.h3`
     height: 30vh;
   } 
 `;
+
+export const ThoughtDropdown = styled.select`
+  background: transparent;
+  font-size: 16px;
+  color: ${colors.white};
+  width: 90%;
+  padding: 10px;
+ 
+
+  @media (min-width: 700px) {
+    width: 60%;
+    margin: auto;
+  } 
+`;

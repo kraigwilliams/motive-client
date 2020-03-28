@@ -14,7 +14,6 @@ export default class AddTopic extends Component {
       description.value,
     )
     .then(topic => {
-      console.log(topic, '!!!');
       const topicId = topic.id;
       this.props.history.push(`topics/${topicId}`)
     })
@@ -24,9 +23,14 @@ export default class AddTopic extends Component {
   render() {
     return (
       <PageWrapper padding='40px 0'>
-        
         <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
-          <FontAwesomeIcon icon='arrow-left' className='back-arrow' style={{marginLeft: '20px'}}/>
+
+          <FontAwesomeIcon 
+            icon='arrow-left' 
+            className='back-arrow' 
+            style={{marginLeft: '20px'}} 
+            onClick={() => this.props.history.goBack()} />
+
           <FormTitle>
             Create a Topic
           </FormTitle>
