@@ -11,11 +11,17 @@ export const TopicWrapper = styled.div`
   min-height: 100vh;
 `;
 
-export const TopicHeader = styled.h1`
+export const TopicHeader = styled.div`
   text-align: center;
   padding: 30px;
   color: ${colors.white};
-  text-align: left;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
   @media (min-width: 600px) {
     text-align: center;

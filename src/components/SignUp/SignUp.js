@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Required, FormLabel, FormInput, FormTitle } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
-import {FormButton} from '../Button/Button'
+import {FormButton, GoBack} from '../Button/Button'
 import { FormWrapper, SignUpWrapper } from './SignUp.style'
 
 
@@ -54,14 +54,16 @@ export default class SignUp extends Component {
       <SignUpWrapper>
         
         <FormWrapper onSubmit={this.handleSubmit}>
+          <div>
+            <GoBack 
+              type='reset' 
+              onClick={() => this.props.history.goBack()}
+            />
+            {error && <p>{error}</p>}
+          </div>
           <FormTitle>
             Create an account
           </FormTitle>
-
-          <div>
-            {error && <p>{error}</p>}
-          </div>
-
           <FormLabel htmlFor='signup-firstname-input'>
             First Name <Required />
           </FormLabel>

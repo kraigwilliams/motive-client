@@ -3,7 +3,7 @@ import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
 import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader, ThoughtDropdown, StyledDeleteDiv } from './Thought.style';
-import {FormButton} from '../Button/Button';
+import { FormButton, GoBack } from '../Button/Button';
 import { colors } from '../constants'
 import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
 
@@ -20,6 +20,7 @@ export default class Thought extends Component {
       currentThought : {},
       editted: false, 
       deleteDiv: true,
+      topicSelected: null
     }
   }
 
@@ -56,7 +57,13 @@ export default class Thought extends Component {
     })
   }
 
-
+  handleTopicChange = ev => {
+    ev.preventDefault()
+    const { topic } = ev.target;
+    this.setState({
+      topicSelected: topic
+    })
+  }
 
   async handleEdit(ev){
     ev.preventDefault()
@@ -107,11 +114,19 @@ export default class Thought extends Component {
           onSubmit={this.handleEdit.bind(this)} 
           onChange={this.handleChange.bind(this)}
         >
+          <div style={{display: 'flex', overflow:'hidden'}}>
+          <GoBack 
+            type='reset' 
+            onClick={() => this.props.history.goBack()}
+            margin='30px 0px 22px 30px'
+          />
           <ThoughtHeader type='text'
             name='title'
             defaultValue={currentThought.thought_title} 
           />
-          
+          <div style={{width: '66.97px'}}></div>
+
+          </div>
           <ThoughtTextarea 
             name='content'
             defaultValue={currentThought.thought_content}
@@ -121,8 +136,9 @@ export default class Thought extends Component {
             <ThoughtDropdown
               name='topic'
               value={topicForThought ? topicForThought : 0}
+              onChange={this.handleTopicChange.bind(this)}
             >
-              <option disabled selected value='0'> -- Not in a Topic -- </option>
+              <option disabled value={0}> -- Not in a Topic -- </option>
               {options}
             </ThoughtDropdown>
 

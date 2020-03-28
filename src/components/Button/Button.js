@@ -11,6 +11,32 @@ export const Button = React.forwardRef(({ className, ...props }, ref) => {
   )
 })
 
+export const GoBackButton = React.forwardRef(({ className, ...props }, ref) => {
+  return (
+    <button className={cx('Button', className)} ref={ref} {...props} >
+      <FontAwesomeIcon icon='arrow-left' />
+    </button>
+  )
+})
+
+export const GoBack = styled(GoBackButton)`
+  background: transparent;
+  color: ${({ color }) => color? color : colors.darkgrey};
+  border: none;
+  font-size: 1em;
+  text-align: left;
+  align-self: left;
+  margin: ${({ margin }) => margin ? margin: ''};
+  z-index: 11;
+  :hover {
+    cursor: pointer;
+  }
+
+  /* @media (min-width: 600px) {
+    margin: ${({ margin }) => margin ? '30px 0px 22px 150px' : ''};
+  }  */
+`;
+
 export const ConfirmDeleteButton = styled(Button)`
   display: block;
   border: 1px solid ${({ color }) => color || colors.offwhite};

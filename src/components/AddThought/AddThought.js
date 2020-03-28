@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
-import {FormButton} from '../Button/Button';
+import { FormButton, GoBack } from '../Button/Button';
 import { FormWrapper, FormTitle, FormLabel, FormInput, Dropdown, FormTextarea} from '../Form/Form'
 import {PageWrapper} from '../constants'
 
@@ -69,6 +69,11 @@ export default class AddThought extends Component {
       <PageWrapper padding='40px 0'>
       
         <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
+          <GoBack 
+            type='reset' 
+            onClick={() => this.props.history.goBack()}
+          />
+
           <FormTitle>
             Create a Thought
           </FormTitle>

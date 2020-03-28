@@ -5,7 +5,7 @@ import TokenService from '../../services/token-service'
 import{ TopicHeader, TopicWrapper, ContentWrapper, 
   SortWrapper, SortSelectDropdown, SortLabel, StyledDeleteDiv } from './Topic.style';
 import CondensedThought from '../CondensedThought/CondensedThought'
-import {AddButton} from '../Button/Button'
+import {AddButton, GoBack} from '../Button/Button'
 import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
 // import { colors, PageWrapper } from '../constants'
 
@@ -61,23 +61,33 @@ export default class Topic extends Component {
     const { currentTopic, currentThoughts, topicId } = this.state;
     return(
       <TopicWrapper>
+        <div style={{display: 'flex', overflow:'hidden'}}>
+          <GoBack 
+            type='reset' 
+            onClick={() => this.props.history.goBack()}
+            margin='30px 0px 22px 30px'
+          />
           <TopicHeader>
-            {currentTopic.topic_title}
+            <h1>{currentTopic.topic_title}</h1>
             {currentTopic.content}
           </TopicHeader>
+          <div style={{width: '66.97px'}}></div>
+
+        </div>
+            
 
           <ContentWrapper>
 
             <div className='top'>
-              <AddButton type='button' to='/add-thought'/>
-
-              <SortWrapper>
+            <SortWrapper>
                 <SortLabel>Sort</SortLabel>
                 <SortSelectDropdown>
                   <option value='A-Z'>A-Z</option>
                   <option value='Most Recent'>Most Recent</option>
                 </SortSelectDropdown>
               </SortWrapper>
+
+              <AddButton type='button' to='/add-thought'/>
             </div>
             
             {

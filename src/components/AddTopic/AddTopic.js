@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FormButton} from '../Button/Button';
+import {FormButton, GoBack} from '../Button/Button';
 import { FormWrapper, FormTitle, FormLabel, FormInput, Required} from '../Form/Form'
 import {PageWrapper} from '../constants'
 import ContentService from '../../services/content-service'
@@ -24,12 +24,13 @@ export default class AddTopic extends Component {
     return (
       <PageWrapper padding='40px 0'>
         <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
-
-          <FontAwesomeIcon 
-            icon='arrow-left' 
-            className='back-arrow' 
-            style={{marginLeft: '20px'}} 
-            onClick={() => this.props.history.goBack()} />
+          
+          <GoBack 
+            type='reset' 
+            onClick={() => this.props.history.goBack()}
+          />
+          
+          
 
           <FormTitle>
             Create a Topic
