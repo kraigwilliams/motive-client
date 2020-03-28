@@ -7,6 +7,7 @@ export const FormWrapper = styled.form`
   padding: 10px;
   background-color: #829191;
   width: 100%;
+  margin: auto;
   
   @media (min-width:700px) {
       width: 70%;
@@ -22,8 +23,7 @@ export const SignUpWrapper = styled.div`
   padding: 40px;
   height: 100%;
   
-  @media (min-width:500px) {
+  @media (min-width:700px) {
     background-color: ${colors.offwhite};
-
   }
 `;

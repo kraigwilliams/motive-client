@@ -89,6 +89,7 @@ export default class AddThought extends Component {
             value={topic ? topic : ''}
             aria-label="You can select a topic to put this thought in"
           >
+            <option disabled selected value> -- Not in a Topic -- </option>
             {options}
           </Dropdown>
 

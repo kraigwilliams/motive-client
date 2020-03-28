@@ -55,13 +55,15 @@ export default class Thought extends Component {
   async handleEdit(ev){
     ev.preventDefault()
     console.log('edit button fired')
-    const { title, content } = ev.target;
+    const { title, content, topic } = ev.target;
     const { thoughtId } = this.state
+    console.log(thoughtId, 'thought id')
     const authToken = TokenService.getAuthToken()
     console.log(authToken, 'authToken in handleEdit')
     const dataToUpdate = {
       thought_title: title.value,
-      thought_content: content.value
+      thought_content: content.value,
+      thought_topic: topic.value
     }
     console.log(dataToUpdate, 'data to update');
     const currentThought = await ContentService.saveThoughtEdit({
@@ -103,7 +105,6 @@ export default class Thought extends Component {
           <ThoughtHeader type='text'
             name='title'
             defaultValue={currentThought.thought_title} 
-            // defaultValue='Jordan'
           />
           
           <ThoughtTextarea 
@@ -111,23 +112,25 @@ export default class Thought extends Component {
             defaultValue={currentThought.thought_content}
           />
 
-          <ThoughtDropdown
-            name='content'
-            value={topicForThought ? topicForThought : ''}
-          >
-            {options}
-          </ThoughtDropdown>
-
-          <div style={{width: 'fit-content', margin:'auto', padding: '5px'}}>
-            <FormButton 
-              className='edit-button'
-              type='submit' 
-              color={colors.darkgrey}
-              disabled={!this.state.editted}
+          <div style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center'}}>
+            <ThoughtDropdown
+              name='topic'
+              value={topicForThought ? topicForThought : ''}
             >
-              save
-            </FormButton>
-          </div>
+              {options}
+            </ThoughtDropdown>
+
+            
+              <FormButton 
+                className='edit-button'
+                type='submit' 
+                color={colors.darkgrey}
+                disabled={!this.state.editted}
+                marginTop='0px'
+              >
+                save
+              </FormButton>
+            </div>
           <DeleteButton type='button' to='/add-topic'></DeleteButton>
         </ContentWrapper>
 
