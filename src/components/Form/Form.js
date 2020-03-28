@@ -102,17 +102,17 @@ export function Textarea({ className, ...props }) {
 
 export const FormTextarea = styled(Textarea)`
   background: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
-  width: 90%;
+  width: 80%;
   padding: 20px;
   font-size: 16px;
   color: ${colors.darkgrey};
   border: 2px solid ${colors.offwhite};
   border-radius: 10px;
+  margin: auto;
 
   @media (min-width: 700px) {
-    width: 60%;
+    width: 80%;
     margin: auto;
-   
   } 
 `;
 
@@ -120,12 +120,17 @@ export const Dropdown = styled.select`
   background: transparent;
   font-size: 16px;
   color: ${colors.white};
-  width: 90%;
+  width: 80%;
   padding: 10px;
- 
+  margin: auto;
+
+  > option {
+    text-align: center;
+  }
+  
 
   @media (min-width: 700px) {
-    width: 60%;
+    width: 80%;
     margin: auto;
   } 
 `;

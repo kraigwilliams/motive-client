@@ -40,7 +40,7 @@ export const FormButton = styled(Button)`
   margin: auto;
   border-radius: 30px;
   font-size: 16px;
-  margin-top: ${({ marginTop }) => marginTop || "40px"};
+  margin-top: ${({ margintop }) => margintop || "40px"};
   background-color: ${({ backgroundColor }) => backgroundColor || colors.slategrey};
   opacity: ${({disabled}) => disabled ? .5 : 1};
 
@@ -68,6 +68,7 @@ export const AddButton = styled(Add)`
   padding: 5px;
   margin-left: 10px;
   font-size: 1em;
+
  
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
@@ -111,9 +112,10 @@ export const AddButton = styled(Add)`
 const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx('Button', className)} ref={ref} {...props}>
-      <NavLink to={props.to} className='button-link'>
+      <FontAwesomeIcon icon='minus'/>
+      {/* <NavLink to={props.to} className='button-link'>
         <FontAwesomeIcon icon='minus'/>
-      </NavLink>
+      </NavLink> */}
     </button>
   )
 })
@@ -134,7 +136,5 @@ export const DeleteButton = styled(Delete)`
     font-size: 1.1em;
   }
 `;
-
-
 
 export default { Button, DeleteButton }

@@ -13,6 +13,7 @@ export default class AddThought extends Component {
     this.state = {
       availTopics: [],
       topic: null,
+      topicSelected: null
     }
   }
 
@@ -33,6 +34,14 @@ export default class AddThought extends Component {
     }
   }
 
+  handleTopicChange = ev => {
+    ev.preventDefault()
+    const { topic } = ev.target;
+    this.setState({
+      topicSelected: topic
+    })
+  }
+
 
   handleSubmit = ev => {
     ev.preventDefault()
@@ -51,6 +60,8 @@ export default class AddThought extends Component {
 
   render() {
     const { availTopics, topic } = this.state;
+    const { topicForAddThought } = this.context;
+    console.log(topicForAddThought, 'topic being passed to defaultValue')
     const options = availTopics.map((topic, idx )=> {
       return <option key={idx} value={topic.id}>
           {topic.topic_title}
@@ -86,10 +97,11 @@ export default class AddThought extends Component {
           <Dropdown 
             id='thought-topic'
             name='topic'
-            value={topic ? topic : ''}
+            value={this.context.topicForAddThought ? this.context.topicForAddThought : 0}
+            onChange={this.handleTopicChange.bind(this)}
             aria-label="You can select a topic to put this thought in"
           >
-            <option disabled selected value> -- Not in a Topic -- </option>
+            <option disabled value={0}> -- Not in a Topic -- </option>
             {options}
           </Dropdown>
 

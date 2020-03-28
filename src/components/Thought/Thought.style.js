@@ -116,6 +116,10 @@ export const ThoughtDropdown = styled.select`
   text-align: center;
   width: 100%;
 
+  > span {
+    text-align: center;
+  }
+
   @media (min-width: 700px) {
     /* width: 60%; */
     margin-top: 40px;

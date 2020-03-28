@@ -103,7 +103,7 @@ export default class Thought extends Component {
     const options = topics.map((topic, idx )=> {
       return <option key={idx} value={topic.id}>
           {topic.topic_title}
-        </option>
+          </option>
     })
     return(
      
@@ -126,8 +126,9 @@ export default class Thought extends Component {
           <div style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center'}}>
             <ThoughtDropdown
               name='topic'
-              value={topicForThought ? topicForThought : ''}
+              value={topicForThought ? topicForThought : 0}
             >
+              <option disabled selected value='0'> -- Not in a Topic -- </option>
               {options}
             </ThoughtDropdown>
 
@@ -137,7 +138,7 @@ export default class Thought extends Component {
                 type='submit' 
                 color={colors.darkgrey}
                 disabled={!this.state.editted}
-                marginTop='0px'
+                margintop='0px'
               >
                 save
               </FormButton>
