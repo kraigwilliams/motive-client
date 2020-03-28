@@ -173,7 +173,6 @@ const ContentService = {
   },
 
   saveThoughtEdit(thoughtId, token, thought_title, thought_content, thought_topic){
-    console.log(thoughtId, 'thought id in request')
     return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
       method: 'PATCH',
       headers: {

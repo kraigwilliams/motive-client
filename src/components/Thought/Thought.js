@@ -73,7 +73,6 @@ export default class Thought extends Component {
     const thought_title = title.value;
     const thought_content = content.value;
     const thought_topic = topic.value;
-    console.log(thought_title, thought_content, thought_topic, 'data sending in')
 
     const currentThought = await ContentService.saveThoughtEdit(
       thoughtId,
@@ -82,7 +81,7 @@ export default class Thought extends Component {
       thought_content,
       thought_topic
     )
-    console.log(currentThought, 'current thought from saveThoughtEdit')
+
     this.setState({
       currentThought
     })

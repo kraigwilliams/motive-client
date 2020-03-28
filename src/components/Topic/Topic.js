@@ -36,7 +36,7 @@ export default class Topic extends Component {
 
     //get the current topic from the server and set it in state 
     const currentTopic = await ContentService.getThisTopic(topicId, authToken);
-    console.log(currentTopic, 'curr topic!');
+
     this.setState({ currentTopic })
 
     //get the thoughts that belong to the current topic and set it in state 

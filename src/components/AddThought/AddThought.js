@@ -26,7 +26,7 @@ export default class AddThought extends Component {
     }
 
     const topicId =  this.context.topicForAddThought;
-    console.log(topicId, 'topic id from context')
+
     if(topicId){
       this.setState({
         topic: topicId,
@@ -66,7 +66,7 @@ export default class AddThought extends Component {
   render() {
     const { availTopics } = this.state;
     const { topicForAddThought } = this.context;
-    console.log( topicForAddThought, 'topic for add thought dropdown')
+
     const options = availTopics.map((topic, idx )=> {
       return <option key={idx} value={topic.id}>
           {topic.topic_title}
