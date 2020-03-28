@@ -10,7 +10,7 @@ import App from './App';
 import './index.css';
 // import * as serviceWorker from './serviceWorker'
 
-library.add(fab, faPlus, faTrash, faTimes, faArrowLeft, faMinus)
+library.add(fab, faPlus, faMinus, faTrash, faTimes, faArrowLeft)
 
 
 ReactDOM.render(

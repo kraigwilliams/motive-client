@@ -63,7 +63,7 @@ const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx('Button', className)} ref={ref} {...props}>
       <NavLink to={props.to} className='button-link'>
-        <FontAwesomeIcon icon='minus' />
+        <FontAwesomeIcon icon='minus'/>
       </NavLink>
     </button>
   )
@@ -85,6 +85,34 @@ export const DeleteButton = styled(Delete)`
     font-size: 1.1em;
   }
 `;
+
+// const Delete = React.forwardRef(({ className, ...props }, ref) => {
+//   return (
+//     <button className={cx('Button', className)} ref={ref} {...props}>
+//       <NavLink to={props.to} className='button-link'>
+//         <FontAwesomeIcon icon='minus' />
+//       </NavLink>
+//     </button>
+//   )
+// })
+
+// export const DeleteButton = styled(Delete)`
+//   color: ${({color}) =>  color ? color : colors.coral};
+//   background: transparent;
+//   border: none;
+//   padding: 5px;
+//   margin-left: 10px;
+//   font-size: 1em;
+ 
+//   .button-link{
+//     color: ${({color}) =>  color ? color : colors.coral};
+//   }
+
+//   :hover {
+//     cursor: pointer;
+//     font-size: 1.1em;
+//   }
+// `;
 
 
 export default Button

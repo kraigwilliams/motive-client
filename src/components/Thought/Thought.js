@@ -3,9 +3,12 @@ import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
 import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ThoughtDropdown,  ContentWrapper, CommentWrapper, CommentHeader } from './Thought.style';
-import {DeleteButton} from '../Button/Button';
+import { DeleteButton } from '../Button/Button';
 import {FormButton} from '../Button/Button';
 import { colors } from '../constants'
+// import {DeleteButton} from '../Button/Button';
+// import { colors } from '../constants'
+
 
 export default class Thought extends Component {
   static contextType = ContentContext;
@@ -28,6 +31,7 @@ export default class Thought extends Component {
       thoughtId
     })
     const authToken = TokenService.getAuthToken()
+
 
     const currentThought = await ContentService.getThisThought(thoughtId, authToken)
     this.setState({
@@ -70,6 +74,10 @@ export default class Thought extends Component {
     })
   }
 
+  handleDelete = () => {
+    ContentService.deleteThought()
+  }
+  
   handleDelete = () => {
     ContentService.deleteThought()
   }
@@ -128,12 +136,15 @@ export default class Thought extends Component {
             Comments
           </CommentHeader>
 
+
           {/* Map through existing comments to render here */}
 
           {/* Input to write a new comment here */}
           {/* Add comment button */}
         </CommentWrapper>
+      {/* <DeleteButton type='submit'></DeleteButton> */}
       </ThoughtWrapper>
+
     )
   }
 }
