@@ -34,7 +34,6 @@ export class UserProvider extends Component {
         username: jwtPayload.sub,
       }
 
-    // this.state = state;
     IdleService.setIdleCallback(this.logoutBecauseIdle)
     }
   }
@@ -67,10 +66,8 @@ export class UserProvider extends Component {
   }
 
   processLogin = authToken => {
-    console.log('!!!!!!')
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
-    console.log(jwtPayload, 'jwt payload');
     this.setUser({
       id: jwtPayload.user_id,
       firstname: jwtPayload.firstname,

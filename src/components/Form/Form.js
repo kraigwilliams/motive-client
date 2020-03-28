@@ -31,7 +31,7 @@ export const LoginWrapper = styled.div`
   padding: 40px;
   min-height: 100vh;
   
-  @media (min-width:500px) {
+  @media (min-width:700px) {
     background-color: ${colors.offwhite};
 
   }
@@ -48,12 +48,12 @@ export const FormLabel = styled(Label)`
   text-align: ${props => props.align ? props.align : 'left'};
   font-size: ${({fontSize}) => fontSize ? fontSize : 'auto'};
   padding: 10px;
-  margin-top: 20px;
+  margin: 20px auto 0px auto;
   font-weight: bolder;
-  width: 90%;
+  width: 80%;
 
   @media (min-width:700px) {
-    width: 60%; 
+    width: 80%; 
     margin: auto;
     margin-top: 20px;
   }
@@ -71,20 +71,20 @@ export const FormInput = styled(Input)`
   padding: 10px;
   font-size: 16px;
   background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite};
-  color: ${({ color }) => color || colors.slategrey};
+  color: ${({ color }) => color || colors.darkgrey};
   text-align: center;
-  width: 90%;
+  width: 80%;
+  margin: auto;
 
   :focus {
     border-color: ${colors.teal}
   }
 
   @media (min-width:700px) {
-    width: 60%; 
+    width: 80%; 
     margin: auto;
   }
 `;
-
 
 export function Required({ className, ...props }) {
   return (
@@ -100,33 +100,37 @@ export function Textarea({ className, ...props }) {
   )
 }
 
-
 export const FormTextarea = styled(Textarea)`
   background: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
-  width: 90%;
-  padding: 10px;
+  width: 80%;
+  padding: 20px;
   font-size: 16px;
   color: ${colors.darkgrey};
-  border: 1px solid ${colors.darkgrey};
+  border: 2px solid ${colors.offwhite};
+  border-radius: 10px;
+  margin: auto;
 
   @media (min-width: 700px) {
-    width: 60%;
+    width: 80%;
     margin: auto;
-   
   } 
 `;
-
 
 export const Dropdown = styled.select`
   background: transparent;
   font-size: 16px;
   color: ${colors.white};
-  width: 90%;
+  width: 80%;
   padding: 10px;
- 
+  margin: auto;
+
+  > option {
+    text-align: center;
+  }
+  
 
   @media (min-width: 700px) {
-    width: 60%;
+    width: 80%;
     margin: auto;
   } 
 `;

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import {Required, FormLabel, FormInput, FormTitle, FormWrapper, LoginWrapper } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
-import {FormButton} from '../Button/Button'
+import {FormButton, GoBack} from '../Button/Button'
 
 
 
@@ -21,7 +21,6 @@ export default class Login extends Component {
 
 
   handleLoginSuccess = () => {
-    console.log('handle log in success firing');
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/dashboard'
     history.push(destination)
@@ -58,7 +57,12 @@ export default class Login extends Component {
       <LoginWrapper>
         
         <FormWrapper onSubmit={this.hanldeSubmit}>
+
           <div>
+            <GoBack 
+              type='reset' 
+              onClick={() => this.props.history.goBack()}
+            />
             {error && <p>{error}</p>}
           </div>
           <FormTitle>

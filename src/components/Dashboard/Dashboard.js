@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
-// import config from '../../config.js'
-// import TokenService from '../../services/token-service'
 import ContentService from '../../services/content-service'
 import { colors, PageWrapper } from '../constants'
 import CondensedTopic from '../CondensedTopic/CondensedTopic';
@@ -15,26 +13,39 @@ class Dashboard extends Component {
     super(props)
     this.state = {
       topics: [],
-      thoughts: []
+      allThoughts: [],
+      freeThoughts: [],
     }
   }
 
   //make get request to get all thoughts and topics for the logged in user 
-componentDidMount() {
-  ContentService.getTopics()
-  .then(topics => {
+async componentDidMount() {
+  const topics = await ContentService.getTopics()
+  if (topics) {
     this.setState({ topics })
-  })
+  }
 
-  // ContentService.getThoughts()
-  // .then(thoughts => {
-  //   this.setState({ thoughts })
-  // })
+  const allThoughts = await ContentService.getThoughts()
+  if (allThoughts) {
+    this.setState({ allThoughts })
+  }
+
+  const freeThoughts = allThoughts.filter(thought => thought.thought_topic === 0)
+  if(freeThoughts) {
+    this.setState({
+      freeThoughts
+    })
+  }
+
 }
 
+  countThoughtsForTopic(topicId){
+    const thoughtsInTopic = this.state.allThoughts.filter(thought => thought.thought_topic === topicId)
+    return thoughtsInTopic.length;
+  }
 
   render() {
-  const { topics, thoughts } = this.state;
+  const { topics, freeThoughts } = this.state;
     return (
       <PageWrapper>
         <header>
@@ -48,23 +59,20 @@ componentDidMount() {
               <h2 style={{color: colors.white}}>
                 Topics
               </h2> 
-              <AddButton type='button' to='./add-topic'/>
+              <AddButton type='button' to='/add-topic'/>
             </SectionTitle>
-           
 
-              {topics.map((topic, idx) => {
-                return <CondensedTopic 
-                key={idx}
-                id={topic.id}
-                title={topic.topic_title}
-                count={topic.count}
-              />
-              })}
-
-              <CondensedTopic 
-                title='Coronavirus'
-                count='3'
-              />
+              {
+                topics.map((topic, idx) => {
+                  let thoughtCount = this.countThoughtsForTopic(topic.id)
+                  return <CondensedTopic 
+                  key={idx}
+                  id={topic.id}
+                  title={topic.topic_title}
+                  count={thoughtCount}
+                />
+                })
+              }
             
           </Section>
           <Section>
@@ -72,21 +80,26 @@ componentDidMount() {
               <h2 style={{color: colors.white}}>
                 Thoughts 
               </h2>
-              <AddButton type='button' to='./add-thought'/>
+              <AddButton type='button' to='/add-thought'/>
             </SectionTitle>
             
 
-              {thoughts.map((thought, idx) => {
-                return <CondensedThought 
-                key={idx}
-                id={thought.id}
-                title={thought.thought_title}
-              />
-              })}
+              {
+                freeThoughts.map((thought, idx) => {
+                  return <CondensedThought 
+                  key={idx}
+                  id={thought.id}
+                  title={thought.thought_title}
+
+                />
+                })
+              }
 
             <CondensedThought 
               title='Meaning of Life'
+              id='2089'
             />
+
           </Section>
         </ContentWrapper>
       </PageWrapper>

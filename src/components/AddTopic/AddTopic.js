@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {FormButton} from '../Button/Button';
-import { FormWrapper, FormTitle, FormLabel, FormInput, Dropdown, Required} from '../Form/Form'
+import {FormButton, GoBack} from '../Button/Button';
+import { FormWrapper, FormTitle, FormLabel, FormInput, Required} from '../Form/Form'
 import {PageWrapper} from '../constants'
 import ContentService from '../../services/content-service'
-
 
 export default class AddTopic extends Component {
   handleSubmit = ev => {
@@ -14,7 +13,6 @@ export default class AddTopic extends Component {
       description.value,
     )
     .then(topic => {
-      console.log(topic, '!!!');
       const topicId = topic.id;
       this.props.history.push(`topics/${topicId}`)
     })
@@ -24,8 +22,15 @@ export default class AddTopic extends Component {
   render() {
     return (
       <PageWrapper padding='40px 0'>
-
         <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
+          
+          <GoBack 
+            type='reset' 
+            onClick={() => this.props.history.goBack()}
+          />
+          
+          
+
           <FormTitle>
             Create a Topic
           </FormTitle>
