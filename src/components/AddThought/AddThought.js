@@ -59,9 +59,7 @@ export default class AddThought extends Component {
   }
 
   render() {
-    const { availTopics, topic } = this.state;
-    const { topicForAddThought } = this.context;
-    console.log(topicForAddThought, 'topic being passed to defaultValue')
+    const { availTopics } = this.state;
     const options = availTopics.map((topic, idx )=> {
       return <option key={idx} value={topic.id}>
           {topic.topic_title}

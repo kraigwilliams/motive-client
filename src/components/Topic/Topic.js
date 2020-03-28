@@ -40,7 +40,6 @@ export default class Topic extends Component {
 
     //get the thoughts that belong to the current topic and set it in state 
     const currentThoughts = await ContentService.getThoughtsInTopic(topicId, authToken)
-    console.log(currentThoughts, 'current thoughts')
     if(currentThoughts) {
       this.setState({ currentThoughts })
     }

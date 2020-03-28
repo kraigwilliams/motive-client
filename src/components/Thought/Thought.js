@@ -60,18 +60,14 @@ export default class Thought extends Component {
 
   async handleEdit(ev){
     ev.preventDefault()
-    console.log('edit button fired')
     const { title, content, topic } = ev.target;
     const { thoughtId } = this.state
-    console.log(thoughtId, 'thought id')
     const authToken = TokenService.getAuthToken()
-    console.log(authToken, 'authToken in handleEdit')
     const dataToUpdate = {
       thought_title: title.value,
       thought_content: content.value,
       thought_topic: topic.value
     }
-    console.log(dataToUpdate, 'data to update');
     const currentThought = await ContentService.saveThoughtEdit({
       thoughtId,
       authToken,
@@ -87,7 +83,6 @@ export default class Thought extends Component {
   }
   
   handleDelete = () => {
-    console.log('firing!')
     const thoughtId = this.props.match.params.thought_id
     ContentService.deleteThought(thoughtId)
     this.props.history.goBack()
@@ -98,7 +93,6 @@ export default class Thought extends Component {
   render() {
     const { currentThought, topics } = this.state;
     const { topicForThought } = this.context;
-    console.log(topicForThought, 'topic from context')
 
     const options = topics.map((topic, idx )=> {
       return <option key={idx} value={topic.id}>

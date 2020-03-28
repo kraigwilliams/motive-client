@@ -42,13 +42,11 @@ async componentDidMount() {
 
   countThoughtsForTopic(topicId){
     const thoughtsInTopic = this.state.allThoughts.filter(thought => thought.thought_topic === topicId)
-    console.log(thoughtsInTopic, thoughtsInTopic.length)
     return thoughtsInTopic.length;
   }
 
   render() {
   const { topics, freeThoughts } = this.state;
-  console.log(freeThoughts, 'freeThoughts in state');
     return (
       <PageWrapper>
         <header>
