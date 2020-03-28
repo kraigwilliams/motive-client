@@ -2,13 +2,10 @@ import React, { Component } from 'react'
 import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
-import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ThoughtDropdown,  ContentWrapper, CommentWrapper, CommentHeader } from './Thought.style';
-import { DeleteButton } from '../Button/Button';
+import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader, ThoughtDropdown, StyledDeleteDiv } from './Thought.style';
 import {FormButton} from '../Button/Button';
 import { colors } from '../constants'
-// import {DeleteButton} from '../Button/Button';
-// import { colors } from '../constants'
-
+import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
 
 export default class Thought extends Component {
   static contextType = ContentContext;
@@ -21,7 +18,8 @@ export default class Thought extends Component {
       thoughtId: null,
       value: 'Write your Thought here!',
       currentThought : {},
-      editted: false
+      editted: false, 
+      deleteDiv: true,
     }
   }
 
@@ -52,6 +50,14 @@ export default class Thought extends Component {
     })
   }
 
+  toggleDeleteDiv = () => {
+    this.setState({
+      deleteDiv: !this.state.deleteDiv
+    })
+  }
+
+
+
   async handleEdit(ev){
     ev.preventDefault()
     console.log('edit button fired')
@@ -81,8 +87,13 @@ export default class Thought extends Component {
   }
   
   handleDelete = () => {
-    ContentService.deleteThought()
+    console.log('firing!')
+    const thoughtId = this.props.match.params.thought_id
+    ContentService.deleteThought(thoughtId)
+    this.props.history.goBack()
   }
+
+
   
   render() {
     const { currentThought, topics } = this.state;
@@ -131,7 +142,13 @@ export default class Thought extends Component {
                 save
               </FormButton>
             </div>
-          <DeleteButton type='button' to='/add-topic'></DeleteButton>
+
+            <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
+            {!this.state.deleteDiv &&
+              <StyledDeleteDiv> Delete Thought?
+                <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
+              </StyledDeleteDiv>
+            }
         </ContentWrapper>
 
         <CommentWrapper>
@@ -145,7 +162,6 @@ export default class Thought extends Component {
           {/* Input to write a new comment here */}
           {/* Add comment button */}
         </CommentWrapper>
-      {/* <DeleteButton type='submit'></DeleteButton> */}
       </ThoughtWrapper>
 
     )

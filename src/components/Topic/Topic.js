@@ -3,9 +3,11 @@ import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
 import{ TopicHeader, TopicWrapper, ContentWrapper, 
-  SortWrapper, SortSelectDropdown, SortLabel } from './Topic.style';
+  SortWrapper, SortSelectDropdown, SortLabel, StyledDeleteDiv } from './Topic.style';
 import CondensedThought from '../CondensedThought/CondensedThought'
 import {AddButton} from '../Button/Button'
+import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
+// import { colors, PageWrapper } from '../constants'
 
 export default class Topic extends Component {
   static contextType = ContentContext;
@@ -14,8 +16,10 @@ export default class Topic extends Component {
     super(props)
     this.state = {
       currentTopic: {},
-      currentThoughts: [],
+      currentThoughts: [], 
+      deleteDiv: true,
       topicId: null,
+
     }
   }
 
@@ -42,6 +46,18 @@ export default class Topic extends Component {
     }
   }
 
+
+  toggleDeleteDiv = () => {
+    this.setState({
+      deleteDiv: !this.state.deleteDiv
+    })
+  }
+
+  handleDelete = () => {
+    return ContentService.deleteTopic();
+  }
+
+
   render() {
     const { currentTopic, currentThoughts, topicId } = this.state;
     return(
@@ -55,6 +71,7 @@ export default class Topic extends Component {
 
             <div className='top'>
               <AddButton type='button' to='/add-thought'/>
+
               <SortWrapper>
                 <SortLabel>Sort</SortLabel>
                 <SortSelectDropdown>
@@ -74,6 +91,19 @@ export default class Topic extends Component {
                 />
               })
             }
+
+
+          {currentThoughts.length < 1? <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> : ''}
+
+          {/* <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> */}
+
+          {!this.state.deleteDiv &&
+              <StyledDeleteDiv> Delete Topic?
+                <ConfirmDeleteButton type='button' onClick={this.deleteTopic}>Yes</ConfirmDeleteButton>
+              </StyledDeleteDiv>
+          }
+
+
            </ContentWrapper>
       </TopicWrapper>
     );
