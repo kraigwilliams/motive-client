@@ -50,7 +50,7 @@ async componentDidMount() {
       <PageWrapper>
         <header>
           <DBHeader>
-          {this.context.user.username}'s  Motive
+          {this.context.user.username}'s  Fokul
           </DBHeader>
         </header>
         <ContentWrapper>

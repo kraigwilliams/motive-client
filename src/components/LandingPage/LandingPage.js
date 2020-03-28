@@ -8,19 +8,19 @@ export default class LandingPage extends Component {
     return(
       <PageWrapper>
         <LandingHeader>
-          Welcome to Motive
+          Welcome to Fokul
         </LandingHeader>
         <ContentWrapper>
     
           <LandingText>
-            Motive is a space where intentional thoughts are born. Collaborate with your friends or keep a record for yourself.  
+            Fokul is a space where intentional thoughts are born. Collaborate with your friends or keep a record for yourself.  
           </LandingText>
           <LandingText>
-            No matter how big or small, Motive will help you there.
+            No matter how big or small, Fokul will help you there.
           </LandingText>
           <LandingImage src={cloud} alt='labyrinth' />
 
-          <LandingText>Demo Motive and see how you can begin cultivating your thoughts! 
+          <LandingText>Demo Fokul and see how you can begin cultivating your thoughts! 
             <br /> 
             <LandingLink to='/login'>
               Log In

@@ -59,7 +59,7 @@ class NavBar extends Component {
       <>
       <NavWrapper>
         <Logo to='/'>
-            MM
+            Fokul
         </Logo>
     
         {TokenService.hasAuthToken()
