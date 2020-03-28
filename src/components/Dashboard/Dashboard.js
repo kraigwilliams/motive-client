@@ -95,10 +95,6 @@ async componentDidMount() {
                 })
               }
 
-            <CondensedThought 
-              title='Meaning of Life'
-              id='2089'
-            />
 
           </Section>
         </ContentWrapper>
