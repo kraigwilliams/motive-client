@@ -57,13 +57,6 @@ export const ThoughtTextarea = styled.textarea`
   } 
 `;
 
-// export const EditButton = styled.button`
-//   border: 1px solid ${colors.darkgrey};
-//   background-color: transparent;
-//   font-size: 16px;
-//   padding: 5px;
-// `;
-
 export const CommentWrapper = styled.div`
   background-color: ${colors.darkgrey};
   height: 50vh;

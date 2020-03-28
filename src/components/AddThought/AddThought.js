@@ -25,8 +25,8 @@ export default class AddThought extends Component {
       })
     }
 
-    // const topicId = localStorage.getItem('topic')
     const topicId =  this.context.topicForAddThought;
+    console.log(topicId, 'topic id from context')
     if(topicId){
       this.setState({
         topic: topicId,
@@ -36,14 +36,14 @@ export default class AddThought extends Component {
 
   handleTopicChange = ev => {
     ev.preventDefault()
-    const { topic } = ev.target;
+    const topicSelected = ev.target.value;
     this.setState({
-      topicSelected: topic
+      topicSelected
     })
   }
 
   handleGoBack = ev => {
-    this.context.setTopicForAddThought(null)
+    this.context.setTopicForAddThought(0)
     this.props.history.goBack()
   }
 
@@ -57,7 +57,7 @@ export default class AddThought extends Component {
     )
     .then(thought => {
       localStorage.removeItem('topic');
-      this.context.setTopicForAddThought(null)
+      this.context.setTopicForAddThought(0)
       const thoughtId = thought.id;
       this.props.history.push(`thoughts/${thoughtId}`)
     })
@@ -66,6 +66,7 @@ export default class AddThought extends Component {
   render() {
     const { availTopics } = this.state;
     const { topicForAddThought } = this.context;
+    console.log( topicForAddThought, 'topic for add thought dropdown')
     const options = availTopics.map((topic, idx )=> {
       return <option key={idx} value={topic.id}>
           {topic.topic_title}
@@ -106,11 +107,11 @@ export default class AddThought extends Component {
           <Dropdown 
             id='thought-topic'
             name='topic'
-            value={topicForAddThought ? topicForAddThought : 0}
+            value={this.state.topicSelected || (topicForAddThought ? topicForAddThought : 0)}
             onChange={this.handleTopicChange.bind(this)}
             aria-label="You can select a topic to put this thought in"
           >
-            <option disabled value={0}> -- Not in a Topic -- </option>
+            <option value={0}> -- Not in a Topic -- </option>
             {options}
           </Dropdown>
 

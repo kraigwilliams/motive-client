@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
-// import config from '../../config.js'
-// import TokenService from '../../services/token-service'
-// import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import { colors, PageWrapper } from '../constants'
 import CondensedTopic from '../CondensedTopic/CondensedTopic';
@@ -12,7 +9,6 @@ import {AddButton} from '../Button/Button'
 
 class Dashboard extends Component {
   static contextType = UserContext;
-  // static contextType = ContentContext;
   constructor(props) {
     super(props)
     this.state = {

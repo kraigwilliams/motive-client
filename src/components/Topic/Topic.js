@@ -7,7 +7,7 @@ import{ TopicHeader, TopicWrapper, ContentWrapper,
 import CondensedThought from '../CondensedThought/CondensedThought'
 import {AddButton, GoBack} from '../Button/Button'
 import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
-// import { colors, PageWrapper } from '../constants'
+import { colors } from '../constants'
 
 export default class Topic extends Component {
   static contextType = ContentContext;
@@ -35,7 +35,8 @@ export default class Topic extends Component {
     const authToken = TokenService.getAuthToken()
 
     //get the current topic from the server and set it in state 
-    const currentTopic = await ContentService.getThisTopic(topicId, authToken)
+    const currentTopic = await ContentService.getThisTopic(topicId, authToken);
+    console.log(currentTopic, 'curr topic!');
     this.setState({ currentTopic })
 
     //get the thoughts that belong to the current topic and set it in state 
@@ -53,11 +54,13 @@ export default class Topic extends Component {
   }
 
   handleDelete = () => {
-    return ContentService.deleteTopic();
+    ContentService.deleteTopic(this.state.topicId);
+    this.props.history.goBack();
   }
 
   handleGoBack = ev => {
     this.context.setTopicForAddThought(null)
+    this.context.setTopicForThought(0)
     this.props.history.goBack()
   }
 
@@ -72,8 +75,8 @@ export default class Topic extends Component {
             margin='30px 0px 22px 30px'
           />
           <TopicHeader>
-            <h1>{currentTopic.topic_title}</h1>
-            {currentTopic.content}
+            <h1 style={{marginBottom: '20px'}}>{currentTopic.topic_title}</h1>
+            <p style={{color: colors.darkgrey}}>{currentTopic.topic_content}</p>
           </TopicHeader>
           <div style={{width: '66.97px'}}></div>
 
@@ -112,7 +115,7 @@ export default class Topic extends Component {
 
           {!this.state.deleteDiv &&
               <StyledDeleteDiv> Delete Topic?
-                <ConfirmDeleteButton type='button' onClick={this.deleteTopic}>Yes</ConfirmDeleteButton>
+                <ConfirmDeleteButton type='button' onClick={this.handleDelete}>Yes</ConfirmDeleteButton>
               </StyledDeleteDiv>
           }
 

@@ -59,9 +59,9 @@ export default class Thought extends Component {
 
   handleTopicChange = ev => {
     ev.preventDefault()
-    const { topic } = ev.target;
+    const topicSelected = ev.target.value;
     this.setState({
-      topicSelected: topic
+      topicSelected
     })
   }
 
@@ -69,14 +69,7 @@ export default class Thought extends Component {
     ev.preventDefault()
     const { title, content, topic } = ev.target;
     const { thoughtId } = this.state
-    console.log(thoughtId, 'thought id');
     const authToken = TokenService.getAuthToken()
-    console.log(authToken, 'auth token')
-    // const dataToUpdate = {
-    //   thought_title: title.value,
-    //   thought_content: content.value,
-    //   thought_topic: topic.value
-    // }
     const thought_title = title.value;
     const thought_content = content.value;
     const thought_topic = topic.value;
@@ -94,10 +87,6 @@ export default class Thought extends Component {
       currentThought
     })
   }
-
-  handleDelete = () => {
-    ContentService.deleteThought()
-  }
   
   handleDelete = () => {
     const thoughtId = this.props.match.params.thought_id
@@ -105,8 +94,6 @@ export default class Thought extends Component {
     this.props.history.goBack()
   }
 
-
-  
   render() {
     const { currentThought, topics } = this.state;
     const { topicForThought } = this.context;
@@ -145,10 +132,10 @@ export default class Thought extends Component {
           <div style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center'}}>
             <ThoughtDropdown
               name='topic'
-              value={topicForThought ? topicForThought : 0}
+              value={this.state.topicSelected || (topicForThought ? topicForThought : 0)}
               onChange={this.handleTopicChange.bind(this)}
             >
-              <option disabled value={0}> -- Not in a Topic -- </option>
+              <option value={0}> -- Not in a Topic -- </option>
               {options}
             </ThoughtDropdown>
 

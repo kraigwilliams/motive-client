@@ -13,7 +13,7 @@ export const TopicWrapper = styled.div`
 
 export const TopicHeader = styled.div`
   text-align: center;
-  padding: 30px;
+  padding: 30px 30px 10px 30px;
   color: ${colors.white};
   text-align: center;
   margin: 0;

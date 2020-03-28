@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
 import DesktopNavBar from './DesktopNavBar'
 import MobileNavBar from './MobileNavBar'
 import TokenService from '../../services/token-service'
