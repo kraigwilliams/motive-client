@@ -21,7 +21,6 @@ export default class Login extends Component {
 
 
   handleLoginSuccess = () => {
-    console.log('handle log in success firing');
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/dashboard'
     history.push(destination)

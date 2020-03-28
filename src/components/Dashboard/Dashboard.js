@@ -15,7 +15,8 @@ class Dashboard extends Component {
     super(props)
     this.state = {
       topics: [],
-      thoughts: []
+      allThoughts: [],
+      freeThoughts: [],
     }
   }
 
@@ -26,15 +27,28 @@ async componentDidMount() {
     this.setState({ topics })
   }
 
-  const thoughts = await ContentService.getThoughts()
-  if (thoughts) {
-    this.setState({ thoughts })
+  const allThoughts = await ContentService.getThoughts()
+  if (allThoughts) {
+    this.setState({ allThoughts })
+  }
+
+  const freeThoughts = allThoughts.filter(thought => thought.thought_topic === null)
+  if(freeThoughts) {
+    this.setState({
+      freeThoughts
+    })
   }
 }
 
+  countThoughtsForTopic(topicId){
+    const thoughtsInTopic = this.state.allThoughts.filter(thought => thought.thought_topic === topicId)
+    console.log(thoughtsInTopic, thoughtsInTopic.length)
+    return thoughtsInTopic.length;
+  }
 
   render() {
-  const { topics, thoughts } = this.state;
+  const { topics, freeThoughts } = this.state;
+  console.log(freeThoughts, 'freeThoughts in state');
     return (
       <PageWrapper>
         <header>
@@ -53,11 +67,12 @@ async componentDidMount() {
 
               {
                 topics.map((topic, idx) => {
+                  let thoughtCount = this.countThoughtsForTopic(topic.id)
                   return <CondensedTopic 
                   key={idx}
                   id={topic.id}
                   title={topic.topic_title}
-                  count={topic.count}
+                  count={thoughtCount}
                 />
                 })
               }
@@ -72,17 +87,22 @@ async componentDidMount() {
             </SectionTitle>
             
 
-              {thoughts.map((thought, idx) => {
-                return <CondensedThought 
-                key={idx}
-                id={thought.id}
-                title={thought.thought_title}
-              />
-              })}
+              {
+                freeThoughts.map((thought, idx) => {
+                  return <CondensedThought 
+                  key={idx}
+                  id={thought.id}
+                  title={thought.thought_title}
+
+                />
+                })
+              }
 
             <CondensedThought 
               title='Meaning of Life'
+              id='2089'
             />
+
           </Section>
         </ContentWrapper>
       </PageWrapper>

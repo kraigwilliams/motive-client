@@ -40,7 +40,7 @@ export const FormButton = styled(Button)`
   margin: auto;
   border-radius: 30px;
   font-size: 16px;
-  margin-top: ${({ margintop }) => margintop || "40px"};
+  margin-top: ${({ marginTop }) => marginTop || "40px"};
   background-color: ${({ backgroundColor }) => backgroundColor || colors.slategrey};
   opacity: ${({disabled}) => disabled ? .5 : 1};
 
@@ -72,8 +72,6 @@ export const AddButton = styled(Add)`
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
   }
-
-  
 
   :hover {
     cursor: pointer;
@@ -113,7 +111,9 @@ export const AddButton = styled(Add)`
 const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx('Button', className)} ref={ref} {...props}>
-       <FontAwesomeIcon icon='minus' />
+      <NavLink to={props.to} className='button-link'>
+        <FontAwesomeIcon icon='minus'/>
+      </NavLink>
     </button>
   )
 })
@@ -129,7 +129,6 @@ export const DeleteButton = styled(Delete)`
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
   }
-
   :hover {
     cursor: pointer;
     font-size: 1.1em;

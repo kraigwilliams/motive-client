@@ -99,7 +99,7 @@ const ContentService = {
         //topic inputs 
         thought_title: title,
         thought_content: desc,
-        // thought_topic: topicId
+        thought_topic: topicId
       })
     })
     .then(res => {
@@ -125,7 +125,6 @@ const ContentService = {
         return res.json()
         .then(e => Promise.reject(e))
       }
-      // console.log(res.json())
       return res.json()
     })
     .catch(err => {

@@ -106,4 +106,19 @@ export const StyledDeleteDiv = styled.div`
   } 
 `;
 
+export const ThoughtDropdown = styled.select`
+  background: transparent;
+  font-size: 16px;
+  color: ${colors.white};
+  /* width: 40%; */
+  padding: 20px 30px;
+  margin: 40px auto;
+  text-align: center;
+  width: 100%;
+
+  @media (min-width: 700px) {
+    /* width: 60%; */
+    margin-top: 40px;
+  } 
+`;
 

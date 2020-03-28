@@ -31,7 +31,7 @@ export const LoginWrapper = styled.div`
   padding: 40px;
   min-height: 100vh;
   
-  @media (min-width:500px) {
+  @media (min-width:700px) {
     background-color: ${colors.offwhite};
 
   }
@@ -48,12 +48,12 @@ export const FormLabel = styled(Label)`
   text-align: ${props => props.align ? props.align : 'left'};
   font-size: ${({fontSize}) => fontSize ? fontSize : 'auto'};
   padding: 10px;
-  margin-top: 20px;
+  margin: 20px auto 0px auto;
   font-weight: bolder;
-  width: 90%;
+  width: 80%;
 
   @media (min-width:700px) {
-    width: 60%; 
+    width: 80%; 
     margin: auto;
     margin-top: 20px;
   }
@@ -73,18 +73,18 @@ export const FormInput = styled(Input)`
   background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite};
   color: ${({ color }) => color || colors.darkgrey};
   text-align: center;
-  width: 90%;
+  width: 80%;
+  margin: auto;
 
   :focus {
     border-color: ${colors.teal}
   }
 
   @media (min-width:700px) {
-    width: 60%; 
+    width: 80%; 
     margin: auto;
   }
 `;
-
 
 export function Required({ className, ...props }) {
   return (
@@ -99,7 +99,6 @@ export function Textarea({ className, ...props }) {
     <textarea className={cx('Textarea', className)} {...props} />
   )
 }
-
 
 export const FormTextarea = styled(Textarea)`
   background: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
@@ -116,7 +115,6 @@ export const FormTextarea = styled(Textarea)`
    
   } 
 `;
-
 
 export const Dropdown = styled.select`
   background: transparent;
