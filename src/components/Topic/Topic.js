@@ -56,6 +56,10 @@ export default class Topic extends Component {
     return ContentService.deleteTopic();
   }
 
+  handleGoBack = ev => {
+    this.context.setTopicForAddThought(null)
+    this.props.history.goBack()
+  }
 
   render() {
     const { currentTopic, currentThoughts, topicId } = this.state;
@@ -64,7 +68,7 @@ export default class Topic extends Component {
         <div style={{display: 'flex', overflow:'hidden'}}>
           <GoBack 
             type='reset' 
-            onClick={() => this.props.history.goBack()}
+            onClick={() => this.handleGoBack()}
             margin='30px 0px 22px 30px'
           />
           <TopicHeader>

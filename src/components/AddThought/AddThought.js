@@ -29,7 +29,7 @@ export default class AddThought extends Component {
     const topicId =  this.context.topicForAddThought;
     if(topicId){
       this.setState({
-        topic: topicId
+        topic: topicId,
       })
     }
   }
@@ -42,6 +42,10 @@ export default class AddThought extends Component {
     })
   }
 
+  handleGoBack = ev => {
+    this.context.setTopicForAddThought(null)
+    this.props.history.goBack()
+  }
 
   handleSubmit = ev => {
     ev.preventDefault()
@@ -53,6 +57,7 @@ export default class AddThought extends Component {
     )
     .then(thought => {
       localStorage.removeItem('topic');
+      this.context.setTopicForAddThought(null)
       const thoughtId = thought.id;
       this.props.history.push(`thoughts/${thoughtId}`)
     })
@@ -60,6 +65,7 @@ export default class AddThought extends Component {
 
   render() {
     const { availTopics } = this.state;
+    const { topicForAddThought } = this.context;
     const options = availTopics.map((topic, idx )=> {
       return <option key={idx} value={topic.id}>
           {topic.topic_title}
@@ -71,7 +77,7 @@ export default class AddThought extends Component {
         <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
           <GoBack 
             type='reset' 
-            onClick={() => this.props.history.goBack()}
+            onClick={() => this.handleGoBack()}
           />
 
           <FormTitle>
@@ -100,7 +106,7 @@ export default class AddThought extends Component {
           <Dropdown 
             id='thought-topic'
             name='topic'
-            value={this.context.topicForAddThought ? this.context.topicForAddThought : 0}
+            value={topicForAddThought ? topicForAddThought : 0}
             onChange={this.handleTopicChange.bind(this)}
             aria-label="You can select a topic to put this thought in"
           >
