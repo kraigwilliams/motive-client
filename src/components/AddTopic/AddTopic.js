@@ -3,7 +3,7 @@ import {FormButton, GoBack} from '../Button/Button';
 import { FormWrapper, FormTitle, FormLabel, FormInput, Required} from '../Form/Form'
 import {PageWrapper} from '../constants'
 import ContentService from '../../services/content-service'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class AddTopic extends Component {
   handleSubmit = ev => {

@@ -172,7 +172,8 @@ const ContentService = {
     })
   },
 
-  saveThoughtEdit(thoughtId, token, data){
+  saveThoughtEdit(thoughtId, token, thought_title, thought_content, thought_topic){
+    console.log(thoughtId, 'thought id in request')
     return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
       method: 'PATCH',
       headers: {
@@ -180,14 +181,17 @@ const ContentService = {
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
-        data 
+        thought_title,
+        thought_content,
+        thought_topic
       })
     })
     .then(res => {
       if(!res.ok) {
         return res.json()
         .then(e => Promise.reject(e))
-      } return res.json()
+      } 
+      return res.json()
     })
     .catch(err => console.error(err.message))
   },

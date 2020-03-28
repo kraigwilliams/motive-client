@@ -69,17 +69,27 @@ export default class Thought extends Component {
     ev.preventDefault()
     const { title, content, topic } = ev.target;
     const { thoughtId } = this.state
+    console.log(thoughtId, 'thought id');
     const authToken = TokenService.getAuthToken()
-    const dataToUpdate = {
-      thought_title: title.value,
-      thought_content: content.value,
-      thought_topic: topic.value
-    }
-    const currentThought = await ContentService.saveThoughtEdit({
+    console.log(authToken, 'auth token')
+    // const dataToUpdate = {
+    //   thought_title: title.value,
+    //   thought_content: content.value,
+    //   thought_topic: topic.value
+    // }
+    const thought_title = title.value;
+    const thought_content = content.value;
+    const thought_topic = topic.value;
+    console.log(thought_title, thought_content, thought_topic, 'data sending in')
+
+    const currentThought = await ContentService.saveThoughtEdit(
       thoughtId,
       authToken,
-      dataToUpdate
-    })
+      thought_title,
+      thought_content,
+      thought_topic
+    )
+    console.log(currentThought, 'current thought from saveThoughtEdit')
     this.setState({
       currentThought
     })

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 // import config from '../../config.js'
 // import TokenService from '../../services/token-service'
-import ContentContext from './../../contexts/ContentContext'
+// import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import { colors, PageWrapper } from '../constants'
 import CondensedTopic from '../CondensedTopic/CondensedTopic';
