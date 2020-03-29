@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { CSSTransition } from 'react-transition-group';
 import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
-import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader, ThoughtDropdown, StyledDeleteDiv } from './Thought.style';
+import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader, ThoughtDropdown, StyledDeleteDiv, SuccessfulSave, Container } from './Thought.style';
 import { FormButton, GoBack } from '../Button/Button';
 import { colors } from '../constants'
 import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
@@ -20,7 +21,8 @@ export default class Thought extends Component {
       currentThought : {},
       editted: false, 
       deleteDiv: true,
-      topicSelected: null
+      topicSelected: null,
+      successfulSave: false
     }
   }
 
@@ -83,8 +85,16 @@ export default class Thought extends Component {
     )
 
     this.setState({
-      currentThought
+      currentThought,
+      editted: false,
+      successfulSave: true
     })
+
+    setTimeout(() => {
+      this.setState({
+        successfulSave: false
+      });
+    }, 2000);
   }
   
   handleDelete = () => {
@@ -94,7 +104,7 @@ export default class Thought extends Component {
   }
 
   render() {
-    const { currentThought, topics } = this.state;
+    const { currentThought, topics, successfulSave } = this.state;
     const { topicForThought } = this.context;
 
     const options = topics.map((topic, idx )=> {
@@ -128,7 +138,7 @@ export default class Thought extends Component {
             defaultValue={currentThought.thought_content}
           />
 
-          <div style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center'}}>
+          <Container style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center', display:'flex', flexDirection: 'column'}}>
             <ThoughtDropdown
               name='topic'
               value={this.state.topicSelected || (topicForThought ? topicForThought : 0)}
@@ -148,7 +158,22 @@ export default class Thought extends Component {
               >
                 save
               </FormButton>
-            </div>
+
+
+
+              <CSSTransition
+                in={successfulSave}
+                timeout={300}
+                classNames='alert'
+                unmountOnExit
+                appear
+              >            
+                <SuccessfulSave>
+                  {currentThought.thought_title} saved.
+                </SuccessfulSave>
+
+              </CSSTransition>
+            </Container>
 
             <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
             {!this.state.deleteDiv &&

@@ -119,3 +119,33 @@ export const ThoughtDropdown = styled.select`
   } 
 `;
 
+export const SuccessfulSave = styled.div`
+  background: transparent;
+  border: 1px solid ${colors.teal};
+  font-size: 16px;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+  color: ${colors.teal};
+
+`;
+
+export const Container = styled.div`
+  width: fit-content; 
+  margin:auto; 
+  padding: 5px 5px 30px 5px; 
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+
+.alert-appear {
+  opacity: 1;
+  transition: all 250ms linear;
+}
+
+.alert-exit {
+  opacity: 0;
+  transition: all 250ms linear;
+}
+`;
+
