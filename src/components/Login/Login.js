@@ -61,7 +61,7 @@ export default class Login extends Component {
           <div>
             <GoBack 
               type='reset' 
-              onClick={() => this.props.history.goBack()}
+              onClick={() => this.props.history.goBack('/')}
             />
             {error && <p>{error}</p>}
           </div>

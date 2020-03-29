@@ -29,4 +29,5 @@ export const TopicTitle = styled(Link)`
 export const TopicCount = styled.p`
   color: ${colors.offwhite};
   font-size: 16px;
+  margin-left: 10px;
 `;
