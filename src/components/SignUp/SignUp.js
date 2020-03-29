@@ -48,22 +48,29 @@ export default class SignUp extends Component {
     this.firstInput.current.focus()
   }
 
+  handleChange() {
+    this.setState({
+      error: null
+    })
+  }
+
   render() {
     const { error } = this.state
     return(
       <SignUpWrapper>
         
-        <FormWrapper onSubmit={this.handleSubmit}>
+        <FormWrapper onSubmit={this.handleSubmit} onChange={this.handleChange.bind(this)}>
           <div>
             <GoBack 
               type='reset' 
               onClick={() => this.props.history.goBack()}
             />
-            {error && <p>{error}</p>}
+            
           </div>
           <FormTitle>
             Create an account
           </FormTitle>
+          {error && <p style={{textAlign: 'center', marginTop: '10px'}}>{error}</p>}
           <FormLabel htmlFor='signup-firstname-input'>
             First Name <Required />
           </FormLabel>

@@ -51,24 +51,30 @@ export default class Login extends Component {
     this.firstInput.current.focus()
   }
 
+  handleChange() {
+    this.setState({
+      error: null
+    })
+  }
+
   render() {
     const { error } = this.state;
     return(
       <LoginWrapper>
         
-        <FormWrapper onSubmit={this.hanldeSubmit}>
+        <FormWrapper onSubmit={this.hanldeSubmit} onChange={this.handleChange.bind(this)}>
 
           <div>
             <GoBack 
               type='reset' 
               onClick={() => this.props.history.goBack('/')}
             />
-            {error && <p>{error}</p>}
+            
           </div>
           <FormTitle>
             Login
           </FormTitle>
-
+          {error && <p style={{textAlign: 'center', marginTop: '10px'}}>{error}</p>}
           <FormLabel htmlFor='login-username-input'>
             Username <Required />
           </FormLabel>
