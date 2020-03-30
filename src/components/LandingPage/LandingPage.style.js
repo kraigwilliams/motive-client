@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import cloud from './Assets/cloud.jpg';
 
 export const PageWrapper = styled.div`
-  background-image: url(${cloud});
+  /* background-image: url(${cloud});
   height: 100%; 
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  text-align: center;
 `;
 
 export const LandingHeader = styled.h1`
@@ -37,10 +38,11 @@ export const LandingText = styled.p`
 `;
 
 export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 15px;
+  background-image: url(${cloud});
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media (min-width: 600px) {
     height: 100vh;
@@ -59,17 +61,21 @@ export const ContentWrapper1 = styled.div`
   font-size: 25px;
   text-align: center;
 
+
   .img {
       width: 150%;
+      
     }
-
 
   @media (min-width: 600px) {
     font-size: 33px;
     height: 100vh;
-    padding: 15px;
+    padding: 70px 50px;
+    /* width: fit-content; */
+    height: fit-content;
 
     .img {
+      padding: 0px;
       width: 80%;
     }
   } 
@@ -84,7 +90,7 @@ export const LandingLink = styled(Link)`
   list-style-type: none;
   padding: 8px;
   color: ${colors.darkgrey};
-  border: 2px solid ${colors.white};
+  border: 2px solid ${colors.darkgrey};
   
 
   :hover {

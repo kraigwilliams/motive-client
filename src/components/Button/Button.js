@@ -34,9 +34,9 @@ export const AngleDown = styled(AngleDownButton)`
   color: ${({ color }) => color? color : colors.slategrey};
   border: none;
   font-size: 1em;
-  text-align: center;
-  align-self: left;
-  margin: ${({ margin }) => margin ? margin: ''};
+  /* text-align: center;
+  align-self: center; */
+  /* margin: ${({ margin }) => margin ? margin: ''}; */
   z-index: 11;
   animation: ${bounce} 2s linear infinite;
   :hover {

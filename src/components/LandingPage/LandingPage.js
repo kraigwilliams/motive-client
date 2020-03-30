@@ -25,17 +25,7 @@ export default function LandingPage() {
           <LandingText>
              Fokul is a space to cultivate ideas that matter. Keep a personal record or collaborate in groups — the sky's the limit.     
           </LandingText>
-
-          {TokenService.hasAuthToken()
-              ? ''
-              : 
-              <LandingLink
-                to='/signup'>
-                Sign Up Here
-              </LandingLink>
-          }
-        
-        
+ 
         <AngleDown className='bounce' style={{margin: '150px'}} onClick={executeScroll} />
 
         </ContentWrapper >
@@ -48,9 +38,18 @@ export default function LandingPage() {
           Store all your Thoughts inside each Topic
         <img src={topic}  className='img' alt='topic-view'/>
         </ContentWrapper1>
-        <ContentWrapper1 style={{backgroundColor: colors.teal }}>
+        <ContentWrapper1 style={{backgroundColor: colors.coral }}>
           Add as many Thoughts as you can imagine!
         <img src={add} className='img' alt='add-thought-view'/>  
+
+        {TokenService.hasAuthToken()
+              ? ''
+              : 
+              <LandingLink
+                to='/signup'>
+                Sign Up Here
+              </LandingLink>
+          }
         </ContentWrapper1>
         
       </PageWrapper>
