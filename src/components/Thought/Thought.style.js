@@ -11,7 +11,7 @@ export const ThoughtWrapper = styled.div`
 `;
 
 export const ThoughtHeader = styled.textarea`
-  padding: 30px 10px;
+  padding: 30px 10px 10px 10px;
   color: ${colors.white};
   vertical-align: middle;
   text-align: center;
@@ -30,14 +30,14 @@ export const ThoughtHeader = styled.textarea`
     font-size: 22px;
     border: none;
     height: fit-content;
-    margin: 40px auto 20px auto;
+    margin: 0px auto 0px auto;
   } 
   @media (min-width: 500px) {
     text-align: center;
     font-size: 22px;
     border: none;
     height: fit-content;
-    margin: 40px auto 20px auto;
+    margin: 0px auto 0px auto;
   } 
 `;
 
