@@ -28,13 +28,15 @@ export const GoBack = styled(GoBackButton)`
   align-self: left;
   margin: ${({ margin }) => margin ? margin: ''};
   z-index: 11;
+  
   :hover {
     cursor: pointer;
   }
 
   @media (min-width: 700px) {
     /* margin: ${({ margin }) => margin ? '30px 0px 22px 30px' : ''}; */
-    margin: 30px 0px 30px 30px;
+    margin: ${({ margin }) => margin ? margin: '30px 0px 30px 30px'};
+    height: 20px;
   } 
 `;
 

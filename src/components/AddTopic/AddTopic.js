@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {FormButton, GoBack} from '../Button/Button';
 import { FormWrapper, FormTitle, FormLabel, FormInput, Required} from '../Form/Form'
-import {PageWrapper} from '../constants'
+import {PageWrapper, colors} from '../constants'
 import ContentService from '../../services/content-service'
 
 export default class AddTopic extends Component {
@@ -21,12 +21,13 @@ export default class AddTopic extends Component {
 
   render() {
     return (
-      <PageWrapper padding='40px 0'>
+      <PageWrapper padding='40px 0' bgColor={colors.slategrey}>
         <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
           
           <GoBack 
             type='reset' 
             onClick={() => this.props.history.goBack()}
+            margin='0px'
           />
           
           

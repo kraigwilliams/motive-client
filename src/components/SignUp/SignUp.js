@@ -60,10 +60,11 @@ export default class SignUp extends Component {
       <SignUpWrapper>
         
         <FormWrapper onSubmit={this.handleSubmit} onChange={this.handleChange.bind(this)}>
-          <div>
+          <div style={{height: '20px'}}>
             <GoBack 
               type='reset' 
               onClick={() => this.props.history.push('/')}
+              margin='0px'
             />
             
           </div>

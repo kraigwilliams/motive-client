@@ -7,6 +7,10 @@ export const FormTitle = styled.h1`
   text-align: center;
   font-size: 22px;
   color: ${({ color }) => color || colors.teal};
+  margin-top: 10px;
+  @media (min-width:700px) {
+  margin-top: 10px;
+  }
 `;
 
 export const FormWrapper = styled.form`
@@ -47,13 +51,14 @@ export const FormLabel = styled(Label)`
   color: ${props => props.color ? props.color : colors.coral} ;
   text-align: ${props => props.align ? props.align : 'left'};
   font-size: ${({fontSize}) => fontSize ? fontSize : 'auto'};
-  padding: 10px;
+  padding: 10px 10px 10px 0px;
   margin: 10px auto 0px auto;
   font-weight: bolder;
   width: 80%;
+  min-height: 100%;
 
   @media (min-width:700px) {
-    width: 80%; 
+    width: 60%; 
     margin: auto;
     margin-top: 20px;
   }
@@ -84,7 +89,7 @@ export const FormInput = styled(Input)`
   }
 
   @media (min-width:700px) {
-    width: 80%; 
+    width: 60%; 
     margin: auto;
   }
 `;
@@ -116,7 +121,7 @@ export const FormTextarea = styled(Textarea)`
     border: 2px solid ${colors.teal};
   }
   @media (min-width: 700px) {
-    width: 80%;
+    width: 60%;
     margin: auto;
   } 
 `;
@@ -138,7 +143,7 @@ export const Dropdown = styled.select`
   }
 
   @media (min-width: 700px) {
-    width: 80%;
+    width: 60%;
     margin: auto;
   } 
 `;

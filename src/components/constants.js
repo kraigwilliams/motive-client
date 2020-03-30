@@ -21,5 +21,6 @@ export const PageWrapper = styled.div`
 
   @media (min-width:700px) {
     padding: ${({padding}) => padding ? padding : '0px'};
+    background-color: ${({bgColorDesktop}) => bgColorDesktop ? bgColorDesktop : colors.offwhite};
   }
 `;
