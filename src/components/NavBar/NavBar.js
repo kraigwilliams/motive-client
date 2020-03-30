@@ -5,7 +5,7 @@ import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext.js'
 import Burger from './Burger'
 import { NavWrapper, Logo, MenuLink, MobileButton } from './NavBar.style'
-
+import {ReactComponent as FokulLogo} from './FOKUL.svg'
 class NavBar extends Component {
   static contextType = UserContext
   constructor(props) {
@@ -46,7 +46,7 @@ class NavBar extends Component {
 
   renderLoginLink() {
     return (
-      <div>
+      <div style={{alignSelf: 'center' }}>
         <MenuLink to='/login'>Login</MenuLink>
         {' '}
         <MenuLink to='/signup'>Sign up</MenuLink>
@@ -59,8 +59,9 @@ class NavBar extends Component {
       <>
       <NavWrapper>
         <Logo to='/'>
-            Fokul
+            <FokulLogo style={{fill: 'white', width: '120px'}}/>
         </Logo>
+        
     
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

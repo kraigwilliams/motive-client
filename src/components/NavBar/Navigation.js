@@ -31,12 +31,12 @@ const NavItem = styled(Link)`
 const Navigation = (props) => {
   return (
     <NavLinks direction={props.direction}>
-        <li className='nav-links' >
+        {/* <li className='nav-links' >
           <NavItem to='/' color={props.color}>
             About
           </NavItem>
         </li>
-        
+         */}
 
         <li className='nav-links' >
           <NavItem to='/dashboard' color={props.color}>
@@ -44,11 +44,11 @@ const Navigation = (props) => {
           </NavItem>
         </li>
 
-        <li className='nav-links' color={props.color}>
+        {/* <li className='nav-links' color={props.color}>
           <NavItem to='/connections' color={props.color}>
             Connections
           </NavItem>
-        </li>
+        </li> */}
       </NavLinks>
   )
 }

@@ -12,6 +12,7 @@ export const NavWrapper = styled.header`
   .logged-in {
     display: flex;
     flex-direction: row;
+    align-self: center;
     height: 40px;
     width: fit-content;
     justify-items: right;
@@ -26,7 +27,7 @@ export const Logo = styled(Link)`
   align-self: center;
   :hover{
     cursor: pointer;
-    color: ${colors.teal}
+    fill: ${colors.teal}
   }
 `;
 

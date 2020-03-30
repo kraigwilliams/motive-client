@@ -1,33 +1,48 @@
-import React, {Component} from 'react';
+import React, {useRef} from 'react';
 import TokenService from '../../services/token-service';
-import { PageWrapper, LandingHeader, ContentWrapper, LandingText, LandingLink, LandingImage } from './LandingPage.style'
-import cloud from './Assets/cloud.jpg';
-export default class LandingPage extends Component {
+import { PageWrapper, LandingHeader, ContentWrapper, LandingText, LandingLink, ContentWrapper1 } from './LandingPage.style'
+import { colors } from '../constants'
+import { AngleDown } from '../Button/Button'
+import dashboard from './Assets/dashboard.png'
+import topic from './Assets/topic.png'
+import add from './Assets/add.png'
 
-  render() {
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
+
+export default function LandingPage() {
+
+  
+  const myRef = useRef(null)
+  const executeScroll = () => scrollToRef(myRef)
+
     return(
       <PageWrapper>
-        <LandingHeader>
-          Welcome to Fokul
-        </LandingHeader>
         <ContentWrapper>
-    
+          <LandingHeader>
+            Focus your thoughts. 
+          </LandingHeader>
           <LandingText>
-            Fokul is a space where intentional thoughts are born. Collaborate with your friends or keep a record for yourself.  
+             Fokul is a space to cultivate ideas that matter. Keep a personal record or collaborate in groups — the sky's the limit.     
           </LandingText>
-          <LandingText>
-            No matter how big or small, Fokul will help you there.
-          </LandingText>
-          <LandingImage src={cloud} alt='labyrinth' />
+ 
+        <AngleDown className='bounce' style={{margin: '150px'}} onClick={executeScroll} />
 
-          <LandingText>Demo Fokul and see how you can begin cultivating your thoughts! 
-            <br /> 
-            <LandingLink to='/login'>
-              Log In
-            </LandingLink> 
-              with Username: admin Password: pass
-          </LandingText>
-          {TokenService.hasAuthToken()
+        </ContentWrapper >
+
+        <ContentWrapper1 ref={myRef} >
+          View your dashboard containing Topics and Thoughts
+        <img src={dashboard} className='img' alt='dashboard-view'/>
+        </ContentWrapper1>
+        <ContentWrapper1 style={{backgroundColor: colors.offwhite}}>
+          Store all your Thoughts inside each Topic
+        <img src={topic}  className='img' alt='topic-view'/>
+        </ContentWrapper1>
+        <ContentWrapper1 style={{backgroundColor: colors.coral }}>
+          Add as many Thoughts as you can imagine!
+        <img src={add} className='img' alt='add-thought-view'/>  
+
+        {TokenService.hasAuthToken()
               ? ''
               : 
               <LandingLink
@@ -35,9 +50,9 @@ export default class LandingPage extends Component {
                 Sign Up Here
               </LandingLink>
           }
-        </ContentWrapper>
+        </ContentWrapper1>
+        
       </PageWrapper>
-      
     )
-  }
 }
+
