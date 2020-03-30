@@ -7,6 +7,10 @@ export const FormTitle = styled.h1`
   text-align: center;
   font-size: 22px;
   color: ${({ color }) => color || colors.teal};
+  margin-top: 10px;
+  @media (min-width:700px) {
+  margin-top: 10px;
+  }
 `;
 
 export const FormWrapper = styled.form`
@@ -47,13 +51,14 @@ export const FormLabel = styled(Label)`
   color: ${props => props.color ? props.color : colors.coral} ;
   text-align: ${props => props.align ? props.align : 'left'};
   font-size: ${({fontSize}) => fontSize ? fontSize : 'auto'};
-  padding: 10px;
-  margin: 20px auto 0px auto;
+  padding: 10px 10px 10px 0px;
+  margin: 10px auto 0px auto;
   font-weight: bolder;
   width: 80%;
+  min-height: 100%;
 
   @media (min-width:700px) {
-    width: 80%; 
+    width: 60%; 
     margin: auto;
     margin-top: 20px;
   }
@@ -66,22 +71,25 @@ export const Input =  React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormInput = styled(Input)`
-  border: 2px solid ${colors.offwhite};
-  border-radius: 40px;
+  /* border: 2px solid ${colors.offwhite}; */
+  /* border-radius: 40px; */
+  border: none;
+  border-bottom: 2px solid ${colors.offwhite};
   padding: 10px;
   font-size: 16px;
-  background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite};
+  /* background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite}; */
+  background: transparent;
   color: ${({ color }) => color || colors.darkgrey};
   text-align: center;
   width: 80%;
   margin: auto;
 
   :focus {
-    border-color: ${colors.teal}
+    border-bottom: 2px solid ${colors.teal}
   }
 
   @media (min-width:700px) {
-    width: 80%; 
+    width: 60%; 
     margin: auto;
   }
 `;
@@ -109,9 +117,11 @@ export const FormTextarea = styled(Textarea)`
   border: 2px solid ${colors.offwhite};
   border-radius: 10px;
   margin: auto;
-
+  :focus {
+    border: 2px solid ${colors.teal};
+  }
   @media (min-width: 700px) {
-    width: 80%;
+    width: 60%;
     margin: auto;
   } 
 `;
@@ -128,9 +138,12 @@ export const Dropdown = styled.select`
     text-align: center;
   }
   
+  :focus {
+    border: 2px solid ${colors.teal};
+  }
 
   @media (min-width: 700px) {
-    width: 80%;
+    width: 60%;
     margin: auto;
   } 
 `;

@@ -10,23 +10,34 @@ export const ThoughtWrapper = styled.div`
   
 `;
 
-export const ThoughtHeader = styled.input`
-  padding: 0px 10px;
+export const ThoughtHeader = styled.textarea`
+  padding: 30px 10px;
   color: ${colors.white};
+  vertical-align: middle;
   text-align: center;
   border: none;
   background: transparent;
   font-size: 20px;
   width: 100%;
   align-self: center;
-  margin: auto;
-  /* border: 2px solid black; */
-  overflow-wrap: break-word;
+  justify-self: center;
+  margin: 10px auto 20px auto;
+  word-wrap: break-word;
   flex-wrap: wrap;
-  height: 90px;
+  height: fit-content;
   @media (min-width: 600px) {
     text-align: center;
     font-size: 22px;
+    border: none;
+    height: fit-content;
+    margin: 40px auto 20px auto;
+  } 
+  @media (min-width: 500px) {
+    text-align: center;
+    font-size: 22px;
+    border: none;
+    height: fit-content;
+    margin: 40px auto 20px auto;
   } 
 `;
 

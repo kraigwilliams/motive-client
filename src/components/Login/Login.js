@@ -64,17 +64,19 @@ export default class Login extends Component {
         
         <FormWrapper onSubmit={this.hanldeSubmit} onChange={this.handleChange.bind(this)}>
 
-          <div>
+          <div style={{height: '30px'}}>
             <GoBack 
               type='reset' 
-              onClick={() => this.props.history.goBack('/')}
+              onClick={() => this.props.history.push('/')}
+              margin='10px 0px 20px 0px'
             />
-            
+         
           </div>
           <FormTitle>
             Login
           </FormTitle>
           {error && <p style={{textAlign: 'center', marginTop: '10px'}}>{error}</p>}
+          
           <FormLabel htmlFor='login-username-input'>
             Username <Required />
           </FormLabel>

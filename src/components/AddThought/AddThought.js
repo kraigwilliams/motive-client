@@ -3,7 +3,7 @@ import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import { FormButton, GoBack } from '../Button/Button';
 import { FormWrapper, FormTitle, FormLabel, FormInput, Dropdown, FormTextarea} from '../Form/Form'
-import {PageWrapper} from '../constants'
+import {PageWrapper, colors} from '../constants'
 
 
 export default class AddThought extends Component {
@@ -73,12 +73,14 @@ export default class AddThought extends Component {
         </option>
     })
     return (
-      <PageWrapper padding='40px 0'>
+      <PageWrapper padding='40px 0' bgColor={colors.slategrey}>
       
-        <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
+        <FormWrapper padding='50px 30px' onSubmit={this.handleSubmit}>
           <GoBack 
             type='reset' 
-            onClick={() => this.handleGoBack()}
+            onClick={() => this.handleGoBack()
+            }
+            margin='0px'
           />
 
           <FormTitle>
