@@ -10,8 +10,8 @@ export const ThoughtWrapper = styled.div`
   
 `;
 
-export const ThoughtHeader = styled.input`
-  padding: 0px 10px;
+export const ThoughtHeader = styled.textarea`
+  padding: 20px 10px;
   color: ${colors.white};
   text-align: center;
   border: none;
@@ -20,8 +20,7 @@ export const ThoughtHeader = styled.input`
   width: 100%;
   align-self: center;
   margin: auto;
-  /* border: 2px solid black; */
-  overflow-wrap: break-word;
+  word-wrap: break-word;
   flex-wrap: wrap;
   height: 90px;
   @media (min-width: 600px) {
