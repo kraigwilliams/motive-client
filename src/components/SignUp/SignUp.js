@@ -63,7 +63,7 @@ export default class SignUp extends Component {
           <div>
             <GoBack 
               type='reset' 
-              onClick={() => this.props.history.goBack()}
+              onClick={() => this.props.history.push('/')}
             />
             
           </div>

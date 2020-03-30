@@ -48,7 +48,7 @@ export const FormLabel = styled(Label)`
   text-align: ${props => props.align ? props.align : 'left'};
   font-size: ${({fontSize}) => fontSize ? fontSize : 'auto'};
   padding: 10px;
-  margin: 20px auto 0px auto;
+  margin: 10px auto 0px auto;
   font-weight: bolder;
   width: 80%;
 
@@ -66,18 +66,21 @@ export const Input =  React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormInput = styled(Input)`
-  border: 2px solid ${colors.offwhite};
-  border-radius: 40px;
+  /* border: 2px solid ${colors.offwhite}; */
+  /* border-radius: 40px; */
+  border: none;
+  border-bottom: 2px solid ${colors.offwhite};
   padding: 10px;
   font-size: 16px;
-  background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite};
+  /* background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite}; */
+  background: transparent;
   color: ${({ color }) => color || colors.darkgrey};
   text-align: center;
   width: 80%;
   margin: auto;
 
   :focus {
-    border-color: ${colors.teal}
+    border-bottom: 2px solid ${colors.teal}
   }
 
   @media (min-width:700px) {
@@ -109,7 +112,9 @@ export const FormTextarea = styled(Textarea)`
   border: 2px solid ${colors.offwhite};
   border-radius: 10px;
   margin: auto;
-
+  :focus {
+    border: 2px solid ${colors.teal};
+  }
   @media (min-width: 700px) {
     width: 80%;
     margin: auto;
@@ -128,6 +133,9 @@ export const Dropdown = styled.select`
     text-align: center;
   }
   
+  :focus {
+    border: 2px solid ${colors.teal};
+  }
 
   @media (min-width: 700px) {
     width: 80%;

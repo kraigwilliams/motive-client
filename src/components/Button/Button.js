@@ -76,6 +76,10 @@ export const FormButton = styled(Button)`
     color: ${({disabled}) => !disabled && colors.teal};
     border-color: ${({disabled}) => !disabled && colors.teal};
   }
+  :focus {
+    border: 2px solid ${colors.teal};
+    color: ${colors.teal};
+  }
 `;
 
 const Add = React.forwardRef(({ className, ...props }, ref) => {
