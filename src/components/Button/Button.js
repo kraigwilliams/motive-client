@@ -34,7 +34,7 @@ export const GoBack = styled(GoBackButton)`
 
   @media (min-width: 700px) {
     /* margin: ${({ margin }) => margin ? '30px 0px 22px 30px' : ''}; */
-    margin: 30px 0px 22px 30px;
+    margin: 30px 0px 30px 30px;
   } 
 `;
 
@@ -48,7 +48,7 @@ export const ConfirmDeleteButton = styled(Button)`
   border-radius: 5px;
   font-size: 16px;
   text-align: center;
-  margin-top: ${({ margintop }) => margintop || "5px"};
+  margin-top: ${({ margintop }) => margintop || "15px"};
   background-color: ${({ backgroundColor }) => backgroundColor || colors.coral};
   opacity: ${({disabled}) => disabled ? .5 : 1};
 
