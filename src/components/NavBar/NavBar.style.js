@@ -12,6 +12,7 @@ export const NavWrapper = styled.header`
   .logged-in {
     display: flex;
     flex-direction: row;
+    align-self: center;
     height: 40px;
     width: fit-content;
     justify-items: right;

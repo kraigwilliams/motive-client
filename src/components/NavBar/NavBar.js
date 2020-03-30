@@ -46,7 +46,7 @@ class NavBar extends Component {
 
   renderLoginLink() {
     return (
-      <div>
+      <div style={{alignSelf: 'center' }}>
         <MenuLink to='/login'>Login</MenuLink>
         {' '}
         <MenuLink to='/signup'>Sign up</MenuLink>
@@ -59,7 +59,7 @@ class NavBar extends Component {
       <>
       <NavWrapper>
         <Logo to='/'>
-            <FokulLogo classname='logo' style={{fill: 'white', width: '120px'}}/>
+            <FokulLogo style={{fill: 'white', width: '120px'}}/>
         </Logo>
         
     

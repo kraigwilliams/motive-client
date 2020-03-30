@@ -1,18 +1,29 @@
-import React, {Component} from 'react';
+import React, {useRef} from 'react';
 import TokenService from '../../services/token-service';
-import { PageWrapper, LandingHeader, ContentWrapper, LandingText, LandingLink, LandingImage } from './LandingPage.style'
-import cloud from './Assets/cloud.jpg';
-export default class LandingPage extends Component {
+import { PageWrapper, LandingHeader, ContentWrapper, LandingText, LandingLink, ContentWrapper1 } from './LandingPage.style'
+import { colors } from '../constants'
+import { AngleDown } from '../Button/Button'
+import dashboard from './Assets/dashboard.png'
+import topic from './Assets/topic.png'
+import add from './Assets/add.png'
 
-  render() {
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
+
+export default function LandingPage() {
+
+  
+  const myRef = useRef(null)
+  const executeScroll = () => scrollToRef(myRef)
+
     return(
       <PageWrapper>
         <ContentWrapper>
           <LandingHeader>
-            Focus on your thoughts. 
+            Focus your thoughts. 
           </LandingHeader>
           <LandingText>
-             Fokül is a space to cultivate ideas that matter. Keep a personal record or collaborate in groups — the sky's the limit.     
+             Fokul is a space to cultivate ideas that matter. Keep a personal record or collaborate in groups — the sky's the limit.     
           </LandingText>
 
           {TokenService.hasAuthToken()
@@ -23,8 +34,26 @@ export default class LandingPage extends Component {
                 Sign Up Here
               </LandingLink>
           }
-        </ContentWrapper>
+        
+        
+        <AngleDown className='bounce' style={{margin: '150px'}} onClick={executeScroll} />
+
+        </ContentWrapper >
+
+        <ContentWrapper1 ref={myRef} >
+          View your dashboard containing Topics and Thoughts
+        <img src={dashboard} className='img' alt='dashboard-view'/>
+        </ContentWrapper1>
+        <ContentWrapper1 style={{backgroundColor: colors.offwhite}}>
+          Store all your Thoughts inside each Topic
+        <img src={topic}  className='img' alt='topic-view'/>
+        </ContentWrapper1>
+        <ContentWrapper1 style={{backgroundColor: colors.teal }}>
+          Add as many Thoughts as you can imagine!
+        <img src={add} className='img' alt='add-thought-view'/>  
+        </ContentWrapper1>
+        
       </PageWrapper>
     )
-  }
 }
+

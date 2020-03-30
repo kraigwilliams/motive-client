@@ -5,18 +5,16 @@ import cloud from './Assets/cloud.jpg';
 
 export const PageWrapper = styled.div`
   background-image: url(${cloud});
-  
   height: 100%; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
- 
 `;
 
 export const LandingHeader = styled.h1`
   text-align: center;
   padding: 30px;
-  color: ${colors.darkgrey};
+  color: ${colors.white};
 
   @media (min-width: 600px) {
     color: ${colors.white};
@@ -34,19 +32,46 @@ export const LandingText = styled.p`
   font-size: 25px;
 
   @media (min-width: 600px) {
-    color: ${colors.white};
+    color: ${colors.darkgrey};
   }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* background-color: ${colors.darkgrey}; */
   height: 100vh;
   padding: 15px;
 
   @media (min-width: 600px) {
-    height: 150vh;
+    height: 100vh;
+  } 
+`;
+
+export const ContentWrapper1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => props.color ? props.color : colors.slategrey};
+  height: 60vh;
+  padding: 70px;
+  justify-content: center;
+  align-items: center;
+  color: ${colors.darkgrey};
+  font-size: 25px;
+  text-align: center;
+
+  .img {
+      width: 150%;
+    }
+
+
+  @media (min-width: 600px) {
+    font-size: 33px;
+    height: 100vh;
+    padding: 15px;
+
+    .img {
+      width: 80%;
+    }
   } 
 `;
 
@@ -58,12 +83,14 @@ export const LandingLink = styled(Link)`
   text-decoration: none;
   list-style-type: none;
   padding: 8px;
-  color: ${colors.white};
-  border: 2px solid white;
+  color: ${colors.darkgrey};
+  border: 2px solid ${colors.white};
   
 
   :hover {
-    box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.50);
+    box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.20);
+    border: 2px solid ${colors.darkgrey};
+    color: ${colors.darkgrey};
   }
 `;
 
