@@ -11,18 +11,22 @@ export const ThoughtWrapper = styled.div`
 `;
 
 export const ThoughtHeader = styled.input`
-  padding: 30px 50px;
+  padding: 0px 10px;
   color: ${colors.white};
   text-align: center;
   border: none;
   background: transparent;
-  font-size: 22px;
+  font-size: 20px;
   width: 100%;
   align-self: center;
   margin: auto;
-
+  /* border: 2px solid black; */
+  overflow-wrap: break-word;
+  flex-wrap: wrap;
+  height: 90px;
   @media (min-width: 600px) {
     text-align: center;
+    font-size: 22px;
   } 
 `;
 

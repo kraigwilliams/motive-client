@@ -32,9 +32,10 @@ export const GoBack = styled(GoBackButton)`
     cursor: pointer;
   }
 
-  /* @media (min-width: 600px) {
-    margin: ${({ margin }) => margin ? '30px 0px 22px 150px' : ''};
-  }  */
+  @media (min-width: 700px) {
+    /* margin: ${({ margin }) => margin ? '30px 0px 22px 30px' : ''}; */
+    margin: 30px 0px 22px 30px;
+  } 
 `;
 
 export const ConfirmDeleteButton = styled(Button)`

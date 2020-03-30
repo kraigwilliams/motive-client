@@ -120,11 +120,11 @@ export default class Thought extends Component {
           onSubmit={this.handleEdit.bind(this)} 
           onChange={this.handleChange.bind(this)}
         >
-          <div style={{display: 'flex', overflow:'hidden'}}>
+          <div style={{display: 'flex',  width: '100%'}}>
           <GoBack 
             type='reset' 
             onClick={() => this.props.history.goBack()}
-            margin='30px 0px 22px 30px'
+            margin='30px 0px 30px 10px'
           />
           <ThoughtHeader type='text'
             name='title'
