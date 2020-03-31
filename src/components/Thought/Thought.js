@@ -3,7 +3,8 @@ import { CSSTransition } from 'react-transition-group';
 import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
-import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader, ThoughtDropdown, StyledDeleteDiv, SuccessfulSave, Container } from './Thought.style';
+import { CommentWrapper, CommentHeader, Comment, CommentsWrap, Reply } from '../Comment/Comment'
+import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, ThoughtDropdown, StyledDeleteDiv, SuccessfulSave, Container } from './Thought.style';
 import { FormButton, GoBack } from '../Button/Button';
 import { colors } from '../constants'
 import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
@@ -187,12 +188,18 @@ export default class Thought extends Component {
           <CommentHeader>
             Comments
           </CommentHeader>
-
-
+            
           {/* Map through existing comments to render here */}
-
+          <CommentsWrap>
+            <Comment />
+            <Comment />
+            <Comment />
+          </CommentsWrap>
+          
           {/* Input to write a new comment here */}
+            <Reply />
           {/* Add comment button */}
+
         </CommentWrapper>
       </ThoughtWrapper>
 
