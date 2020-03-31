@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignUp /> renders SignUp by default 1`] = `
+<SignUp
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+>
+  <styled.div>
+    <div
+      className="sc-fznZeY OLqaT"
+    >
+      <styled.form
+        onChange={[Function]}
+        onSubmit={[Function]}
+      >
+        <form
+          className="sc-fznKkj jXwfHl"
+          onChange={[Function]}
+          onSubmit={[Function]}
+        >
+          <div
+            style={
+              Object {
+                "height": "20px",
+              }
+            }
+          >
+            <Styled(Component)
+              margin="0px"
+              onClick={[Function]}
+              type="reset"
+            >
+              <ForwardRef
+                className="sc-fzozJi fLkxtq"
+                margin="0px"
+                onClick={[Function]}
+                type="reset"
+              >
+                <button
+                  className="Button sc-fzozJi fLkxtq"
+                  margin="0px"
+                  onClick={[Function]}
+                  type="reset"
+                >
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon="arrow-left"
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    swapOpacity={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-left fa-w-14 "
+                      data-icon="arrow-left"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </FontAwesomeIcon>
+                </button>
+              </ForwardRef>
+            </Styled(Component)>
+          </div>
+          <styled.h1>
+            <h1
+              className="sc-AxirZ kOpkhk"
+            >
+              Create an account
+            </h1>
+          </styled.h1>
+          <Styled(Label)
+            htmlFor="signup-firstname-input"
+          >
+            <Label
+              className="sc-AxhUy ewJyDd"
+              htmlFor="signup-firstname-input"
+            >
+              <label
+                className="Label sc-AxhUy ewJyDd"
+                htmlFor="signup-firstname-input"
+              >
+                First Name 
+                <Required>
+                  <span
+                    className="Required"
+                  >
+                    *
+                  </span>
+                </Required>
+              </label>
+            </Label>
+          </Styled(Label)>
+          <Styled(Component)
+            aria-label="Enter your first name"
+            aria-required="true"
+            id="signup-firstname-input"
+            name="firstname"
+            placeholder="John"
+            required={true}
+          >
+            <ForwardRef
+              aria-label="Enter your first name"
+              aria-required="true"
+              className="sc-AxgMl ceOmaP"
+              id="signup-firstname-input"
+              name="firstname"
+              placeholder="John"
+              required={true}
+            >
+              <input
+                aria-label="Enter your first name"
+                aria-required="true"
+                className="Input sc-AxgMl ceOmaP"
+                id="signup-firstname-input"
+                name="firstname"
+                placeholder="John"
+                required={true}
+                type="text"
+              />
+            </ForwardRef>
+          </Styled(Component)>
+          <Styled(Label)
+            htmlFor="signup-lastname-input"
+          >
+            <Label
+              className="sc-AxhUy ewJyDd"
+              htmlFor="signup-lastname-input"
+            >
+              <label
+                className="Label sc-AxhUy ewJyDd"
+                htmlFor="signup-lastname-input"
+              >
+                Last Name 
+                <Required>
+                  <span
+                    className="Required"
+                  >
+                    *
+                  </span>
+                </Required>
+              </label>
+            </Label>
+          </Styled(Label)>
+          <Styled(Component)
+            aria-label="Enter your last name"
+            aria-required="true"
+            id="signup-lastname-input"
+            name="lastname"
+            placeholder="Doe"
+            required={true}
+          >
+            <ForwardRef
+              aria-label="Enter your last name"
+              aria-required="true"
+              className="sc-AxgMl ceOmaP"
+              id="signup-lastname-input"
+              name="lastname"
+              placeholder="Doe"
+              required={true}
+            >
+              <input
+                aria-label="Enter your last name"
+                aria-required="true"
+                className="Input sc-AxgMl ceOmaP"
+                id="signup-lastname-input"
+                name="lastname"
+                placeholder="Doe"
+                required={true}
+                type="text"
+              />
+            </ForwardRef>
+          </Styled(Component)>
+          <Styled(Label)
+            htmlFor="signup-username-input"
+          >
+            <Label
+              className="sc-AxhUy ewJyDd"
+              htmlFor="signup-username-input"
+            >
+              <label
+                className="Label sc-AxhUy ewJyDd"
+                htmlFor="signup-username-input"
+              >
+                Username 
+                <Required>
+                  <span
+                    className="Required"
+                  >
+                    *
+                  </span>
+                </Required>
+              </label>
+            </Label>
+          </Styled(Label)>
+          <Styled(Component)
+            aria-label="Enter your username"
+            aria-required="true"
+            id="signup-username-input"
+            name="username"
+            placeholder="john_doe"
+            required={true}
+          >
+            <ForwardRef
+              aria-label="Enter your username"
+              aria-required="true"
+              className="sc-AxgMl ceOmaP"
+              id="signup-username-input"
+              name="username"
+              placeholder="john_doe"
+              required={true}
+            >
+              <input
+                aria-label="Enter your username"
+                aria-required="true"
+                className="Input sc-AxgMl ceOmaP"
+                id="signup-username-input"
+                name="username"
+                placeholder="john_doe"
+                required={true}
+                type="text"
+              />
+            </ForwardRef>
+          </Styled(Component)>
+          <Styled(Label)
+            htmlFor="signup-password-input"
+          >
+            <Label
+              className="sc-AxhUy ewJyDd"
+              htmlFor="signup-password-input"
+            >
+              <label
+                className="Label sc-AxhUy ewJyDd"
+                htmlFor="signup-password-input"
+              >
+                Password 
+                <Required>
+                  <span
+                    className="Required"
+                  >
+                    *
+                  </span>
+                </Required>
+              </label>
+            </Label>
+          </Styled(Label)>
+          <Styled(Component)
+            aria-label="Enter your password"
+            aria-required="true"
+            id="signup-password-input"
+            name="password"
+            placeholder="password"
+            required={true}
+            type="password"
+          >
+            <ForwardRef
+              aria-label="Enter your password"
+              aria-required="true"
+              className="sc-AxgMl ceOmaP"
+              id="signup-password-input"
+              name="password"
+              placeholder="password"
+              required={true}
+              type="password"
+            >
+              <input
+                aria-label="Enter your password"
+                aria-required="true"
+                className="Input sc-AxgMl ceOmaP"
+                id="signup-password-input"
+                name="password"
+                placeholder="password"
+                required={true}
+                type="password"
+              />
+            </ForwardRef>
+          </Styled(Component)>
+          <Styled(Component)
+            type="submit"
+          >
+            <ForwardRef
+              className="sc-fzpans hrFzDy"
+              type="submit"
+            >
+              <button
+                className="Button sc-fzpans hrFzDy"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </ForwardRef>
+          </Styled(Component)>
+        </form>
+      </styled.form>
+    </div>
+  </styled.div>
+</SignUp>
+`;

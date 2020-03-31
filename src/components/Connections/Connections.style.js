@@ -14,7 +14,8 @@ export const ConnectionsPageWrapper = styled.div`
 
 export const ConnectionsHeader = styled.h1`
   font-size: 25px;
-  /* padding: 30px; */
+  padding-top: 60px;
+  padding-bottom: 30px;
   
   color: ${colors.white};
   text-align: center;

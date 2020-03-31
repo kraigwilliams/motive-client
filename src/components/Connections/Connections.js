@@ -64,8 +64,6 @@ export default class Connections extends Component {
           {this.context.user.username}'s Connections
           </ConnectionsHeader>
    
-        
-          
           <FormWrapper backgroundcolor='none'>
             <FormTitle color={colors.coral}>
               Add Connections
@@ -80,14 +78,13 @@ export default class Connections extends Component {
             
             <FormButton 
               type='submit' 
-              margintop={'8px'} 
-              backgroundcolor={colors.coral} 
-              color={colors.white} 
+              margintop={'15px'} 
+              backgroundcolor={colors.darkergrey} 
+              color={colors.offwhite}
+          
             >
               Search
             </FormButton>
-
-            
 
             <FormTitle color={colors.offwhite}>
               {/* this will eventually be getting the data for search friends from DB */}

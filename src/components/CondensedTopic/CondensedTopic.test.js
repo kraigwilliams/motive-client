@@ -1,19 +1,16 @@
 import React from 'react'
 import { shallow, configure } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import Dashboard from './Dashboard'
+import CondensedTopic from './CondensedTopic'
 import Adapter from 'enzyme-adapter-react-16';
-import UserContext from '../../contexts/UserContext';
 
 
 configure({adapter: new Adapter()});
-describe(`<Dashboard />`, () => {
+describe(`<CondensedTopic />`, () => {
   //Snapshot Testing
-  it('renders Dashboard by default', () => {
+  it('renders CondensedTopic by default', () => {
     const wrapper = shallow(
-      <UserContext.Provider>
-        <Dashboard />
-      </UserContext.Provider>
+      <CondensedTopic />
     )
     expect(toJson(wrapper)).toMatchSnapshot()
   })
