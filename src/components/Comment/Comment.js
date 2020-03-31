@@ -75,7 +75,7 @@ export const Comment = () => {
           </p>
         
           <span>
-            Yesterday at 4:20
+            Yesterday at 6:00
             {/* {props.posted_on} */}
           </span>
         </div>

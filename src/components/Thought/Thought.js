@@ -77,6 +77,7 @@ export default class Thought extends Component {
     const thought_content = content.value;
     const thought_topic = topic.value;
 
+    //setting variable to result of pathc request made to server
     const currentThought = await ContentService.saveThoughtEdit(
       thoughtId,
       authToken,
@@ -189,8 +190,9 @@ export default class Thought extends Component {
             Comments
           </CommentHeader>
             
-          {/* Map through existing comments to render here */}
+          
           <CommentsWrap>
+            {/* Map through existing comments to render here */}
             <Comment />
             <Comment />
             <Comment />

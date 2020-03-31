@@ -58,7 +58,7 @@ const CommentService = {
         return res.json()
         .then(err => Promise.reject(err))
       }
-      return res.json()
+      // return res.json()
     })
     .catch(err => {
       console.error(err)
