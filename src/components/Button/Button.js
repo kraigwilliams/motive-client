@@ -34,9 +34,6 @@ export const AngleDown = styled(AngleDownButton)`
   color: ${({ color }) => color? color : colors.slategrey};
   border: none;
   font-size: 1em;
-  /* text-align: center;
-  align-self: center; */
-  /* margin: ${({ margin }) => margin ? margin: ''}; */
   z-index: 11;
   animation: ${bounce} 2s linear infinite;
   :hover {
@@ -134,7 +131,8 @@ export const AddButton = styled(Add)`
   background: transparent;
   border: none;
   padding: 5px;
-  margin-left: 10px;
+  margin-left: ${({marginLeft}) =>  marginLeft ? marginLeft : '10px'};
+  margin-right: ${({marginright}) =>  marginright ? marginright : '0px'};
   font-size: 1em;
 
  

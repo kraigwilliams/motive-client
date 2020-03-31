@@ -71,18 +71,16 @@ export const Input =  React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormInput = styled(Input)`
-  /* border: 2px solid ${colors.offwhite}; */
-  /* border-radius: 40px; */
   border: none;
   border-bottom: 2px solid ${colors.offwhite};
   padding: 10px;
   font-size: 16px;
-  /* background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite}; */
-  background: transparent;
+  background-color: ${({ backgroundcolor }) => backgroundcolor || 'transparent'};
   color: ${({ color }) => color || colors.darkgrey};
   text-align: center;
   width: 80%;
-  margin: auto;
+  margin-top: 10px;
+  align-self: center;
 
   :focus {
     border-bottom: 2px solid ${colors.teal}
@@ -90,7 +88,7 @@ export const FormInput = styled(Input)`
 
   @media (min-width:700px) {
     width: 60%; 
-    margin: auto;
+    margin: 10px;
   }
 `;
 

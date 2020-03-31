@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 // import ContentService from '../../services/content-service'
-import{ ConnectionsPageWrapper, ConnectionsHeader, ConnectionsHeader2, ContentWrapper, Section } from './Connections.style';
+import{ ConnectionsPageWrapper, ConnectionsHeader, FriendsName, FriendsUserName, FriendsHeader, ContentWrapper, ConnectionsSection } from './Connections.style';
 import { FormButton } from '../Button/Button';
 import { FormInput, FormWrapper, FormTitle } from '../Form/Form'
 import { colors } from '../constants'
+import Connection from '../Connection/Connection'
+
+
 export default class Connections extends Component {
   static contextType = UserContext;
+
   constructor(props) {
     super(props)
     this.state = {
@@ -51,7 +55,7 @@ export default class Connections extends Component {
 //  }
   
   render() {
-    const { connections } = this.state;
+    const { connections, filteredData } = this.state;
 
     return(
      
@@ -60,17 +64,18 @@ export default class Connections extends Component {
           {this.context.user.username}'s Connections
           </ConnectionsHeader>
    
-         <ContentWrapper>
+        
           
-          <FormWrapper backgroundColor={'none'}>
-            <FormTitle color={colors.white}>
-              Search all Motive users:
+          <FormWrapper backgroundcolor='none'>
+            <FormTitle color={colors.coral}>
+              Add Connections
             </FormTitle>
 
             <FormInput 
               onChange={this.handleInputChange} 
-              backgroundcolor={colors.offwhite}
+              backgroundcolor={colors.darkergrey}
               color={colors.white} 
+              placeholder='Search...'
             />
             
             <FormButton 
@@ -82,21 +87,40 @@ export default class Connections extends Component {
               Search
             </FormButton>
 
+            
+
             <FormTitle color={colors.offwhite}>
-              {this.state.filteredData}
-              Friends listed here matching search.. with add button next to it triggering post to connection DB
+              {/* this will eventually be getting the data for search friends from DB */}
+              {/* {filteredData.map((connection, idx) => {
+              return <Connection /> 
+              })} */}
+              <Connection /> 
+              <Connection /> 
+              <Connection /> 
             </FormTitle>
           </FormWrapper>
 
-          <Section>
-          <FormTitle color={colors.black}>Your Friends </FormTitle>
-            {connections.map(friend => {
-              return <ConnectionsHeader2>friend.name</ConnectionsHeader2>
-            })}
-            <ConnectionsHeader2>Friend 1 *</ConnectionsHeader2>
-            <ConnectionsHeader2>Friend 2 *</ConnectionsHeader2>
-          </Section>
-        </ContentWrapper>
+          <ConnectionsSection>
+            <FriendsHeader> Friends </FriendsHeader>
+              {connections.map(friend => {
+                return (
+                  <>
+                    <FriendsName>friend.name</FriendsName>
+                    <FriendsUserName>friend.username</FriendsUserName>
+                  </>
+                )
+              })}
+            <FriendsName>Jordan Castillo</FriendsName>
+            <FriendsUserName>jordanxcast</FriendsUserName>
+            <FriendsName>Scott Lingner</FriendsName>
+            <FriendsUserName>slingner</FriendsUserName>
+            <FriendsName>Kraig Williams</FriendsName>
+            <FriendsUserName>kwill</FriendsUserName>
+      
+        </ConnectionsSection>
+      
+
+
         
     </ConnectionsPageWrapper >
    
