@@ -13,8 +13,8 @@ class Connection extends Component {
   //   const userId = user.id;
   // }
 
-  handleAddConnection( connectionId ) {
-    ActionsService.addConnection(this.context.user.id, connectionId)
+  async handleAddConnection( connectionId ) {
+    await ActionsService.addConnection(this.context.user.id, connectionId)
 
     ActionsService.getConnections(this.context.user.id)
   }

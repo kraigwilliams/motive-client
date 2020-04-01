@@ -22,7 +22,7 @@ const ActionsService = {
   },
 
   getAllNonconnections(userId){
-    return fetch(`${config.API_ENDPOINT}/nonconnection`, {
+    return fetch(`${config.API_ENDPOINT}/connection/new`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
