@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import ActionsService from '../../services/actions-service'
-import{ ConnectionsPageWrapper, ConnectionsHeader, FriendsName, FriendsUserName, FriendsHeader, ContentWrapper, ConnectionsSection } from './Connections.style';
-import { FormButton } from '../Button/Button';
+import{ ConnectionsPageWrapper, ConnectionsHeader, FriendsName, FriendsUserName, FriendsHeader, ConnectionsSection } from './Connections.style';
 import { FormInput, FormWrapper, FormTitle } from '../Form/Form'
 import { colors } from '../constants'
 import Connection from '../Connection/Connection'
@@ -26,10 +25,9 @@ export default class Connections extends Component {
     const query = event.target.value;
 
     this.setState(prevState => {
-      const filteredData = prevState.connections.filter(element => {
+      const filteredData = prevState.nonconnections.filter(element => {
         return element.name.toLowerCase().includes(query.toLowerCase());
       });
-
       return {
         query,
         filteredData
@@ -91,7 +89,6 @@ export default class Connections extends Component {
               margintop={'15px'} 
               backgroundcolor={colors.darkergrey} 
               color={colors.offwhite}
-          
             >
               Search
             </FormButton> */}
@@ -100,15 +97,18 @@ export default class Connections extends Component {
               {/* this will eventually be getting the data for search friends from DB */}
               {filteredData.map((connection, idx) => {
               return <Connection 
-                firstname={connections.first_name} 
-                lastname={connections.last_name}
-                username={connections.username}
-                id={connections.id}
+                firstname={connection.first_name} 
+                lastname={connection.last_name}
+                username={connection.username}
+                id={connection.id}
               /> 
               })}
-              {/* <Connection /> 
+
+              {/* 
               <Connection /> 
-              <Connection />  */}
+              <Connection /> 
+              <Connection />  
+              */}
             </FormTitle>
           </FormWrapper>
 
@@ -125,12 +125,12 @@ export default class Connections extends Component {
               })}
 
             {/* hard coded for now */}
-            <FriendsName>Jordan Castillo</FriendsName>
+            {/* <FriendsName>Jordan Castillo</FriendsName>
             <FriendsUserName>jordanxcast</FriendsUserName>
             <FriendsName>Scott Lingner</FriendsName>
             <FriendsUserName>slingner</FriendsUserName>
             <FriendsName>Kraig Williams</FriendsName>
-            <FriendsUserName>kwill</FriendsUserName>
+            <FriendsUserName>kwill</FriendsUserName> */}
       
         </ConnectionsSection>
       
