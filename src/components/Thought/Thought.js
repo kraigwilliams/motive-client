@@ -146,7 +146,7 @@ export default class Thought extends Component {
               value={this.state.topicSelected || (topicForThought ? topicForThought : 0)}
               onChange={this.handleTopicChange.bind(this)}
             >
-              <option value={0}> -- Not in a Topic -- </option>
+              <option value={0}> -- Free Thought -- </option>
               {options}
             </ThoughtDropdown>
            

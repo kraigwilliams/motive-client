@@ -20,8 +20,6 @@ export const AngleDownButton = React.forwardRef(({ className, ...props }, ref) =
   )
 })
 
-
-
 export const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
   40% {transform: translateY(-10px);} 
@@ -34,9 +32,6 @@ export const AngleDown = styled(AngleDownButton)`
   color: ${({ color }) => color? color : colors.slategrey};
   border: none;
   font-size: 1em;
-  /* text-align: center;
-  align-self: center; */
-  /* margin: ${({ margin }) => margin ? margin: ''}; */
   z-index: 11;
   animation: ${bounce} 2s linear infinite;
   :hover {
@@ -97,15 +92,15 @@ export const ConfirmDeleteButton = styled(Button)`
 `;
 
 export const FormButton = styled(Button)`
-  border: 2px solid ${({ color }) => color || colors.offwhite};
-  color: ${({ color }) => color || colors.offwhite};
+  border: 2px solid  ${({ color }) => color || colors.offwhite};
+  color: ${({ color }) => color || colors.offwhite}; 
   padding: 10px;
   width: fit-content;
   margin: auto;
   border-radius: 30px;
   font-size: 16px;
   margin-top: ${({ margintop }) => margintop || "40px"};
-  background-color: ${({ backgroundColor }) => backgroundColor || colors.slategrey};
+  background-color: ${({ backgroundcolor }) => backgroundcolor || colors.slategrey };
   opacity: ${({disabled}) => disabled ? .5 : 1};
 
   :hover {
@@ -114,8 +109,8 @@ export const FormButton = styled(Button)`
     border-color: ${({disabled}) => !disabled && colors.teal};
   }
   :focus {
-    border: 2px solid ${colors.teal};
-    color: ${colors.teal};
+    border: ${({ focusbordercolor }) => focusbordercolor || `2px solid  ${colors.teal}`};
+    color: ${({ focuscolor }) => focuscolor || colors.teal};
   }
 `;
 
@@ -134,7 +129,8 @@ export const AddButton = styled(Add)`
   background: transparent;
   border: none;
   padding: 5px;
-  margin-left: 10px;
+  margin-left: ${({marginleft}) =>  marginleft ? marginleft : '10px'};
+  margin-right: ${({marginright}) =>  marginright ? marginright : '0px'};
   font-size: 1em;
 
  

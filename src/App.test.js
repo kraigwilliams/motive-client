@@ -1,5 +1,7 @@
+
 // make React available
 import React from 'react';
+
 // make the ReactDOM available, necessary for rendering the component
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -15,3 +17,4 @@ it('renders without crashing', () => {
   );
   ReactDOM.unmountComponentAtNode(div);
 });
+
