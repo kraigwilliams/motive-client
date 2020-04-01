@@ -1,7 +1,7 @@
 import config from '../config'
 import TokenService from './token-service'
 
-const CommentService = {
+const ActionsService = {
   getComments(thoughtId) {
     return fetch(`${config.API_ENDPOINT}/comments/${thoughtId}`, {
       method:'GET',
@@ -63,7 +63,24 @@ const CommentService = {
     .catch(err => {
       console.error(err)
     })
+  },
+
+  shareThought(thoughtId, shared_userId, shared_level){
+    fetch(`${config.API_ENDPOINT}/share/thought/${thoughtId}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok) {
+        return res.json()
+        .then(err => Promise.reject(err))
+      }
+      return res.json()
+    })
   }
 }
 
-export default CommentService;
+export default ActionsService;

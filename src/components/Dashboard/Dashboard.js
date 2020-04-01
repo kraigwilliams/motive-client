@@ -15,6 +15,7 @@ class Dashboard extends Component {
       topics: [],
       allThoughts: [],
       freeThoughts: [],
+      sharedThoughts: [],
     }
   }
 
@@ -37,6 +38,12 @@ async componentDidMount() {
     })
   }
 
+  const sharedThoughts = await ContentService.getSharedThoughts()
+  if(sharedThoughts) {
+    this.setState({
+      sharedThoughts
+    })
+  }
 }
 
   countThoughtsForTopic(topicId){
@@ -45,7 +52,7 @@ async componentDidMount() {
   }
 
   render() {
-  const { topics, freeThoughts } = this.state;
+  const { topics, freeThoughts, sharedThoughts } = this.state;
     return (
       <PageWrapper>
         <header>
@@ -94,8 +101,24 @@ async componentDidMount() {
                 />
                 })
               }
+          </Section>
+          <Section>
+            <SectionTitle>
+              <h2 style={{color: colors.white}}>
+                Shared Thoughts 
+              </h2>
+            </SectionTitle>
+            
+              {
+                sharedThoughts.map((thought, idx) => {
+                  return <CondensedThought 
+                  key={idx}
+                  id={thought.id}
+                  title={thought.thought_title}
 
-
+                />
+                })
+              }
           </Section>
         </ContentWrapper>
       </PageWrapper>
