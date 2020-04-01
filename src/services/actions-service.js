@@ -46,7 +46,11 @@ const ActionsService = {
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+      },
+      body: JSON.stringify({
+        userId,
+        connectionId
+      })
     })
     .then(res => {
       if (!res.ok) {
@@ -127,7 +131,12 @@ const ActionsService = {
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+      },
+      body: JSON.stringify({
+        thoughtId,
+        shared_userId,
+        shared_level
+      })
     })
     .then(res => {
       if(!res.ok) {

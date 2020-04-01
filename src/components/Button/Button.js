@@ -172,4 +172,31 @@ export const DeleteButton = styled(Delete)`
   }
 `;
 
+const Share = React.forwardRef(({ className, ...props }, ref) => {
+  return (
+    <button className={cx('Button', className)} ref={ref} {...props}>
+      <NavLink to={props.to} className='button-link'>
+        <FontAwesomeIcon icon='share' />
+      </NavLink>
+    </button>
+  )
+})
+
+export const ShareButton = styled(Share)`
+  color: ${({color}) =>  color ? color : colors.coral};
+  background: transparent;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  font-size: 1em;
+ 
+  .button-link{
+    color: ${({color}) =>  color ? color : colors.coral};
+  }
+  :hover {
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+`;
+
 export default { Button, DeleteButton }

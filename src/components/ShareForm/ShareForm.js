@@ -6,11 +6,13 @@ import ActionsService from '../../services/actions-service'
 import UserContext from '../../contexts/UserContext'
 
 export default class ShareForm extends Component {
+  // will have to use both contexts here to get the user id from user context and the thought id from the content context 
   static contextType = UserContext;
 
   constructor(props) {
     super(props)
     this.state = {
+      thoughtId: null,
       connections: [],
       connectionSelected: {},
       shareLevel: null
@@ -18,19 +20,22 @@ export default class ShareForm extends Component {
   }
 
   async componentDidMount() {
+    const thoughtId = this.props.match.params.thought_id
     const { user } = this.context;
     const userId = user.id;
     const connections = await ActionsService.getConnections(userId)
     this.setState({
-      connections
+      connections,
+      thoughtId
     })
   }
 
-  handleClickShare(ev) {
+  handleSubmitShare(ev) {
     ev.preventDefault()
-    const thoughtId = this.props.thought_id;
+    const thoughtId = this.state.thought_id;
     const { connections, share_level } = ev.target;
     ActionsService.shareThought(thoughtId, connections, share_level);
+    this.props.history.push(`thoughts/${thoughtId}`)
   }
 
   render() {
@@ -44,7 +49,7 @@ export default class ShareForm extends Component {
     })
     return (
       <PageWrapper>
-        <FormWrapper onSubmit={this.handleClickShare}>
+        <FormWrapper onSubmit={this.handleSubmitShare}>
           <GoBack
             type='reset'
             onClick={() => this.props.history.goBack()}
