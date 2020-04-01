@@ -105,7 +105,7 @@ async componentDidMount() {
           <Section>
             <SectionTitle>
               <h2 style={{color: colors.white}}>
-                Shared Thoughts 
+                Shared
               </h2>
             </SectionTitle>
             

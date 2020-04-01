@@ -106,7 +106,7 @@ export default class Thought extends Component {
   }
 
   render() {
-    const { currentThought, topics, successfulSave, thoughtId } = this.state;
+    const { currentThought, topics, successfulSave, thoughtId, deleteDiv } = this.state;
     const { topicForThought } = this.context;
 
     const options = topics.map((topic, idx )=> {
@@ -116,7 +116,9 @@ export default class Thought extends Component {
     })
     return(
      
-      <ThoughtWrapper>
+      <ThoughtWrapper 
+      // style={ { backgroundColor : !deleteDiv ? 'red' : 'none' } } 
+      >
           
         <ContentWrapper 
           onSubmit={this.handleEdit.bind(this)} 
@@ -132,7 +134,7 @@ export default class Thought extends Component {
             name='title'
             defaultValue={currentThought.thought_title} 
           />
-          <div style={{width: '66.97px'}}></div>
+          {/* <div style={{width: '66.97px'}}></div> */}
 
           {/* Share button here, pass in the thought id through props */}
 
@@ -140,6 +142,14 @@ export default class Thought extends Component {
             type='button' 
             to={`/${thoughtId}/share`}
           />
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
+            {!this.state.deleteDiv &&
+              <StyledDeleteDiv> Delete Thought?
+                <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
+              </StyledDeleteDiv>
+            }
+            </div>
           </div>
           <ThoughtTextarea 
             name='content'
@@ -180,12 +190,6 @@ export default class Thought extends Component {
               </CSSTransition>
             </Container>
 
-            <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
-            {!this.state.deleteDiv &&
-              <StyledDeleteDiv> Delete Thought?
-                <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
-              </StyledDeleteDiv>
-            }
         </ContentWrapper>
 
         <CommentWrapper>

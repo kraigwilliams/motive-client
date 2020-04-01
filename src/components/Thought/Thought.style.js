@@ -81,6 +81,11 @@ export const StyledDeleteDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 300px;
+  position: absolute;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   @media (min-width: 600px) {
   

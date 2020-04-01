@@ -39,23 +39,26 @@ export default class Connections extends Component {
     const { user } = this.context;
     const userId = user.id;
     const connections = await ActionsService.getConnections(userId)
-    this.setState({
-      connections
-    })
-
+    if(connections) {
+      this.setState({
+        connections
+      })
+    }
+    
     const nonconnections = await ActionsService.getAllNonconnections()
-    this.setState({
-      nonconnections
-    })
-
-    const { query } = this.state;
-    const filteredData = nonconnections.filter(element => {
+    if (nonconnections) {
+      this.setState({
+        nonconnections
+      })
+      const { query } = this.state;
+   
+      const filteredData = nonconnections.filter(element => {
        return element.name.toLowerCase().includes(query.toLowerCase());
-     });
-    this.setState({ 
-      filteredData
-    });
-
+      });
+      this.setState({ 
+        filteredData
+      });
+    }  
  }
 
  componentDidMount() {
@@ -118,7 +121,7 @@ export default class Connections extends Component {
               {connections.map(friend => {
                 return (
                   <>
-                    <FriendsName>friend.name</FriendsName>
+                    <FriendsName>friend.first_name frined.last_name</FriendsName>
                     <FriendsUserName>friend.username</FriendsUserName>
                   </>
                 )

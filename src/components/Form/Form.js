@@ -145,3 +145,13 @@ export const Dropdown = styled.select`
     margin: auto;
   } 
 `;
+
+export const DetailMessage = styled.div`
+  background: transparent;
+  border: 1px solid ${colors.coral};
+  font-size: 16px;
+  text-align: center;
+  margin: 35px auto auto auto;
+  padding: 10px;
+  color: ${colors.white};
+`;

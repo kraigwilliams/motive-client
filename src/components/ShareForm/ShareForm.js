@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FormWrapper, FormTitle, FormLabel, Dropdown} from '../Form/Form'
+import { FormWrapper, FormTitle, FormLabel, Dropdown, DetailMessage} from '../Form/Form'
 import {PageWrapper, colors} from '../constants'
 import { FormButton, GoBack } from '../Button/Button'
 import ActionsService from '../../services/actions-service'
@@ -15,7 +15,7 @@ export default class ShareForm extends Component {
       thoughtId: null,
       connections: [],
       connectionSelected: {},
-      shareLevel: null
+      shareSelected: null
     }
   }
 
@@ -30,6 +30,14 @@ export default class ShareForm extends Component {
     })
   }
 
+  handleSelectedShareChange(ev) {
+    ev.preventDefault()
+    const shareSelected = ev.target.value;
+    this.setState({
+      shareSelected
+    })
+  }
+
   handleSubmitShare(ev) {
     ev.preventDefault()
     const thoughtId = this.state.thought_id;
@@ -39,17 +47,18 @@ export default class ShareForm extends Component {
   }
 
   render() {
-    const {connections} = this.state;
-    const connectOptions = connections.map((friend, idx) => {
-      return <option key={idx} value={friend.id}>
-        {friend.first_name}
-        {friend.last_name}
-        {friend.username}
-      </option>
-    })
+    // const {connections} = this.state;
+    const { shareSelected } = this.state;
+    // const connectOptions = connections.map((friend, idx) => {
+    //   return <option key={idx} value={friend.id}>
+    //     {friend.first_name}
+    //     {friend.last_name}
+    //     {friend.username}
+    //   </option>
+    // })
     return (
-      <PageWrapper>
-        <FormWrapper onSubmit={this.handleSubmitShare}>
+      <PageWrapper padding='40px 0' bgColor={colors.slategrey}>
+        <FormWrapper padding='50px 30px' onSubmit={this.handleSubmitShare}>
           <GoBack
             type='reset'
             onClick={() => this.props.history.goBack()}
@@ -66,11 +75,11 @@ export default class ShareForm extends Component {
             id='share-connections'
             aria-label="You can select a connection to share this thought with"
             name='connections'
-            value={0}
+            defaultValue={0}
           >
             <option value={0}> -- Choose a connection -- </option>
             {/* options of all connections */}
-            {connectOptions}
+            {/* {connectOptions} */}
           </Dropdown>
 
           <FormLabel>
@@ -80,7 +89,8 @@ export default class ShareForm extends Component {
              id='share-level'
              aria-label="You can select what type of share you wish to do"
              name='share-level'
-             value={0}
+             defaultValue={0}
+             onChange={this.handleSelectedShareChange.bind(this)}
           >
             {/* options to share as a collab or as reader */}
             <option value={0}>Choose how to share</option>
@@ -88,13 +98,29 @@ export default class ShareForm extends Component {
             <option value={3}>Viewer</option>
           </Dropdown>
 
-          {/* !!!! Conditionally render a message based on what the user has selected to describe the difference between a collaborator and a reader !!!! */}
 
           <FormButton 
-            type='submit'
-          >
+              type='submit'
+            >
             Share
           </FormButton>
+
+          {/* !!!! Conditionally render a message based on what the user has selected to describe the difference between a collaborator and a reader !!!! */}
+          
+          {
+            Number(shareSelected) === 2 
+              ? <DetailMessage> Sharing as a collaborator allows them to edit the thought you created </DetailMessage>
+              : null
+          }
+
+          {
+            Number(shareSelected) === 3 
+              ?  <DetailMessage> Sharing as a reader only allows them to view and comment on the thought you created </DetailMessage>
+              : null
+          }
+
+          
+
         </FormWrapper>
       </PageWrapper>
 

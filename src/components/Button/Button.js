@@ -162,6 +162,8 @@ export const DeleteButton = styled(Delete)`
   padding: 5px;
   text-align: center;
   font-size: 1em;
+  /* display: flex;
+  flex-direction: column; */
  
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};

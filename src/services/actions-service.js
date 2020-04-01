@@ -2,8 +2,8 @@ import config from '../config'
 import TokenService from './token-service'
 
 const ActionsService = {
-  getConnections(userId){
-    return fetch(`${config.API_ENDPOINT}/connections/${userId}`, {
+  getConnections(){
+    return fetch(`${config.API_ENDPOINT}/connection`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -22,7 +22,7 @@ const ActionsService = {
   },
 
   getAllNonconnections(userId){
-    return fetch(`${config.API_ENDPOINT}/nonconnections/${userId}`, {
+    return fetch(`${config.API_ENDPOINT}/nonconnection`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
