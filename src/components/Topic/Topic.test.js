@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 
 configure({adapter: new Adapter()});
-describe(`<Topic />`, () => {
+describe(`renders <Topic />`, () => {
   //Snapshot Testing
   it('renders Topic by default', () => {
     const wrapper = shallow(
