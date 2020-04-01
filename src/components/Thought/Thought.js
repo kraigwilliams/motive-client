@@ -149,8 +149,7 @@ export default class Thought extends Component {
               <option value={0}> -- Not in a Topic -- </option>
               {options}
             </ThoughtDropdown>
-
-            
+           
               <FormButton 
                 className='edit-button'
                 type='submit' 
@@ -160,8 +159,6 @@ export default class Thought extends Component {
               >
                 save
               </FormButton>
-
-
 
               <CSSTransition
                 in={successfulSave}
@@ -204,7 +201,6 @@ export default class Thought extends Component {
 
         </CommentWrapper>
       </ThoughtWrapper>
-
     )
   }
 }

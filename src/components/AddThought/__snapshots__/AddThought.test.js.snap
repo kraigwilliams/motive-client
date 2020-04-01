@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddThought /> renders UI as expected 1`] = `
+<div
+  className="sc-AxjAm jsqeJd"
+>
+  <form
+    className="sc-AxmLO ghXbMg"
+    onSubmit={[Function]}
+  >
+    <button
+      className="Button sc-AxiKw eJdQFo"
+      margin="0px"
+      onClick={[Function]}
+      type="reset"
+    />
+    <h1
+      className="sc-Axmtr nbDTi"
+    >
+      Create a Thought
+    </h1>
+    <label
+      className="Label sc-fzoLsD hJqNJg"
+      htmlFor="thought-title"
+    >
+      Title
+    </label>
+    <input
+      aria-label="Enter title of this thought"
+      aria-required="true"
+      className="Input sc-fzpans jwpxrB"
+      id="thought-title"
+      name="title"
+      required={true}
+      type="text"
+    />
+    <label
+      className="Label sc-fzoLsD hJqNJg"
+      htmlFor="thought-topic"
+    >
+      Topic
+    </label>
+    <select
+      aria-label="You can select a topic to put this thought in"
+      className="sc-fznyAO kbbavt"
+      id="thought-topic"
+      name="topic"
+      onChange={[Function]}
+      value={0}
+    >
+      <option
+        value={0}
+      >
+         -- Not in a Topic -- 
+      </option>
+    </select>
+    <label
+      className="Label sc-fzoLsD hJqNJg"
+      htmlFor="thought-content"
+    >
+      Content
+    </label>
+    <textarea
+      aria-label="Create the content of this thought"
+      aria-required="true"
+      className="Textarea sc-fzplWN cJcilO"
+      id="thought-content"
+      name="content"
+      required={true}
+    />
+    <button
+      className="Button sc-AxhUy dpUUoP"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
