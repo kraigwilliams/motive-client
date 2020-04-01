@@ -6,7 +6,7 @@ export const colors = {
   teal: '#B9E3C6',
   offwhite: '#C4C4C4',
   white: '#ffffff',
-  black: '#000000',
+  black: '#303838',
   darkgrey: '#424B54',
   darkergrey: '#303838',
   slategrey: '#829191',

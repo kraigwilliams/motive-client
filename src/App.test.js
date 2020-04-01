@@ -1,4 +1,5 @@
-//make React available
+
+// make React available
 import React from 'react';
 
 // make the ReactDOM available, necessary for rendering the component
@@ -16,3 +17,4 @@ it('renders without crashing', () => {
   );
   ReactDOM.unmountComponentAtNode(div);
 });
+
