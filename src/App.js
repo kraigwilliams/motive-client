@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import Connections from './components/Connections/Connections'
 import AddThought from './components/AddThought/AddThought'
 import AddTopic from './components/AddTopic/AddTopic'
+import ShareForm from './components/ShareForm/ShareForm'
 
 // import GroupsPage from './components/GroupsPage/GroupsPage'
 // import NotFoundPage from './components/Utils/NotFoundPage'
@@ -56,6 +57,11 @@ function App() {
         <Route 
           path='/thoughts/:thought_id'
           component={Thought}
+        />
+
+<Route 
+          path='/:thought_id/share'
+          component={ShareForm}
         />
 
         <Route 

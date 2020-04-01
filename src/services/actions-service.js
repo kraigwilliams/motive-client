@@ -2,12 +2,72 @@ import config from '../config'
 import TokenService from './token-service'
 
 const ActionsService = {
+  getConnections(userId){
+    return fetch(`${config.API_ENDPOINT}/connections/${userId}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok) {
+        return res.json()
+        .then(err => Promise.reject(err))
+      }
+      //returning an array of all connections as objects
+      return res.json()
+    })
+    .catch(err => console.error({err}))
+  },
+
+  getAllNonconnections(userId){
+    return fetch(`${config.API_ENDPOINT}/nonconnections/${userId}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok) {
+        return res.json()
+        .then(err => Promise.reject(err))
+      }
+      //returning an array of all users the current user is NOT connected to as objects
+      return res.json()
+    })
+    .catch(err => console.error({err}))
+  },
+
+  addConnection(userId, connectionId) {
+    return fetch(`${config.API_ENDPOINT}/connections/${userId}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({
+        userId,
+        connectionId
+      })
+    })
+    .then(res => {
+      if (!res.ok) {
+        return res.json()
+        .then(err => Promise.reject(err))
+      }
+      return res.json()
+    })
+    .catch(err => console.error({err}))
+  },
+
   getComments(thoughtId) {
     return fetch(`${config.API_ENDPOINT}/comments/${thoughtId}`, {
       method:'GET',
       headers: {
         'content-type': 'application/json',
-        Authorization: `Bearer ${TokenService.getAuthToken()}`
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
     .then(res => {
@@ -71,7 +131,12 @@ const ActionsService = {
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+      },
+      body: JSON.stringify({
+        thoughtId,
+        shared_userId,
+        shared_level
+      })
     })
     .then(res => {
       if(!res.ok) {

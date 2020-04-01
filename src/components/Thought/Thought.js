@@ -7,7 +7,7 @@ import { CommentWrapper, CommentHeader, Comment, CommentsWrap, Reply } from '../
 import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, ThoughtDropdown, StyledDeleteDiv, SuccessfulSave, Container } from './Thought.style';
 import { FormButton, GoBack } from '../Button/Button';
 import { colors } from '../constants'
-import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
+import { DeleteButton, ConfirmDeleteButton, ShareButton } from '../Button/Button';
 
 export default class Thought extends Component {
   static contextType = ContentContext;
@@ -106,7 +106,7 @@ export default class Thought extends Component {
   }
 
   render() {
-    const { currentThought, topics, successfulSave } = this.state;
+    const { currentThought, topics, successfulSave, thoughtId } = this.state;
     const { topicForThought } = this.context;
 
     const options = topics.map((topic, idx )=> {
@@ -134,6 +134,12 @@ export default class Thought extends Component {
           />
           <div style={{width: '66.97px'}}></div>
 
+          {/* Share button here, pass in the thought id through props */}
+
+          <ShareButton 
+            type='button' 
+            to={`/${thoughtId}/share`}
+          />
           </div>
           <ThoughtTextarea 
             name='content'
