@@ -38,6 +38,7 @@ export default class Connections extends Component {
   async getData(){
     const { user } = this.context;
     const userId = user.id;
+    
     const connections = await ActionsService.getConnections(userId)
     if(connections) {
       this.setState({
@@ -46,12 +47,13 @@ export default class Connections extends Component {
     }
     
     const nonconnections = await ActionsService.getAllNonconnections()
+    console.log(nonconnections, 'nonconnections from state')
     if (nonconnections) {
       this.setState({
         nonconnections
       })
 
-      console.log(nonconnections, 'nonconnections from state')
+      
       const { query } = this.state;
    
       const filteredData = nonconnections.filter(element => {

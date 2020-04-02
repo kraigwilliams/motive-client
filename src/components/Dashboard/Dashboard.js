@@ -16,6 +16,7 @@ class Dashboard extends Component {
       allThoughts: [],
       freeThoughts: [],
       sharedThoughts: [],
+      sharedTopics: []
     }
   }
 
@@ -38,10 +39,17 @@ async componentDidMount() {
     })
   }
 
-  const sharedThoughts = await ContentService.getSharedThoughts()
-  if(sharedThoughts) {
+  // const sharedThoughts = await ContentService.getSharedThoughts()
+  // if(sharedThoughts) {
+  //   this.setState({
+  //     sharedThoughts
+  //   })
+  // }
+
+  const sharedTopics = await ContentService.getSharedTopics()
+  if(sharedTopics) {
     this.setState({
-      sharedThoughts
+      sharedTopics
     })
   }
 }
@@ -52,7 +60,7 @@ async componentDidMount() {
   }
 
   render() {
-  const { topics, freeThoughts, sharedThoughts } = this.state;
+  const { topics, freeThoughts, sharedThoughts, sharedTopics } = this.state;
     return (
       <PageWrapper>
         <header>
@@ -108,6 +116,16 @@ async componentDidMount() {
                 Shared
               </h2>
             </SectionTitle>
+
+              {
+                sharedTopics.map((topic, idx) => {
+                  return <CondensedTopic
+                    key={idx}
+                    id={topic.id}
+                    title={topic.topic_title}
+                  />
+                })
+              }
             
               {
                 sharedThoughts.map((thought, idx) => {
