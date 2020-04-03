@@ -170,10 +170,10 @@ export default class Thought extends Component {
           <ShareButton 
             type='button' 
             to={`/thought/${thoughtId}/share`}
-            disabled={sharedLevel > 2}
+            shared={sharedLevel > 2 ? 'none' : null}
           />
           <div style={{display: 'flex', flexDirection: 'column'}}>
-            <DeleteButton type='button' onClick={this.toggleDeleteDiv} disabled={sharedLevel > 2}/>
+            <DeleteButton type='button' onClick={this.toggleDeleteDiv} shared={sharedLevel > 2 ? 'none' : null}/>
             {!this.state.deleteDiv &&
               <StyledDeleteDiv> Delete Thought?
                 <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
@@ -204,6 +204,7 @@ export default class Thought extends Component {
                 color={colors.darkgrey}
                 disabled={!this.state.editted || sharedLevel > 2}
                 margintop='0px'
+                shared={sharedLevel > 2 ? 'none' : null}
               >
                 save
               </FormButton>

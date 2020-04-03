@@ -102,6 +102,7 @@ export const FormButton = styled(Button)`
   margin-top: ${({ margintop }) => margintop || "40px"};
   background-color: ${({ backgroundcolor }) => backgroundcolor || colors.slategrey };
   opacity: ${({disabled}) => disabled ? .5 : 1};
+  display: ${({shared}) => shared ? shared : 'block'};
 
   :hover {
     cursor: pointer;
@@ -190,8 +191,7 @@ export const DeleteButton = styled(Delete)`
   padding: 5px;
   text-align: center;
   font-size: 1em;
-  /* display: flex;
-  flex-direction: column; */
+  display: ${({shared}) => shared ? shared : 'block'};
  
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
@@ -219,6 +219,7 @@ export const ShareButton = styled(Share)`
   padding: 5px;
   text-align: center;
   font-size: 1em;
+  display: ${({shared}) => shared ? shared : 'block'};
  
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
