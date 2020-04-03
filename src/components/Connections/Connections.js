@@ -23,38 +23,14 @@ export default class Connections extends Component {
   
   handleInputChange = event => {
     const query = event.target.value;
-    // this.setState({
-    //   
-    // })
-
-    // if(query === '') {
-    //   this.setState({
-    //     filteredData : []
-    //   })
-    // } else {
-      const filteredData = this.state.nonconnections.filter(element => {
-        return element.first_name.toLowerCase().includes(query.toLowerCase());
-      });
-      this.setState({ 
-        filteredData,
-        query
-      });
-      console.log(filteredData, 'filtered data');
-    // }
-  
-    
-
-    
-    
-    // this.setState(prevState => {
-    //   const filteredData = prevState.nonconnections.filter(element => {
-    //     return element.first_name.toLowerCase().includes(query.toLowerCase());
-    //   });
-    //   return {
-    //     query,
-    //     filteredData
-    //   };
-    // });
+    const filteredData = this.state.nonconnections.filter(element => {
+      return element.first_name.toLowerCase().includes(query.toLowerCase());
+    });
+    this.setState({ 
+      filteredData,
+      query
+    });
+    console.log(filteredData, 'filtered data');
   };
 
   async getData(){
@@ -80,9 +56,17 @@ export default class Connections extends Component {
  componentDidMount() {
    this.getData();
  }
+
+ 
   
   render() {
     const { connections, filteredData, query} = this.state;
+
+    const { addedConnection } = this.context;
+      if (addedConnection) {
+        this.getData();
+        this.context.setAddedConnection(false);
+     }
 
     return(
      
@@ -100,7 +84,8 @@ export default class Connections extends Component {
               onChange={this.handleInputChange} 
               backgroundcolor={colors.darkergrey}
               color={colors.white} 
-              placeholder='Search...'
+              placeholder='Search by first name...'
+              value={addedConnection ? '' : null}
             />
             
             {/* <FormButton 

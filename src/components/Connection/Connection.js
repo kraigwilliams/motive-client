@@ -28,6 +28,7 @@ class Connection extends Component {
   }
 
   async handleAddConnection() {
+    const { setAddedConnection } = this.context;
     const connectionId = this.props.id
     
     const addFriends = await ActionsService.addConnection(this.state.userId, connectionId)
@@ -42,6 +43,8 @@ class Connection extends Component {
         addFriend: null,
         connected: true,
       });
+
+      setAddedConnection(true);
     }, 2000);
     } else {
       console.log('no friends')
