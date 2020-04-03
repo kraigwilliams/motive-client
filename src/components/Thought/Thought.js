@@ -48,9 +48,9 @@ export default class Thought extends Component {
     // Check if this thought is shared
     const sharedThoughts = await ContentService.getSharedThoughts();
 
-    const isShared = !!sharedThoughts.filter(thought => thought.thought_id == thoughtId)
+    const isShared = sharedThoughts.find(thought => thought.thought_id == thoughtId)
 
-    if(isShared){
+    if(isShared !== undefined){
       console.log(thoughtId, 'thought id')
       const { level } = await ContentService.getSharedThoughtLevel(thoughtId)
       console.log(level, 'shared level')
@@ -132,7 +132,7 @@ export default class Thought extends Component {
   }
 
   render() {
-    const { currentThought, topics, successfulSave, thoughtId, deleteDiv, sharedLevel } = this.state;
+    const { currentThought, topics, successfulSave, thoughtId, sharedLevel } = this.state;
     const { topicForThought } = this.context;
 
     const options = topics.map((topic, idx )=> {
