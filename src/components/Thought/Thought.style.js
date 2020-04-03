@@ -10,7 +10,7 @@ export const ThoughtWrapper = styled.div`
   
 `;
 
-export const ThoughtHeader = styled.textarea`
+export const ThoughtHeader = styled.input`
   padding: 30px 10px 10px 10px;
   color: ${colors.white};
   vertical-align: middle;
