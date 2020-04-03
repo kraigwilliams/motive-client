@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import ActionsService from '../../services/actions-service'
-import{ ConnectionsPageWrapper, ConnectionsHeader, FriendsName, FriendsUserName, FriendsHeader, ConnectionsSection } from './Connections.style';
+import { ConnectionsPageWrapper, ConnectionsHeader, FriendsName, FriendsUserName, FriendsHeader, ConnectionsSection } from './Connections.style';
 import { FormInput, FormWrapper, FormTitle } from '../Form/Form'
 import { colors } from '../constants'
-import Connection from '../Connection/Connection'
+import Connection  from '../Connection/Connection'
 
 
 export default class Connections extends Component {
@@ -23,16 +23,27 @@ export default class Connections extends Component {
   
   handleInputChange = event => {
     const query = event.target.value;
-
-    this.setState(prevState => {
-      const filteredData = prevState.nonconnections.filter(element => {
-        return element.name.toLowerCase().includes(query.toLowerCase());
-      });
-      return {
-        query,
-        filteredData
-      };
+    this.setState({
+      query
+    })
+  
+    const filteredData = this.state.nonconnections.filter(element => {
+      return element.first_name.toLowerCase().includes(query.toLowerCase());
     });
+    this.setState({ 
+      filteredData
+    });
+    console.log(filteredData, 'filtered data');
+    
+    // this.setState(prevState => {
+    //   const filteredData = prevState.nonconnections.filter(element => {
+    //     return element.first_name.toLowerCase().includes(query.toLowerCase());
+    //   });
+    //   return {
+    //     query,
+    //     filteredData
+    //   };
+    // });
   };
 
   async getData(){
@@ -52,17 +63,7 @@ export default class Connections extends Component {
       this.setState({
         nonconnections
       })
-
-      
-      const { query } = this.state;
-   
-      const filteredData = nonconnections.filter(element => {
-       return element.name.toLowerCase().includes(query.toLowerCase());
-      });
-      this.setState({ 
-        filteredData
-      });
-    }  
+    } 
  }
 
  componentDidMount() {
@@ -70,7 +71,7 @@ export default class Connections extends Component {
  }
   
   render() {
-    const { connections, filteredData, nonconnections } = this.state;
+    const { connections, filteredData} = this.state;
 
     return(
      
@@ -102,14 +103,15 @@ export default class Connections extends Component {
 
             <FormTitle color={colors.offwhite}>
               {/* this will eventually be getting the data for search friends from DB */}
-              {/* {filteredData.map((connection, idx) => {
+              {filteredData.map((connection, idx) => {
               return <Connection 
+                key={idx}
                 firstname={connection.first_name} 
                 lastname={connection.last_name}
                 username={connection.username}
                 id={connection.id}
               /> 
-              })} */}
+              })}
               {/* {nonconnections.map((connection, idx) => {
               return <Connection 
                 firstname={connection.first_name} 
@@ -130,12 +132,12 @@ export default class Connections extends Component {
           <ConnectionsSection>
             <FriendsHeader> Friends </FriendsHeader>
             {/* map through connections ins tate to render each connection detail */}
-              {connections.map(friend => {
+              {connections.map((friend, idx) => {
                 return (
-                  <>
-                    <FriendsName>{friend.first_name} {friend.last_name}</FriendsName>
+                  <div key={idx}>
+                    <FriendsName >{friend.first_name} {friend.last_name}</FriendsName>
                     <FriendsUserName>{friend.username}</FriendsUserName>
-                  </>
+                  </div>
                 )
               })}
 
@@ -147,10 +149,8 @@ export default class Connections extends Component {
             <FriendsName>Kraig Williams</FriendsName>
             <FriendsUserName>kwill</FriendsUserName> */}
       
-        </ConnectionsSection>
-        
+        </ConnectionsSection>  
     </ConnectionsPageWrapper >
-   
     )
   }
 }

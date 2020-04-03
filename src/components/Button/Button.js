@@ -144,6 +144,34 @@ export const AddButton = styled(Add)`
   }
 `;
 
+const AddConnect = React.forwardRef(({ className, ...props }, ref) => {
+  return (
+    <button className={cx('Button', className)} ref={ref} {...props}>
+        <FontAwesomeIcon icon='plus' />
+    </button>
+  )
+})
+
+export const AddConnection = styled(AddConnect)`
+    color: ${({color}) =>  color ? color : colors.coral};
+    background: transparent;
+    border: none;
+    padding: 5px;
+    margin-left: ${({marginleft}) =>  marginleft ? marginleft : '10px'};
+    margin-right: ${({marginright}) =>  marginright ? marginright : '0px'};
+    font-size: 1em;
+
+  
+    .button-link{
+      color: ${({color}) =>  color ? color : colors.coral};
+    }
+
+    :hover {
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+`;
+
 const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx('Button', className)} ref={ref} {...props}>

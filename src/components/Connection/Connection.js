@@ -1,36 +1,46 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import { ConnectionName, ConnectionDiv } from './Connection.style'
-import { AddButton } from '../Button/Button';
+import { AddConnection } from '../Button/Button';
 import ActionsService from '../../services/actions-service'
 
 
 class Connection extends Component {
   static contextType = UserContext;
 
-  // componentDidMount() {
-  //   const { user } = this.context;
-  //   const userId = user.id;
-  // }
+  constructor(props) {
+    super(props)
+    this.state = {
+      userId: null,
+    }
+  }
 
-  async handleAddConnection( connectionId ) {
-    await ActionsService.addConnection(this.context.user.id, connectionId)
+  componentDidMount() {
+    const { user } = this.context;
+    const userId = user.id;
 
-    ActionsService.getConnections(this.context.user.id)
+    this.setState({
+      userId
+    })
+  }
+
+  async handleAddConnection() {
+    const connectionId = this.props.id
+    await ActionsService.addConnection(this.state.userId, connectionId)
+
+    // ActionsService.getConnections(this.state.userId)
   }
 
 
   render() {
-
     return (
       <ConnectionDiv key={this.props.id}>
         <ConnectionName>
-          <AddButton 
+          <AddConnection 
             marginleft='0px' 
             marginright='10px' 
-            type='button' 
-            to='/add-thought' 
-            onClick={this.handleAddConnection(this.props.id)}
+            type='button'  
+            onClick={this.handleAddConnection}
           />
           {this.props.firstname}
           {this.props.lastname}
@@ -41,4 +51,4 @@ class Connection extends Component {
   }
 }
 
-export default Connection
+export default Connection;
