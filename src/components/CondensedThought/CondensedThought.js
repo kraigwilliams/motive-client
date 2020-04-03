@@ -7,7 +7,6 @@ import { Thought, ThoughtTitle } from './CondensedThought.style'
 class CondensedThought extends Component {
   static contextType = UserContext;
 
-
   render() {
 
     return (

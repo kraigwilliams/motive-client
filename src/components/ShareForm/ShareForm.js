@@ -33,6 +33,7 @@ export default class ShareForm extends Component {
   handleSelectedShareChange(ev) {
     ev.preventDefault()
     const shareSelected = ev.target.value;
+    console.log(shareSelected)
     this.setState({
       shareSelected
     })
@@ -40,25 +41,31 @@ export default class ShareForm extends Component {
 
   handleSubmitShare(ev) {
     ev.preventDefault()
-    const thoughtId = this.state.thought_id;
+    const { thoughtId } = this.state;
     const { connections, share_level } = ev.target;
-    ActionsService.shareThought(thoughtId, connections, share_level);
+    const connections_share = connections.value;
+    const share_level_share = share_level.value;
+
+    console.log(connections_share, 'connections', share_level_share, 'share level')
+    ActionsService.shareThought(thoughtId, connections_share, share_level_share);
     this.props.history.push(`thoughts/${thoughtId}`)
   }
 
   render() {
-    // const {connections} = this.state;
+    const {connections} = this.state;
     const { shareSelected } = this.state;
-    // const connectOptions = connections.map((friend, idx) => {
-    //   return <option key={idx} value={friend.id}>
-    //     {friend.first_name}
-    //     {friend.last_name}
-    //     {friend.username}
-    //   </option>
-    // })
+    const connectOptions = connections.map((friend, idx) => {
+      return <option key={idx} value={friend.id}>
+        {friend.first_name} 
+        {' '}
+        {friend.last_name} 
+        {' '}
+        {friend.username}
+      </option>
+    })
     return (
       <PageWrapper padding='40px 0' bgColor={colors.slategrey}>
-        <FormWrapper padding='50px 30px' onSubmit={this.handleSubmitShare}>
+        <FormWrapper padding='50px 30px' onSubmit={this.handleSubmitShare.bind(this)}>
           <GoBack
             type='reset'
             onClick={() => this.props.history.goBack()}
@@ -79,16 +86,16 @@ export default class ShareForm extends Component {
           >
             <option value={0}> -- Choose a connection -- </option>
             {/* options of all connections */}
-            {/* {connectOptions} */}
+            {connectOptions}
           </Dropdown>
 
           <FormLabel>
             Share as: 
           </FormLabel>
           <Dropdown
-             id='share-level'
+             id='share_level'
              aria-label="You can select what type of share you wish to do"
-             name='share-level'
+             name='share_level'
              defaultValue={0}
              onChange={this.handleSelectedShareChange.bind(this)}
           >

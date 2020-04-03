@@ -126,14 +126,35 @@ const ActionsService = {
   },
 
   shareThought(thoughtId, shared_userId, shared_level){
-    fetch(`${config.API_ENDPOINT}/share/thought/${thoughtId}`, {
+    console.log(shared_userId, 'userid', shared_level, 'sharelevel' )
+    fetch(`${config.API_ENDPOINT}/thought/share/${thoughtId}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
-        thoughtId,
+        shared_userId: shared_userId,
+        shared_level: shared_level
+      })
+    })
+    .then(res => {
+      if(!res.ok) {
+        return res.json()
+        .then(err => Promise.reject(err))
+      }
+      return res.json()
+    })
+  }, 
+
+  shareTopic(topicId, shared_userId, shared_level){
+    fetch(`${config.API_ENDPOINT}/topic/share/${topicId}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({
         shared_userId,
         shared_level
       })

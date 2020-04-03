@@ -6,7 +6,7 @@ import{ TopicHeader, TopicWrapper, ContentWrapper,
   SortWrapper, SortSelectDropdown, SortLabel, StyledDeleteDiv } from './Topic.style';
 import CondensedThought from '../CondensedThought/CondensedThought'
 import {AddButton, GoBack} from '../Button/Button'
-import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
+import { DeleteButton, ConfirmDeleteButton, ShareButton } from '../Button/Button';
 import { colors } from '../constants'
 
 export default class Topic extends Component {
@@ -81,6 +81,14 @@ export default class Topic extends Component {
           <div style={{width: '66.97px'}}></div>
 
         </div>
+
+        <ShareButton 
+            type='button' 
+            to={`/${topicId}/share`}
+        />
+
+
+          {currentThoughts.length < 1? <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> : ''}
             
 
           <ContentWrapper>
@@ -108,8 +116,6 @@ export default class Topic extends Component {
               })
             }
 
-
-          {currentThoughts.length < 1? <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> : ''}
 
           {/* <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> */}
 

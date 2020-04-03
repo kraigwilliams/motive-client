@@ -39,14 +39,16 @@ async componentDidMount() {
     })
   }
 
-  // const sharedThoughts = await ContentService.getSharedThoughts()
-  // if(sharedThoughts) {
-  //   this.setState({
-  //     sharedThoughts
-  //   })
-  // }
+  const sharedThoughts = await ContentService.getSharedThoughts()
+  if(sharedThoughts) {
+    this.setState({
+      sharedThoughts
+    })
+  }
 
+  
   const sharedTopics = await ContentService.getSharedTopics()
+  console.log(sharedTopics)
   if(sharedTopics) {
     this.setState({
       sharedTopics
@@ -126,14 +128,13 @@ async componentDidMount() {
                   />
                 })
               }
-            
+              
               {
                 sharedThoughts.map((thought, idx) => {
                   return <CondensedThought 
                   key={idx}
-                  id={thought.id}
+                  id={thought.thought_id}
                   title={thought.thought_title}
-
                 />
                 })
               }
