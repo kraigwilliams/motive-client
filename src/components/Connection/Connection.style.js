@@ -13,6 +13,16 @@ export const ConnectionDiv = styled.div`
   max-width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
+
+  .alert-appear {
+    opacity: 1;
+    transition: all 250ms linear;
+  }
+
+  .alert-exit {
+    opacity: 0;
+    transition: all 250ms linear;
+  }
 `;
 
 export const ConnectionName = styled.p`

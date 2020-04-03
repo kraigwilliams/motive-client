@@ -13,7 +13,8 @@ class Connection extends Component {
     super(props)
     this.state = {
       userId: null,
-      addFriend: false
+      addFriend: false,
+      connected: null
     }
   }
 
@@ -22,7 +23,7 @@ class Connection extends Component {
     const userId = user.id;
 
     this.setState({
-      userId
+      userId,
     })
   }
 
@@ -38,23 +39,23 @@ class Connection extends Component {
       })
     setTimeout(() => {
       this.setState({
-        successfulSave: false
+        addFriend: null,
+        connected: true,
       });
     }, 2000);
     } else {
       console.log('no friends')
     }
-    // ActionsService.getConnections(this.state.userId)
   }
 
 
   render() {
 
-    const { addFriend } = this.state;
+    const { addFriend, connected } = this.state;
 
     return (
       <ConnectionDiv key={this.props.id}>
-        {!addFriend ? 
+        {(!addFriend && connected == null )? 
         <ConnectionName>
           <AddConnection 
             marginleft='0px' 
