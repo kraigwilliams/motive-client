@@ -12,7 +12,8 @@ export default class ShareForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      thoughtId: null,
+      share_id: null,
+      item: null,
       connections: [],
       connectionSelected: {},
       shareSelected: null
@@ -20,13 +21,23 @@ export default class ShareForm extends Component {
   }
 
   async componentDidMount() {
-    const thoughtId = this.props.match.params.thought_id
+    if(this.props.match.params.thought_id) {
+      this.setState({
+        share_id : this.props.match.params.thought_id,
+        item: 'thought'
+      })
+    } else {
+      this.setState({
+        share_id : this.props.match.params.topic_id,
+        item: 'topic'
+      })
+    }
+    
     const { user } = this.context;
     const userId = user.id;
     const connections = await ActionsService.getConnections(userId)
     this.setState({
-      connections,
-      thoughtId
+      connections
     })
   }
 
@@ -41,19 +52,23 @@ export default class ShareForm extends Component {
 
   handleSubmitShare(ev) {
     ev.preventDefault()
-    const { thoughtId } = this.state;
+    const { share_id, item } = this.state;
     const { connections, share_level } = ev.target;
     const connections_share = connections.value;
     const share_level_share = share_level.value;
 
     console.log(connections_share, 'connections', share_level_share, 'share level')
-    ActionsService.shareThought(thoughtId, connections_share, share_level_share);
-    this.props.history.push(`thoughts/${thoughtId}`)
+    if(item === 'thought') {
+      ActionsService.shareThought(share_id, connections_share, share_level_share);
+      this.props.history.goBack(`thoughts/${share_id}`)
+    } else if (item === 'topic') {
+      ActionsService.shareTopic(share_id, connections_share, share_level_share);
+      this.props.history.goBack( `topics/${share_id}`)
+    }
   }
 
   render() {
-    const {connections} = this.state;
-    const { shareSelected } = this.state;
+    const {connections, shareSelected} = this.state;
     const connectOptions = connections.map((friend, idx) => {
       return <option key={idx} value={friend.id}>
         {friend.first_name} 
@@ -105,7 +120,6 @@ export default class ShareForm extends Component {
             <option value={3}>Viewer</option>
           </Dropdown>
 
-
           <FormButton 
               type='submit'
             >
@@ -125,9 +139,6 @@ export default class ShareForm extends Component {
               ?  <DetailMessage> Sharing as a reader only allows them to view and comment on the thought you created </DetailMessage>
               : null
           }
-
-          
-
         </FormWrapper>
       </PageWrapper>
 

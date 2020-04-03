@@ -125,6 +125,7 @@ async componentDidMount() {
                     key={idx}
                     id={topic.id}
                     title={topic.topic_title}
+                    shared='isShared'
                   />
                 })
               }
@@ -135,6 +136,7 @@ async componentDidMount() {
                   key={idx}
                   id={thought.thought_id}
                   title={thought.thought_title}
+                  shared='isShared'
                 />
                 })
               }

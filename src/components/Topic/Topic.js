@@ -19,7 +19,8 @@ export default class Topic extends Component {
       currentThoughts: [], 
       deleteDiv: true,
       topicId: null,
-
+      isShared: null,
+      sharedLevel: null,
     }
   }
 
@@ -36,13 +37,32 @@ export default class Topic extends Component {
 
     //get the current topic from the server and set it in state 
     const currentTopic = await ContentService.getThisTopic(topicId, authToken);
-
     this.setState({ currentTopic })
 
     //get the thoughts that belong to the current topic and set it in state 
     const currentThoughts = await ContentService.getThoughtsInTopic(topicId, authToken)
     if(currentThoughts) {
       this.setState({ currentThoughts })
+    }
+
+    const sharedTopics = await ContentService.getSharedTopics();
+
+    const isShared = !!sharedTopics.filter(topic => 
+      topic.topic_id == topicId
+    )
+
+    if(isShared){
+      console.log(topicId, 'topic id')
+      const level = await ContentService.getSharedTopicLevel(topicId)
+      console.log(level, 'topic level')
+      this.setState({
+        isShared: true,
+        sharedLevel: level,
+      })
+    } else {
+      this.setState({
+        isShared: false
+      })
     }
   }
 
@@ -65,7 +85,7 @@ export default class Topic extends Component {
   }
 
   render() {
-    const { currentTopic, currentThoughts, topicId } = this.state;
+    const { currentTopic, currentThoughts, topicId, sharedLevel } = this.state;
     return(
       <TopicWrapper>
         <div style={{display: 'flex', overflow:'hidden'}}>
@@ -80,12 +100,18 @@ export default class Topic extends Component {
           </TopicHeader>
           <div style={{width: '66.97px'}}></div>
 
+
+          <ShareButton 
+            type='button' 
+            to={`/topic/${topicId}/share`}
+            disabled={sharedLevel > 2}
+          />
         </div>
 
-        <ShareButton 
+        {/* <ShareButton 
             type='button' 
             to={`/${topicId}/share`}
-        />
+        /> */}
 
 
           {currentThoughts.length < 1? <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> : ''}
