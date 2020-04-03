@@ -23,7 +23,10 @@ export default class Thought extends Component {
       editted: false, 
       deleteDiv: true,
       topicSelected: null,
-      successfulSave: false
+      successfulSave: false,
+      thoughtLevel: null,
+      isShared: null,
+      sharedLevel: null,
     }
   }
 
@@ -39,6 +42,29 @@ export default class Thought extends Component {
     this.setState({
       currentThought
     })
+
+    console.log(currentThought, 'current thought')
+
+    // Check if this thought is shared
+    const sharedThoughts = await ContentService.getSharedThoughts();
+
+    const isShared = !!sharedThoughts.filter(thought => thought.thought_id == thoughtId)
+
+    if(isShared){
+      console.log(thoughtId, 'thought id')
+      const { level } = await ContentService.getSharedThoughtLevel(thoughtId)
+      console.log(level, 'shared level')
+      this.setState({
+        isShared: true,
+        sharedLevel: level,
+      }) 
+    } else {
+      this.setState({
+        isShared: false
+      }) 
+    }
+
+    console.log(sharedThoughts, 'shared thoughts in thought view', this.state.isShared);
     
     const topics = await ContentService.getTopics()
     if(topics) {
@@ -106,7 +132,7 @@ export default class Thought extends Component {
   }
 
   render() {
-    const { currentThought, topics, successfulSave, thoughtId, deleteDiv } = this.state;
+    const { currentThought, topics, successfulSave, thoughtId, deleteDiv, sharedLevel } = this.state;
     const { topicForThought } = this.context;
 
     const options = topics.map((topic, idx )=> {
@@ -133,6 +159,7 @@ export default class Thought extends Component {
           <ThoughtHeader type='text'
             name='title'
             defaultValue={currentThought.thought_title} 
+            disabled={sharedLevel > 2}
           />
           {/* <div style={{width: '66.97px'}}></div> */}
 
@@ -140,10 +167,11 @@ export default class Thought extends Component {
 
           <ShareButton 
             type='button' 
-            to={`/${thoughtId}/share`}
+            to={`/thought/${thoughtId}/share`}
+            disabled={sharedLevel > 2}
           />
           <div style={{display: 'flex', flexDirection: 'column'}}>
-            <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
+            <DeleteButton type='button' onClick={this.toggleDeleteDiv} disabled={sharedLevel > 2}/>
             {!this.state.deleteDiv &&
               <StyledDeleteDiv> Delete Thought?
                 <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
@@ -154,6 +182,7 @@ export default class Thought extends Component {
           <ThoughtTextarea 
             name='content'
             defaultValue={currentThought.thought_content}
+            disabled={sharedLevel > 2}
           />
 
           <Container style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center', display:'flex', flexDirection: 'column'}}>
@@ -161,6 +190,7 @@ export default class Thought extends Component {
               name='topic'
               value={this.state.topicSelected || (topicForThought ? topicForThought : 0)}
               onChange={this.handleTopicChange.bind(this)}
+              disabled={sharedLevel > 2}
             >
               <option value={0}> -- Free Thought -- </option>
               {options}
@@ -170,7 +200,7 @@ export default class Thought extends Component {
                 className='edit-button'
                 type='submit' 
                 color={colors.darkgrey}
-                disabled={!this.state.editted}
+                disabled={!this.state.editted || sharedLevel > 2}
                 margintop='0px'
               >
                 save

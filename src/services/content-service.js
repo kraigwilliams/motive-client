@@ -235,6 +235,42 @@ const ContentService = {
     .catch(err => console.error(err.message))
   },
 
+  getSharedThoughtLevel(thoughtId){
+    return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}/level`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+        if(!res.ok) {
+          return res.json()
+          .then(e => Promise.reject(e))
+        } 
+        return res.json()
+    })
+    .catch(err => console.error(err.message))
+  },
+
+  getSharedTopicLevel(topicId){
+    return fetch(`${config.API_ENDPOINT}/topic/${topicId}/level`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+        if(!res.ok) {
+          return res.json()
+          .then(e => Promise.reject(e))
+        } 
+        return res.json()
+    })
+    .catch(err => console.error(err.message))
+  },
+
   deleteTopic(topicId) {
     fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
       method: 'DELETE',

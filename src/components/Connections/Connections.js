@@ -53,7 +53,6 @@ export default class Connections extends Component {
         nonconnections
       })
 
-      
       const { query } = this.state;
    
       const filteredData = nonconnections.filter(element => {

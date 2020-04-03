@@ -59,10 +59,16 @@ function App() {
           component={Thought}
         />
 
-<Route 
-          path='/:thought_id/share'
+        <Route 
+          path='/thought/:thought_id/share'
           component={ShareForm}
         />
+
+        <Route 
+          path='/topic/:topic_id/share'
+          component={ShareForm}
+        />    
+        
 
         <Route 
           path='/add-thought'
