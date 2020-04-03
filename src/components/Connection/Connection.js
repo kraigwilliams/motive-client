@@ -42,9 +42,15 @@ class Connection extends Component {
             type='button'  
             onClick={this.handleAddConnection}
           />
-          {this.props.firstname}
-          {this.props.lastname}
-          {this.props.username}
+          <div className='connection-details'>
+            <div className='connection-fullname'>
+            {this.props.firstname}
+            { ' '}
+            {this.props.lastname}
+            </div>
+  
+            {this.props.username}
+          </div>
         </ConnectionName>
       </ConnectionDiv>
     );

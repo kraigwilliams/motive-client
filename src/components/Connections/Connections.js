@@ -23,17 +23,28 @@ export default class Connections extends Component {
   
   handleInputChange = event => {
     const query = event.target.value;
-    this.setState({
-      query
-    })
+    // this.setState({
+    //   
+    // })
+
+    // if(query === '') {
+    //   this.setState({
+    //     filteredData : []
+    //   })
+    // } else {
+      const filteredData = this.state.nonconnections.filter(element => {
+        return element.first_name.toLowerCase().includes(query.toLowerCase());
+      });
+      this.setState({ 
+        filteredData,
+        query
+      });
+      console.log(filteredData, 'filtered data');
+    // }
   
-    const filteredData = this.state.nonconnections.filter(element => {
-      return element.first_name.toLowerCase().includes(query.toLowerCase());
-    });
-    this.setState({ 
-      filteredData
-    });
-    console.log(filteredData, 'filtered data');
+    
+
+    
     
     // this.setState(prevState => {
     //   const filteredData = prevState.nonconnections.filter(element => {
@@ -71,7 +82,7 @@ export default class Connections extends Component {
  }
   
   render() {
-    const { connections, filteredData} = this.state;
+    const { connections, filteredData, query} = this.state;
 
     return(
      
@@ -103,7 +114,7 @@ export default class Connections extends Component {
 
             <FormTitle color={colors.offwhite}>
               {/* this will eventually be getting the data for search friends from DB */}
-              {filteredData.map((connection, idx) => {
+              {query === '' ? '' : filteredData.map((connection, idx) => {
               return <Connection 
                 key={idx}
                 firstname={connection.first_name} 
