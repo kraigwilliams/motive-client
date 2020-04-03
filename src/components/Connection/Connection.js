@@ -1,44 +1,98 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import { ConnectionName, ConnectionDiv } from './Connection.style'
-import { AddButton } from '../Button/Button';
+import { AddConnection } from '../Button/Button';
 import ActionsService from '../../services/actions-service'
-
+import { CSSTransition } from 'react-transition-group';
+import { SuccessfulSave } from '../Thought/Thought.style';
 
 class Connection extends Component {
   static contextType = UserContext;
 
-  // componentDidMount() {
-  //   const { user } = this.context;
-  //   const userId = user.id;
-  // }
+  constructor(props) {
+    super(props)
+    this.state = {
+      userId: null,
+      addFriend: false,
+      connected: null
+    }
+  }
 
-  async handleAddConnection( connectionId ) {
-    await ActionsService.addConnection(this.context.user.id, connectionId)
+  componentDidMount() {
+    const { user } = this.context;
+    const userId = user.id;
 
-    ActionsService.getConnections(this.context.user.id)
+    this.setState({
+      userId,
+    })
+  }
+
+  async handleAddConnection() {
+    const { setAddedConnection } = this.context;
+    const connectionId = this.props.id
+    
+    const addFriends = await ActionsService.addConnection(this.state.userId, connectionId)
+    console.log(addFriends)
+    
+    if(addFriends) {
+      this.setState({
+        addFriend: true
+      })
+    setTimeout(() => {
+      this.setState({
+        addFriend: null,
+        connected: true,
+      });
+
+      setAddedConnection(true);
+    }, 2000);
+    } else {
+      console.log('no friends')
+    }
   }
 
 
   render() {
 
+    const { addFriend, connected } = this.state;
+
     return (
       <ConnectionDiv key={this.props.id}>
+        {(!addFriend && connected == null )? 
         <ConnectionName>
-          <AddButton 
+          <AddConnection 
             marginleft='0px' 
             marginright='10px' 
-            type='button' 
-            to='/add-thought' 
-            onClick={this.handleAddConnection(this.props.id)}
+            type='button'  
+            onClick={this.handleAddConnection.bind(this)}
           />
-          {this.props.firstname}
-          {this.props.lastname}
-          {this.props.username}
-        </ConnectionName>
+          <div className='connection-details'>
+            <div className='connection-fullname'>
+            {this.props.firstname}
+            {' '}
+            {this.props.lastname}
+            </div>
+  
+            {this.props.username}
+          </div>
+        </ConnectionName> : 
+
+        <CSSTransition
+          in={addFriend}
+          timeout={300}
+          classNames='alert'
+          unmountOnExit
+          appear
+        >            
+        <SuccessfulSave>
+          You are now connected to {this.props.firstname}{ ' '}{this.props.lastname}
+        </SuccessfulSave>
+
+      </CSSTransition>
+      }
       </ConnectionDiv>
     );
   }
 }
 
-export default Connection
+export default Connection;

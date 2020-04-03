@@ -16,7 +16,6 @@ export class ContentProvider extends Component {
       topicForThought: null,
       topicForAddThought: null,
     };
-
   }
 
   setTopicForThought = (topicForThought) => {

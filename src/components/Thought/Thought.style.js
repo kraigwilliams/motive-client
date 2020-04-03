@@ -10,7 +10,7 @@ export const ThoughtWrapper = styled.div`
   
 `;
 
-export const ThoughtHeader = styled.textarea`
+export const ThoughtHeader = styled.input`
   padding: 30px 10px 10px 10px;
   color: ${colors.white};
   vertical-align: middle;
@@ -120,7 +120,6 @@ export const SuccessfulSave = styled.div`
   margin: auto;
   padding: 10px;
   color: ${colors.teal};
-
 `;
 
 export const Container = styled.div`

@@ -132,7 +132,9 @@ export default class Thought extends Component {
   }
 
   render() {
+
     const { currentThought, topics, successfulSave, thoughtId, sharedLevel } = this.state;
+
     const { topicForThought } = this.context;
 
     const options = topics.map((topic, idx )=> {

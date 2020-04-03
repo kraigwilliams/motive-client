@@ -5,7 +5,8 @@ import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext.js'
 import Burger from './Burger'
 import { NavWrapper, Logo, MenuLink, MobileButton } from './NavBar.style'
-import {ReactComponent as FokulLogo} from './FOKUL.svg'
+import {ReactComponent as FokulLogo} from './FOLKUL.svg'
+
 class NavBar extends Component {
   static contextType = UserContext
   constructor(props) {

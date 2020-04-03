@@ -23,7 +23,7 @@ export default function LandingPage() {
             Focus your thoughts. 
           </LandingHeader>
           <LandingText>
-             Fokul is a space to cultivate ideas that matter. Keep a personal record or collaborate in groups — the sky's the limit.     
+             Folkul is a space to cultivate ideas that matter. Keep a personal record or collaborate in groups — the sky's the limit.     
           </LandingText>
  
         <AngleDown className='bounce' style={{margin: '150px'}} onClick={executeScroll} />
