@@ -120,7 +120,6 @@ export const SuccessfulSave = styled.div`
   margin: auto;
   padding: 10px;
   color: ${colors.teal};
-
 `;
 
 export const Container = styled.div`

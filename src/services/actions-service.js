@@ -41,7 +41,7 @@ const ActionsService = {
   },
 
   addConnection(userId, connectionId) {
-    return fetch(`${config.API_ENDPOINT}/connections/${userId}`, {
+    return fetch(`${config.API_ENDPOINT}/connection/${userId}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

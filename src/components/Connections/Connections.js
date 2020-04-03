@@ -142,7 +142,9 @@ export default class Connections extends Component {
 
           <ConnectionsSection>
             <FriendsHeader> Friends </FriendsHeader>
-            {/* map through connections ins tate to render each connection detail */}
+            {/* map through connections in state to render each connection detail */}
+              
+              
               {connections.map((friend, idx) => {
                 return (
                   <div key={idx}>
