@@ -172,6 +172,46 @@ const ContentService = {
     })
   },
 
+  getSharedThoughts(userId){
+    return fetch(`${config.API_ENDPOINT}/thought/shared`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok) {
+        return res.json()
+        .then(e => Promise.rejects(e))
+      }
+      return res.json()
+    })
+    .catch(err => {
+      console.error({ err })
+    })
+  }, 
+
+  getSharedTopics(userId){
+    return fetch(`${config.API_ENDPOINT}/topic/shared`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => {
+      if(!res.ok) {
+        return res.json()
+        .then(e => Promise.rejects(e))
+      }
+      return res.json()
+    })
+    .catch(err => {
+      console.error({ err })
+    })
+  }, 
+
   saveThoughtEdit(thoughtId, token, thought_title, thought_content, thought_topic){
     return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
       method: 'PATCH',

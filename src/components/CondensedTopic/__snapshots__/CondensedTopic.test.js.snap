@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CondensedTopic /> renders CondensedTopic by default 1`] = `
+<styled.div>
+  <Styled(Link)
+    to="topics/undefined"
+  />
+  <styled.p />
+</styled.div>
+`;

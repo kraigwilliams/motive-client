@@ -3,10 +3,11 @@ import { CSSTransition } from 'react-transition-group';
 import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
 import TokenService from '../../services/token-service'
-import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, CommentWrapper, CommentHeader, ThoughtDropdown, StyledDeleteDiv, SuccessfulSave, Container } from './Thought.style';
+import { CommentWrapper, CommentHeader, Comment, CommentsWrap, Reply } from '../Comment/Comment'
+import{ ThoughtHeader, ThoughtWrapper, ThoughtTextarea, ContentWrapper, ThoughtDropdown, StyledDeleteDiv, SuccessfulSave, Container } from './Thought.style';
 import { FormButton, GoBack } from '../Button/Button';
 import { colors } from '../constants'
-import { DeleteButton, ConfirmDeleteButton } from '../Button/Button';
+import { DeleteButton, ConfirmDeleteButton, ShareButton } from '../Button/Button';
 
 export default class Thought extends Component {
   static contextType = ContentContext;
@@ -76,6 +77,7 @@ export default class Thought extends Component {
     const thought_content = content.value;
     const thought_topic = topic.value;
 
+    //setting variable to result of pathc request made to server
     const currentThought = await ContentService.saveThoughtEdit(
       thoughtId,
       authToken,
@@ -104,7 +106,7 @@ export default class Thought extends Component {
   }
 
   render() {
-    const { currentThought, topics, successfulSave } = this.state;
+    const { currentThought, topics, successfulSave, thoughtId } = this.state;
     const { topicForThought } = this.context;
 
     const options = topics.map((topic, idx )=> {
@@ -114,7 +116,9 @@ export default class Thought extends Component {
     })
     return(
      
-      <ThoughtWrapper>
+      <ThoughtWrapper 
+      // style={ { backgroundColor : !deleteDiv ? 'red' : 'none' } } 
+      >
           
         <ContentWrapper 
           onSubmit={this.handleEdit.bind(this)} 
@@ -130,8 +134,22 @@ export default class Thought extends Component {
             name='title'
             defaultValue={currentThought.thought_title} 
           />
-          <div style={{width: '66.97px'}}></div>
+          {/* <div style={{width: '66.97px'}}></div> */}
 
+          {/* Share button here, pass in the thought id through props */}
+
+          <ShareButton 
+            type='button' 
+            to={`/${thoughtId}/share`}
+          />
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
+            {!this.state.deleteDiv &&
+              <StyledDeleteDiv> Delete Thought?
+                <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
+              </StyledDeleteDiv>
+            }
+            </div>
           </div>
           <ThoughtTextarea 
             name='content'
@@ -144,11 +162,10 @@ export default class Thought extends Component {
               value={this.state.topicSelected || (topicForThought ? topicForThought : 0)}
               onChange={this.handleTopicChange.bind(this)}
             >
-              <option value={0}> -- Not in a Topic -- </option>
+              <option value={0}> -- Free Thought -- </option>
               {options}
             </ThoughtDropdown>
-
-            
+           
               <FormButton 
                 className='edit-button'
                 type='submit' 
@@ -158,8 +175,6 @@ export default class Thought extends Component {
               >
                 save
               </FormButton>
-
-
 
               <CSSTransition
                 in={successfulSave}
@@ -175,27 +190,27 @@ export default class Thought extends Component {
               </CSSTransition>
             </Container>
 
-            <DeleteButton type='button' onClick={this.toggleDeleteDiv} />
-            {!this.state.deleteDiv &&
-              <StyledDeleteDiv> Delete Thought?
-                <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
-              </StyledDeleteDiv>
-            }
         </ContentWrapper>
 
         <CommentWrapper>
           <CommentHeader>
             Comments
           </CommentHeader>
-
-
-          {/* Map through existing comments to render here */}
-
+            
+          
+          <CommentsWrap>
+            {/* Map through existing comments to render here */}
+            <Comment />
+            <Comment />
+            <Comment />
+          </CommentsWrap>
+          
           {/* Input to write a new comment here */}
+            <Reply />
           {/* Add comment button */}
+
         </CommentWrapper>
       </ThoughtWrapper>
-
     )
   }
 }

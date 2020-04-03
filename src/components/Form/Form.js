@@ -71,18 +71,16 @@ export const Input =  React.forwardRef(({ className, ...props }, ref) => {
 })
 
 export const FormInput = styled(Input)`
-  /* border: 2px solid ${colors.offwhite}; */
-  /* border-radius: 40px; */
   border: none;
   border-bottom: 2px solid ${colors.offwhite};
   padding: 10px;
   font-size: 16px;
-  /* background-color: ${({ backgroundcolor }) => backgroundcolor || colors.offwhite}; */
-  background: transparent;
+  background-color: ${({ backgroundcolor }) => backgroundcolor || 'transparent'};
   color: ${({ color }) => color || colors.darkgrey};
   text-align: center;
   width: 80%;
-  margin: auto;
+  margin-top: 10px;
+  align-self: center;
 
   :focus {
     border-bottom: 2px solid ${colors.teal}
@@ -90,7 +88,7 @@ export const FormInput = styled(Input)`
 
   @media (min-width:700px) {
     width: 60%; 
-    margin: auto;
+    margin: 10px;
   }
 `;
 
@@ -146,4 +144,14 @@ export const Dropdown = styled.select`
     width: 60%;
     margin: auto;
   } 
+`;
+
+export const DetailMessage = styled.div`
+  background: transparent;
+  border: 1px solid ${colors.coral};
+  font-size: 16px;
+  text-align: center;
+  margin: 35px auto auto auto;
+  padding: 10px;
+  color: ${colors.white};
 `;

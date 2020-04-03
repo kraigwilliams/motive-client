@@ -72,33 +72,6 @@ export const ThoughtTextarea = styled.textarea`
   } 
 `;
 
-export const CommentWrapper = styled.div`
-  background-color: ${colors.darkgrey};
-  height: 50vh;
-  padding: 15px;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-
-  .edit-wrapper {
-    margin: auto;
-  }
-
-  @media (min-width: 600px) {
-    height: 30vh;
-  } 
-`;
-
-export const CommentHeader = styled.h3`
-  color: ${colors.coral};
-  text-align: left;
-
-  @media (min-width: 600px) {
-    text-align: center;
-    height: 30vh;
-  } 
-`;
-
 export const StyledDeleteDiv = styled.div`
   text-align: center;
   border-radius: 5px;
@@ -108,6 +81,11 @@ export const StyledDeleteDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 300px;
+  position: absolute;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   @media (min-width: 600px) {
   
