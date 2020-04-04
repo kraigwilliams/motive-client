@@ -15,7 +15,7 @@ export const colors = {
 }
 
 export const PageWrapper = styled.div`
-  background-color: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
+  background-color: ${({bgColor}) => bgColor ? bgColor : colors.darkgrey};
   margin: 0;
   text-align: ${({textalign}) => textalign ? textalign : ''};
   

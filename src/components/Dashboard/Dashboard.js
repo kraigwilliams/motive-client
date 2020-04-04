@@ -65,7 +65,7 @@ async componentDidMount() {
   render() {
   const { topics, freeThoughts, sharedThoughts, sharedTopics } = this.state;
     return (
-      <PageWrapper>
+      <PageWrapper style={{bgColor: colors.darkgrey, height: '150vh'}}>
         
           <DBHeader>
           {this.context.user.username.toUpperCase()}'S  FOLKUL

@@ -11,18 +11,19 @@ export const Thought = styled.div`
   justify-content: space-between;
   margin: 20px auto;
   border-radius: 30px;
-  max-width: 80%;
-  
+  min-width: fit-content;
+  width: 60%;
+
   :hover {
     box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.50);
   }
 
   @media (min-width: 800px) {
-    max-width: 70%;
+    width: 60%;
   }
 
   @media (min-width: 700px) {
-    max-width: 80%;
+    width: 60%;
   }
 `;
 

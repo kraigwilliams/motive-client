@@ -11,14 +11,18 @@ export const Topic = styled.div`
   justify-content: space-between;
   margin: 20px auto;
   border-radius: 10px;
-  max-width: 80%;
+  min-width: fit-content;
+  width: 60%;
+ 
 
   :hover {
     box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.50);
   }
 
   @media (min-width: 1000px) {
-    width: 100%;
+    min-width: fit-content;
+    width: 60%;
+   
   } 
 `;
 
@@ -26,8 +30,6 @@ export const TopicTitle = styled(Link)`
   color: ${colors.offwhite};
   font-size: 16px;
   text-decoration: none;
-
-  
 `;
 
 export const TopicCount = styled.p`

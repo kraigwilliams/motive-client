@@ -92,7 +92,7 @@ export const Comment = () => {
 };
 
 export const CommentsWrap = styled.div`
-  overflow: scroll;
+  overflow: auto;
   height: 200px;
 `;
 
