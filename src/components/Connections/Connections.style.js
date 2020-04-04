@@ -27,42 +27,42 @@ export const ConnectionsHeader = styled.h1`
 `;
 
 export const FriendsName = styled.h2`
-  padding: 7px;
+  padding: 15px 8px 8px 8px;
   color: ${colors.white};
   text-align: center;
-  font-size: 25px;
+  font-size: 18px;
 
   @media (min-width: 600px) {
     text-align: center;
-    font-size: 27px;
+    font-size: 18px;
   } 
 `;
 
 export const FriendsUserName = styled.h2`
   color: ${colors.blue};
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   border-bottom: 1px solid ${colors.darkgrey};
   border-radius: 7px;
   line-height: 1.5;
   width: 300px;
   margin: auto;
-
+  padding-bottom: 8px;
 
   @media (min-width: 600px) {
     text-align: center;
   } 
 `;
 
-
 export const FriendsHeader = styled.h2`
-
+  padding-top: 20px;
   color: ${colors.white};
   text-align: center;
   line-height: 2.5;
   border-bottom: 1px solid ${colors.white};
   max-width: 300px;
   margin: auto;
+  font-size: 28px;
 
   @media (min-width: 600px) {
     text-align: center;
@@ -72,9 +72,9 @@ export const FriendsHeader = styled.h2`
 export const ConnectionsSection = styled.section`
   background-color: ${colors.darkergrey};
   text-align: center;
-  padding-bottom: 70px;
-  height: auto 140%;
-  
+  padding-bottom: 50px;
+  /* height: auto 140%; */
+  width: 100%;
 
   @media (min-width: 600px) {
     height: 100%;
@@ -82,3 +82,7 @@ export const ConnectionsSection = styled.section`
 
 `;
 
+export const AddConnectionsWrap = styled.div`
+  overflow: scroll;
+  height: 200px;
+`;

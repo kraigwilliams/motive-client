@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import UserContext from '../../contexts/UserContext'
 import ActionsService from '../../services/actions-service'
-import { ConnectionsPageWrapper, ConnectionsHeader, FriendsName, FriendsUserName, FriendsHeader, ConnectionsSection } from './Connections.style';
+import { ConnectionsPageWrapper, ConnectionsHeader, FriendsName, FriendsUserName, FriendsHeader, ConnectionsSection, AddConnectionsWrap } from './Connections.style';
 import { FormInput, FormWrapper, FormTitle } from '../Form/Form'
 import { colors } from '../constants'
 import Connection  from '../Connection/Connection'
@@ -20,7 +20,6 @@ export default class Connections extends Component {
     }
   }
 
-  
   handleInputChange = event => {
     const query = event.target.value;
     const filteredData = this.state.nonconnections.filter(element => {
@@ -57,8 +56,6 @@ export default class Connections extends Component {
    this.getData();
  }
 
- 
-  
   render() {
     const { connections, filteredData, query} = this.state;
 
@@ -87,18 +84,10 @@ export default class Connections extends Component {
               placeholder='Search by first name...'
               value={addedConnection ? '' : null}
             />
-            
-            {/* <FormButton 
-              type='submit' 
-              margintop={'15px'} 
-              backgroundcolor={colors.darkergrey} 
-              color={colors.offwhite}
-            >
-              Search
-            </FormButton> */}
 
-            <FormTitle color={colors.offwhite}>
+            <FormTitle color={colors.offwhite} />
               {/* this will eventually be getting the data for search friends from DB */}
+              <AddConnectionsWrap>
               {query === '' ? '' : filteredData.map((connection, idx) => {
               return <Connection 
                 key={idx}
@@ -108,45 +97,25 @@ export default class Connections extends Component {
                 id={connection.id}
               /> 
               })}
-              {/* {nonconnections.map((connection, idx) => {
-              return <Connection 
-                firstname={connection.first_name} 
-                lastname={connection.last_name}
-                username={connection.username}
-                id={connection.id}
-              /> 
-              })} */}
-
-              {/* 
-              <Connection /> 
-              <Connection /> 
-              <Connection />  
-              */}
-            </FormTitle>
+            </AddConnectionsWrap>
+            
           </FormWrapper>
 
           <ConnectionsSection>
             <FriendsHeader> Friends </FriendsHeader>
-            {/* map through connections in state to render each connection detail */}
-              
-              
+              {/* map through connections in state to render each connection detail */}
               {connections.map((friend, idx) => {
                 return (
                   <div key={idx}>
-                    <FriendsName >{friend.first_name} {friend.last_name}</FriendsName>
-                    <FriendsUserName>{friend.username}</FriendsUserName>
+                    <FriendsName>
+                      {friend.first_name} {friend.last_name}
+                    </FriendsName>
+                    <FriendsUserName>
+                      {friend.username}
+                    </FriendsUserName>
                   </div>
                 )
               })}
-
-            {/* hard coded for now */}
-            {/* <FriendsName>Jordan Castillo</FriendsName>
-            <FriendsUserName>jordanxcast</FriendsUserName>
-            <FriendsName>Scott Lingner</FriendsName>
-            <FriendsUserName>slingner</FriendsUserName>
-            <FriendsName>Kraig Williams</FriendsName>
-            <FriendsUserName>kwill</FriendsUserName> */}
-      
         </ConnectionsSection>  
     </ConnectionsPageWrapper >
     )
