@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group';
 import ContentContext from './../../contexts/ContentContext'
@@ -36,7 +37,6 @@ export default class Thought extends Component {
       thoughtId
     })
     const authToken = TokenService.getAuthToken()
-
 
     const currentThought = await ContentService.getThisThought(thoughtId, authToken)
     this.setState({
@@ -142,11 +142,9 @@ export default class Thought extends Component {
           {topic.topic_title}
           </option>
     })
-    return(
+    return (
      
-      <ThoughtWrapper 
-      // style={ { backgroundColor : !deleteDiv ? 'red' : 'none' } } 
-      >
+      <ThoughtWrapper>
           
         <ContentWrapper 
           onSubmit={this.handleEdit.bind(this)} 
@@ -158,27 +156,40 @@ export default class Thought extends Component {
             onClick={() => this.props.history.goBack()}
             margin='30px 0px 30px 10px'
           />
-          <ThoughtHeader type='text'
+          <ThoughtHeader 
+            type='text'
             name='title'
             defaultValue={currentThought.thought_title} 
             disabled={sharedLevel > 2}
           />
-          {/* <div style={{width: '66.97px'}}></div> */}
+          <div className='thought-actions'>
+            {/* Share button here, pass in the thought id through props */}
+            <ShareButton 
+              type='button' 
+              to={`/thought/${thoughtId}/share`}
+              shared={sharedLevel > 2 ? 'none' : null}
+              marginRight='0px'
+            />
 
-          {/* Share button here, pass in the thought id through props */}
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+              <DeleteButton 
+                type='button' 
+                onClick={this.toggleDeleteDiv} 
+                shared={sharedLevel > 2 ? 'none' : null}
+              />
+              {!this.state.deleteDiv &&
+                <StyledDeleteDiv> 
+                  Delete Thought?
 
-          <ShareButton 
-            type='button' 
-            to={`/thought/${thoughtId}/share`}
-            shared={sharedLevel > 2 ? 'none' : null}
-          />
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <DeleteButton type='button' onClick={this.toggleDeleteDiv} shared={sharedLevel > 2 ? 'none' : null}/>
-            {!this.state.deleteDiv &&
-              <StyledDeleteDiv> Delete Thought?
-                <ConfirmDeleteButton type='button' onClick={() => {this.handleDelete()}} >Yes </ConfirmDeleteButton>
-              </StyledDeleteDiv>
-            }
+                  <ConfirmDeleteButton 
+                    type='button' 
+                    onClick={() => {this.handleDelete()}}
+                  >
+                    Yes 
+                  </ConfirmDeleteButton>
+                </StyledDeleteDiv>
+              }
+              </div>
             </div>
           </div>
           <ThoughtTextarea 
@@ -187,7 +198,9 @@ export default class Thought extends Component {
             disabled={sharedLevel > 2}
           />
 
-          <Container style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center', display:'flex', flexDirection: 'column'}}>
+          <Container 
+            style={{width: 'fit-content', margin:'auto', padding: '5px', textAlign: 'center', display:'flex', flexDirection: 'column'}}
+          >
             <ThoughtDropdown
               name='topic'
               value={this.state.topicSelected || (topicForThought ? topicForThought : 0)}
@@ -229,7 +242,6 @@ export default class Thought extends Component {
           <CommentHeader>
             Comments
           </CommentHeader>
-            
           
           <CommentsWrap>
             {/* Map through existing comments to render here */}

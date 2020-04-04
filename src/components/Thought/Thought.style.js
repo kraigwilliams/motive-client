@@ -11,7 +11,7 @@ export const ThoughtWrapper = styled.div`
 `;
 
 export const ThoughtHeader = styled.input`
-  padding: 30px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   color: ${colors.white};
   vertical-align: middle;
   text-align: center;
@@ -46,6 +46,14 @@ export const ContentWrapper = styled.form`
   justify-content: center;
   text-align: center;
   margin: auto;
+
+  .thought-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 12px;
+    /* align-items: center; */
+  }
   
   .edit-button {
     justify-self: center;
@@ -107,7 +115,6 @@ export const ThoughtDropdown = styled.select`
   }
 
   @media (min-width: 700px) {
-    /* width: 60%; */
     margin-top: 40px;
   } 
 `;

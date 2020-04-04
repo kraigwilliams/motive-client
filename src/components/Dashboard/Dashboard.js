@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { CSSTransition } from 'react-transition-group';
 import UserContext from '../../contexts/UserContext'
 import ContentService from '../../services/content-service'
 import { colors, PageWrapper } from '../constants'
@@ -79,18 +80,29 @@ async componentDidMount() {
               <AddButton type='button' to='/add-topic'/>
             </SectionTitle>
 
+            
               {
                 topics.map((topic, idx) => {
                   let thoughtCount = this.countThoughtsForTopic(topic.id)
-                  return <CondensedTopic 
-                  key={idx}
-                  id={topic.id}
-                  title={topic.topic_title}
-                  count={thoughtCount}
-                />
-                })
-              }
-            
+                  return (
+                    <CSSTransition
+                    in={!!topics}
+                    classNames='fade'
+                    appear={true}
+                    mountOnEnter
+                    timeout={{appear: 500, enter: 300}}
+                    key={idx}
+                  >
+                    <CondensedTopic 
+                      key={idx}
+                      id={topic.id}
+                      title={topic.topic_title}
+                      count={thoughtCount}
+                    />
+                </ CSSTransition>
+              )
+            })
+          }
           </Section>
           <Section>
             <SectionTitle>
@@ -98,17 +110,25 @@ async componentDidMount() {
                 Thoughts 
               </h2>
               <AddButton type='button' to='/add-thought'/>
-            </SectionTitle>
-            
-
+            </SectionTitle>            
               {
                 freeThoughts.map((thought, idx) => {
-                  return <CondensedThought 
-                  key={idx}
-                  id={thought.id}
-                  title={thought.thought_title}
-
-                />
+                  return (
+                    <CSSTransition
+                      in={!!freeThoughts}
+                      classNames='fade'
+                      appear={true}
+                      mountOnEnter
+                      timeout={{appear: 500, enter: 300}}
+                      key={idx}
+                    >
+                      <CondensedThought 
+                        key={idx}
+                        id={thought.id}
+                        title={thought.thought_title}
+                      />
+                    </CSSTransition>
+                  )
                 })
               }
           </Section>
@@ -118,26 +138,46 @@ async componentDidMount() {
                 Shared
               </h2>
             </SectionTitle>
-
               {
                 sharedTopics.map((topic, idx) => {
-                  return <CondensedTopic
+                  return (
+                    <CSSTransition
+                    in={!!sharedTopics}
+                    classNames='fade'
+                    appear={true}
+                    mountOnEnter
+                    timeout={{appear: 500, enter: 300}}
                     key={idx}
-                    id={topic.id}
-                    title={topic.topic_title}
-                    shared='isShared'
-                  />
+                    >
+                      <CondensedTopic
+                        key={idx}
+                        id={topic.id}
+                        title={topic.topic_title}
+                        shared='isShared'
+                      />
+                    </CSSTransition>
+                  )
                 })
-              }
-              
+              }             
               {
                 sharedThoughts.map((thought, idx) => {
-                  return <CondensedThought 
-                  key={idx}
-                  id={thought.thought_id}
-                  title={thought.thought_title}
-                  shared='isShared'
-                />
+                  return (
+                    <CSSTransition
+                      in={!!sharedThoughts}
+                      classNames='fade'
+                      appear={true}
+                      mountOnEnter
+                      timeout={{appear: 500, enter: 300}}
+                      key={idx}
+                    >
+                      <CondensedThought 
+                        key={idx}
+                        id={thought.thought_id}
+                        title={thought.thought_title}
+                        shared='isShared'
+                      />
+                    </CSSTransition>
+                  )
                 })
               }
           </Section>

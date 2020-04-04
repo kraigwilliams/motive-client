@@ -162,7 +162,6 @@ export const AddConnection = styled(AddConnect)`
     margin-right: ${({marginright}) =>  marginright ? marginright : '0px'};
     font-size: 1em;
 
-  
     .button-link{
       color: ${({color}) =>  color ? color : colors.coral};
     }
@@ -177,9 +176,6 @@ const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx('Button', className)} ref={ref} {...props}>
       <FontAwesomeIcon icon='minus'/>
-      {/* <NavLink to={props.to} className='button-link'>
-        <FontAwesomeIcon icon='minus'/>
-      </NavLink> */}
     </button>
   )
 })
@@ -220,7 +216,7 @@ export const ShareButton = styled(Share)`
   text-align: center;
   font-size: 1em;
   display: ${({shared}) => shared ? shared : 'block'};
- 
+  margin-right: ${({marginRight}) => marginRight ? marginRight : '30px'};
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
   }

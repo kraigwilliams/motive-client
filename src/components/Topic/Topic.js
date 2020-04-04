@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { Component } from 'react'
 import ContentContext from './../../contexts/ContentContext'
 import ContentService from '../../services/content-service'
@@ -30,7 +31,7 @@ export default class Topic extends Component {
     this.setState({
       topicId
     })
-    localStorage.setItem('topic', topicId);
+    // localStorage.setItem('topic', topicId);
     this.context.setTopicForAddThought(topicId)
     this.context.setTopicForThought(topicId)
     const authToken = TokenService.getAuthToken()
@@ -92,14 +93,13 @@ export default class Topic extends Component {
           <GoBack 
             type='reset' 
             onClick={() => this.handleGoBack()}
-            margin='30px 0px 22px 30px'
+            margin='30px 0px 30px 30px'
           />
           <TopicHeader>
             <h1 style={{marginBottom: '20px'}}>{currentTopic.topic_title}</h1>
             <p style={{color: colors.darkgrey}}>{currentTopic.topic_content}</p>
           </TopicHeader>
-          <div style={{width: '66.97px'}}></div>
-
+          {/* <div style={{width: '66.97px'}}></div> */}
 
           <ShareButton 
             type='button' 
@@ -108,17 +108,9 @@ export default class Topic extends Component {
           />
         </div>
 
-        {/* <ShareButton 
-            type='button' 
-            to={`/${topicId}/share`}
-        /> */}
-
-
           {currentThoughts.length < 1? <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> : ''}
-            
 
           <ContentWrapper>
-
             <div className='top'>
             <SortWrapper>
                 <SortLabel>Sort</SortLabel>
@@ -142,16 +134,11 @@ export default class Topic extends Component {
               })
             }
 
-
-          {/* <DeleteButton type='button' onClick={this.toggleDeleteDiv.bind(this)} /> */}
-
-          {!this.state.deleteDiv &&
-              <StyledDeleteDiv> Delete Topic?
-                <ConfirmDeleteButton type='button' onClick={this.handleDelete}>Yes</ConfirmDeleteButton>
-              </StyledDeleteDiv>
-          }
-
-
+            {!this.state.deleteDiv &&
+                <StyledDeleteDiv> Delete Topic?
+                  <ConfirmDeleteButton type='button' onClick={this.handleDelete}>Yes</ConfirmDeleteButton>
+                </StyledDeleteDiv>
+            }
            </ContentWrapper>
       </TopicWrapper>
     );

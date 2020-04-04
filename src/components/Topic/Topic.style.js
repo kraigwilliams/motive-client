@@ -54,13 +54,11 @@ export const SortSelectDropdown = styled.select`
   background: transparent;
   font-size: 16px;
   color: ${colors.white};
-  /* margin-bottom: 30px; */
 
   > option {
     font-size: 16px;
   }
  
-
   @media (min-width: 600px) {
     min-width: 30%;
     margin-left: auto;
@@ -83,10 +81,6 @@ export const ContentWrapper = styled.div`
     margin: 10px 30px;
     padding: 5px 60px;
   }
-
-  @media (min-width: 700px) {
-   
-  } 
 `;
 
 export const StyledDeleteDiv = styled.div`

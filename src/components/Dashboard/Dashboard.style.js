@@ -21,19 +21,38 @@ export const ContentWrapper = styled.div`
   padding: 30px;
   margin: 0;
   height: 100vh;
+  align-content: center;
 
-
-  @media (min-width: 700px) {
+  @media (min-width: 1000px) {
     flex-direction: row;
+    justify-content: initial;
   } 
 `;
 
 export const Section = styled.section`
   text-align: center;
+  margin: auto;
 
-  @media (min-width: 700px) {
-    margin: 40px;
-    width: 50%;
+  .fade-appear {
+    opacity: .01;
+    transition: opacity 1s ease;
+  }
+
+  .fade-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease;
+  }
+
+  @media (min-width: 1000px) {
+    margin-top: 0;
+  } 
+
+  @media (min-width: 900px) {
+    width: 60%;
+  }  
+
+  @media (min-width: 500px) {
+    width: 80%;
   } 
 `;
 

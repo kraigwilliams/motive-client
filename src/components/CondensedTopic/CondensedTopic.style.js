@@ -11,11 +11,15 @@ export const Topic = styled.div`
   justify-content: space-between;
   margin: 20px auto;
   border-radius: 10px;
-  max-width: 70%;
+  max-width: 80%;
 
   :hover {
     box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.50);
   }
+
+  @media (min-width: 1000px) {
+    width: 100%;
+  } 
 `;
 
 export const TopicTitle = styled(Link)`
