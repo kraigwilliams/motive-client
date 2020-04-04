@@ -6,17 +6,16 @@ class CondensedTopic extends Component {
   render() {
 
     return (
-      <Topic key={this.props.id}>
         <TopicTitle 
           to={`topics/${this.props.id}`}
         >
-          {this.props.title}
+         <Topic key={this.props.id}>
+            {this.props.title}
+            <TopicCount>
+              {this.props.count}
+            </TopicCount>
+          </Topic>
         </TopicTitle>
-
-        <TopicCount>
-          {this.props.count}
-        </TopicCount>
-      </Topic>
     );
   }
 }
