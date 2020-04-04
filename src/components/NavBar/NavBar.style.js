@@ -26,7 +26,7 @@ export const Logo = styled(Link)`
   text-decoration: none;
   font-weight: bolder;
   align-self: center;
-  
+  margin-top: 7px;
   :hover{
     cursor: pointer;
     fill: ${colors.teal}
