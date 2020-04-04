@@ -28,54 +28,54 @@ function App() {
           component={LandingPage}
         />
 
-        <Route
+        <PublicOnlyRoute
           exact
           path='/signup'
           component={SignUp}
         />
 
-        <Route 
+        <PublicOnlyRoute 
           path='/login'
           component={Login}
         />
 
-        <Route 
+        <PrivateRoute 
           path='/dashboard'
           component={Dashboard}
         />
 
-        <Route 
+        <PrivateRoute 
           path='/connections'
           component={Connections}
         />
 
-        <Route 
+        <PrivateRoute 
           path='/topics/:topic_id'
           component={Topic}
         />
     
-        <Route 
+        <PrivateRoute 
           path='/thoughts/:thought_id'
           component={Thought}
         />
 
-        <Route 
+        <PrivateRoute 
           path='/thought/:thought_id/share'
           component={ShareForm}
         />
 
-        <Route 
+        <PrivateRoute 
           path='/topic/:topic_id/share'
           component={ShareForm}
         />    
         
 
-        <Route 
+        <PrivateRoute 
           path='/add-thought'
           component={AddThought}
         />
 
-        <Route 
+        <PrivateRoute 
           path='/add-topic'
           component={AddTopic}
         />

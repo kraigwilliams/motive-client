@@ -9,6 +9,7 @@ export const NavWrapper = styled.header`
   padding: 10px 20px;
   justify-content: space-between;
   overflow: hidden;
+
   .logged-in {
     display: flex;
     flex-direction: row;
@@ -25,6 +26,7 @@ export const Logo = styled(Link)`
   text-decoration: none;
   font-weight: bolder;
   align-self: center;
+  
   :hover{
     cursor: pointer;
     fill: ${colors.teal}
@@ -37,6 +39,7 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   margin-left: 25px;
   align-self: center;
+  
 
   :hover{
     cursor: pointer;

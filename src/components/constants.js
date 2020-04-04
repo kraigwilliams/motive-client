@@ -17,6 +17,7 @@ export const colors = {
 export const PageWrapper = styled.div`
   background-color: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
   margin: 0;
+  text-align: ${({textalign}) => textalign ? textalign : ''};
   
   min-height: 100vh;
 

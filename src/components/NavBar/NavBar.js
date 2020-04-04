@@ -60,7 +60,7 @@ class NavBar extends Component {
       <>
       <NavWrapper>
         <Logo to='/'>
-            <FokulLogo style={{fill: 'white', width: '120px'}}/>
+            <FokulLogo className='logo' style={{fill: 'white', width: '120px'}}/>
         </Logo>
         
     
