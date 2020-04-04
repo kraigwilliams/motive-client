@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group';
 import UserContext from '../../contexts/UserContext'
 import ContentService from '../../services/content-service'
-import { colors, PageWrapper } from '../constants'
+import { colors } from '../constants'
 import CondensedTopic from '../CondensedTopic/CondensedTopic';
 import CondensedThought from '../CondensedThought/CondensedThought'
-import { DBHeader, Section, ContentWrapper, SectionTitle } from './Dashboard.style'
+import { DBHeader, Section, ContentWrapper, SectionTitle, PageWrapper } from './Dashboard.style'
 import {AddButton} from '../Button/Button'
 
 class Dashboard extends Component {
@@ -65,7 +65,7 @@ async componentDidMount() {
   render() {
   const { topics, freeThoughts, sharedThoughts, sharedTopics } = this.state;
     return (
-      <PageWrapper style={{bgColor: colors.darkgrey, height: '150vh'}}>
+      <PageWrapper style={{bgColor: colors.darkgrey}}>
         
           <DBHeader>
           {this.context.user.username.toUpperCase()}'S  FOLKUL
@@ -132,9 +132,9 @@ async componentDidMount() {
                 })
               }
           </Section>
-          <Section>
+          <Section >
             <SectionTitle>
-              <h2 style={{color: colors.white}}>
+              <h2 style={{color: colors.coral}}>
                 Shared
               </h2>
             </SectionTitle>

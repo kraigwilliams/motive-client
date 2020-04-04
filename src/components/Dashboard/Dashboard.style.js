@@ -3,22 +3,24 @@ import { colors } from '../constants'
 
 export const PageWrapper = styled.div`
   background-color: ${colors.darkgrey};
-  margin: 0;
   padding: 0;
-  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const DBHeader = styled.h1`
   text-align: center;
-  padding: 30px;
+  padding: 10px 10px 7px 10px;
   color: ${colors.white};
   background-color: ${colors.darkgrey};
   line-height: 1;
   border-bottom: .5px solid ${colors.teal};
-  border-top: .5px solid ${colors.teal};
   font-weight: bold;
   font-style: italic;
   font-size: 35px;
+  display:inline;  
+  align-self: center;
 `;
 
 export const ContentWrapper = styled.div`
@@ -39,7 +41,7 @@ export const ContentWrapper = styled.div`
 export const Section = styled.section`
   text-align: center;
   margin: auto;
-
+  
   .fade-appear {
     opacity: .01;
     transition: opacity 1s ease;
