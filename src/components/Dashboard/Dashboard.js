@@ -66,11 +66,11 @@ async componentDidMount() {
   const { topics, freeThoughts, sharedThoughts, sharedTopics } = this.state;
     return (
       <PageWrapper>
-        <header>
+        
           <DBHeader>
-          {this.context.user.username}'s  Fokul
+          {this.context.user.username.toUpperCase()}'S  FOLKUL
           </DBHeader>
-        </header>
+        
         <ContentWrapper>
           <Section>
             <SectionTitle>

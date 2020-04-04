@@ -85,8 +85,7 @@ export const ConnectionsSection = styled.section`
 export const AddConnectionsWrap = styled.div`
   overflow: auto;
   height: 200px;
-  ::-webkit-scrollbar-background {
-  color: ${colors.darkgrey};
-}
+  align-items: center;
+
  
 `;

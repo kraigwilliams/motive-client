@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors } from '../constants'
 
 export const PageWrapper = styled.div`
-  background-color: ${colors.offwhite};
+  background-color: ${colors.darkgrey};
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -11,7 +11,13 @@ export const PageWrapper = styled.div`
 export const DBHeader = styled.h1`
   text-align: center;
   padding: 30px;
-  color: ${colors.darkgrey};
+  color: ${colors.offwhite};
+  background-color: ${colors.darkgrey};
+  line-height: 1;
+  border-bottom: .5px solid ${colors.teal};
+  font-weight: bold;
+  font-style: italic;
+  font-size: 35px;
 `;
 
 export const ContentWrapper = styled.div`
