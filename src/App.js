@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
+import PrivateRoute from './components/Utils/PrivateRoute'
+import PublicOnlyRoute from './components/Utils/PublicRoute'
 import NavBar from './components/NavBar/NavBar'
 import LandingPage from './components/LandingPage/LandingPage'
 import SignUp from './components/SignUp/SignUp'
@@ -11,9 +13,7 @@ import Connections from './components/Connections/Connections'
 import AddThought from './components/AddThought/AddThought'
 import AddTopic from './components/AddTopic/AddTopic'
 import ShareForm from './components/ShareForm/ShareForm'
-
-// import GroupsPage from './components/GroupsPage/GroupsPage'
-// import NotFoundPage from './components/Utils/NotFoundPage'
+import NotFoundPage from './components/Utils/NotFoundPage'
 // import './App.css';
 
 function App() {
@@ -80,14 +80,8 @@ function App() {
           component={AddTopic}
         />
 
-           
-        <Route 
-          path='/groups'
-          // component={GroupsPage}
-        />
-
         <Route
-          // component={NotFoundPage}
+          component={NotFoundPage}
         />
       </Switch>
     </main>

@@ -148,13 +148,15 @@ const ActionsService = {
   }, 
 
   shareTopic(topicId, shared_userId, shared_level){
-    fetch(`${config.API_ENDPOINT}/topic/share/${topicId}`, {
+    console.log('share topic request firing!')
+    return fetch(`${config.API_ENDPOINT}/topic/share/${topicId}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
+        topicId, 
         shared_userId,
         shared_level
       })

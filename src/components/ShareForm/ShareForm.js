@@ -57,11 +57,13 @@ export default class ShareForm extends Component {
     const connections_share = connections.value;
     const share_level_share = share_level.value;
 
+    console.log(item , 'item in state on share form ')
     console.log(connections_share, 'connections', share_level_share, 'share level')
+    
     if(item === 'thought') {
       ActionsService.shareThought(share_id, connections_share, share_level_share);
       this.props.history.goBack(`thoughts/${share_id}`)
-    } else if (item === 'topic') {
+    } else {
       ActionsService.shareTopic(share_id, connections_share, share_level_share);
       this.props.history.goBack( `topics/${share_id}`)
     }
