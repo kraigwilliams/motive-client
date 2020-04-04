@@ -126,7 +126,7 @@ const ActionsService = {
   },
 
   shareThought(thoughtId, shared_userId, shared_level){
-    console.log(shared_userId, 'userid', shared_level, 'sharelevel' )
+    
     fetch(`${config.API_ENDPOINT}/thought/share/${thoughtId}`, {
       method: 'POST',
       headers: {
@@ -148,7 +148,7 @@ const ActionsService = {
   }, 
 
   shareTopic(topicId, shared_userId, shared_level){
-    console.log('share topic request firing!')
+    
     return fetch(`${config.API_ENDPOINT}/topic/share/${topicId}`, {
       method: 'POST',
       headers: {

@@ -53,9 +53,9 @@ export default class Topic extends Component {
     )
 
     if(isShared !== undefined){
-      console.log(topicId, 'topic id')
+      
       const level = await ContentService.getSharedTopicLevel(topicId)
-      console.log(level, 'topic level')
+      
       this.setState({
         isShared: true,
         sharedLevel: level,

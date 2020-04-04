@@ -32,7 +32,7 @@ class Connection extends Component {
     const connectionId = this.props.id
     
     const addFriends = await ActionsService.addConnection(this.state.userId, connectionId)
-    console.log(addFriends)
+    
     
     if(addFriends) {
       this.setState({
@@ -46,9 +46,7 @@ class Connection extends Component {
 
       setAddedConnection(true);
     }, 2000);
-    } else {
-      console.log('no friends')
-    }
+    } 
   }
 
 

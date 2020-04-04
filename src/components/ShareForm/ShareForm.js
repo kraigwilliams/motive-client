@@ -44,7 +44,7 @@ export default class ShareForm extends Component {
   handleSelectedShareChange(ev) {
     ev.preventDefault()
     const shareSelected = ev.target.value;
-    console.log(shareSelected)
+    
     this.setState({
       shareSelected
     })
@@ -56,9 +56,6 @@ export default class ShareForm extends Component {
     const { connections, share_level } = ev.target;
     const connections_share = connections.value;
     const share_level_share = share_level.value;
-
-    console.log(item , 'item in state on share form ')
-    console.log(connections_share, 'connections', share_level_share, 'share level')
     
     if(item === 'thought') {
       ActionsService.shareThought(share_id, connections_share, share_level_share);

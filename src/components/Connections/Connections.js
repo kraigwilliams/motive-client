@@ -29,7 +29,7 @@ export default class Connections extends Component {
       filteredData,
       query
     });
-    console.log(filteredData, 'filtered data');
+    
   };
 
   async getData(){
@@ -44,7 +44,7 @@ export default class Connections extends Component {
     }
     
     const nonconnections = await ActionsService.getAllNonconnections()
-    console.log(nonconnections, 'nonconnections from state')
+    
     if (nonconnections) {
       this.setState({
         nonconnections
