@@ -82,7 +82,7 @@ export default class Connections extends Component {
               backgroundcolor={colors.darkergrey}
               color={colors.white} 
               placeholder='Search by first name...'
-              value={addedConnection ? '' : null}
+              value={addedConnection ? '' : undefined}
             />
 
             <FormTitle color={colors.offwhite} />

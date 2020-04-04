@@ -25,7 +25,7 @@ export const ConnectionDiv = styled.div`
   }
 `;
 
-export const ConnectionName = styled.p`
+export const ConnectionName = styled.div`
   color: ${colors.offwhite};
   text-decoration: none;
   line-height: 2.5;
