@@ -303,21 +303,19 @@ export default class Thought extends Component {
 
           <CommentsWrap>
             {/* Map through existing comments to render here */}
-            {
-              (comments = []
-                ? // <NoCommentsYet />
-                  "No comments yet"
-                : comments.map((comment, idx) => {
-                    return (
-                      <Comment
-                        key={idx}
-                        text={comment.comment_content}
-                        posted_by={comment.username}
-                        posted_on={comment.date_posted}
-                      />
-                    );
-                  }))
-            }
+            {comments == []
+              ? // <NoCommentsYet />
+                "No comments yet"
+              : comments.map((comment, idx) => {
+                  return (
+                    <Comment
+                      key={idx}
+                      text={comment.comment_content}
+                      posted_by={comment.username}
+                      posted_on={comment.date_posted}
+                    />
+                  );
+                })}
             {/* {comments.map((comment, idx) => {
               return (
                 <Comment
