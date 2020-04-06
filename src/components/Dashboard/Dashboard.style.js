@@ -32,6 +32,24 @@ export const ContentWrapper = styled.div`
   height: 100vh;
   align-content: center;
 
+  .fade-appear {
+    opacity: 0;
+  }
+
+  .fade-appear-active {
+    opacity: 0;
+    transition: all 500ms linear;
+  }
+
+  .fade-enter-active {
+    opacity: 1;
+    transition: all 500ms linear;
+  }
+
+  .fade-enter-done {
+    opacity: 1;
+  }
+
   @media (min-width: 1000px) {
     flex-direction: row;
     justify-content: initial;
@@ -43,20 +61,17 @@ export const Section = styled.section`
   margin: auto;
 
   .fade-appear {
-    opacity: 0.1;
-    transition: opacity 0.5s ease-in;
+    opacity: 0;
   }
 
   .fade-appear-active {
-    opacity: 0.5;
-    transition: opacity 1s ease-in;
+    opacity: 0;
+    transition: all 500ms linear;
   }
 
-  .fade-enter.fade-enter-active {
+  .fade-enter-active {
     opacity: 1;
-    /* transform: translateX(0);
-    transition: opacity 5s, transform 300ms; */
-    transition: opacity 2s ease-in;
+    transition: all 1000ms linear;
   }
 
   .fade-enter-done {

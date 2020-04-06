@@ -1,317 +1,317 @@
-// this will be all requests to api for topics and thoughts 
-import config from '../config'
-import TokenService from './token-service'
+// this will be all requests to api for topics and thoughts
+import config from "../config";
+import TokenService from "./token-service";
 
 const ContentService = {
   getTopics() {
     return fetch(`${config.API_ENDPOINT}/topic`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(err => Promise.reject(err));
-      }
-      return res.json();
-    })
-    .catch(err => {
-      console.error({err})
-    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((err) => Promise.reject(err));
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
   },
 
   getThoughts() {
     return fetch(`${config.API_ENDPOINT}/thought`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(err => Promise.reject(err));
-      }
-      return res.json();
-    })
-    .catch(err => {
-      console.error({err})
-    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((err) => Promise.reject(err));
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
   },
 
   getConnections() {
     return fetch(`${config.API_ENDPOINT}/connections`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${TokenService.getAuthToken()}`      
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       }
-      .then(res => {
-        if(!res.ok) {
-          return res.json()
-          .then(err => Promise.reject(err));
-        }
-        return res.json();
-      })
-      .catch(err => {
-        console.error({err})
-      })
-    })
+        .then((res) => {
+          if (!res.ok) {
+            return res.json().then((err) => Promise.reject(err));
+          }
+          return res.json();
+        })
+        .catch((err) => {
+          console.error({ err });
+        }),
+    });
   },
 
   postTopic(title, desc, thoughts, connections) {
     return fetch(`${config.API_ENDPOINT}/topic`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        //topic inputs 
+        //topic inputs
         topic_title: title,
         topic_content: desc,
         // thoughts: thoughts,
         // connections: connections
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Something went wrong");
+        }
+        return res.json();
       })
-    })
-    .then(res => {
-      if(!res.ok) {
-        throw new Error('Something went wrong')
-      } return res.json()
-    })
-    .catch(err => {
-      console.error(err.message)
-    })
+      .catch((err) => {
+        console.error(err.message);
+      });
   },
 
   postThought(title, desc, topicId) {
     return fetch(`${config.API_ENDPOINT}/thought`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        //topic inputs 
+        //topic inputs
         thought_title: title,
         thought_content: desc,
-        thought_topic: topicId
+        thought_topic: topicId,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Something went wrong");
+        }
+        return res.json();
       })
-    })
-    .then(res => {
-      if(!res.ok) {
-        throw new Error('Something went wrong')
-      } return res.json()
-    })
-    .catch(err => {
-      console.error(err.message)
-    })
+      .catch((err) => {
+        console.error(err.message);
+      });
   },
 
   getThisTopic(topicId, token) {
     return fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(e => Promise.reject(e))
-      }
-      return res.json()
-    })
-    .catch(err => {
-      console.error({ err })
-    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
   },
 
   getThisThought(thoughtId, token) {
     return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(e => Promise.reject(e))
-      }
-      return res.json()
-    })
-    .catch(err => {
-      console.error({ err })
-    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
   },
 
-  getThoughtsInTopic(topicId, token) {
-    return fetch(`${config.API_ENDPOINT}/topic/${topicId}/thoughts`, {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${token}`
+  getThoughtsInTopic(topicId, sort_option) {
+    return fetch(
+      `${config.API_ENDPOINT}/topic/${topicId}/thoughts/${sort_option}`,
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+        },
       }
-    })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(e => Promise.rejects(e))
-      }
-      return res.json()
-    })
-    .catch(err => {
-      console.error({ err })
-    })
+    )
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
   },
 
-  getSharedThoughts(userId){
+  getSharedThoughts(userId) {
     return fetch(`${config.API_ENDPOINT}/thought/shared`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(e => Promise.rejects(e))
-      }
-      return res.json()
-    })
-    .catch(err => {
-      console.error({ err })
-    })
-  }, 
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
+  },
 
-  getSharedTopics(userId){
+  getSharedTopics(userId) {
     return fetch(`${config.API_ENDPOINT}/topic/shared`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(e => Promise.rejects(e))
-      }
-      return res.json()
-    })
-    .catch(err => {
-      console.error({ err })
-    })
-  }, 
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        console.error({ err });
+      });
+  },
 
-  saveThoughtEdit(thoughtId, token, thought_title, thought_content, thought_topic){
+  saveThoughtEdit(
+    thoughtId,
+    token,
+    thought_title,
+    thought_content,
+    thought_topic
+  ) {
     return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         thought_title,
         thought_content,
-        thought_topic
+        thought_topic,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
       })
-    })
-    .then(res => {
-      if(!res.ok) {
-        return res.json()
-        .then(e => Promise.reject(e))
-      } 
-      return res.json()
-    })
-    .catch(err => console.error(err.message))
+      .catch((err) => console.error(err.message));
   },
 
-  getSharedThoughtLevel(thoughtId){
+  getSharedThoughtLevel(thoughtId) {
     return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}/level`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     })
-    .then(res => {
-        if(!res.ok) {
-          return res.json()
-          .then(e => Promise.reject(e))
-        } 
-        return res.json()
-    })
-    .catch(err => console.error(err.message))
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => console.error(err.message));
   },
 
-  getSharedTopicLevel(topicId){
+  getSharedTopicLevel(topicId) {
     return fetch(`${config.API_ENDPOINT}/topic/${topicId}/level`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     })
-    .then(res => {
-        if(!res.ok) {
-          return res.json()
-          .then(e => Promise.reject(e))
-        } 
-        return res.json()
-    })
-    .catch(err => console.error(err.message))
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => console.error(err.message));
   },
 
   deleteTopic(topicId) {
     fetch(`${config.API_ENDPOINT}/topic/${topicId}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     })
-    .then(res => {
-      if (!res.ok) {
-        return res.json().then(error => { 
-          throw error
-        })
-      }
-      // return res.json()
-    })
-    .catch(error => {
-      console.error(error)
-    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((error) => {
+            throw error;
+          });
+        }
+        // return res.json()
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
 
   deleteThought(thoughtId) {
     fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     })
-    .then(res => {
-      if (!res.ok) {
-        return res.json().then(error => { 
-          throw error
-        })
-      }
-      // return res.json()
-    })
-    .catch(error => {
-      console.error(error)
-    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((error) => {
+            throw error;
+          });
+        }
+        // return res.json()
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
-}
+};
 
 export default ContentService;

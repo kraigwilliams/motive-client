@@ -101,7 +101,7 @@ export const Comment = (props) => {
 
 export const CommentsWrap = styled.div`
   overflow: auto;
-  height: 200px;
+  height: 400px;
 `;
 
 export const ReplyForm = styled.form`

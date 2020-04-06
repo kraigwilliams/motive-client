@@ -1,7 +1,6 @@
 /* eslint-disable eqeqeq */
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
-import Moment from "react-moment";
 import "moment-timezone";
 import ContentContext from "./../../contexts/ContentContext";
 import ActionsService from "../../services/actions-service";
@@ -165,7 +164,7 @@ export default class Thought extends Component {
     this.props.history.goBack();
   };
 
-  handleAddComment = (ev) => {
+  async handleAddComment(ev) {
     ev.preventDefault();
     const { content } = ev.target;
     const comment_content = content.value;
@@ -173,8 +172,18 @@ export default class Thought extends Component {
     const thoughtId = this.state.thoughtId;
     console.log(thoughtId, "thought id!");
 
-    ActionsService.postComment(thoughtId, comment_content);
-  };
+    await ActionsService.postComment(thoughtId, comment_content);
+
+    content.value = " ";
+
+    const comments = await ActionsService.getComments(thoughtId);
+    console.log(comments, "comments response");
+    if (comments) {
+      this.setState({
+        comments,
+      });
+    }
+  }
 
   render() {
     let {
