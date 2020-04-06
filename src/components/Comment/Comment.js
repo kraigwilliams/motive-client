@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { colors } from '../constants'
+import React from "react";
+import styled from "styled-components";
+import { colors } from "../constants";
 
 export const CommentWrapper = styled.div`
   background-color: ${colors.darkgrey};
@@ -17,7 +17,7 @@ export const CommentWrapper = styled.div`
 
   @media (min-width: 600px) {
     /* height: 30vh; */
-  } 
+  }
 `;
 
 export const CommentHeader = styled.h3`
@@ -27,7 +27,7 @@ export const CommentHeader = styled.h3`
   width: 100%;
   @media (min-width: 600px) {
     text-align: center;
-  } 
+  }
 `;
 
 const CommentDiv = styled.div`
@@ -54,32 +54,31 @@ const CommentDiv = styled.div`
   }
 `;
 
-
 export const Comment = () => {
-  return(
+  return (
     <CommentDiv>
       {/* This would be an avatar for the comment */}
       {/* <a>
         <img src='' alt=''/>
       </a> */}
-      
-      <div className='content'>
-        <div className='text'>
+
+      <div className="content">
+        <div className="text">
           This is what I am commenting.
           {/* {props.text} */}
         </div>
-        <div className='metadata'>
+        <div className="metadata">
           <p>
             Author
             {/* {props.posted_by} */}
           </p>
-        
+
           <span>
             Yesterday at 6:00
             {/* {props.posted_on} */}
           </span>
         </div>
-        
+
         {/* This would be an option to reply to a specific comment  */}
         {/* <div classNames='actions'>
           <span>Reply</span>
@@ -87,8 +86,7 @@ export const Comment = () => {
         {/* This would be a section of comments that are in a response to the comment - nested replies */}
       </div>
     </CommentDiv>
-  )
-  
+  );
 };
 
 export const CommentsWrap = styled.div`
@@ -96,7 +94,7 @@ export const CommentsWrap = styled.div`
   height: 200px;
 `;
 
-const ReplyForm = styled.form`
+export const ReplyForm = styled.form`
   /* border: 2px solid ${colors.teal}; */
   height: fit-content;
   /* border-radius: 50px; */
@@ -109,7 +107,7 @@ const ReplyForm = styled.form`
   }
 `;
 
-const ReplyInput = styled.textarea`
+export const ReplyInput = styled.textarea`
   border: 1px solid ${colors.teal};
   background: transparent;
   border-radius: 50px;
@@ -120,23 +118,22 @@ const ReplyInput = styled.textarea`
   font-size: 16px;
   color: ${colors.offwhite};
   vertical-align: middle;
+  resize: none;
 `;
 
-const ReplyButton = styled.button`
+export const ReplyButton = styled.button`
   margin-top: 20px;
   color: ${colors.coral};
   background: transparent;
 `;
 
-export const Reply = () => {
+const Reply = () => {
   return (
     <ReplyForm>
       <div>
-        <ReplyInput placeholder='Add a comment...'></ReplyInput>
+        <ReplyInput placeholder="Add a comment..."></ReplyInput>
       </div>
-      <ReplyButton>
-        Add Comment
-      </ReplyButton>
+      <ReplyButton>Add Comment</ReplyButton>
     </ReplyForm>
-  )
-}
+  );
+};

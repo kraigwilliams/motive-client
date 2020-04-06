@@ -3,7 +3,6 @@ import UserContext from "../../contexts/UserContext";
 import ActionsService from "../../services/actions-service";
 import {
   ConnectionsPageWrapper,
-  ConnectionsHeader,
   FriendsName,
   FriendsUserName,
   FriendsHeader,

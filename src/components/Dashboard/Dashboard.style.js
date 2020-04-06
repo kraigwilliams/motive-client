@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { colors } from '../constants'
+import styled from "styled-components";
+import { colors } from "../constants";
 
 export const PageWrapper = styled.div`
   background-color: ${colors.darkgrey};
@@ -15,11 +15,11 @@ export const DBHeader = styled.h1`
   color: ${colors.white};
   background-color: ${colors.darkgrey};
   line-height: 1;
-  border-bottom: .5px solid ${colors.teal};
+  border-bottom: 0.5px solid ${colors.teal};
   font-weight: bold;
   font-style: italic;
   font-size: 35px;
-  display:inline;  
+  display: inline;
   align-self: center;
 `;
 
@@ -35,34 +35,39 @@ export const ContentWrapper = styled.div`
   @media (min-width: 1000px) {
     flex-direction: row;
     justify-content: initial;
-  } 
+  }
 `;
 
 export const Section = styled.section`
   text-align: center;
   margin: auto;
-  
-  .fade-appear {
-    opacity: .01;
-    transition: opacity 1s ease;
-  }
 
   .fade-appear-active {
+    opacity: 0.01;
+    /* transition: opacity 0.5s linear; */
+  }
+
+  .fade-enter {
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in;
+  }
+
+  .fade-enter.fade-enter-active {
     opacity: 1;
-    transition: opacity .5s ease;
+    transition: opacity 3s ease-in;
   }
 
   @media (min-width: 1000px) {
     margin-top: 0;
-  } 
+  }
 
   @media (min-width: 900px) {
     width: 60%;
-  }  
+  }
 
   @media (min-width: 500px) {
     width: 80%;
-  } 
+  }
 `;
 
 export const SectionTitle = styled.div`
