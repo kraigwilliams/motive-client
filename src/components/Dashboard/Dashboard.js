@@ -49,7 +49,6 @@ async componentDidMount() {
 
   
   const sharedTopics = await ContentService.getSharedTopics()
-  
   if(sharedTopics) {
     this.setState({
       sharedTopics

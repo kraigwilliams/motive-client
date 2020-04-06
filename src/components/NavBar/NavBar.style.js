@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { colors } from '../constants'
-import {Link} from 'react-router-dom'
+import styled from "styled-components";
+import { colors } from "../constants";
+import { Link } from "react-router-dom";
 
 export const NavWrapper = styled.header`
   background-color: ${colors.darkgrey};
@@ -18,18 +18,18 @@ export const NavWrapper = styled.header`
     width: fit-content;
     justify-items: right;
   }
-`
+`;
 
 export const Logo = styled(Link)`
-  font-size: 20px;
+  font-size: 10px;
   color: ${colors.white};
   text-decoration: none;
   font-weight: bolder;
   align-self: center;
   margin-top: 7px;
-  :hover{
+  :hover {
     cursor: pointer;
-    fill: ${colors.teal}
+    fill: ${colors.teal};
   }
 `;
 
@@ -39,11 +39,11 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   margin-left: 25px;
   align-self: center;
-  
+  height: fit-content;
 
-  :hover{
+  :hover {
     cursor: pointer;
-    color: ${colors.coral}
+    color: ${colors.coral};
   }
 `;
 

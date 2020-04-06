@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { colors } from '../constants'
-import { Link } from 'react-router-dom'
-import cloud from './Assets/cloud.jpg';
+import styled from "styled-components";
+import { colors } from "../constants";
+import { Link } from "react-router-dom";
+import cloud from "./Assets/cloud.jpg";
 
 export const PageWrapper = styled.div`
   /* background-image: url(${cloud});
@@ -10,62 +10,78 @@ export const PageWrapper = styled.div`
   background-repeat: no-repeat;
   background-size: cover; */
   text-align: center;
+  /* z-index: 5px; */
+  width: 100vw;
 `;
 
 export const LandingHeader = styled.h1`
   text-align: center;
-  padding: 30px;
-  color: ${colors.white};
+  padding: 50px 10px 30px 10px;
+  color: ${colors.coral};
+  font-size: 35px;
+  width: 100vw;
+  opacity: 100%;
 
   @media (min-width: 600px) {
     color: ${colors.white};
+    padding: 50px 30px 50px 30px;
   }
 `;
 
 export const LandingText = styled.p`
   text-align: center;
-  padding: 10px;
-  color: ${colors.darkgrey};
+  padding: 0px 0px 20px 0px;
+  color: ${colors.white};
   margin: 5px auto;
-  max-width: 70%;
+  max-width: 90%;
+
   line-height: 2em;
   word-spacing: 3px;
   font-size: 25px;
-
+  z-index: 3px;
   @media (min-width: 600px) {
-    color: ${colors.darkgrey};
+    padding: 0px 10px 50px 10px;
+    color: ${colors.white};
   }
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentHeader = styled.div`
   background-image: url(${cloud});
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
+  .header {
+    background-color: rgba(66, 75, 84, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    z-index: 1px;
+  }
   @media (min-width: 600px) {
     height: 100vh;
-  } 
+  }
 `;
 
-export const ContentWrapper1 = styled.div`
+export const ContentSection = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${props => props.color ? props.color : colors.slategrey};
-  height: 60vh;
-  padding: 70px;
+  background-color: ${(props) =>
+    props.color ? props.color : colors.slategrey};
+  height: fit-content;
+  width: 100%;
+  margin: 0px auto;
+  padding: 70px 30px;
   justify-content: center;
   align-items: center;
   color: ${colors.darkgrey};
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
 
-
   .img {
-      width: 150%;
-      
-    }
+    width: 90%;
+  }
 
   @media (min-width: 600px) {
     font-size: 33px;
@@ -76,9 +92,13 @@ export const ContentWrapper1 = styled.div`
 
     .img {
       padding: 0px;
-      width: 80%;
+      width: 60%;
     }
-  } 
+
+    > h3 {
+      font-size: 30px;
+    }
+  }
 `;
 
 export const LandingLink = styled(Link)`
@@ -91,12 +111,11 @@ export const LandingLink = styled(Link)`
   padding: 8px;
   color: ${colors.darkgrey};
   border: 2px solid ${colors.darkgrey};
-  
 
   :hover {
-    box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.20);
-    border: 2px solid ${colors.darkgrey};
-    color: ${colors.darkgrey};
+    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2);
+    border: 2px solid ${colors.white};
+    color: ${colors.white};
   }
 `;
 
@@ -111,8 +130,5 @@ export const LandingImage = styled.img`
   @media (min-width: 600px) {
     width: 70%;
     height: auto;
-  } 
+  }
 `;
-
-
-
