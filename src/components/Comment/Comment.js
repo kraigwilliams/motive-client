@@ -1,4 +1,6 @@
 import React from "react";
+import Moment from "react-moment";
+import "moment-timezone";
 import styled from "styled-components";
 import { colors } from "../constants";
 
@@ -54,7 +56,15 @@ const CommentDiv = styled.div`
   }
 `;
 
-export const Comment = () => {
+export const Comment = (props) => {
+  const calendarStrings = {
+    lastDay: "[Yesterday at] LT",
+    sameDay: "[Today at] LT",
+    nextDay: "[Tomorrow at] LT",
+    lastWeek: "[last] dddd [at] LT",
+    nextWeek: "dddd [at] LT",
+    sameElse: "L",
+  };
   return (
     <CommentDiv>
       {/* This would be an avatar for the comment */}
@@ -64,18 +74,18 @@ export const Comment = () => {
 
       <div className="content">
         <div className="text">
-          This is what I am commenting.
-          {/* {props.text} */}
+          {/* This is what I am commenting. */}
+          {props.text}
         </div>
         <div className="metadata">
           <p>
-            Author
-            {/* {props.posted_by} */}
+            {/* Author */}
+            {props.posted_by}
           </p>
 
           <span>
-            Yesterday at 6:00
-            {/* {props.posted_on} */}
+            {/* Yesterday at 6:00 */}
+            <Moment calendar={calendarStrings}>{props.posted_on}</Moment>
           </span>
         </div>
 
@@ -127,13 +137,10 @@ export const ReplyButton = styled.button`
   background: transparent;
 `;
 
-const Reply = () => {
-  return (
-    <ReplyForm>
-      <div>
-        <ReplyInput placeholder="Add a comment..."></ReplyInput>
-      </div>
-      <ReplyButton>Add Comment</ReplyButton>
-    </ReplyForm>
-  );
-};
+// const NoCommentDiv = () => {
+//   return <div>No comments have been made yet</div>;
+// };
+
+// export const NoCommentsYet = styled.div`
+
+// `;

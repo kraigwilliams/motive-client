@@ -42,19 +42,25 @@ export const Section = styled.section`
   text-align: center;
   margin: auto;
 
-  .fade-appear-active {
-    opacity: 0.01;
-    /* transition: opacity 0.5s linear; */
+  .fade-appear {
+    opacity: 0.1;
+    transition: opacity 0.5s ease-in;
   }
 
-  .fade-enter {
+  .fade-appear-active {
     opacity: 0.5;
-    transition: opacity 0.5s ease-in;
+    transition: opacity 1s ease-in;
   }
 
   .fade-enter.fade-enter-active {
     opacity: 1;
-    transition: opacity 3s ease-in;
+    /* transform: translateX(0);
+    transition: opacity 5s, transform 300ms; */
+    transition: opacity 2s ease-in;
+  }
+
+  .fade-enter-done {
+    opacity: 1;
   }
 
   @media (min-width: 1000px) {

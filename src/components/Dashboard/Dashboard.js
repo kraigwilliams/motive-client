@@ -91,7 +91,7 @@ class Dashboard extends Component {
                   classNames="fade"
                   appear={true}
                   mountOnEnter
-                  timeout={{ appear: 500, enter: 300 }}
+                  timeout={600}
                   key={idx}
                 >
                   <CondensedTopic
@@ -116,7 +116,7 @@ class Dashboard extends Component {
                   classNames="fade"
                   appear={true}
                   mountOnEnter
-                  timeout={{ appear: 500, enter: 300 }}
+                  timeout={{ appear: 300, enter: 300 }}
                   key={idx}
                 >
                   <CondensedThought

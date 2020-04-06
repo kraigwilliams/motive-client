@@ -1,6 +1,8 @@
 /* eslint-disable eqeqeq */
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
+import Moment from "react-moment";
+import "moment-timezone";
 import ContentContext from "./../../contexts/ContentContext";
 import ActionsService from "../../services/actions-service";
 import ContentService from "../../services/content-service";
@@ -13,6 +15,7 @@ import {
   ReplyForm,
   ReplyInput,
   ReplyButton,
+  // NoCommentsYet,
 } from "../Comment/Comment";
 import {
   ThoughtHeader,
@@ -96,9 +99,10 @@ export default class Thought extends Component {
       });
     }
 
-    const comments = await ActionsService.getComments();
+    const comments = await ActionsService.getComments(thoughtId);
+    console.log(comments, "comments response");
     if (comments) {
-      this.setSate({
+      this.setState({
         comments,
       });
     }
@@ -166,12 +170,14 @@ export default class Thought extends Component {
     const { content } = ev.target;
     const comment_content = content.value;
     console.log(comment_content, "content from the comment input");
+    const thoughtId = this.state.thoughtId;
+    console.log(thoughtId, "thought id!");
 
-    ActionsService.postComment(this.state.thoughtId, comment_content);
+    ActionsService.postComment(thoughtId, comment_content);
   };
 
   render() {
-    const {
+    let {
       currentThought,
       topics,
       successfulSave,
@@ -297,19 +303,31 @@ export default class Thought extends Component {
 
           <CommentsWrap>
             {/* Map through existing comments to render here */}
-            {comments.map((comment, idx) => {
+            {
+              (comments = []
+                ? // <NoCommentsYet />
+                  "No comments yet"
+                : comments.map((comment, idx) => {
+                    return (
+                      <Comment
+                        key={idx}
+                        text={comment.comment_content}
+                        posted_by={comment.username}
+                        posted_on={comment.date_posted}
+                      />
+                    );
+                  }))
+            }
+            {/* {comments.map((comment, idx) => {
               return (
                 <Comment
                   key={idx}
                   text={comment.comment_content}
-                  posted_by={comment.commenter_id}
+                  posted_by={comment.username}
                   posted_on={comment.date_posted}
                 />
               );
-            })}
-            <Comment />
-            <Comment />
-            <Comment />
+            })} */}
           </CommentsWrap>
 
           {/* Input to write a new comment here */}
