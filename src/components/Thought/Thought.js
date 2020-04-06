@@ -303,7 +303,7 @@ export default class Thought extends Component {
 
           <CommentsWrap>
             {/* Map through existing comments to render here */}
-            {comments == []
+            {comments.length == 0
               ? // <NoCommentsYet />
                 "No comments yet"
               : comments.map((comment, idx) => {
