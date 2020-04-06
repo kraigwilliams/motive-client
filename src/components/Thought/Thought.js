@@ -164,7 +164,7 @@ export default class Thought extends Component {
               type='button' 
               to={`/thought/${thoughtId}/share`}
               shared={sharedLevel > 2 ? 'none' : null}
-              marginRight='0px'
+              marginright='0px'
             />
 
             <div style={{display: 'flex', flexDirection: 'column'}}>

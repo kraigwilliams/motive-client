@@ -216,7 +216,7 @@ export const ShareButton = styled(Share)`
   text-align: center;
   font-size: 1em;
   display: ${({shared}) => shared ? shared : 'block'};
-  margin-right: ${({marginRight}) => marginRight ? marginRight : '30px'};
+  margin-right: ${({marginright}) => marginright ? marginright : '30px'};
   .button-link{
     color: ${({color}) =>  color ? color : colors.coral};
   }
