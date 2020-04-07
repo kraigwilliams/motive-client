@@ -82,19 +82,20 @@ export default class Connections extends Component {
 
     return (
       <ConnectionsPageWrapper>
-        {/* <ConnectionsHeader>
-          {this.context.user.username}'s Connections
-        </ConnectionsHeader> */}
-
-        <FormWrapper backgroundcolor="none" style={{ marginTop: "20px" }}>
+        <FormWrapper
+          bgColor="transparent"
+          style={{ marginTop: "20px" }}
+          minimizedMargin="20px auto 40px auto"
+        >
           <FormTitle color={colors.coral}>Add Connections</FormTitle>
 
           <FormInput
             onChange={this.handleInputChange}
-            backgroundcolor={colors.darkergrey}
+            backgroundcolor="transparent"
             color={colors.white}
             placeholder="Search the Folkul network..."
             value={addedConnection ? "" : undefined}
+            borderColor={colors.blue}
           />
 
           <FormTitle color={colors.offwhite} />

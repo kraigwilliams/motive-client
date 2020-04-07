@@ -16,14 +16,15 @@ export const FormTitle = styled.h1`
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  /* padding: 30px; */
   background-color: ${({ bgColor }) => bgColor || "#829191"};
   width: 100%;
-  padding: ${({ padding }) => (padding ? padding : "0px")};
+  padding: ${({ padding }) => (padding ? padding : "30px")};
 
   @media (min-width: 700px) {
     width: 60%;
-    margin: auto;
+    margin: ${({ minimizedMargin }) =>
+      minimizedMargin ? minimizedMargin : "auto"};
     padding: 30px;
     border-radius: 30px;
   }
@@ -86,7 +87,8 @@ export const FormInput = styled(Input)`
   align-self: center;
 
   :focus {
-    border-bottom: 2px solid ${colors.teal};
+    border-bottom: 2px solid
+      ${({ borderColor }) => (borderColor ? borderColor : colors.teal)};
   }
 
   @media (min-width: 700px) {

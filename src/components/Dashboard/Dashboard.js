@@ -91,11 +91,10 @@ class Dashboard extends Component {
                 data-place="top"
               />
             </SectionTitle>
-
+            {/* maps through each topic, pass count of thoughts through props */}
             {topics.map((topic, idx) => {
               let thoughtCount = this.countThoughtsForTopic(topic.id);
               return (
-                {/* maps through each topic, pass count of thoughts through props */}
                 <CondensedTopic
                   key={idx}
                   id={topic.id}
