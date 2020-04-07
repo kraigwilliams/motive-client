@@ -11,7 +11,8 @@ export const PageWrapper = styled.div`
 
 export const DBHeader = styled.h1`
   text-align: center;
-  padding: 10px 10px 7px 10px;
+  padding: 40px 10px 7px 10px;
+  margin-bottom: 20px;
   color: ${colors.white};
   background-color: ${colors.darkgrey};
   line-height: 1;
@@ -19,7 +20,7 @@ export const DBHeader = styled.h1`
   font-weight: bold;
   font-style: italic;
   font-size: 35px;
-  display: inline;
+  /* display: inline; */
   align-self: center;
 `;
 
