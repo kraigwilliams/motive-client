@@ -11,8 +11,8 @@ export const Thought = styled.div`
   justify-content: space-between;
   margin: 20px auto;
   border-radius: 30px;
-  min-width: fit-content;
-  width: 60%;
+  /* min-width: fit-content; */
+  width: 100%;
   .fade-appear {
     opacity: 0;
   }
@@ -36,12 +36,9 @@ export const Thought = styled.div`
   }
 
   @media (min-width: 800px) {
-    width: 60%;
+    width: 80%;
   }
 
-  @media (min-width: 700px) {
-    width: 60%;
-  }
 
   animation: fadein 2s;
   -moz-animation: fadein 2s; /* Firefox */

@@ -1,59 +1,60 @@
-import React, { Component } from 'react';
-import {FormButton, GoBack} from '../Button/Button';
-import { FormWrapper, FormTitle, FormLabel, FormInput, Required} from '../Form/Form'
-import {PageWrapper, colors} from '../constants'
-import ContentService from '../../services/content-service'
+import React, { Component } from "react";
+import { FormButton, GoBack } from "../Button/Button";
+import {
+  FormWrapper,
+  FormTitle,
+  FormLabel,
+  FormInput,
+  Required,
+} from "../Form/Form";
+import { PageWrapper, colors } from "../constants";
+import ContentService from "../../services/content-service";
 
 export default class AddTopic extends Component {
-  handleSubmit = ev => {
-    ev.preventDefault()
+  handleSubmit = (ev) => {
+    ev.preventDefault();
     const { title, description } = ev.target;
-    ContentService.postTopic(
-      title.value,
-      description.value,
-    )
-    .then(topic => {
+    ContentService.postTopic(title.value, description.value).then((topic) => {
       const topicId = topic.id;
-      this.props.history.push(`topics/${topicId}`)
-    })
-  }
-
+      this.props.history.push(`topics/${topicId}`);
+    });
+  };
 
   render() {
     return (
-      <PageWrapper padding='40px 0' bgColor={colors.slategrey}>
-        <FormWrapper padding='50px' onSubmit={this.handleSubmit}>
-          
-          <GoBack 
-            type='reset' 
+      <PageWrapper padding="40px 0" bgColor={colors.darkgrey}>
+        <FormWrapper
+          padding="50px"
+          onSubmit={this.handleSubmit}
+          bgColor={colors.darkgrey}
+        >
+          <GoBack
+            type="reset"
             onClick={() => this.props.history.goBack()}
-            margin='0px'
+            margin="0px"
+            color={colors.slategrey}
           />
-          
-          
 
-          <FormTitle>
-            Create a Topic
-          </FormTitle>
+          <FormTitle>Create a Topic</FormTitle>
 
-          <FormLabel htmlFor='topic-title'>
+          <FormLabel htmlFor="topic-title">
             Title <Required />
           </FormLabel>
-          <FormInput 
-            id='topic-title'
-            name='title'
+          <FormInput
+            id="topic-title"
+            name="title"
             aria-label="Enter title of this topic"
             aria-required="true"
             required
+            color={colors.white}
           />
 
-          <FormLabel htmlFor='topic-description'>
-            Description
-          </FormLabel>
-          <FormInput 
-            id='topic-description'
-            name='description'
+          <FormLabel htmlFor="topic-description">Description</FormLabel>
+          <FormInput
+            id="topic-description"
+            name="description"
             aria-label="Enter description of this topic"
+            color={colors.white}
           />
 
           {/* <FormLabel htmlFor='topic-thoughts'>
@@ -74,13 +75,11 @@ export default class AddTopic extends Component {
             aria-label="Select any connections you wish to share this topic with"
           /> */}
 
-          <FormButton type='submit'>
+          <FormButton type="submit" color={colors.coral}>
             Submit
           </FormButton>
-
         </FormWrapper>
       </PageWrapper>
     );
   }
 }
-

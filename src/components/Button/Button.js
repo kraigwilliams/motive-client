@@ -99,8 +99,9 @@ export const FormButton = styled(Button)`
   border-radius: 30px;
   font-size: 16px;
   margin-top: ${({ margintop }) => margintop || "40px"};
-  background-color: ${({ backgroundcolor }) =>
-    backgroundcolor || colors.slategrey};
+  /* background-color: ${({ backgroundcolor }) =>
+    backgroundcolor || colors.slategrey}; */
+    background: transparent;
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   display: ${({ shared }) => (shared ? shared : "block")};
 
