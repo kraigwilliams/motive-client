@@ -72,3 +72,77 @@ exports[`<Topic /> renders Topic by default 1`] = `
   </styled.div>
 </styled.div>
 `;
+
+exports[`renders <Topic /> renders Topic by default 1`] = `
+<styled.div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "overflow": "hidden",
+      }
+    }
+  >
+    <Styled(Component)
+      margin="30px 0px 30px 30px"
+      onClick={[Function]}
+      type="reset"
+    />
+    <styled.div>
+      <h1
+        style={
+          Object {
+            "marginBottom": "20px",
+          }
+        }
+      />
+      <p
+        style={
+          Object {
+            "color": "#424B54",
+          }
+        }
+      />
+    </styled.div>
+    <Styled(Component)
+      disabled={false}
+      to="/topic/null/share"
+      type="button"
+    />
+  </div>
+  <Styled(Component)
+    onClick={[Function]}
+    type="button"
+  />
+  <styled.div>
+    <div
+      className="top"
+    >
+      <styled.div>
+        <styled.h3>
+          Sort
+        </styled.h3>
+        <styled.select
+          name="sortOptions"
+          onChange={[Function]}
+        >
+          <option
+            value="1"
+          >
+            Most Recent
+          </option>
+          <option
+            value="2"
+          >
+            A-Z
+          </option>
+        </styled.select>
+      </styled.div>
+      <Styled(Component)
+        to="/add-thought"
+        type="button"
+      />
+    </div>
+  </styled.div>
+</styled.div>
+`;
