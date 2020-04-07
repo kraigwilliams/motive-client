@@ -25,7 +25,7 @@ class Dashboard extends Component {
       freeThoughts: [],
       sharedThoughts: [],
       sharedTopics: [],
-      isLoginLoading: true,
+      isPageLoading: true,
     };
   }
 
@@ -33,12 +33,12 @@ class Dashboard extends Component {
   async componentDidMount() {
     const topics = await ContentService.getTopics();
     if (topics) {
-      this.setState({ topics, isLoginLoading: false });
+      this.setState({ topics, isPageLoading: false });
     }
 
     const allThoughts = await ContentService.getThoughts();
     if (allThoughts) {
-      this.setState({ allThoughts, isLoginLoading: false });
+      this.setState({ allThoughts, isPageLoading: false });
     }
 
     const freeThoughts = allThoughts.filter(
@@ -47,7 +47,7 @@ class Dashboard extends Component {
     if (freeThoughts) {
       this.setState({
         freeThoughts,
-        isLoginLoading: false,
+        isPageLoading: false,
       });
     }
 
@@ -55,7 +55,7 @@ class Dashboard extends Component {
     if (sharedThoughts) {
       this.setState({
         sharedThoughts,
-        isLoginLoading: false,
+        isPageLoading: false,
       });
     }
 
@@ -63,7 +63,7 @@ class Dashboard extends Component {
     if (sharedTopics) {
       this.setState({
         sharedTopics,
-        isLoginLoading: false,
+        isPageLoading: false,
       });
     }
   }
@@ -82,16 +82,16 @@ class Dashboard extends Component {
       freeThoughts,
       sharedThoughts,
       sharedTopics,
-      isLoginLoading,
+      isPageLoading,
     } = this.state;
     return (
       <>
-        {isLoginLoading ? (
+        {isPageLoading ? (
           <PageWrapper>
             <ContentWrapper>
               <Section>
                 <Loader
-                  type="BallTriangle"
+                  type="TailSpin"
                   color={colors.coral}
                   height={80}
                   width={80}

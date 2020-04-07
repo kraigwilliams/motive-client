@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loader from "react-loader-spinner";
 import UserContext from "../../contexts/UserContext";
 import ActionsService from "../../services/actions-service";
 import {
@@ -23,6 +24,7 @@ export default class Connections extends Component {
       connections: [],
       nonconnections: [],
       filteredData: [],
+      isPageLoading: true,
     };
   }
 
@@ -43,6 +45,7 @@ export default class Connections extends Component {
     });
   };
 
+  //grabs all connections for user
   async getData() {
     const { user } = this.context;
     const userId = user.id;
@@ -51,9 +54,11 @@ export default class Connections extends Component {
     if (connections) {
       this.setState({
         connections,
+        isPageLoading: false,
       });
     }
 
+    //grabs all non-connections for user to search for in input
     const nonconnections = await ActionsService.getAllNonconnections();
 
     if (nonconnections) {
@@ -63,12 +68,13 @@ export default class Connections extends Component {
     }
   }
 
-  componentDidMount() {
+  //this will update the connections list when user adds new connection from search
+  async componentDidMount() {
     this.getData();
   }
 
   render() {
-    const { connections, filteredData, query } = this.state;
+    const { connections, filteredData, query, isPageLoading } = this.state;
 
     const { addedConnection } = this.context;
     if (addedConnection) {
@@ -77,59 +83,74 @@ export default class Connections extends Component {
     }
 
     return (
-      <ConnectionsPageWrapper>
-        {/* <ConnectionsHeader>
+      <>
+        {isPageLoading ? (
+          <ConnectionsPageWrapper>
+            <AddConnectionsWrap>
+              <Loader
+                type="TailSpin"
+                color={colors.coral}
+                height={80}
+                width={80}
+              />
+            </AddConnectionsWrap>
+          </ConnectionsPageWrapper>
+        ) : (
+          <ConnectionsPageWrapper>
+            {/* <ConnectionsHeader>
           {this.context.user.username}'s Connections
         </ConnectionsHeader> */}
 
-        <FormWrapper backgroundcolor="none" style={{ marginTop: "20px" }}>
-          <FormTitle color={colors.coral}>Add Connections</FormTitle>
+            <FormWrapper backgroundcolor="none" style={{ marginTop: "20px" }}>
+              <FormTitle color={colors.coral}>Add Connections</FormTitle>
 
-          <FormInput
-            onChange={this.handleInputChange}
-            backgroundcolor={colors.darkergrey}
-            color={colors.white}
-            placeholder="Search the Folkul network..."
-            value={addedConnection ? "" : undefined}
-          />
+              <FormInput
+                onChange={this.handleInputChange}
+                backgroundcolor={colors.darkergrey}
+                color={colors.white}
+                placeholder="Search the Folkul network..."
+                value={addedConnection ? "" : undefined}
+              />
 
-          <FormTitle color={colors.offwhite} />
-          {/* this will eventually be getting the data for search friends from DB */}
-          <AddConnectionsWrap>
-            {query === ""
-              ? ""
-              : filteredData.map((connection, idx) => {
-                  return (
-                    <Connection
-                      key={idx}
-                      firstname={connection.first_name}
-                      lastname={connection.last_name}
-                      username={connection.username}
-                      id={connection.id}
-                    />
-                  );
-                })}
-          </AddConnectionsWrap>
-        </FormWrapper>
+              <FormTitle color={colors.offwhite} />
+              {/* this will eventually be getting the data for search friends from DB */}
+              <AddConnectionsWrap>
+                {query === ""
+                  ? ""
+                  : filteredData.map((connection, idx) => {
+                      return (
+                        <Connection
+                          key={idx}
+                          firstname={connection.first_name}
+                          lastname={connection.last_name}
+                          username={connection.username}
+                          id={connection.id}
+                        />
+                      );
+                    })}
+              </AddConnectionsWrap>
+            </FormWrapper>
 
-        <ConnectionsSection>
-          <FriendsHeader>
-            {" "}
-            {this.context.user.username}'s Connections
-          </FriendsHeader>
-          {/* map through connections in state to render each connection detail */}
-          {connections.map((friend, idx) => {
-            return (
-              <div key={idx}>
-                <FriendsName>
-                  {friend.first_name} {friend.last_name}
-                </FriendsName>
-                <FriendsUserName>{friend.username}</FriendsUserName>
-              </div>
-            );
-          })}
-        </ConnectionsSection>
-      </ConnectionsPageWrapper>
+            <ConnectionsSection>
+              <FriendsHeader>
+                {" "}
+                {this.context.user.username}'s Connections
+              </FriendsHeader>
+              {/* map through connections in state to render each connection detail */}
+              {connections.map((friend, idx) => {
+                return (
+                  <div key={idx}>
+                    <FriendsName>
+                      {friend.first_name} {friend.last_name}
+                    </FriendsName>
+                    <FriendsUserName>{friend.username}</FriendsUserName>
+                  </div>
+                );
+              })}
+            </ConnectionsSection>
+          </ConnectionsPageWrapper>
+        )}
+      </>
     );
   }
 }

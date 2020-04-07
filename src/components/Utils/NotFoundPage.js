@@ -10,8 +10,10 @@ export default class NotFoundPage extends Component {
         style={{ padding: "50px", color: colors.darkgrey }}
         className="NotFoundPage"
       >
-        <h2>404 - Page not found</h2>
-        <p>Try going back to your previous page.</p>
+        <h2 style={{ color: colors.darkgrey }}>404 - Page not found</h2>
+        <p style={{ color: colors.darkgrey }}>
+          Try going back to your previous page.
+        </p>
 
         <a
           href="https://www.clipart.email/download/11192816.html"
