@@ -4,7 +4,7 @@ import "moment-timezone";
 import styled from "styled-components";
 import { colors } from "../constants";
 
-// Comment styles 
+// Comment styles
 export const CommentWrapper = styled.div`
   background-color: ${colors.darkgrey};
   padding: 50px 30px;
@@ -34,16 +34,20 @@ const CommentDiv = styled.div`
   width: 100%;
   margin: auto;
   border: 1px solid ${colors.offwhite};
-  background-color: ${colors.slategrey};
+  background-color: ${colors.darkgrey};
   padding: 10px;
-  color: ${colors.black};
+  color: ${colors.teal};
   font-size: 16px;
   .metadata {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    color: ${colors.darkgrey};
+    color: ${colors.lightblue};
     font-size: 14px;
+
+    > span {
+      color: ${colors.paleblue};
+    }
   }
 
   @media (min-width: 600px) {
@@ -68,13 +72,9 @@ export const Comment = (props) => {
       </a> */}
 
       <div className="content">
-        <div className="text">
-          {props.text}
-        </div>
+        <div className="text">{props.text}</div>
         <div className="metadata">
-          <p>
-            {props.posted_by}
-          </p>
+          <p>{props.posted_by}</p>
 
           <span>
             <Moment calendar={calendarStrings}>{props.posted_on}</Moment>
@@ -111,14 +111,14 @@ export const ReplyForm = styled.form`
 `;
 
 export const ReplyInput = styled.textarea`
-  border: 1px solid ${colors.teal};
+  border: 1px solid ${colors.blue};
   background: transparent;
   border-radius: 50px;
   width: 100%;
-  padding: 10px 50px 10px 20px;
+  padding: 10px 40px 10px 20px;
   height: 40px;
   font-size: 16px;
-  color: ${colors.offwhite};
+  color: ${colors.teal};
   vertical-align: middle;
   resize: none;
 `;
@@ -128,8 +128,12 @@ export const ReplyButton = styled.button`
   color: ${colors.coral};
   background: transparent;
   border: none;
-  margin: 5px auto 5px -50px;
+  margin-left: -40px;
+  margin-top: auto;
+  margin-bottom: auto;
   font-size: 1.2em;
+  height: 40px;
+  padding: 1px 7px;
 `;
 
 const NoCommentDiv = styled.div`

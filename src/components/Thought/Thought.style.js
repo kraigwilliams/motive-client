@@ -146,7 +146,7 @@ export const Container = styled.div`
 `;
 
 const DetailWrapper = styled.div`
-  margin-top: 50px;
+  border-top: 1px solid ${colors.offwhite};
   padding: 30px;
   text-align: center;
   background-color: ${colors.darkgrey};
@@ -155,13 +155,13 @@ const DetailWrapper = styled.div`
   .Detail-info-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
     width: 50%;
   }
 
   .info {
     text-align: center;
-    color: ${colors.blue};
+    color: ${colors.lightblue};
+    margin-top: 15px;
   }
 
   .info-content {
@@ -169,26 +169,26 @@ const DetailWrapper = styled.div`
   }
 
   .info-shared {
-    color: ${colors.blue};
+    color: ${colors.lightblue};
     width: 50%;
+    margin-top: 15px;
   }
 `;
 
 const DetailHeader = styled.h3`
   text-align: center;
-  color: ${colors.slategrey};
-  margin-bottom: 20px;
+  color: ${colors.coral};
+  margin-bottom: 15px;
 `;
 
 const DetailWrap = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
   height: fit-content;
   align-items: center;
 
   @media (min-width: 700px) {
-    flex-direction: row;
+    flex-direction: column;
   }
 `;
 
@@ -202,7 +202,7 @@ export const Details = (props) => {
             Owner
             <div className="info-content">{props.owner}</div>
           </div>
-          <div className="info" style={{ marginTop: "10px" }}>
+          <div className="info">
             Last Modified
             <div className="info-content">{props.lastModified}</div>
           </div>

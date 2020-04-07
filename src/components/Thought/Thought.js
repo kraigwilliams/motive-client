@@ -345,11 +345,12 @@ export default class Thought extends Component {
           </CommentsWrap>
 
           <ReplyForm onSubmit={this.handleAddComment.bind(this)}>
-            <div>
+            <div style={{ display: "flex", justifyItems: "center" }}>
               {/* Input to write a new comment */}
               <ReplyInput
                 placeholder="Add a comment..."
                 name="content"
+                required
               ></ReplyInput>
               {/* Add comment button */}
               <ReplyButton type="submit">
