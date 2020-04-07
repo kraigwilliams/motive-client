@@ -36,7 +36,7 @@ export default class Login extends Component {
     ev.preventDefault();
     const { username, password } = ev.target;
 
-    this.setState({ error: null });
+    this.setState({ error: null, loading: true });
 
     AuthApiService.postLogin({
       username: username.value,
@@ -46,7 +46,6 @@ export default class Login extends Component {
         username.value = "";
         password.value = "";
         this.context.processLogin(res.authToken);
-        this.setState({ loading: true });
         this.handleLoginSuccess();
       })
 
