@@ -26,10 +26,16 @@ export default class Connections extends Component {
     };
   }
 
+  //grabs user input for connections input search, compares to
   handleInputChange = (event) => {
     const query = event.target.value;
+
     const filteredData = this.state.nonconnections.filter((element) => {
-      return element.first_name.toLowerCase().includes(query.toLowerCase());
+      return (
+        element.first_name.toLowerCase().includes(query.toLowerCase()) ||
+        element.last_name.toLowerCase().includes(query.toLowerCase()) ||
+        element.username.toLowerCase().includes(query.toLowerCase())
+      );
     });
     this.setState({
       filteredData,

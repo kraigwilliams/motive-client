@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LandingPage /> renders LandingPage by default 1`] = `
+<styled.div>
+  <styled.div>
+    <div
+      className="header"
+    >
+      <styled.h1>
+        Focus your thoughts.
+      </styled.h1>
+      <styled.p>
+        Folkul is a space to cultivate ideas that matter. Keep a personal record or collaborate in groups — the sky's the limit.
+      </styled.p>
+      <Styled(Component)
+        className="bounce"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#ffffff",
+            "margin": "100px auto",
+          }
+        }
+      />
+    </div>
+  </styled.div>
+  <styled.div>
+    <h3>
+      View your dashboard containing Topics and Thoughts
+    </h3>
+    <img
+      alt="dashboard-view"
+      className="img"
+      src="dashboard.png"
+    />
+  </styled.div>
+  <styled.div
+    style={
+      Object {
+        "backgroundColor": "#C4C4C4",
+      }
+    }
+  >
+    <h3>
+      Store all your Thoughts inside each Topic
+    </h3>
+    <img
+      alt="topic-view"
+      className="img"
+      src="topic.png"
+    />
+  </styled.div>
+  <styled.div
+    style={
+      Object {
+        "backgroundColor": "#EB9C82",
+      }
+    }
+  >
+    <h3>
+      Add as many Thoughts as you can imagine!
+    </h3>
+    <img
+      alt="add-thought-view"
+      className="img"
+      src="add.png"
+    />
+    <Styled(Link)
+      to="/signup"
+    >
+      Sign Up Here
+    </Styled(Link)>
+  </styled.div>
+</styled.div>
+`;

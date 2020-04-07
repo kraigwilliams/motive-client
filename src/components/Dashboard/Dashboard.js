@@ -29,7 +29,7 @@ class Dashboard extends Component {
     };
   }
 
-  //make get request to get all thoughts and topics for the logged in user
+  //make get requests to get all thoughts and topics for the logged in user
   async componentDidMount() {
     const topics = await ContentService.getTopics();
     if (topics) {
@@ -68,6 +68,7 @@ class Dashboard extends Component {
     }
   }
 
+  //this displays the # of thoughts within a topic for the condensed topic view
   countThoughtsForTopic(topicId) {
     const thoughtsInTopic = this.state.allThoughts.filter(
       (thought) => thought.thought_topic === topicId
