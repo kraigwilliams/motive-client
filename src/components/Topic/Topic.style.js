@@ -79,6 +79,17 @@ export const ContentWrapper = styled.div`
     margin: 10px 30px;
     padding: 5px 60px;
   }
+
+  .topic-thoughts {
+    width: 80%;
+    margin: 0px auto;
+  }
+
+  @media (min-width: 600px) {
+    .topic-thoughts {
+      width: 50%;
+    }
+  }
 `;
 
 export const StyledDeleteDiv = styled.div`

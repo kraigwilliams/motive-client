@@ -177,17 +177,18 @@ export default class Topic extends Component {
               data-tip="Add Thought to Topic"
             />
           </div>
-
-          {currentThoughts.map((thought, idx) => {
-            return (
-              <CondensedThought
-                key={idx}
-                id={thought.id}
-                title={thought.thought_title}
-                topic={topicId}
-              />
-            );
-          })}
+          <div className="topic-thoughts">
+            {currentThoughts.map((thought, idx) => {
+              return (
+                <CondensedThought
+                  key={idx}
+                  id={thought.id}
+                  title={thought.thought_title}
+                  topic={topicId}
+                />
+              );
+            })}
+          </div>
 
           {!this.state.deleteDiv && (
             <StyledDeleteDiv>
