@@ -1,17 +1,17 @@
 import React from "react";
 import { shallow, configure } from "enzyme";
 import toJson from "enzyme-to-json";
-import Connections from "./Connections";
+import Connection from "./Connection";
 import Adapter from "enzyme-adapter-react-16";
 import UserContext from "../../contexts/UserContext";
 
 configure({ adapter: new Adapter() });
-describe(`<Connections />`, () => {
+describe(`<Connection />`, () => {
   //Snapshot Testing
-  it("renders Connections by default", () => {
+  it("renders Connection by default", () => {
     const wrapper = shallow(
       <UserContext.Provider>
-        <Connections />
+        <Connection />
       </UserContext.Provider>
     );
     expect(toJson(wrapper)).toMatchSnapshot();

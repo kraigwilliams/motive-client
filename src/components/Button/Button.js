@@ -5,6 +5,7 @@ import { colors } from "../constants";
 import cx from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 
 export const Button = React.forwardRef(({ className, ...props }, ref) => {
   return <button className={cx("Button", className)} ref={ref} {...props} />;
@@ -121,6 +122,12 @@ const Add = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx("Button", className)} ref={ref} {...props}>
       <NavLink to={props.to} className="button-link">
+        <ReactTooltip
+          textColor={colors.darkgrey}
+          backgroundColor={colors.teal}
+          place="left"
+          effect="solid"
+        />
         <FontAwesomeIcon icon="plus" />
       </NavLink>
     </button>
@@ -177,6 +184,13 @@ const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx("Button", className)} ref={ref} {...props}>
       <FontAwesomeIcon icon="minus" />
+
+      <ReactTooltip
+        textColor={colors.darkgrey}
+        backgroundColor={colors.teal}
+        place="left"
+        effect="solid"
+      />
     </button>
   );
 });
@@ -189,6 +203,8 @@ export const DeleteButton = styled(Delete)`
   text-align: center;
   font-size: 1em;
   display: ${({ shared }) => (shared ? shared : "block")};
+  margin-bottom: 5px;
+  margin-right: ${({ marginright }) => (marginright ? marginright : "30px")};
 
   .button-link {
     color: ${({ color }) => (color ? color : colors.coral)};
@@ -203,6 +219,12 @@ const Share = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx("Button", className)} ref={ref} {...props}>
       <NavLink to={props.to} className="button-link">
+        <ReactTooltip
+          textColor={colors.darkgrey}
+          backgroundColor={colors.teal}
+          place="left"
+          effect="solid"
+        />
         <FontAwesomeIcon icon="share" />
       </NavLink>
     </button>

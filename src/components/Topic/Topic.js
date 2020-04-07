@@ -132,22 +132,31 @@ export default class Topic extends Component {
             </p>
           </TopicHeader>
           {/* <div style={{width: '66.97px'}}></div> */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginTop: "40px",
+            }}
+          >
+            <ShareButton
+              type="button"
+              to={`/topic/${topicId}/share`}
+              disabled={sharedLevel > 2}
+              data-tip="Share Topic"
+            />
 
-          <ShareButton
-            type="button"
-            to={`/topic/${topicId}/share`}
-            disabled={sharedLevel > 2}
-          />
+            {currentThoughts.length < 1 ? (
+              <DeleteButton
+                data-tip="Delete Topic"
+                type="button"
+                onClick={this.toggleDeleteDiv.bind(this)}
+              />
+            ) : (
+              ""
+            )}
+          </div>
         </div>
-
-        {currentThoughts.length < 1 ? (
-          <DeleteButton
-            type="button"
-            onClick={this.toggleDeleteDiv.bind(this)}
-          />
-        ) : (
-          ""
-        )}
 
         <ContentWrapper>
           <div className="top">
@@ -162,7 +171,11 @@ export default class Topic extends Component {
               </SortSelectDropdown>
             </SortWrapper>
 
-            <AddButton type="button" to="/add-thought" />
+            <AddButton
+              type="button"
+              to="/add-thought"
+              data-tip="Add Thought to Topic"
+            />
           </div>
 
           {currentThoughts.map((thought, idx) => {

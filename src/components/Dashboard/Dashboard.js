@@ -26,16 +26,20 @@ class Dashboard extends Component {
     };
   }
 
-  //make get request to get all thoughts and topics for the logged in user
+  //make get requests to get all thoughts and topics for the logged in user
   async componentDidMount() {
     const topics = await ContentService.getTopics();
     if (topics) {
-      this.setState({ topics });
+      this.setState({
+        topics,
+      });
     }
 
     const allThoughts = await ContentService.getThoughts();
     if (allThoughts) {
-      this.setState({ allThoughts });
+      this.setState({
+        allThoughts,
+      });
     }
 
     const freeThoughts = allThoughts.filter(
@@ -62,6 +66,7 @@ class Dashboard extends Component {
     }
   }
 
+  //this displays the # of thoughts within a topic for the condensed topic view
   countThoughtsForTopic(topicId) {
     const thoughtsInTopic = this.state.allThoughts.filter(
       (thought) => thought.thought_topic === topicId
@@ -79,12 +84,18 @@ class Dashboard extends Component {
           <Section>
             <SectionTitle>
               <h2 style={{ color: colors.white }}>Topics</h2>
-              <AddButton type="button" to="/add-topic" />
+              <AddButton
+                type="button"
+                to="/add-topic"
+                data-tip="Add Topic"
+                data-place="top"
+              />
             </SectionTitle>
 
             {topics.map((topic, idx) => {
               let thoughtCount = this.countThoughtsForTopic(topic.id);
               return (
+                {/* maps through each topic, pass count of thoughts through props */}
                 <CondensedTopic
                   key={idx}
                   id={topic.id}
@@ -97,8 +108,14 @@ class Dashboard extends Component {
           <Section>
             <SectionTitle>
               <h2 style={{ color: colors.white }}>Thoughts</h2>
-              <AddButton type="button" to="/add-thought" />
+              <AddButton
+                type="button"
+                to="/add-thought"
+                data-tip="Add Thought"
+                data-place="top"
+              />
             </SectionTitle>
+            {/* maps all thoughts not in topics */}
             {freeThoughts.map((thought, idx) => {
               return (
                 <CondensedThought
@@ -113,6 +130,7 @@ class Dashboard extends Component {
             <SectionTitle>
               <h2 style={{ color: colors.coral }}>Shared</h2>
             </SectionTitle>
+            {/* map through all shared topics and thoughts for shared section */}
             {sharedTopics.map((topic, idx) => {
               return (
                 <CondensedTopic

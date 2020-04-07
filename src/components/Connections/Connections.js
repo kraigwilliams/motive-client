@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import Loader from "react-loader-spinner";
 import UserContext from "../../contexts/UserContext";
 import ActionsService from "../../services/actions-service";
 import {
@@ -26,10 +27,16 @@ export default class Connections extends Component {
     };
   }
 
+  //grabs user input for connections input search, compares to
   handleInputChange = (event) => {
     const query = event.target.value;
+
     const filteredData = this.state.nonconnections.filter((element) => {
-      return element.first_name.toLowerCase().includes(query.toLowerCase());
+      return (
+        element.first_name.toLowerCase().includes(query.toLowerCase()) ||
+        element.last_name.toLowerCase().includes(query.toLowerCase()) ||
+        element.username.toLowerCase().includes(query.toLowerCase())
+      );
     });
     this.setState({
       filteredData,
@@ -37,6 +44,7 @@ export default class Connections extends Component {
     });
   };
 
+  //grabs all connections for user
   async getData() {
     const { user } = this.context;
     const userId = user.id;
@@ -48,6 +56,7 @@ export default class Connections extends Component {
       });
     }
 
+    //grabs all non-connections for user to search for in input
     const nonconnections = await ActionsService.getAllNonconnections();
 
     if (nonconnections) {
@@ -57,7 +66,8 @@ export default class Connections extends Component {
     }
   }
 
-  componentDidMount() {
+  //this will update the connections list when user adds new connection from search
+  async componentDidMount() {
     this.getData();
   }
 
@@ -83,7 +93,7 @@ export default class Connections extends Component {
             onChange={this.handleInputChange}
             backgroundcolor={colors.darkergrey}
             color={colors.white}
-            placeholder="Search by first name..."
+            placeholder="Search the Folkul network..."
             value={addedConnection ? "" : undefined}
           />
 

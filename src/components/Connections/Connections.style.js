@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { colors } from '../constants'
-
+import styled from "styled-components";
+import { colors } from "../constants";
 
 export const ConnectionsPageWrapper = styled.div`
   display: flex;
@@ -16,14 +15,14 @@ export const ConnectionsHeader = styled.h1`
   font-size: 25px;
   padding-top: 60px;
   padding-bottom: 30px;
-  
+
   color: ${colors.white};
   text-align: center;
 
   @media (min-width: 600px) {
     text-align: center;
     font-size: 45px;
-  } 
+  }
 `;
 
 export const FriendsName = styled.h2`
@@ -35,7 +34,7 @@ export const FriendsName = styled.h2`
   @media (min-width: 600px) {
     text-align: center;
     font-size: 18px;
-  } 
+  }
 `;
 
 export const FriendsUserName = styled.h2`
@@ -51,7 +50,7 @@ export const FriendsUserName = styled.h2`
 
   @media (min-width: 600px) {
     text-align: center;
-  } 
+  }
 `;
 
 export const FriendsHeader = styled.h2`
@@ -66,7 +65,7 @@ export const FriendsHeader = styled.h2`
 
   @media (min-width: 600px) {
     text-align: center;
-  } 
+  }
 `;
 
 export const ConnectionsSection = styled.section`
@@ -78,14 +77,13 @@ export const ConnectionsSection = styled.section`
 
   @media (min-width: 600px) {
     height: 100%;
-  } 
-
+  }
 `;
 
 export const AddConnectionsWrap = styled.div`
   overflow: auto;
   height: 200px;
   align-items: center;
-
- 
+  margin-left: auto;
+  margin-right: auto;
 `;

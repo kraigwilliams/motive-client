@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { colors } from '../constants'
-
+import styled from "styled-components";
+import { colors } from "../constants";
 
 export const TopicWrapper = styled.div`
   display: flex;
@@ -25,8 +24,7 @@ export const TopicHeader = styled.div`
 
   @media (min-width: 600px) {
     text-align: center;
- 
-  } 
+  }
 `;
 
 export const SortWrapper = styled.div`
@@ -45,9 +43,9 @@ export const SortLabel = styled.h3`
   font-size: 16px;
 
   @media (min-width: 600px) {
-      margin-right: auto;
-      margin-bottom: 10px;
-  } 
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
 `;
 
 export const SortSelectDropdown = styled.select`
@@ -58,12 +56,12 @@ export const SortSelectDropdown = styled.select`
   > option {
     font-size: 16px;
   }
- 
+
   @media (min-width: 600px) {
     min-width: 30%;
     margin-left: auto;
     margin-right: auto;
-  } 
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -89,13 +87,11 @@ export const StyledDeleteDiv = styled.div`
   justify-content: center;
   text-align: center;
   border-radius: 5px;
-  padding: 25px; 
+  padding: 25px;
   background-color: ${colors.darkgrey};
   color: ${colors.offwhite};
   /* text-align: left; */
 
   @media (min-width: 600px) {
-  
-  } 
+  }
 `;
-

@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { colors } from '../constants'
+import React from "react";
+import styled from "styled-components";
+import { colors } from "../constants";
 
 const StyledBurger = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 2rem,;
+  width: 2rem;
   height: 2.2em;
   background: transparent;
   border: none;
@@ -28,23 +28,22 @@ const StyledBurger = styled.button`
     position: relative;
     transform-origin: 1px;
 
-    :first-child{
-      transform: ${({open}) => open ? 'rotate(45deg)' : 'rotate(0)'};
-      background: ${({open}) => open ? colors.teal : colors.offwhite}
+    :first-child {
+      transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+      background: ${({ open }) => (open ? colors.teal : colors.offwhite)};
     }
 
-    :nth-child(2){
-      opacity: ${({open}) => open ? '0' : '1'};
-      transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
+    :nth-child(2) {
+      opacity: ${({ open }) => (open ? "0" : "1")};
+      transform: ${({ open }) => (open ? "translateX(20px)" : "translateX(0)")};
     }
 
-    :nth-child(3){
-      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
-      background: ${({open}) => open ? colors.coral : colors.offwhite}
+    :nth-child(3) {
+      transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
+      background: ${({ open }) => (open ? colors.coral : colors.offwhite)};
     }
   }
 `;
-
 
 const Burger = (props) => {
   return (
@@ -53,7 +52,7 @@ const Burger = (props) => {
       <div />
       <div />
     </StyledBurger>
-  )
-}
+  );
+};
 
 export default Burger;

@@ -1,133 +1,129 @@
-import React, { Component } from 'react'
-import {Required, FormLabel, FormInput, FormTitle } from '../Form/Form'
-import AuthApiService from '../../services/auth-api-service'
-import {FormButton, GoBack} from '../Button/Button'
-import { FormWrapper, SignUpWrapper } from './SignUp.style'
-
-
+import React, { Component } from "react";
+import { Required, FormLabel, FormInput, FormTitle } from "../Form/Form";
+import AuthApiService from "../../services/auth-api-service";
+import { FormButton, GoBack } from "../Button/Button";
+import { FormWrapper, SignUpWrapper } from "./SignUp.style";
 export default class SignUp extends Component {
   static defaultProps = {
     history: {
       push: () => {},
     },
-  }
+  };
 
   state = {
-    error: null
-  }
+    error: null,
+  };
 
   handleRegistrationSuccess = () => {
-    const { history } = this.props
-    history.push('/login')
-  }
+    const { history } = this.props;
+    history.push("/login");
+  };
 
-  firstInput = React.createRef()
+  firstInput = React.createRef();
 
-  handleSubmit = ev => {
-    ev.preventDefault()
+  handleSubmit = (ev) => {
+    ev.preventDefault();
     const { firstname, lastname, username, password } = ev.target;
     AuthApiService.postUser({
-      first_name: firstname.value, 
+      first_name: firstname.value,
       last_name: lastname.value,
-      username: username.value, 
+      username: username.value,
       password: password.value,
     })
-      .then(user => {
-        firstname.value = ''
-        lastname.value = ''
-        username.value = ''
-        password.value = ''
+      .then((user) => {
+        firstname.value = "";
+        lastname.value = "";
+        username.value = "";
+        password.value = "";
         this.handleRegistrationSuccess();
       })
-      .catch(err => {
-        this.setState({ error: err.error})
-      })
-  }
+      .catch((err) => {
+        this.setState({ error: err.error });
+      });
+  };
 
   componentDidMount() {
-    this.firstInput.current.focus()
+    this.firstInput.current.focus();
   }
 
   handleChange() {
     this.setState({
-      error: null
-    })
+      error: null,
+    });
   }
 
   render() {
-    const { error } = this.state
-    return(
+    const { error } = this.state;
+    return (
       <SignUpWrapper>
-        
-        <FormWrapper onSubmit={this.handleSubmit} onChange={this.handleChange.bind(this)}>
-          <div style={{height: '20px'}}>
-            <GoBack 
-              type='reset' 
-              onClick={() => this.props.history.push('/')}
-              margin='0px'
+        <FormWrapper
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange.bind(this)}
+        >
+          <div style={{ height: "20px" }}>
+            <GoBack
+              type="reset"
+              onClick={() => this.props.history.push("/")}
+              margin="0px"
             />
-            
           </div>
-          <FormTitle>
-            Create an account
-          </FormTitle>
-          {error && <p style={{textAlign: 'center', marginTop: '10px'}}>{error}</p>}
-          <FormLabel htmlFor='signup-firstname-input'>
+          <FormTitle>Create an account</FormTitle>
+          {error && (
+            <p style={{ textAlign: "center", marginTop: "10px" }}>{error}</p>
+          )}
+          <FormLabel htmlFor="signup-firstname-input">
             First Name <Required />
           </FormLabel>
-          <FormInput 
+          <FormInput
             ref={this.firstInput}
-            placeholder='John'
-            id='signup-firstname-input'
-            name='firstname'
+            placeholder="Ralph"
+            id="signup-firstname-input"
+            name="firstname"
             aria-label="Enter your first name"
             aria-required="true"
             required
           />
 
-          <FormLabel htmlFor='signup-lastname-input'>
-            Last Name <Required /> 
+          <FormLabel htmlFor="signup-lastname-input">
+            Last Name <Required />
           </FormLabel>
-          <FormInput 
-            placeholder='Doe'
-            id='signup-lastname-input'
-            name='lastname'
+          <FormInput
+            placeholder="Emerson"
+            id="signup-lastname-input"
+            name="lastname"
             aria-label="Enter your last name"
             aria-required="true"
             required
           />
 
-          <FormLabel htmlFor='signup-username-input'>
-            Username <Required /> 
+          <FormLabel htmlFor="signup-username-input">
+            Username <Required />
           </FormLabel>
-          <FormInput 
-            placeholder='john_doe'
-            id='signup-username-input'
-            name='username'
+          <FormInput
+            placeholder="ralph_emerson"
+            id="signup-username-input"
+            name="username"
             aria-label="Enter your username"
             aria-required="true"
             required
           />
 
-          <FormLabel htmlFor='signup-password-input'>
+          <FormLabel htmlFor="signup-password-input">
             Password <Required />
           </FormLabel>
-          <FormInput 
-            type='password'
-            placeholder='password'
-            id='signup-password-input'
-            name='password'
+          <FormInput
+            type="password"
+            placeholder="transcend1"
+            id="signup-password-input"
+            name="password"
             aria-label="Enter your password"
             aria-required="true"
             required
           />
 
-          <FormButton type='submit'>
-            Sign Up
-          </FormButton>
-      </FormWrapper >
-      
-    </SignUpWrapper>
-    )
+          <FormButton type="submit">Sign Up</FormButton>
+        </FormWrapper>
+      </SignUpWrapper>
+    );
   }
 }
