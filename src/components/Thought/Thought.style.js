@@ -1,4 +1,6 @@
 import React from "react";
+import Moment from "react-moment";
+import "moment-timezone";
 import styled from "styled-components";
 import { colors } from "../constants";
 
@@ -193,6 +195,15 @@ const DetailWrap = styled.div`
 `;
 
 export const Details = (props) => {
+  console.log(props.shared_with, "shared with props");
+  const calendarStrings = {
+    lastDay: "[Yesterday at] LT",
+    sameDay: "[Today at] LT",
+    nextDay: "[Tomorrow at] LT",
+    lastWeek: "[last] dddd [at] LT",
+    nextWeek: "dddd [at] LT",
+    sameElse: "L",
+  };
   return (
     <DetailWrapper>
       <DetailHeader>Details</DetailHeader>
@@ -204,12 +215,23 @@ export const Details = (props) => {
           </div>
           <div className="info">
             Last Modified
-            <div className="info-content">{props.lastModified}</div>
+            <div className="info-content">
+              <Moment calendar={calendarStrings}>{props.lastModified}</Moment>
+            </div>
           </div>
         </div>
         <div className="info-shared">
           Shared With
-          <div className="info-content">{props.shared_with}</div>
+          <div className="info-content">
+            {props.shared_with &&
+              props.shared_with.map((user) => (
+                <div key={user.id}>
+                  <p>
+                    {user.first_name} {user.last_name}
+                  </p>
+                </div>
+              ))}
+          </div>
         </div>
       </DetailWrap>
     </DetailWrapper>

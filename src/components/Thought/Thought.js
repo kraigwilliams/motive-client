@@ -55,6 +55,7 @@ export default class Thought extends Component {
       thoughtLevel: null,
       isShared: null,
       sharedLevel: null,
+      sharedUsers: [],
     };
   }
 
@@ -69,10 +70,17 @@ export default class Thought extends Component {
       thoughtId,
       authToken
     );
+    // const currentThought = currentThoughtArr[0];
     this.setState({
       currentThought,
     });
+    console.log(currentThought, "current thought");
 
+    const sharedUsers = await ContentService.getSharedUsers(thoughtId);
+    this.setState({
+      sharedUsers,
+    });
+    console.log(sharedUsers, "shared users");
     // Check if this thought is shared (if current user is the owner or if it has been sahred with the user)
     const sharedThoughts = await ContentService.getSharedThoughts();
 
@@ -133,6 +141,7 @@ export default class Thought extends Component {
     const thought_title = title.value;
     const thought_content = content.value;
     const thought_topic = topic.value;
+    const date_modified = new Date();
 
     //setting variable to result of patch request made to server
     const currentThought = await ContentService.saveThoughtEdit(
@@ -140,7 +149,8 @@ export default class Thought extends Component {
       authToken,
       thought_title,
       thought_content,
-      thought_topic
+      thought_topic,
+      date_modified
     );
 
     // Update state with successful edit changes
@@ -204,6 +214,7 @@ export default class Thought extends Component {
       thoughtId,
       sharedLevel,
       comments,
+      sharedUsers,
     } = this.state;
 
     const { topicForThought } = this.context;
@@ -362,9 +373,9 @@ export default class Thought extends Component {
 
         {/* Div containing all thought details */}
         <Details
-          owner="Jordan"
-          lastModified="Today at 6:00"
-          shared_with="Kraig Williams"
+          owner={currentThought.first_name}
+          lastModified={currentThought.date_modified}
+          shared_with={sharedUsers}
         />
       </ThoughtWrapper>
     );

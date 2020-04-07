@@ -75,6 +75,11 @@ export const ConnectionsSection = styled.section`
   /* height: auto 140%; */
   width: 100%;
 
+  .connections-container {
+    height: 300px;
+    overflow: auto;
+  }
+
   @media (min-width: 600px) {
     height: 100%;
   }

@@ -36,6 +36,7 @@ const TokenService = {
       TokenService.parseAuthToken()
     );
     _timeoutId = setTimeout(callback, msUntilExpiry - _TEN_SECONDS_IN_MS);
+    // _timeoutId = setTimeout(callback, 30000);
   },
   clearCallbackBeforeExpiry() {
     clearTimeout(_timeoutId);

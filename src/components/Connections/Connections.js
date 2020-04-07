@@ -123,6 +123,7 @@ export default class Connections extends Component {
             {this.context.user.username}'s Connections
           </FriendsHeader>
           {/* map through connections in state to render each connection detail */}
+          <div className='connections-container'>
           {connections.map((friend, idx) => {
             return (
               <div key={idx}>
@@ -133,6 +134,7 @@ export default class Connections extends Component {
               </div>
             );
           })}
+          </div>
         </ConnectionsSection>
       </ConnectionsPageWrapper>
     );

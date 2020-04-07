@@ -214,7 +214,8 @@ const ContentService = {
     token,
     thought_title,
     thought_content,
-    thought_topic
+    thought_topic,
+    date_modified
   ) {
     return fetch(`${config.API_ENDPOINT}/thought/${thoughtId}`, {
       method: "PATCH",
@@ -226,7 +227,25 @@ const ContentService = {
         thought_title,
         thought_content,
         thought_topic,
+        date_modified
       }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((e) => Promise.reject(e));
+        }
+        return res.json();
+      })
+      .catch((err) => console.error(err.message));
+  },
+
+  getSharedUsers(thoughtId){
+    return fetch(`${config.API_ENDPOINT}/thought/share/${thoughtId}`, {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      }
     })
       .then((res) => {
         if (!res.ok) {
