@@ -176,7 +176,7 @@ const DetailWrapper = styled.div`
 
 const DetailHeader = styled.h3`
   text-align: center;
-  color: ${colors.coral};
+  color: ${colors.slategrey};
   margin-bottom: 20px;
 `;
 
