@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { colors } from '../constants'
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { colors } from "../constants";
+import { Link } from "react-router-dom";
 
 export const Topic = styled.div`
   border: 2px solid ${colors.blue};
@@ -13,17 +13,15 @@ export const Topic = styled.div`
   border-radius: 10px;
   min-width: fit-content;
   width: 60%;
- 
 
   :hover {
-    box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.50);
+    box-shadow: 0px 2px 5px 3px rgba(0, 0, 0, 0.5);
   }
 
   @media (min-width: 1000px) {
     min-width: fit-content;
     width: 60%;
-   
-  } 
+  }
 `;
 
 export const TopicTitle = styled(Link)`

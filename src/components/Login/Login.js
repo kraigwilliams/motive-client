@@ -46,6 +46,7 @@ export default class Login extends Component {
         this.context.processLogin(res.authToken);
         this.handleLoginSuccess();
       })
+
       .catch((res) => {
         this.setState({ error: res.error });
       });
