@@ -224,16 +224,19 @@ export default class Thought extends Component {
             />
             <div className="thought-actions">
               {/* Share button here, pass in the thought id through props */}
+
               <ShareButton
                 type="button"
                 to={`/thought/${thoughtId}/share`}
                 shared={sharedLevel > 2 ? "none" : null}
-                marginright="0px"
+                // marginright="0px"
+                data-tip="Share Thought"
               />
 
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <DeleteButton
                   type="button"
+                  data-tip="Delete Thought"
                   onClick={this.toggleDeleteDiv}
                   shared={sharedLevel > 2 ? "none" : null}
                 />

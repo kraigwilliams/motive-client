@@ -85,7 +85,12 @@ class Dashboard extends Component {
           <Section>
             <SectionTitle>
               <h2 style={{ color: colors.white }}>Topics</h2>
-              <AddButton type="button" to="/add-topic" />
+              <AddButton
+                type="button"
+                to="/add-topic"
+                data-tip="Add Topic"
+                data-place="top"
+              />
             </SectionTitle>
 
             {topics.map((topic, idx) => {
@@ -113,7 +118,12 @@ class Dashboard extends Component {
           <Section>
             <SectionTitle>
               <h2 style={{ color: colors.white }}>Thoughts</h2>
-              <AddButton type="button" to="/add-thought" />
+              <AddButton
+                type="button"
+                to="/add-thought"
+                data-tip="Add Thought"
+                data-place="top"
+              />
             </SectionTitle>
             {/* maps all thoughts not in topics */}
             {freeThoughts.map((thought, idx) => {

@@ -1,7 +1,7 @@
-import React from 'react'
-import Navigation from './Navigation'
-import styled from 'styled-components';
-import { colors } from '../constants'
+import React from "react";
+import Navigation from "./Navigation";
+import styled from "styled-components";
+import { colors } from "../constants";
 
 const DesktopNav = styled.nav`
   display: flex;
@@ -11,17 +11,16 @@ const DesktopNav = styled.nav`
   background: ${colors.darkgrey};
   color: ${colors.white};
 
-  .nav-links{
+  .nav-links {
     margin-left: 20px;
 
-    
-  @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       display: none;
     }
   }
-  
+
   .ul {
-    display:flex;
+    display: flex;
     flex-direction: row;
   }
 `;
@@ -29,11 +28,9 @@ const DesktopNav = styled.nav`
 const DesktopNavBar = (props) => {
   return (
     <DesktopNav>
-      
-      <Navigation direction='row' marginLeft='25px'/>
-
+      <Navigation direction="row" marginLeft="25px" />
     </DesktopNav>
-  )
-}
+  );
+};
 
 export default DesktopNavBar;
