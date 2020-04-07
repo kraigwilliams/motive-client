@@ -1,10 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CondensedTopic /> renders CondensedTopic by default 1`] = `
-<styled.div>
-  <Styled(Link)
-    to="topics/undefined"
-  />
-  <styled.p />
-</styled.div>
+<Styled(Link)
+  to="topics/undefined"
+>
+  <CSSTransition
+    appear={true}
+    classNames="fade"
+    in={true}
+    mountOnEnter={true}
+    timeout={
+      Object {
+        "enter": 1000,
+      }
+    }
+  >
+    <styled.div>
+      <styled.p />
+    </styled.div>
+  </CSSTransition>
+</Styled(Link)>
 `;

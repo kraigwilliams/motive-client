@@ -1,23 +1,27 @@
-import React, { Component } from 'react'
-import {Topic, TopicTitle, TopicCount} from './CondensedTopic.style'
-
+import React, { Component } from "react";
+import { CSSTransition } from "react-transition-group";
+import { Topic, TopicTitle, TopicCount } from "./CondensedTopic.style";
 
 class CondensedTopic extends Component {
   render() {
-
     return (
-        <TopicTitle 
-          to={`topics/${this.props.id}`}
+      <TopicTitle to={`topics/${this.props.id}`}>
+        <CSSTransition
+          in={true}
+          classNames="fade"
+          appear={true}
+          mountOnEnter
+          timeout={{ enter: 1000 }}
+          key={this.props.id}
         >
-         <Topic key={this.props.id}>
+          <Topic key={this.props.id}>
             {this.props.title}
-            <TopicCount>
-              {this.props.count}
-            </TopicCount>
+            <TopicCount>{this.props.count}</TopicCount>
           </Topic>
-        </TopicTitle>
+        </CSSTransition>
+      </TopicTitle>
     );
   }
 }
 
-export default CondensedTopic
+export default CondensedTopic;

@@ -4,6 +4,7 @@ import "moment-timezone";
 import styled from "styled-components";
 import { colors } from "../constants";
 
+// Comment styles 
 export const CommentWrapper = styled.div`
   background-color: ${colors.darkgrey};
   padding: 50px 30px;
@@ -13,10 +14,6 @@ export const CommentWrapper = styled.div`
   height: fit-content;
   .edit-wrapper {
     margin: auto;
-  }
-
-  @media (min-width: 600px) {
-    /* height: 30vh; */
   }
 `;
 
@@ -72,17 +69,14 @@ export const Comment = (props) => {
 
       <div className="content">
         <div className="text">
-          {/* This is what I am commenting. */}
           {props.text}
         </div>
         <div className="metadata">
           <p>
-            {/* Author */}
             {props.posted_by}
           </p>
 
           <span>
-            {/* Yesterday at 6:00 */}
             <Moment calendar={calendarStrings}>{props.posted_on}</Moment>
           </span>
         </div>

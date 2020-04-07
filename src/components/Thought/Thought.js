@@ -73,7 +73,7 @@ export default class Thought extends Component {
       currentThought,
     });
 
-    // Check if this thought is shared (if user is the owner or it has been sahred with you)
+    // Check if this thought is shared (if current user is the owner or if it has been sahred with the user)
     const sharedThoughts = await ContentService.getSharedThoughts();
 
     const isShared = sharedThoughts.find(
@@ -324,7 +324,7 @@ export default class Thought extends Component {
           <CommentHeader>Comments</CommentHeader>
 
           <CommentsWrap>
-            {/* Map through existing comments to render here */}
+            {/* Map through existing comments */}
             {comments.length == 0 ? (
               <NoCommentsYet />
             ) : (
@@ -343,7 +343,7 @@ export default class Thought extends Component {
 
           <ReplyForm onSubmit={this.handleAddComment.bind(this)}>
             <div>
-              {/* Input to write a new comment here */}
+              {/* Input to write a new comment */}
               <ReplyInput
                 placeholder="Add a comment..."
                 name="content"
