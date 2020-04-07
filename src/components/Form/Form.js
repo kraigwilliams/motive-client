@@ -1,15 +1,15 @@
-import React from 'react'
-import cx from 'classnames'
-import styled from 'styled-components'
-import {colors} from '../constants'
+import React from "react";
+import cx from "classnames";
+import styled from "styled-components";
+import { colors } from "../constants";
 
 export const FormTitle = styled.h1`
   text-align: center;
   font-size: 22px;
   color: ${({ color }) => color || colors.teal};
   margin-top: 10px;
-  @media (min-width:700px) {
-  margin-top: 10px;
+  @media (min-width: 700px) {
+    margin-top: 10px;
   }
 `;
 
@@ -17,15 +17,15 @@ export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: ${({ backgroundcolor }) => backgroundcolor || "#829191"};
+  background-color: ${({ bgColor }) => bgColor || "#829191"};
   width: 100%;
-  padding: ${({padding}) => padding ? padding : '0px'};
-  
-  @media (min-width:700px) {
-      width: 60%;
-      margin: auto;
-      padding: 30px;
-      border-radius: 30px;
+  padding: ${({ padding }) => (padding ? padding : "0px")};
+
+  @media (min-width: 700px) {
+    width: 60%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 30px;
   }
 `;
 
@@ -34,48 +34,51 @@ export const LoginWrapper = styled.div`
   margin: 0;
   padding: 40px;
   min-height: 100vh;
-  
-  @media (min-width:700px) {
-    background-color: ${colors.offwhite};
 
+  @media (min-width: 700px) {
+    background-color: ${colors.offwhite};
   }
 `;
 
 function Label({ className, ...props }) {
-  return (
-    <label className={cx('Label', className)} {...props} />
-  )
+  return <label className={cx("Label", className)} {...props} />;
 }
 
 export const FormLabel = styled(Label)`
-  color: ${props => props.color ? props.color : colors.coral} ;
-  text-align: ${props => props.align ? props.align : 'left'};
-  font-size: ${({fontSize}) => fontSize ? fontSize : 'auto'};
+  color: ${(props) => (props.color ? props.color : colors.coral)};
+  text-align: ${(props) => (props.align ? props.align : "left")};
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : "auto")};
   padding: 10px 10px 10px 0px;
   margin: 10px auto 0px auto;
   font-weight: bolder;
   width: 80%;
   min-height: 100%;
 
-  @media (min-width:700px) {
-    width: 60%; 
+  @media (min-width: 700px) {
+    width: 60%;
     margin: auto;
     margin-top: 20px;
   }
 `;
 
-export const Input =  React.forwardRef(({ className, ...props }, ref) => {
+export const Input = React.forwardRef(({ className, ...props }, ref) => {
   return (
-    <input className={cx('Input', className)} type='text' ref={ref} {...props} />
-  )
-})
+    <input
+      className={cx("Input", className)}
+      type="text"
+      ref={ref}
+      {...props}
+    />
+  );
+});
 
 export const FormInput = styled(Input)`
   border: none;
   border-bottom: 2px solid ${colors.offwhite};
   padding: 10px;
   font-size: 16px;
-  background-color: ${({ backgroundcolor }) => backgroundcolor || 'transparent'};
+  background-color: ${({ backgroundcolor }) =>
+    backgroundcolor || "transparent"};
   color: ${({ color }) => color || colors.darkgrey};
   text-align: center;
   width: 80%;
@@ -83,35 +86,33 @@ export const FormInput = styled(Input)`
   align-self: center;
 
   :focus {
-    border-bottom: 2px solid ${colors.teal}
+    border-bottom: 2px solid ${colors.teal};
   }
 
-  @media (min-width:700px) {
-    width: 60%; 
+  @media (min-width: 700px) {
+    width: 60%;
     margin: 10px;
   }
 `;
 
 export function Required({ className, ...props }) {
   return (
-    <span className={cx('Required', className)} {...props}>
+    <span className={cx("Required", className)} {...props}>
       &#42;
     </span>
-  )
+  );
 }
 
 export function Textarea({ className, ...props }) {
-  return (
-    <textarea className={cx('Textarea', className)} {...props} />
-  )
+  return <textarea className={cx("Textarea", className)} {...props} />;
 }
 
 export const FormTextarea = styled(Textarea)`
-  background: ${({bgColor}) => bgColor ? bgColor : colors.offwhite};
+  background: ${({ bgColor }) => (bgColor ? bgColor : colors.offwhite)};
   width: 80%;
   padding: 20px;
   font-size: 16px;
-  color: ${colors.darkgrey};
+  color: ${colors.white};
   border: 2px solid ${colors.offwhite};
   border-radius: 10px;
   margin: auto;
@@ -121,7 +122,7 @@ export const FormTextarea = styled(Textarea)`
   @media (min-width: 700px) {
     width: 60%;
     margin: auto;
-  } 
+  }
 `;
 
 export const Dropdown = styled.select`
@@ -135,7 +136,7 @@ export const Dropdown = styled.select`
   > option {
     text-align: center;
   }
-  
+
   :focus {
     border: 2px solid ${colors.teal};
   }
@@ -143,7 +144,7 @@ export const Dropdown = styled.select`
   @media (min-width: 700px) {
     width: 60%;
     margin: auto;
-  } 
+  }
 `;
 
 export const DetailMessage = styled.div`

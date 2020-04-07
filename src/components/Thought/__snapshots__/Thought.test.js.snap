@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Thought /> renders UI as expected 1`] = `
-<textarea
-  className="sc-fzozJi gKpFSU"
+<input
+  className="sc-fzoLsD fqTtYV"
 />
 `;
 
 exports[`<Thought /> renders UI as expected 2`] = `
 <textarea
-  className="sc-fzpans hIHlBp"
+  className="sc-fzplWN bDxtVw"
 />
 `;
 
 exports[`<Thought /> renders UI as expected 3`] = `
 <select
-  className="sc-fznyAO hsryoF"
+  className="sc-fznKkj epfNme"
 />
 `;
