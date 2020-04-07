@@ -89,7 +89,7 @@ export default class Connections extends Component {
             onChange={this.handleInputChange}
             backgroundcolor={colors.darkergrey}
             color={colors.white}
-            placeholder="Search by first name..."
+            placeholder="Search the Folkul network..."
             value={addedConnection ? "" : undefined}
           />
 
