@@ -32,7 +32,7 @@ export const AngleDown = styled(AngleDownButton)`
   background: transparent;
   color: ${({ color }) => (color ? color : colors.slategrey)};
   border: none;
-  font-size: 1em;
+  font-size: 1.2em;
   z-index: 11;
   animation: ${bounce} 2s linear infinite;
   :hover {
@@ -100,8 +100,9 @@ export const FormButton = styled(Button)`
   border-radius: 30px;
   font-size: 16px;
   margin-top: ${({ margintop }) => margintop || "40px"};
-  background-color: ${({ backgroundcolor }) =>
-    backgroundcolor || colors.slategrey};
+  /* background-color: ${({ backgroundcolor }) =>
+    backgroundcolor || colors.slategrey}; */
+    background: transparent;
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   display: ${({ shared }) => (shared ? shared : "block")};
 
@@ -183,6 +184,7 @@ const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
     <button className={cx("Button", className)} ref={ref} {...props}>
       <FontAwesomeIcon icon="minus" />
+
       <ReactTooltip
         textColor={colors.darkgrey}
         backgroundColor={colors.teal}

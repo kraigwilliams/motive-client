@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
 import UserContext from "../../contexts/UserContext";
 import ContentService from "../../services/content-service";
 import { colors } from "../constants";
@@ -96,22 +95,13 @@ class Dashboard extends Component {
             {topics.map((topic, idx) => {
               let thoughtCount = this.countThoughtsForTopic(topic.id);
               return (
-                <CSSTransition
-                  in={!!topics}
-                  classNames="fade"
-                  appear={true}
-                  mountOnEnter
-                  timeout={{ enter: 1000 }}
+                {/* maps through each topic, pass count of thoughts through props */}
+                <CondensedTopic
                   key={idx}
-                >
-                  {/* maps through each topic, pass count of thoughts through props */}
-                  <CondensedTopic
-                    key={idx}
-                    id={topic.id}
-                    title={topic.topic_title}
-                    count={thoughtCount}
-                  />
-                </CSSTransition>
+                  id={topic.id}
+                  title={topic.topic_title}
+                  count={thoughtCount}
+                />
               );
             })}
           </Section>
@@ -128,20 +118,11 @@ class Dashboard extends Component {
             {/* maps all thoughts not in topics */}
             {freeThoughts.map((thought, idx) => {
               return (
-                <CSSTransition
-                  in={!!freeThoughts}
-                  classNames="fade"
-                  appear={true}
-                  mountOnEnter
-                  timeout={{ enter: 1000 }}
+                <CondensedThought
                   key={idx}
-                >
-                  <CondensedThought
-                    key={idx}
-                    id={thought.id}
-                    title={thought.thought_title}
-                  />
-                </CSSTransition>
+                  id={thought.id}
+                  title={thought.thought_title}
+                />
               );
             })}
           </Section>
@@ -152,40 +133,22 @@ class Dashboard extends Component {
             {/* map through all shared topics and thoughts for shared section */}
             {sharedTopics.map((topic, idx) => {
               return (
-                <CSSTransition
-                  in={!!sharedTopics}
-                  classNames="fade"
-                  appear={true}
-                  mountOnEnter
-                  timeout={{ enter: 1000 }}
+                <CondensedTopic
                   key={idx}
-                >
-                  <CondensedTopic
-                    key={idx}
-                    id={topic.id}
-                    title={topic.topic_title}
-                    shared="isShared"
-                  />
-                </CSSTransition>
+                  id={topic.id}
+                  title={topic.topic_title}
+                  shared="isShared"
+                />
               );
             })}
             {sharedThoughts.map((thought, idx) => {
               return (
-                <CSSTransition
-                  in={!!sharedThoughts}
-                  classNames="fade"
-                  appear={true}
-                  mountOnEnter
-                  timeout={{ enter: 1000 }}
+                <CondensedThought
                   key={idx}
-                >
-                  <CondensedThought
-                    key={idx}
-                    id={thought.thought_id}
-                    title={thought.thought_title}
-                    shared="isShared"
-                  />
-                </CSSTransition>
+                  id={thought.thought_id}
+                  title={thought.thought_title}
+                  shared="isShared"
+                />
               );
             })}
           </Section>

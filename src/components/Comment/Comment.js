@@ -4,21 +4,16 @@ import "moment-timezone";
 import styled from "styled-components";
 import { colors } from "../constants";
 
+// Comment styles 
 export const CommentWrapper = styled.div`
   background-color: ${colors.darkgrey};
-  /* height: 50vh; */
   padding: 50px 30px;
   justify-content: center;
   align-content: center;
   align-items: center;
-  /* overflow-wrap: scroll; */
-
+  height: fit-content;
   .edit-wrapper {
     margin: auto;
-  }
-
-  @media (min-width: 600px) {
-    /* height: 30vh; */
   }
 `;
 
@@ -74,17 +69,14 @@ export const Comment = (props) => {
 
       <div className="content">
         <div className="text">
-          {/* This is what I am commenting. */}
           {props.text}
         </div>
         <div className="metadata">
           <p>
-            {/* Author */}
             {props.posted_by}
           </p>
 
           <span>
-            {/* Yesterday at 6:00 */}
             <Moment calendar={calendarStrings}>{props.posted_on}</Moment>
           </span>
         </div>
@@ -101,7 +93,8 @@ export const Comment = (props) => {
 
 export const CommentsWrap = styled.div`
   overflow: auto;
-  height: 400px;
+  height: fit-content;
+  max-height: 400px;
 `;
 
 export const ReplyForm = styled.form`
@@ -122,9 +115,8 @@ export const ReplyInput = styled.textarea`
   background: transparent;
   border-radius: 50px;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 50px 10px 20px;
   height: 40px;
-  /* line-height: 1.2em; */
   font-size: 16px;
   color: ${colors.offwhite};
   vertical-align: middle;
@@ -135,12 +127,22 @@ export const ReplyButton = styled.button`
   margin-top: 20px;
   color: ${colors.coral};
   background: transparent;
+  border: none;
+  margin: 5px auto 5px -50px;
+  font-size: 1.2em;
 `;
 
-// const NoCommentDiv = () => {
-//   return <div>No comments have been made yet</div>;
-// };
+const NoCommentDiv = styled.div`
+  margin: auto;
+  text-align: left;
+  padding: 10px;
+  color: ${colors.slategrey};
+  margin-bottom: 10px;
+  @media (min-width: 600px) {
+    text-align: center;
+  }
+`;
 
-// export const NoCommentsYet = styled.div`
-
-// `;
+export const NoCommentsYet = (props) => {
+  return <NoCommentDiv>No comments have been added yet.</NoCommentDiv>;
+};

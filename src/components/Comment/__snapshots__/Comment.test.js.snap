@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Comment /> renders Comment UI as expected 1`] = `
+<div
+  className="sc-AxhCb fERfHF"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="text"
+    />
+    <div
+      className="metadata"
+    >
+      <p />
+      <span>
+        <time
+          dateTime={"2020-04-07T17:07:31.446Z"}
+        >
+          Today at 10:07 AM
+        </time>
+      </span>
+    </div>
+  </div>
+</div>
+`;

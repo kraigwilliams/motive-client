@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import "moment-timezone";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContentContext from "./../../contexts/ContentContext";
 import ActionsService from "../../services/actions-service";
 import ContentService from "../../services/content-service";
@@ -14,7 +15,7 @@ import {
   ReplyForm,
   ReplyInput,
   ReplyButton,
-  // NoCommentsYet,
+  NoCommentsYet,
 } from "../Comment/Comment";
 import {
   ThoughtHeader,
@@ -25,6 +26,7 @@ import {
   StyledDeleteDiv,
   SuccessfulSave,
   Container,
+  Details,
 } from "./Thought.style";
 import { FormButton, GoBack } from "../Button/Button";
 import { colors } from "../constants";
@@ -71,14 +73,14 @@ export default class Thought extends Component {
       currentThought,
     });
 
-    // Check if this thought is shared
+    // Check if this thought is shared (if current user is the owner or if it has been sahred with the user)
     const sharedThoughts = await ContentService.getSharedThoughts();
 
     const isShared = sharedThoughts.find(
       (thought) => thought.thought_id == thoughtId
     );
 
-    //if the thought is shared, we set its share level in state
+    //if the thought is has been shared, we set its share level in state so we know how to render the thought view
     if (isShared !== undefined) {
       const { level } = await ContentService.getSharedThoughtLevel(thoughtId);
       this.setState({
@@ -91,6 +93,7 @@ export default class Thought extends Component {
       });
     }
 
+    // Get the existing topics of that user for the topic dropdown
     const topics = await ContentService.getTopics();
     if (topics) {
       this.setState({
@@ -98,6 +101,7 @@ export default class Thought extends Component {
       });
     }
 
+    // Get all comments for that thought (based on the thought id)
     const comments = await ActionsService.getComments(thoughtId);
     console.log(comments, "comments response");
     if (comments) {
@@ -106,19 +110,13 @@ export default class Thought extends Component {
       });
     }
   }
-
+  // Handle any edits made to the thought, set state to true if it has been modified
   handleChange() {
     this.setState({
       editted: true,
     });
   }
-
-  toggleDeleteDiv = () => {
-    this.setState({
-      deleteDiv: !this.state.deleteDiv,
-    });
-  };
-
+  // Keep track of what topic is selected if it has been changed from its default
   handleTopicChange = (ev) => {
     ev.preventDefault();
     const topicSelected = ev.target.value;
@@ -126,7 +124,7 @@ export default class Thought extends Component {
       topicSelected,
     });
   };
-
+  // Handle the submission of the thought modifications - make PATCH request to server
   async handleEdit(ev) {
     ev.preventDefault();
     const { title, content, topic } = ev.target;
@@ -136,7 +134,7 @@ export default class Thought extends Component {
     const thought_content = content.value;
     const thought_topic = topic.value;
 
-    //setting variable to result of pathc request made to server
+    //setting variable to result of patch request made to server
     const currentThought = await ContentService.saveThoughtEdit(
       thoughtId,
       authToken,
@@ -145,12 +143,13 @@ export default class Thought extends Component {
       thought_topic
     );
 
+    // Update state with successful edit changes
     this.setState({
       currentThought,
       editted: false,
       successfulSave: true,
     });
-
+    // Set the interval to begin the successful message for a successful change
     setTimeout(() => {
       this.setState({
         successfulSave: false,
@@ -158,24 +157,36 @@ export default class Thought extends Component {
     }, 2000);
   }
 
+  // Toggle the delete button if the delete icon has been clicked
+  toggleDeleteDiv = () => {
+    this.setState({
+      deleteDiv: !this.state.deleteDiv,
+    });
+  };
+
+  // Handle actual delete confirmation button
   handleDelete = () => {
     const thoughtId = this.props.match.params.thought_id;
     ContentService.deleteThought(thoughtId);
     this.props.history.goBack();
   };
 
+  // Handle the submission of adding a comment
   async handleAddComment(ev) {
     ev.preventDefault();
     const { content } = ev.target;
     const comment_content = content.value;
-    console.log(comment_content, "content from the comment input");
+    // console.log(comment_content, "content from the comment input");
+
     const thoughtId = this.state.thoughtId;
-    console.log(thoughtId, "thought id!");
+    // console.log(thoughtId, "thought id!");
 
+    // Make POST request to server to add a post
     await ActionsService.postComment(thoughtId, comment_content);
-
+    // Clear the comment input
     content.value = " ";
 
+    // Re-fetch the comments to update existing comments with the comment just posted
     const comments = await ActionsService.getComments(thoughtId);
     console.log(comments, "comments response");
     if (comments) {
@@ -197,6 +208,7 @@ export default class Thought extends Component {
 
     const { topicForThought } = this.context;
 
+    // Create the topic options for the thought dropdown selection
     const options = topics.map((topic, idx) => {
       return (
         <option key={idx} value={topic.id}>
@@ -204,6 +216,7 @@ export default class Thought extends Component {
         </option>
       );
     });
+
     return (
       <ThoughtWrapper>
         <ContentWrapper
@@ -293,7 +306,7 @@ export default class Thought extends Component {
               margintop="0px"
               shared={sharedLevel > 2 ? "none" : null}
             >
-              save
+              Save
             </FormButton>
 
             <CSSTransition
@@ -314,44 +327,44 @@ export default class Thought extends Component {
           <CommentHeader>Comments</CommentHeader>
 
           <CommentsWrap>
-            {/* Map through existing comments to render here */}
-            {comments.length == 0
-              ? // <NoCommentsYet />
-                "No comments yet"
-              : comments.map((comment, idx) => {
-                  return (
-                    <Comment
-                      key={idx}
-                      text={comment.comment_content}
-                      posted_by={comment.username}
-                      posted_on={comment.date_posted}
-                    />
-                  );
-                })}
-            {/* {comments.map((comment, idx) => {
-              return (
-                <Comment
-                  key={idx}
-                  text={comment.comment_content}
-                  posted_by={comment.username}
-                  posted_on={comment.date_posted}
-                />
-              );
-            })} */}
+            {/* Map through existing comments */}
+            {comments.length == 0 ? (
+              <NoCommentsYet />
+            ) : (
+              comments.map((comment, idx) => {
+                return (
+                  <Comment
+                    key={idx}
+                    text={comment.comment_content}
+                    posted_by={comment.username}
+                    posted_on={comment.date_posted}
+                  />
+                );
+              })
+            )}
           </CommentsWrap>
 
-          {/* Input to write a new comment here */}
           <ReplyForm onSubmit={this.handleAddComment.bind(this)}>
             <div>
+              {/* Input to write a new comment */}
               <ReplyInput
                 placeholder="Add a comment..."
                 name="content"
               ></ReplyInput>
+              {/* Add comment button */}
+              <ReplyButton type="submit">
+                <FontAwesomeIcon icon="plus" />
+              </ReplyButton>
             </div>
-            <ReplyButton type="submit">Add Comment</ReplyButton>
           </ReplyForm>
-          {/* Add comment button */}
         </CommentWrapper>
+
+        {/* Div containing all thought details */}
+        <Details
+          owner="Jordan"
+          lastModified="Today at 6:00"
+          shared_with="Kraig Williams"
+        />
       </ThoughtWrapper>
     );
   }

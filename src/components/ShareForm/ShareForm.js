@@ -1,101 +1,110 @@
-import React, { Component } from 'react'
-import { FormWrapper, FormTitle, FormLabel, Dropdown, DetailMessage} from '../Form/Form'
-import {PageWrapper, colors} from '../constants'
-import { FormButton, GoBack } from '../Button/Button'
-import ActionsService from '../../services/actions-service'
-import UserContext from '../../contexts/UserContext'
+import React, { Component } from "react";
+import {
+  FormWrapper,
+  FormTitle,
+  FormLabel,
+  Dropdown,
+  DetailMessage,
+} from "../Form/Form";
+import { PageWrapper, colors } from "../constants";
+import { FormButton, GoBack } from "../Button/Button";
+import ActionsService from "../../services/actions-service";
+import UserContext from "../../contexts/UserContext";
 
 export default class ShareForm extends Component {
-  // will have to use both contexts here to get the user id from user context and the thought id from the content context 
+  // will have to use both contexts here to get the user id from user context and the thought id from the content context
   static contextType = UserContext;
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       share_id: null,
       item: null,
       connections: [],
       connectionSelected: {},
-      shareSelected: null
-    }
+      shareSelected: null,
+    };
   }
 
   async componentDidMount() {
-    if(this.props.match.params.thought_id) {
+    if (this.props.match.params.thought_id) {
       this.setState({
-        share_id : this.props.match.params.thought_id,
-        item: 'thought'
-      })
+        share_id: this.props.match.params.thought_id,
+        item: "thought",
+      });
     } else {
       this.setState({
-        share_id : this.props.match.params.topic_id,
-        item: 'topic'
-      })
+        share_id: this.props.match.params.topic_id,
+        item: "topic",
+      });
     }
-    
+
     const { user } = this.context;
     const userId = user.id;
-    const connections = await ActionsService.getConnections(userId)
+    const connections = await ActionsService.getConnections(userId);
     this.setState({
-      connections
-    })
+      connections,
+    });
   }
 
   handleSelectedShareChange(ev) {
-    ev.preventDefault()
+    ev.preventDefault();
     const shareSelected = ev.target.value;
-    
+
     this.setState({
-      shareSelected
-    })
+      shareSelected,
+    });
   }
 
   handleSubmitShare(ev) {
-    ev.preventDefault()
+    ev.preventDefault();
     const { share_id, item } = this.state;
     const { connections, share_level } = ev.target;
     const connections_share = connections.value;
     const share_level_share = share_level.value;
-    
-    if(item === 'thought') {
-      ActionsService.shareThought(share_id, connections_share, share_level_share);
-      this.props.history.goBack(`thoughts/${share_id}`)
+
+    if (item === "thought") {
+      ActionsService.shareThought(
+        share_id,
+        connections_share,
+        share_level_share
+      );
+      this.props.history.goBack(`thoughts/${share_id}`);
     } else {
       ActionsService.shareTopic(share_id, connections_share, share_level_share);
-      this.props.history.goBack( `topics/${share_id}`)
+      this.props.history.goBack(`topics/${share_id}`);
     }
   }
 
   render() {
-    const {connections, shareSelected} = this.state;
+    const { connections, shareSelected } = this.state;
     const connectOptions = connections.map((friend, idx) => {
-      return <option key={idx} value={friend.id}>
-        {friend.first_name} 
-        {' '}
-        {friend.last_name} 
-        {' '}
-        {friend.username}
-      </option>
-    })
+      return (
+        <option key={idx} value={friend.id}>
+          {friend.first_name} {friend.last_name} {friend.username}
+        </option>
+      );
+    });
     return (
-      <PageWrapper padding='40px 0' bgColor={colors.slategrey}>
-        <FormWrapper padding='50px 30px' onSubmit={this.handleSubmitShare.bind(this)}>
+      <PageWrapper padding="40px 0" bgColor={colors.darkgrey}>
+        <FormWrapper
+          padding="50px 30px"
+          onSubmit={this.handleSubmitShare.bind(this)}
+          bgColor={colors.darkgrey}
+        >
           <GoBack
-            type='reset'
+            type="reset"
             onClick={() => this.props.history.goBack()}
-            margin='0px'
+            margin="0px"
+            color={colors.slategrey}
           />
-          <FormTitle>
-            Share
-          </FormTitle>
+          <FormTitle>Share</FormTitle>
 
-          <FormLabel htmlFor='share-connections'>
-            Share with:
-          </FormLabel>
+          <FormLabel htmlFor="share-connections">Share with:</FormLabel>
           <Dropdown
-            id='share-connections'
+            id="share-connections"
             aria-label="You can select a connection to share this thought with"
-            name='connections'
+            name="connections"
             defaultValue={0}
           >
             <option value={0}> -- Choose a connection -- </option>
@@ -103,15 +112,13 @@ export default class ShareForm extends Component {
             {connectOptions}
           </Dropdown>
 
-          <FormLabel>
-            Share as: 
-          </FormLabel>
+          <FormLabel>Share as:</FormLabel>
           <Dropdown
-             id='share_level'
-             aria-label="You can select what type of share you wish to do"
-             name='share_level'
-             defaultValue={0}
-             onChange={this.handleSelectedShareChange.bind(this)}
+            id="share_level"
+            aria-label="You can select what type of share you wish to do"
+            name="share_level"
+            defaultValue={0}
+            onChange={this.handleSelectedShareChange.bind(this)}
           >
             {/* options to share as a collab or as reader */}
             <option value={0}>Choose how to share</option>
@@ -119,28 +126,29 @@ export default class ShareForm extends Component {
             <option value={3}>Viewer</option>
           </Dropdown>
 
-          <FormButton 
-              type='submit'
-            >
+          <FormButton type="submit" color={colors.coral}>
             Share
           </FormButton>
 
           {/* !!!! Conditionally render a message based on what the user has selected to describe the difference between a collaborator and a reader !!!! */}
-          
-          {
-            Number(shareSelected) === 2 
-              ? <DetailMessage> Sharing as a collaborator allows them to edit the thought you created </DetailMessage>
-              : null
-          }
 
-          {
-            Number(shareSelected) === 3 
-              ?  <DetailMessage> Sharing as a reader only allows them to view and comment on the thought you created </DetailMessage>
-              : null
-          }
+          {Number(shareSelected) === 2 ? (
+            <DetailMessage>
+              {" "}
+              Sharing as a collaborator allows them to edit the thought you
+              created{" "}
+            </DetailMessage>
+          ) : null}
+
+          {Number(shareSelected) === 3 ? (
+            <DetailMessage>
+              {" "}
+              Sharing as a reader only allows them to view and comment on the
+              thought you created{" "}
+            </DetailMessage>
+          ) : null}
         </FormWrapper>
       </PageWrapper>
-
-    )
+    );
   }
 }
