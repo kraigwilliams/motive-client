@@ -10,7 +10,7 @@ export const TopicWrapper = styled.div`
   min-height: 100vh;
 `;
 
-export const TopicHeader = styled.div`
+export const TopicHeader = styled.header`
   text-align: center;
   padding: 30px 30px 10px 30px;
   color: ${colors.white};
@@ -34,13 +34,14 @@ export const SortWrapper = styled.div`
   width: fit-content;
 `;
 
-export const SortLabel = styled.h3`
+export const SortLabel = styled.label`
   padding-bottom: 5px;
   color: ${colors.coral};
   margin-bottom: 5px;
   margin-left: 70%;
   margin: auto;
   font-size: 16px;
+  font-weight: bolder;
 
   @media (min-width: 600px) {
     margin-right: auto;

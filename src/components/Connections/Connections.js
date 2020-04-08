@@ -10,7 +10,7 @@ import {
   ConnectionsSection,
   AddConnectionsWrap,
 } from "./Connections.style";
-import { FormInput, FormWrapper, FormTitle } from "../Form/Form";
+import { FormInput, FormWrapper, FormLabel } from "../Form/Form";
 import { colors } from "../constants";
 import Connection from "../Connection/Connection";
 
@@ -87,7 +87,14 @@ export default class Connections extends Component {
           style={{ marginTop: "20px" }}
           minimizedMargin="20px auto 40px auto"
         >
-          <FormTitle color={colors.coral}>Add Connections</FormTitle>
+          <FormLabel
+            color={colors.coral}
+            htmlFor="add-connections"
+            align="center"
+            style={{ padding: "10px" }}
+          >
+            <h1 style={{ fontSize: "28px" }}>Add Connections</h1>
+          </FormLabel>
 
           <FormInput
             onChange={this.handleInputChange}
@@ -96,9 +103,11 @@ export default class Connections extends Component {
             placeholder="Search the Folkul network..."
             value={addedConnection ? "" : undefined}
             borderColor={colors.blue}
+            id="add-connections"
+            aria-label="Search for connections to add"
           />
 
-          <FormTitle color={colors.offwhite} />
+          {/* <FormTitle color={colors.offwhite} /> */}
           {/* this will eventually be getting the data for search friends from DB */}
           <AddConnectionsWrap>
             {query === ""
@@ -123,17 +132,17 @@ export default class Connections extends Component {
             {this.context.user.username}'s Connections
           </FriendsHeader>
           {/* map through connections in state to render each connection detail */}
-          <div className='connections-container'>
-          {connections.map((friend, idx) => {
-            return (
-              <div key={idx}>
-                <FriendsName>
-                  {friend.first_name} {friend.last_name}
-                </FriendsName>
-                <FriendsUserName>{friend.username}</FriendsUserName>
-              </div>
-            );
-          })}
+          <div className="connections-container" tabIndex="0">
+            {connections.map((friend, idx) => {
+              return (
+                <div key={idx}>
+                  <FriendsName>
+                    {friend.first_name} {friend.last_name}
+                  </FriendsName>
+                  <FriendsUserName>{friend.username}</FriendsUserName>
+                </div>
+              );
+            })}
           </div>
         </ConnectionsSection>
       </ConnectionsPageWrapper>

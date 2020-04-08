@@ -31,6 +31,7 @@ export default function LandingPage() {
           </LandingText>
 
           <AngleDown
+            aria-label="Click to scroll down the page"
             className="bounce"
             style={{ margin: "100px auto", color: colors.white }}
             onClick={executeScroll}
@@ -39,16 +40,41 @@ export default function LandingPage() {
       </ContentHeader>
 
       <ContentSection ref={myRef}>
-        <h3>View your dashboard containing Topics and Thoughts</h3>
+        <h2>View your dashboard containing Topics and Thoughts</h2>
+
         <img src={dashboard} className="img" alt="dashboard-view" />
+
+        <p>
+          Here you can see all topic and thoughts you have created, as well as
+          any topics and thoughts that have been shared with you. This is also
+          where you can create a new topic or thought.
+        </p>
       </ContentSection>
-      <ContentSection style={{ backgroundColor: colors.offwhite }}>
-        <h3>Store all your Thoughts inside each Topic</h3>
+      <ContentSection
+        style={{ backgroundColor: colors.offwhite, color: colors.black }}
+      >
+        <h2>
+          The Thought view is your medium for creating, collaboration and
+          sharing.
+        </h2>
+
         <img src={topic} className="img" alt="topic-view" />
+
+        <p>
+          Here you can edit your content, share with your connections and see
+          all the comments for a specific thought.
+        </p>
       </ContentSection>
       <ContentSection style={{ backgroundColor: colors.coral }}>
-        <h3>Add as many Thoughts as you can imagine!</h3>
+        <h2>Add Connections to your Folkul network</h2>
+
         <img src={add} className="img" alt="add-thought-view" />
+
+        <p>
+          Here you can add new connections and see exisitng ones. Adding
+          connections allows you to share your content for collaboration or
+          viewing.{" "}
+        </p>
         {TokenService.hasAuthToken() ? (
           ""
         ) : (

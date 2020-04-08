@@ -78,6 +78,7 @@ export const ConnectionsSection = styled.section`
   .connections-container {
     height: 300px;
     overflow: auto;
+ 
   }
 
   @media (min-width: 600px) {

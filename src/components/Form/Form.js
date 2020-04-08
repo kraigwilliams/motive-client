@@ -17,7 +17,7 @@ export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   /* padding: 30px; */
-  background-color: ${({ bgColor }) => bgColor || "#829191"};
+  background-color: ${({ bgColor }) => bgColor || colors.darkgrey};
   width: 100%;
   padding: ${({ padding }) => (padding ? padding : "30px")};
 
@@ -80,7 +80,7 @@ export const FormInput = styled(Input)`
   font-size: 16px;
   background-color: ${({ backgroundcolor }) =>
     backgroundcolor || "transparent"};
-  color: ${({ color }) => color || colors.darkgrey};
+  color: ${({ color }) => color || colors.offwhite};
   text-align: center;
   width: 80%;
   margin-top: 10px;

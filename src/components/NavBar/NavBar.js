@@ -57,6 +57,7 @@ class NavBar extends Component {
         <NavWrapper>
           <Logo to="/">
             <FokulLogo
+              aria-label="Folkul logo, click to go to landing page"
               className="logo"
               style={{ fill: "white", width: "100px" }}
             />

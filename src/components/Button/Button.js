@@ -43,7 +43,12 @@ export const AngleDown = styled(AngleDownButton)`
 
 export const GoBackButton = React.forwardRef(({ className, ...props }, ref) => {
   return (
-    <button className={cx("Button", className)} ref={ref} {...props}>
+    <button
+      className={cx("Button", className)}
+      ref={ref}
+      {...props}
+      aria-label="Go back"
+    >
       <FontAwesomeIcon icon="arrow-left" />
     </button>
   );
@@ -120,8 +125,13 @@ export const FormButton = styled(Button)`
 
 const Add = React.forwardRef(({ className, ...props }, ref) => {
   return (
-    <button className={cx("Button", className)} ref={ref} {...props}>
-      <NavLink to={props.to} className="button-link">
+    <button
+      className={cx("Button", className)}
+      ref={ref}
+      {...props}
+      aria-label="Click to add"
+    >
+      <NavLink to={props.to} className="button-link" aria-label="Click to add">
         <ReactTooltip
           textColor={colors.darkgrey}
           backgroundColor={colors.teal}
@@ -182,7 +192,7 @@ export const AddConnection = styled(AddConnect)`
 
 const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
-    <button className={cx("Button", className)} ref={ref} {...props}>
+    <button className={cx("Button", className)} ref={ref} {...props} aria-label='Delete'>
       <FontAwesomeIcon icon="minus" />
 
       <ReactTooltip
@@ -217,8 +227,13 @@ export const DeleteButton = styled(Delete)`
 
 const Share = React.forwardRef(({ className, ...props }, ref) => {
   return (
-    <button className={cx("Button", className)} ref={ref} {...props}>
-      <NavLink to={props.to} className="button-link">
+    <button
+      className={cx("Button", className)}
+      ref={ref}
+      {...props}
+      aria-label="Share"
+    >
+      <NavLink to={props.to} className="button-link" aria-label="Share">
         <ReactTooltip
           textColor={colors.darkgrey}
           backgroundColor={colors.teal}

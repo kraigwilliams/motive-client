@@ -3,6 +3,8 @@ import { Required, FormLabel, FormInput, FormTitle } from "../Form/Form";
 import AuthApiService from "../../services/auth-api-service";
 import { FormButton, GoBack } from "../Button/Button";
 import { FormWrapper, SignUpWrapper } from "./SignUp.style";
+import { colors } from "../constants";
+
 export default class SignUp extends Component {
   static defaultProps = {
     history: {
@@ -65,6 +67,7 @@ export default class SignUp extends Component {
               type="reset"
               onClick={() => this.props.history.push("/")}
               margin="0px"
+              color={colors.offwhite}
             />
           </div>
           <FormTitle>Create an account</FormTitle>

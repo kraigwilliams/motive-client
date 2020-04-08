@@ -78,9 +78,18 @@ export const ContentSection = styled.div`
   color: ${colors.darkgrey};
   font-size: 20px;
   text-align: center;
+  /* 
+  div:nth-child(odd), */
+  :nth-child(even) {
+    color: ${colors.white};
+  }
 
   .img {
     width: 90%;
+  }
+
+  > p {
+    font-size: 18px;
   }
 
   @media (min-width: 600px) {
@@ -95,8 +104,13 @@ export const ContentSection = styled.div`
       width: 60%;
     }
 
-    > h3 {
+    > h2 {
       font-size: 30px;
+    }
+
+    > p {
+      font-size: 20px;
+      width: 60%;
     }
   }
 `;
@@ -105,6 +119,7 @@ export const LandingLink = styled(Link)`
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 10px;
+  margin-top: 50px;
   text-align: center;
   text-decoration: none;
   list-style-type: none;

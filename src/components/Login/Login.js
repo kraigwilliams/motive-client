@@ -89,6 +89,7 @@ export default class Login extends Component {
                   type="reset"
                   onClick={() => this.props.history.push("/")}
                   margin="10px 0px 20px 0px"
+                  color={colors.offwhite}
                 />
               </div>
               <FormTitle>Login</FormTitle>

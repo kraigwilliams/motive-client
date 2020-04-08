@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const colors = {
-  coral: "#EB9C82",
+  // coral: "#EB9C82",
+  coral: "#ff9875",
   teal: "#B9E3C6",
   offwhite: "#C4C4C4",
   white: "#ffffff",
   black: "#303838",
   darkgrey: "#424B54",
   darkergrey: "#303838",
-  slategrey: "#829191",
+  // slategrey: "#829191",
+  slategrey: "#a9b2b2",
   lightblue: "#7AD8E9",
   blue: "#198A9E",
   paleblue: "#93B2BF",

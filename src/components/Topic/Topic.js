@@ -126,12 +126,13 @@ export default class Topic extends Component {
             margin="30px 0px 30px 30px"
           />
           <TopicHeader>
-            <h1 style={{ marginBottom: "20px" }}>{currentTopic.topic_title}</h1>
+            <h1 style={{ marginBottom: "20px" }}>
+              {currentTopic.topic_title}!
+            </h1>
             <p style={{ color: colors.darkgrey }}>
               {currentTopic.topic_content}
             </p>
           </TopicHeader>
-          {/* <div style={{width: '66.97px'}}></div> */}
           <div
             style={{
               display: "flex",
@@ -161,10 +162,12 @@ export default class Topic extends Component {
         <ContentWrapper>
           <div className="top">
             <SortWrapper>
-              <SortLabel>Sort</SortLabel>
+              <SortLabel htmlFor="sort-dropdown">Sort</SortLabel>
               <SortSelectDropdown
                 onChange={this.handleSortChange.bind(this)}
                 name="sortOptions"
+                id="sort-dropdown"
+                aria-label="sort alphabetically or by date created by choosing from this dropdown"
               >
                 <option value="1">Most Recent</option>
                 <option value="2">A-Z</option>
