@@ -17,7 +17,7 @@ export const CommentWrapper = styled.div`
   }
 `;
 
-export const CommentHeader = styled.h3`
+export const CommentHeader = styled.h2`
   color: ${colors.coral};
   text-align: left;
   margin: 0 auto 30px auto;
@@ -140,7 +140,7 @@ const NoCommentDiv = styled.div`
   margin: auto;
   text-align: left;
   padding: 10px;
-  color: ${colors.slategrey};
+  color: ${colors.offwhite};
   margin-bottom: 10px;
   @media (min-width: 600px) {
     text-align: center;

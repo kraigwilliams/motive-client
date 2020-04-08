@@ -6,7 +6,7 @@ class CondensedTopic extends Component {
   render() {
     return (
       <>
-        <TopicTitle to={`topics/${this.props.id}`}>
+        <TopicTitle to={`topics/${this.props.id}`} aria-label='Got to this topic'>
           <CSSTransition
             in={true}
             classNames="fade"

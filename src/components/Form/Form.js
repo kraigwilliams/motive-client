@@ -18,11 +18,11 @@ export const FormWrapper = styled.form`
   flex-direction: column;
   /* padding: 30px; */
   background-color: ${({ bgColor }) => bgColor || colors.darkgrey};
-  width: 100%;
+  width: ${({ width }) => (width ? width : "100%")};
   padding: ${({ padding }) => (padding ? padding : "30px")};
 
   @media (min-width: 700px) {
-    width: 60%;
+    width: ${({ width }) => (width ? width : "60%")};
     margin: ${({ minimizedMargin }) =>
       minimizedMargin ? minimizedMargin : "auto"};
     padding: 30px;

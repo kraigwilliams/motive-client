@@ -89,6 +89,7 @@ class Dashboard extends Component {
                 to="/add-topic"
                 data-tip="Add Topic"
                 data-place="top"
+                aria-label="Click to add a topic"
               />
             </SectionTitle>
             {/* maps through each topic, pass count of thoughts through props */}
@@ -112,6 +113,7 @@ class Dashboard extends Component {
                 to="/add-thought"
                 data-tip="Add Thought"
                 data-place="top"
+                aria-label="Click to add a thought"
               />
             </SectionTitle>
             {/* maps all thoughts not in topics */}

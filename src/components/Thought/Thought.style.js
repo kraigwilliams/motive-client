@@ -25,7 +25,7 @@ export const ThoughtHeader = styled.input`
   margin: 10px auto 20px auto;
   word-wrap: break-word;
   flex-wrap: wrap;
-  height: fit-content;
+  height: 100%;
   @media (min-width: 600px) {
     text-align: center;
     font-size: 22px;

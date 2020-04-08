@@ -8,7 +8,10 @@ class CondensedThought extends Component {
 
   render() {
     return (
-      <ThoughtTitle to={`/thoughts/${this.props.id}`}>
+      <ThoughtTitle
+        to={`/thoughts/${this.props.id}`}
+        aria-label="Go to this thought"
+      >
         <CSSTransition
           in={true}
           classNames="fade"

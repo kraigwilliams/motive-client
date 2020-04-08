@@ -77,8 +77,9 @@ export const ConnectionsSection = styled.section`
 
   .connections-container {
     height: 300px;
+    width: 80%;
+    margin: auto;
     overflow: auto;
- 
   }
 
   @media (min-width: 600px) {
@@ -89,6 +90,7 @@ export const ConnectionsSection = styled.section`
 export const AddConnectionsWrap = styled.div`
   overflow: auto;
   height: 200px;
+  width: 100%;
   align-items: center;
   margin-left: auto;
   margin-right: auto;

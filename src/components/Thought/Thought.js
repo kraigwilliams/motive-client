@@ -234,18 +234,33 @@ export default class Thought extends Component {
           onSubmit={this.handleEdit.bind(this)}
           onChange={this.handleChange.bind(this)}
         >
-          <div style={{ display: "flex", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              alignContent: "space-between",
+            }}
+          >
             <GoBack
               type="reset"
               onClick={() => this.props.history.goBack()}
               margin="30px 0px 30px 10px"
             />
-            <ThoughtHeader
-              type="text"
-              name="title"
-              defaultValue={currentThought.thought_title}
-              disabled={sharedLevel > 2}
-            />
+            <h1
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <ThoughtHeader
+                type="text"
+                name="title"
+                aria-label="Thought title"
+                defaultValue={currentThought.thought_title}
+                disabled={sharedLevel > 2}
+              />
+            </h1>
             <div className="thought-actions">
               {/* Share button here, pass in the thought id through props */}
 
@@ -280,11 +295,14 @@ export default class Thought extends Component {
               </div>
             </div>
           </div>
-          <ThoughtTextarea
-            name="content"
-            defaultValue={currentThought.thought_content}
-            disabled={sharedLevel > 2}
-          />
+          <label htmlFor="thought-content">
+            <ThoughtTextarea
+              name="content"
+              defaultValue={currentThought.thought_content}
+              disabled={sharedLevel > 2}
+              id="thought-content"
+            />
+          </label>
 
           <Container
             style={{
@@ -298,6 +316,8 @@ export default class Thought extends Component {
           >
             <ThoughtDropdown
               name="topic"
+              id="thought-topic"
+              aria-label="Dropdown for the thought topic"
               value={
                 this.state.topicSelected ||
                 (topicForThought ? topicForThought : 0)
@@ -335,7 +355,9 @@ export default class Thought extends Component {
         </ContentWrapper>
 
         <CommentWrapper>
-          <CommentHeader>Comments</CommentHeader>
+          <label htmlFor="comment-reply">
+            <CommentHeader>Comments</CommentHeader>
+          </label>
 
           <CommentsWrap>
             {/* Map through existing comments */}
@@ -361,10 +383,11 @@ export default class Thought extends Component {
               <ReplyInput
                 placeholder="Add a comment..."
                 name="content"
+                id="comment-reply"
                 required
               ></ReplyInput>
               {/* Add comment button */}
-              <ReplyButton type="submit">
+              <ReplyButton type="submit" aria-label="Add a comment">
                 <FontAwesomeIcon icon="plus" />
               </ReplyButton>
             </div>
