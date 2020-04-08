@@ -86,7 +86,8 @@ export default class Connections extends Component {
           bgColor="transparent"
           style={{ marginTop: "20px" }}
           minimizedMargin="20px auto 40px auto"
-          width='80%'
+          width="80%"
+          padding="30px 0px"
         >
           <FormLabel
             color={colors.coral}
@@ -133,10 +134,13 @@ export default class Connections extends Component {
             {this.context.user.username}'s Connections
           </FriendsHeader>
           {/* map through connections in state to render each connection detail */}
-          <div className="connections-container" tabIndex="0" >
+          <div className="connections-container" tabIndex="0">
             {connections.map((friend, idx) => {
               return (
-                <div key={idx}>
+                <div
+                  key={idx}
+                  style={{ paddingLeft: "0px", paddingRight: "0px" }}
+                >
                   <FriendsName>
                     {friend.first_name} {friend.last_name}
                   </FriendsName>

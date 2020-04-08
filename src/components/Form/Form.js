@@ -25,7 +25,7 @@ export const FormWrapper = styled.form`
     width: ${({ width }) => (width ? width : "60%")};
     margin: ${({ minimizedMargin }) =>
       minimizedMargin ? minimizedMargin : "auto"};
-    padding: 30px;
+    padding: ${({ padding }) => (padding ? padding : "30px")};
     border-radius: 30px;
   }
 `;
