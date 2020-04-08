@@ -53,15 +53,15 @@ export const FriendsUserName = styled.h2`
   }
 `;
 
-export const FriendsHeader = styled.h2`
+export const FriendsHeader = styled.h3`
   padding-top: 20px;
   color: ${colors.white};
   text-align: center;
   line-height: 2.5;
   border-bottom: 1px solid ${colors.white};
-  max-width: 300px;
+  max-width: fit-content;
   margin: auto;
-  font-size: 28px;
+  font-size: 22px;
 
   @media (min-width: 600px) {
     text-align: center;

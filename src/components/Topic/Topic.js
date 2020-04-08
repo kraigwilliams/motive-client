@@ -141,6 +141,7 @@ export default class Topic extends Component {
             }}
           >
             <ShareButton
+              color={colors.blue}
               type="button"
               to={`/topic/${topicId}/share`}
               disabled={sharedLevel > 2}
@@ -149,6 +150,7 @@ export default class Topic extends Component {
 
             {currentThoughts.length < 1 ? (
               <DeleteButton
+                color={colors.blue}
                 data-tip="Delete Topic"
                 type="button"
                 onClick={this.toggleDeleteDiv.bind(this)}

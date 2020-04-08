@@ -56,6 +56,7 @@ export default class Thought extends Component {
       isShared: null,
       sharedLevel: null,
       sharedUsers: [],
+      thought_owner: "",
     };
   }
 
@@ -71,8 +72,10 @@ export default class Thought extends Component {
       authToken
     );
     // const currentThought = currentThoughtArr[0];
+
     this.setState({
       currentThought,
+      thought_owner: currentThought.first_name,
     });
     console.log(currentThought, "current thought");
 
@@ -265,6 +268,7 @@ export default class Thought extends Component {
               {/* Share button here, pass in the thought id through props */}
 
               <ShareButton
+                color={colors.blue}
                 type="button"
                 to={`/thought/${thoughtId}/share`}
                 shared={sharedLevel > 2 ? "none" : null}
@@ -274,6 +278,7 @@ export default class Thought extends Component {
 
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <DeleteButton
+                  color={colors.blue}
                   type="button"
                   data-tip="Delete Thought"
                   onClick={this.toggleDeleteDiv}
@@ -396,7 +401,7 @@ export default class Thought extends Component {
 
         {/* Div containing all thought details */}
         <Details
-          owner={currentThought.first_name}
+          owner={this.state.thought_owner}
           lastModified={currentThought.date_modified}
           shared_with={sharedUsers}
         />
