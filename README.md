@@ -1,3 +1,32 @@
+## FOLKUL 
+### Team 
+- Jordan Castillo
+- Kraig Williams 
+- Scott Lingner
+
+### LIVE LINK 
+
+### What is Folkul?
+
+### Deck
+Check out our presentation deck here
+
+### Technology behind Folkul
+
+### API Documentation
+Our server repo can be found here 
+
+### Screenshots 
+- Coming soon! 
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
