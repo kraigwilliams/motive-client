@@ -10,14 +10,14 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
 >
   <styled.div>
     <div
-      className="sc-fznZeY OLqaT"
+      className="sc-fzqNJr bphCiI"
     >
       <styled.form
         onChange={[Function]}
         onSubmit={[Function]}
       >
         <form
-          className="sc-fznKkj jXwfHl"
+          className="sc-fzqBZW kKvITr"
           onChange={[Function]}
           onSubmit={[Function]}
         >
@@ -34,13 +34,13 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
               type="reset"
             >
               <ForwardRef
-                className="sc-fzozJi fLkxtq"
+                className="sc-fzoLsD esUdBY"
                 margin="0px"
                 onClick={[Function]}
                 type="reset"
               >
                 <button
-                  className="Button sc-fzozJi fLkxtq"
+                  className="Button sc-fzoLsD esUdBY"
                   margin="0px"
                   onClick={[Function]}
                   type="reset"
@@ -88,7 +88,7 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
           </div>
           <styled.h1>
             <h1
-              className="sc-AxirZ kOpkhk"
+              className="sc-AxirZ gSjuDs"
             >
               Create an account
             </h1>
@@ -97,11 +97,11 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             htmlFor="signup-firstname-input"
           >
             <Label
-              className="sc-AxhUy ewJyDd"
+              className="sc-AxhUy iPWEFB"
               htmlFor="signup-firstname-input"
             >
               <label
-                className="Label sc-AxhUy ewJyDd"
+                className="Label sc-AxhUy iPWEFB"
                 htmlFor="signup-firstname-input"
               >
                 First Name 
@@ -120,25 +120,25 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             aria-required="true"
             id="signup-firstname-input"
             name="firstname"
-            placeholder="John"
+            placeholder="Ralph"
             required={true}
           >
             <ForwardRef
               aria-label="Enter your first name"
               aria-required="true"
-              className="sc-AxgMl ceOmaP"
+              className="sc-AxgMl gdCPlS"
               id="signup-firstname-input"
               name="firstname"
-              placeholder="John"
+              placeholder="Ralph"
               required={true}
             >
               <input
                 aria-label="Enter your first name"
                 aria-required="true"
-                className="Input sc-AxgMl ceOmaP"
+                className="Input sc-AxgMl gdCPlS"
                 id="signup-firstname-input"
                 name="firstname"
-                placeholder="John"
+                placeholder="Ralph"
                 required={true}
                 type="text"
               />
@@ -148,11 +148,11 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             htmlFor="signup-lastname-input"
           >
             <Label
-              className="sc-AxhUy ewJyDd"
+              className="sc-AxhUy iPWEFB"
               htmlFor="signup-lastname-input"
             >
               <label
-                className="Label sc-AxhUy ewJyDd"
+                className="Label sc-AxhUy iPWEFB"
                 htmlFor="signup-lastname-input"
               >
                 Last Name 
@@ -171,25 +171,25 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             aria-required="true"
             id="signup-lastname-input"
             name="lastname"
-            placeholder="Doe"
+            placeholder="Emerson"
             required={true}
           >
             <ForwardRef
               aria-label="Enter your last name"
               aria-required="true"
-              className="sc-AxgMl ceOmaP"
+              className="sc-AxgMl gdCPlS"
               id="signup-lastname-input"
               name="lastname"
-              placeholder="Doe"
+              placeholder="Emerson"
               required={true}
             >
               <input
                 aria-label="Enter your last name"
                 aria-required="true"
-                className="Input sc-AxgMl ceOmaP"
+                className="Input sc-AxgMl gdCPlS"
                 id="signup-lastname-input"
                 name="lastname"
-                placeholder="Doe"
+                placeholder="Emerson"
                 required={true}
                 type="text"
               />
@@ -199,11 +199,11 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             htmlFor="signup-username-input"
           >
             <Label
-              className="sc-AxhUy ewJyDd"
+              className="sc-AxhUy iPWEFB"
               htmlFor="signup-username-input"
             >
               <label
-                className="Label sc-AxhUy ewJyDd"
+                className="Label sc-AxhUy iPWEFB"
                 htmlFor="signup-username-input"
               >
                 Username 
@@ -222,25 +222,25 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             aria-required="true"
             id="signup-username-input"
             name="username"
-            placeholder="john_doe"
+            placeholder="ralph_emerson"
             required={true}
           >
             <ForwardRef
               aria-label="Enter your username"
               aria-required="true"
-              className="sc-AxgMl ceOmaP"
+              className="sc-AxgMl gdCPlS"
               id="signup-username-input"
               name="username"
-              placeholder="john_doe"
+              placeholder="ralph_emerson"
               required={true}
             >
               <input
                 aria-label="Enter your username"
                 aria-required="true"
-                className="Input sc-AxgMl ceOmaP"
+                className="Input sc-AxgMl gdCPlS"
                 id="signup-username-input"
                 name="username"
-                placeholder="john_doe"
+                placeholder="ralph_emerson"
                 required={true}
                 type="text"
               />
@@ -250,11 +250,11 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             htmlFor="signup-password-input"
           >
             <Label
-              className="sc-AxhUy ewJyDd"
+              className="sc-AxhUy iPWEFB"
               htmlFor="signup-password-input"
             >
               <label
-                className="Label sc-AxhUy ewJyDd"
+                className="Label sc-AxhUy iPWEFB"
                 htmlFor="signup-password-input"
               >
                 Password 
@@ -273,27 +273,27 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             aria-required="true"
             id="signup-password-input"
             name="password"
-            placeholder="password"
+            placeholder="transcend1"
             required={true}
             type="password"
           >
             <ForwardRef
               aria-label="Enter your password"
               aria-required="true"
-              className="sc-AxgMl ceOmaP"
+              className="sc-AxgMl gdCPlS"
               id="signup-password-input"
               name="password"
-              placeholder="password"
+              placeholder="transcend1"
               required={true}
               type="password"
             >
               <input
                 aria-label="Enter your password"
                 aria-required="true"
-                className="Input sc-AxgMl ceOmaP"
+                className="Input sc-AxgMl gdCPlS"
                 id="signup-password-input"
                 name="password"
-                placeholder="password"
+                placeholder="transcend1"
                 required={true}
                 type="password"
               />
@@ -303,11 +303,11 @@ exports[`<SignUp /> renders SignUp by default 1`] = `
             type="submit"
           >
             <ForwardRef
-              className="sc-fzpans hrFzDy"
+              className="sc-fzplWN dqDpy"
               type="submit"
             >
               <button
-                className="Button sc-fzpans hrFzDy"
+                className="Button sc-fzplWN dqDpy"
                 type="submit"
               >
                 Sign Up

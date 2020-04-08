@@ -1,23 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CondensedTopic /> renders CondensedTopic by default 1`] = `
-<Styled(Link)
-  to="topics/undefined"
->
-  <CSSTransition
-    appear={true}
-    classNames="fade"
-    in={true}
-    mountOnEnter={true}
-    timeout={
-      Object {
-        "enter": 1000,
-      }
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
     }
-  >
-    <styled.div>
-      <styled.p />
-    </styled.div>
-  </CSSTransition>
-</Styled(Link)>
+  }
+>
+  <CondensedTopic />
+</Router>
 `;

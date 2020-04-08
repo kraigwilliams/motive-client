@@ -1,4 +1,6 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { shallow, configure } from "enzyme";
 import toJson from "enzyme-to-json";
 import Topic from "./Topic";
@@ -7,12 +9,18 @@ import ContentContext from "./../../contexts/ContentContext";
 
 configure({ adapter: new Adapter() });
 
-const match = {
-  params: {
-    id: 1,
-  },
-};
 describe(`renders <Topic />`, () => {
+  //Smoke Testing
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <Router>
+        <Topic />
+      </Router>,
+      div
+    );
+    ReactDOM.unmountComponentAtNode(div);
+  });
   //Snapshot Testing
   it("renders Topic by default", () => {
     const wrapper = shallow(

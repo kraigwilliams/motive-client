@@ -2,25 +2,44 @@
 
 exports[`<AddTopic /> renders UI as expected 1`] = `
 <div
-  className="sc-AxjAm jsqeJd"
+  className="sc-AxjAm dtabnj"
 >
   <form
-    className="sc-AxmLO humbFj"
+    className="sc-fzoLsD eWscXS"
     onSubmit={[Function]}
   >
     <button
-      className="Button sc-AxiKw eJdQFo"
+      className="Button sc-AxiKw duGoGH"
+      color="#829191"
       margin="0px"
       onClick={[Function]}
       type="reset"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-arrow-left fa-w-14 "
+        data-icon="arrow-left"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
     <h1
-      className="sc-Axmtr nbDTi"
+      className="sc-fzozJi gnsJxi"
     >
       Create a Topic
     </h1>
     <label
-      className="Label sc-fzoLsD hJqNJg"
+      className="Label sc-fzplWN iwXlQR"
       htmlFor="topic-title"
     >
       Title 
@@ -33,27 +52,30 @@ exports[`<AddTopic /> renders UI as expected 1`] = `
     <input
       aria-label="Enter title of this topic"
       aria-required="true"
-      className="Input sc-fzpans jwpxrB"
+      className="Input sc-fznyAO iAKbbp"
+      color="#ffffff"
       id="topic-title"
       name="title"
       required={true}
       type="text"
     />
     <label
-      className="Label sc-fzoLsD hJqNJg"
+      className="Label sc-fzplWN iwXlQR"
       htmlFor="topic-description"
     >
       Description
     </label>
     <input
       aria-label="Enter description of this topic"
-      className="Input sc-fzpans jwpxrB"
+      className="Input sc-fznyAO iAKbbp"
+      color="#ffffff"
       id="topic-description"
       name="description"
       type="text"
     />
     <button
-      className="Button sc-AxhUy dpUUoP"
+      className="Button sc-AxhUy jPkvRe"
+      color="#EB9C82"
       type="submit"
     >
       Submit

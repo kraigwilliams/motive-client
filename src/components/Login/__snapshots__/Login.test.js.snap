@@ -11,14 +11,14 @@ exports[`<Login /> renders Login by default 1`] = `
 >
   <styled.div>
     <div
-      className="sc-AxhCb faEozV"
+      className="sc-AxhCb ehMTUb"
     >
       <styled.form
         onChange={[Function]}
         onSubmit={[Function]}
       >
         <form
-          className="sc-AxiKw lfvUnh"
+          className="sc-AxiKw hkfqxn"
           onChange={[Function]}
           onSubmit={[Function]}
         >
@@ -35,13 +35,13 @@ exports[`<Login /> renders Login by default 1`] = `
               type="reset"
             >
               <ForwardRef
-                className="sc-fzozJi jhvxvO"
+                className="sc-fzoLsD gGIEnA"
                 margin="10px 0px 20px 0px"
                 onClick={[Function]}
                 type="reset"
               >
                 <button
-                  className="Button sc-fzozJi jhvxvO"
+                  className="Button sc-fzoLsD gGIEnA"
                   margin="10px 0px 20px 0px"
                   onClick={[Function]}
                   type="reset"
@@ -89,7 +89,7 @@ exports[`<Login /> renders Login by default 1`] = `
           </div>
           <styled.h1>
             <h1
-              className="sc-AxirZ kOpkhk"
+              className="sc-AxirZ gSjuDs"
             >
               Login
             </h1>
@@ -98,11 +98,11 @@ exports[`<Login /> renders Login by default 1`] = `
             htmlFor="login-username-input"
           >
             <Label
-              className="sc-AxhUy ewJyDd"
+              className="sc-AxhUy iPWEFB"
               htmlFor="login-username-input"
             >
               <label
-                className="Label sc-AxhUy ewJyDd"
+                className="Label sc-AxhUy iPWEFB"
                 htmlFor="login-username-input"
               >
                 Username 
@@ -121,25 +121,25 @@ exports[`<Login /> renders Login by default 1`] = `
             aria-required="true"
             id="login-username-input"
             name="username"
-            placeholder="john_doe"
+            placeholder="henry_thoreau"
             required={true}
           >
             <ForwardRef
               aria-label="Enter your username"
               aria-required="true"
-              className="sc-AxgMl ceOmaP"
+              className="sc-AxgMl gdCPlS"
               id="login-username-input"
               name="username"
-              placeholder="john_doe"
+              placeholder="henry_thoreau"
               required={true}
             >
               <input
                 aria-label="Enter your username"
                 aria-required="true"
-                className="Input sc-AxgMl ceOmaP"
+                className="Input sc-AxgMl gdCPlS"
                 id="login-username-input"
                 name="username"
-                placeholder="john_doe"
+                placeholder="henry_thoreau"
                 required={true}
                 type="text"
               />
@@ -149,11 +149,11 @@ exports[`<Login /> renders Login by default 1`] = `
             htmlFor="login-password-input"
           >
             <Label
-              className="sc-AxhUy ewJyDd"
+              className="sc-AxhUy iPWEFB"
               htmlFor="login-password-input"
             >
               <label
-                className="Label sc-AxhUy ewJyDd"
+                className="Label sc-AxhUy iPWEFB"
                 htmlFor="login-password-input"
               >
                 Password 
@@ -172,27 +172,27 @@ exports[`<Login /> renders Login by default 1`] = `
             aria-required="true"
             id="login-password-input"
             name="password"
-            placeholder="password"
+            placeholder="SimpleLiving1"
             required={true}
             type="password"
           >
             <ForwardRef
               aria-label="Enter your password"
               aria-required="true"
-              className="sc-AxgMl ceOmaP"
+              className="sc-AxgMl gdCPlS"
               id="login-password-input"
               name="password"
-              placeholder="password"
+              placeholder="SimpleLiving1"
               required={true}
               type="password"
             >
               <input
                 aria-label="Enter your password"
                 aria-required="true"
-                className="Input sc-AxgMl ceOmaP"
+                className="Input sc-AxgMl gdCPlS"
                 id="login-password-input"
                 name="password"
-                placeholder="password"
+                placeholder="SimpleLiving1"
                 required={true}
                 type="password"
               />
@@ -202,11 +202,11 @@ exports[`<Login /> renders Login by default 1`] = `
             type="submit"
           >
             <ForwardRef
-              className="sc-fzpans hrFzDy"
+              className="sc-fzplWN dqDpy"
               type="submit"
             >
               <button
-                className="Button sc-fzpans hrFzDy"
+                className="Button sc-fzplWN dqDpy"
                 type="submit"
               >
                 Login

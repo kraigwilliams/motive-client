@@ -2,7 +2,7 @@
 
 exports[`<Comment /> renders Comment UI as expected 1`] = `
 <div
-  className="sc-AxhCb fERfHF"
+  className="sc-AxhCb kUcNYr"
 >
   <div
     className="content"
@@ -16,9 +16,9 @@ exports[`<Comment /> renders Comment UI as expected 1`] = `
       <p />
       <span>
         <time
-          dateTime={"2020-04-07T17:07:31.446Z"}
+          dateTime={"2020-04-08T16:09:59.552Z"}
         >
-          Today at 10:07 AM
+          Today at 9:09 AM
         </time>
       </span>
     </div>

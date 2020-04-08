@@ -2,6 +2,6 @@
 
 exports[`<NavBar /> renders UI as expected 1`] = `
 <header
-  className="sc-AxirZ gESMzm"
+  className="sc-AxirZ cMwKkI"
 />
 `;
