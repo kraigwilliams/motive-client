@@ -28,35 +28,36 @@ export default class Login extends Component {
 
   firstInput = React.createRef();
 
-  handleLoginSuccess = () => {
+  async handleLoginSuccess() {
     const { location, history } = this.props;
-    if (
-      this.context.userTopics.length == 0 &&
-      this.context.userThoughts.length == 0
-    ) {
+
+    const userTopics = await this.context.userTopics;
+    const userThoughts = await this.context.userThoughts;
+    if (userTopics.length == 0 && userThoughts.length == 0) {
       //function that makes a post request to create a new sample topic & thought
       //hardcoding of posts
-      ContentService.postTopic(
+      const postedTopic = await ContentService.postTopic(
         "I Am A Topic",
         "I contain one or many thoughts grouped together"
-      ).then((topic) => {
-        const topicId = topic.id;
-        ContentService.postThought(
-          "I am a Thought Inside A Topic",
-          "I am a thought inside this topic, you can change which topic I belong to, or make me a free thought by selecting 'Free Thought'",
-          `${topicId}`
-        );
-      });
-      ContentService.postThought(
+      );
+      const topicId = postedTopic.id;
+      await ContentService.postThought(
+        "I am a Thought Inside A Topic",
+        "I am a thought inside this topic, you can change which topic I belong to, or make me a free thought by selecting 'Free Thought'",
+        `${topicId}`
+      );
+      await ContentService.postThought(
         "I Am A Free Thought",
         "A free thought does not belong to any topic, you can edit me or select a topic to group me in",
         0
       );
+      const destination = (location.state || {}).from || "/dashboard";
+      history.push(destination);
+    } else {
+      const destination = (location.state || {}).from || "/dashboard";
+      history.push(destination);
     }
-
-    const destination = (location.state || {}).from || "/dashboard";
-    history.push(destination);
-  };
+  }
 
   handleSubmit = (ev) => {
     ev.preventDefault();
