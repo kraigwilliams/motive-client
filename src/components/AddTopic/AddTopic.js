@@ -22,11 +22,11 @@ export default class AddTopic extends Component {
 
   render() {
     return (
-      <PageWrapper padding="40px 0" bgColor={colors.darkgrey}>
+      <PageWrapper padding="40px 0" bgcolor={colors.darkgrey}>
         <FormWrapper
           padding="50px"
           onSubmit={this.handleSubmit}
-          bgColor={colors.darkgrey}
+          bgcolor={colors.darkgrey}
         >
           <GoBack
             type="reset"
@@ -47,6 +47,7 @@ export default class AddTopic extends Component {
             aria-required="true"
             required
             color={colors.white}
+            placeholder="Walden Pond"
           />
 
           <FormLabel htmlFor="topic-description">Description</FormLabel>
@@ -55,6 +56,7 @@ export default class AddTopic extends Component {
             name="description"
             aria-label="Enter description of this topic"
             color={colors.white}
+            placeholder="“Things do not change; we change.”"
           />
 
           {/* <FormLabel htmlFor='topic-thoughts'>

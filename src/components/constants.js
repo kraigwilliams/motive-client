@@ -19,7 +19,7 @@ export const colors = {
 };
 
 export const PageWrapper = styled.div`
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : colors.darkgrey)};
+  background-color: ${({ bgcolor }) => (bgcolor ? bgcolor : colors.darkgrey)};
   margin: 0;
   text-align: ${({ textalign }) => (textalign ? textalign : "")};
 
@@ -27,7 +27,7 @@ export const PageWrapper = styled.div`
 
   @media (min-width: 700px) {
     padding: ${({ padding }) => (padding ? padding : "0px")};
-    background-color: ${({ bgColorDesktop }) =>
-      bgColorDesktop ? bgColorDesktop : colors.offwhite};
+    background-color: ${({ bgcolorDesktop }) =>
+      bgcolorDesktop ? bgcolorDesktop : colors.offwhite};
   }
 `;

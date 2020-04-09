@@ -77,13 +77,13 @@ export default class Thought extends Component {
       currentThought,
       thought_owner: currentThought.first_name,
     });
-    console.log(currentThought, "current thought");
+ 
 
     const sharedUsers = await ContentService.getSharedUsers(thoughtId);
     this.setState({
       sharedUsers,
     });
-    console.log(sharedUsers, "shared users");
+ 
     // Check if this thought is shared (if current user is the owner or if it has been sahred with the user)
     const sharedThoughts = await ContentService.getSharedThoughts();
 
@@ -114,7 +114,6 @@ export default class Thought extends Component {
 
     // Get all comments for that thought (based on the thought id)
     const comments = await ActionsService.getComments(thoughtId);
-    console.log(comments, "comments response");
     if (comments) {
       this.setState({
         comments,
@@ -189,10 +188,9 @@ export default class Thought extends Component {
     ev.preventDefault();
     const { content } = ev.target;
     const comment_content = content.value;
-    // console.log(comment_content, "content from the comment input");
+
 
     const thoughtId = this.state.thoughtId;
-    // console.log(thoughtId, "thought id!");
 
     // Make POST request to server to add a post
     await ActionsService.postComment(thoughtId, comment_content);
@@ -201,7 +199,6 @@ export default class Thought extends Component {
 
     // Re-fetch the comments to update existing comments with the comment just posted
     const comments = await ActionsService.getComments(thoughtId);
-    console.log(comments, "comments response");
     if (comments) {
       this.setState({
         comments,

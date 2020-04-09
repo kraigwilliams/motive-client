@@ -25,7 +25,6 @@ const AuthApiService = {
     );
   },
   refreshToken() {
-    // console.log("refreshing token!");
     return fetch(`${config.API_ENDPOINT}/auth/token`, {
       method: "PUT",
       headers: {

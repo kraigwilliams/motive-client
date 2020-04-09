@@ -71,7 +71,7 @@ export const GoBack = styled(GoBackButton)`
   @media (min-width: 700px) {
     /* margin: ${({ margin }) => (margin ? "30px 0px 22px 30px" : "")}; */
     margin: ${({ margin }) => (margin ? margin : "30px 0px 30px 30px")};
-    height: 20px;
+    /* height: 20px; */
   } 
 `;
 
@@ -148,10 +148,12 @@ export const AddButton = styled(Add)`
   color: ${({ color }) => (color ? color : colors.coral)};
   background: transparent;
   border: none;
-  padding: 5px;
+  padding: ${({ padding }) => (padding ? padding : "5px")};
   margin-left: ${({ marginleft }) => (marginleft ? marginleft : "10px")};
   margin-right: ${({ marginright }) => (marginright ? marginright : "0px")};
   font-size: 1em;
+  height: 28px;
+  width: 28px;
 
   .button-link {
     color: ${({ color }) => (color ? color : colors.coral)};
@@ -218,7 +220,7 @@ export const DeleteButton = styled(Delete)`
   text-align: center;
   font-size: 1em;
   display: ${({ shared }) => (shared ? shared : "block")};
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   margin-right: ${({ marginright }) => (marginright ? marginright : "0px")};
 
   .button-link {
@@ -263,6 +265,7 @@ export const ShareButton = styled(Share)`
   text-align: center;
   font-size: 1em;
   display: ${({ shared }) => (shared ? shared : "block")};
+  margin-left: 0px;
   margin-right: ${({ marginright }) => (marginright ? marginright : "0px")};
   .button-link {
     color: ${({ color }) => (color ? color : colors.coral)};

@@ -83,7 +83,7 @@ export default class Connections extends Component {
     return (
       <ConnectionsPageWrapper>
         <FormWrapper
-          bgColor="transparent"
+          bgcolor="transparent"
           style={{ marginTop: "20px" }}
           minimizedMargin="20px auto 40px auto"
           width="80%"
@@ -104,7 +104,7 @@ export default class Connections extends Component {
             color={colors.white}
             placeholder="Search the Folkul network..."
             value={addedConnection ? "" : undefined}
-            borderColor={colors.blue}
+            bordercolor={colors.blue}
             id="add-connections"
             aria-label="Search for connections to add"
           />

@@ -138,6 +138,11 @@ export const LandingLink = styled(Link)`
     border: 2px solid ${colors.white};
     color: ${colors.white};
   }
+
+  @media (min-width: 600px) {
+    margin-top: 70px;
+    font-size: 20px;
+  }
 `;
 
 export const LandingImage = styled.img`

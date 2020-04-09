@@ -17,9 +17,10 @@ export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   /* padding: 30px; */
-  background-color: ${({ bgColor }) => bgColor || colors.darkgrey};
+  background-color: ${({ bgcolor }) => bgcolor || colors.darkgrey};
   width: ${({ width }) => (width ? width : "100%")};
   padding: ${({ padding }) => (padding ? padding : "30px")};
+  margin: auto;
 
   @media (min-width: 700px) {
     width: ${({ width }) => (width ? width : "60%")};
@@ -31,7 +32,7 @@ export const FormWrapper = styled.form`
 `;
 
 export const LoginWrapper = styled.div`
-  background-color: ${colors.slategrey};
+  background-color: ${colors.darkgrey};
   margin: 0;
   padding: 40px;
   min-height: 100vh;
@@ -88,7 +89,7 @@ export const FormInput = styled(Input)`
 
   :focus {
     border-bottom: 2px solid
-      ${({ borderColor }) => (borderColor ? borderColor : colors.teal)};
+      ${({ bordercolor }) => (bordercolor ? bordercolor : colors.teal)};
   }
 
   @media (min-width: 700px) {
@@ -110,11 +111,11 @@ export function Textarea({ className, ...props }) {
 }
 
 export const FormTextarea = styled(Textarea)`
-  background: ${({ bgColor }) => (bgColor ? bgColor : colors.offwhite)};
+  background: ${({ bgcolor }) => (bgcolor ? bgcolor : colors.offwhite)};
   width: 80%;
   padding: 20px;
   font-size: 16px;
-  color: ${colors.white};
+  color: ${colors.darkergrey};
   border: 2px solid ${colors.offwhite};
   border-radius: 10px;
   margin: auto;

@@ -83,7 +83,7 @@ exports[`<AddThought /> renders UI as expected 1`] = `
     <textarea
       aria-label="Create the content of this thought"
       aria-required="true"
-      bgColor="#829191"
+      bgcolor="#829191"
       className="Textarea sc-fznKkj atayj"
       id="thought-content"
       name="content"

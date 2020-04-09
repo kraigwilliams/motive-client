@@ -195,12 +195,11 @@ const DetailWrap = styled.div`
 `;
 
 export const Details = (props) => {
-  console.log(props.shared_with, "shared with props");
   const calendarStrings = {
     lastDay: "[Yesterday at] LT",
     sameDay: "[Today at] LT",
     nextDay: "[Tomorrow at] LT",
-    lastWeek: "[last] dddd [at] LT",
+    lastWeek: "[Last] dddd [at] LT",
     nextWeek: "dddd [at] LT",
     sameElse: "L",
   };

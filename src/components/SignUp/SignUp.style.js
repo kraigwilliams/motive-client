@@ -18,7 +18,7 @@ export const FormWrapper = styled.form`
 `;
 
 export const SignUpWrapper = styled.div`
-  background-color: ${colors.slategrey};
+  background-color: ${colors.darkgrey};
   margin: 0;
   padding: 40px;
   min-height: 100vh;

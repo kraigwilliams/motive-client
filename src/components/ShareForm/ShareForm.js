@@ -86,11 +86,11 @@ export default class ShareForm extends Component {
       );
     });
     return (
-      <PageWrapper padding="40px 0" bgColor={colors.darkgrey}>
+      <PageWrapper padding="40px 0" bgcolor={colors.darkgrey}>
         <FormWrapper
           padding="50px 30px"
           onSubmit={this.handleSubmitShare.bind(this)}
-          bgColor={colors.darkgrey}
+          bgcolor={colors.darkgrey}
         >
           <GoBack
             type="reset"

@@ -43,7 +43,6 @@ export default class Topic extends Component {
     this.setState({
       topicId,
     });
-    // localStorage.setItem('topic', topicId);
     this.context.setTopicForAddThought(topicId);
     this.context.setTopicForThought(topicId);
     const authToken = TokenService.getAuthToken();
@@ -111,7 +110,6 @@ export default class Topic extends Component {
     if (currentThoughts) {
       this.setState({ currentThoughts });
     }
-    console.log(currentThoughts, "current thoughts in sort change handler");
   }
 
   render() {
@@ -125,6 +123,7 @@ export default class Topic extends Component {
             onClick={() => this.handleGoBack()}
             margin="30px 0px 30px 30px"
           />
+
           <TopicHeader>
             <h1 style={{ marginBottom: "20px" }}>
               {currentTopic.topic_title}!
@@ -137,8 +136,11 @@ export default class Topic extends Component {
             style={{
               display: "flex",
               flexDirection: "column",
-              marginTop: "40px",
+              margin: "auto",
+              width: "28px",
+              marginRight: "30px",
             }}
+            className="header-btn"
           >
             <ShareButton
               color={colors.blue}
@@ -146,6 +148,7 @@ export default class Topic extends Component {
               to={`/topic/${topicId}/share`}
               disabled={sharedLevel > 2}
               data-tip="Share Topic"
+              marginright="10px"
             />
 
             {currentThoughts.length < 1 ? (
@@ -180,6 +183,8 @@ export default class Topic extends Component {
               type="button"
               to="/add-thought"
               data-tip="Add Thought to Topic"
+              marginleft="0px"
+              padding="0px"
             />
           </div>
           <div className="topic-thoughts">

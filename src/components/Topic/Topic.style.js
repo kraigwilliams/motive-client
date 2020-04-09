@@ -8,6 +8,10 @@ export const TopicWrapper = styled.div`
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  .header-btn {
+    width: 28px;
+    justify-content: space-between;
+  }
 `;
 
 export const TopicHeader = styled.header`
@@ -77,8 +81,10 @@ export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px 30px;
-    padding: 5px 60px;
+    /* margin: 10px 30px; */
+    margin: 10px 0px;
+    /* padding: 5px 60px; */
+    padding: 5px 0px;
   }
 
   .topic-thoughts {
@@ -88,7 +94,7 @@ export const ContentWrapper = styled.div`
 
   @media (min-width: 600px) {
     .topic-thoughts {
-      width: 50%;
+      width: 70%;
     }
   }
 `;

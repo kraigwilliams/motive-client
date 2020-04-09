@@ -78,11 +78,11 @@ export default class AddThought extends Component {
       );
     });
     return (
-      <PageWrapper padding="40px 0" bgColor={colors.darkgrey}>
+      <PageWrapper padding="40px 0" bgcolor={colors.darkgrey}>
         <FormWrapper
           padding="50px 30px"
           onSubmit={this.handleSubmit}
-          bgColor={colors.darkgrey}
+          bgcolor={colors.darkgrey}
         >
           <GoBack
             type="reset"
@@ -101,6 +101,7 @@ export default class AddThought extends Component {
             aria-required="true"
             required
             color={colors.white}
+            placeholder="Transcendentalism"
           />
 
           {/* <FormLabel>
@@ -130,7 +131,9 @@ export default class AddThought extends Component {
             aria-label="Create the content of this thought"
             aria-required="true"
             required
-            bgColor={colors.slategrey}
+            bgcolor={colors.slategrey}
+            placeholder="“To be great is to be misunderstood.”
+― Ralph Waldo Emerson, Self-Reliance "
           />
 
           <FormButton type="submit" color={colors.coral}>
