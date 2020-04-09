@@ -33,7 +33,7 @@ export const LandingText = styled.p`
   padding: 0px 0px 20px 0px;
   color: ${colors.white};
   margin: 5px auto;
-  max-width: 90%;
+  max-width: 50%;
 
   line-height: 2em;
   word-spacing: 3px;
