@@ -119,7 +119,7 @@ export default class AddThought extends Component {
             onChange={this.handleTopicChange.bind(this)}
             aria-label="You can select a topic to put this thought in"
           >
-            <option value={0}> -- Not in a Topic -- </option>
+            <option value={0}> -- Free Thought -- </option>
             {options}
           </Dropdown>
 

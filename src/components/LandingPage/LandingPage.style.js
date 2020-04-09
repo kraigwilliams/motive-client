@@ -84,8 +84,14 @@ export const ContentSection = styled.div`
     color: ${colors.white};
   }
 
+  > h2 {
+    font-size: 22px;
+  }
+
   .img {
     width: 90%;
+    border-radius: 50px;
+    margin: 40px;
   }
 
   > p {

@@ -110,7 +110,7 @@ export const FormButton = styled(Button)`
     background: transparent;
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   display: ${({ shared }) => (shared ? shared : "block")};
-
+  
   :hover {
     cursor: pointer;
     color: ${({ disabled }) => !disabled && colors.teal};
@@ -192,7 +192,12 @@ export const AddConnection = styled(AddConnect)`
 
 const Delete = React.forwardRef(({ className, ...props }, ref) => {
   return (
-    <button className={cx("Button", className)} ref={ref} {...props} aria-label='Delete'>
+    <button
+      className={cx("Button", className)}
+      ref={ref}
+      {...props}
+      aria-label="Delete"
+    >
       <FontAwesomeIcon icon="minus" />
 
       <ReactTooltip
@@ -214,7 +219,7 @@ export const DeleteButton = styled(Delete)`
   font-size: 1em;
   display: ${({ shared }) => (shared ? shared : "block")};
   margin-bottom: 5px;
-  margin-right: ${({ marginright }) => (marginright ? marginright : "30px")};
+  margin-right: ${({ marginright }) => (marginright ? marginright : "0px")};
 
   .button-link {
     color: ${({ color }) => (color ? color : colors.coral)};
@@ -222,6 +227,10 @@ export const DeleteButton = styled(Delete)`
   :hover {
     cursor: pointer;
     font-size: 1.1em;
+  }
+
+  @media (min-width: 600px) {
+    margin-right: ${({ marginright }) => (marginright ? marginright : "30px")};
   }
 `;
 
@@ -254,13 +263,17 @@ export const ShareButton = styled(Share)`
   text-align: center;
   font-size: 1em;
   display: ${({ shared }) => (shared ? shared : "block")};
-  margin-right: ${({ marginright }) => (marginright ? marginright : "30px")};
+  margin-right: ${({ marginright }) => (marginright ? marginright : "0px")};
   .button-link {
     color: ${({ color }) => (color ? color : colors.coral)};
   }
   :hover {
     cursor: pointer;
     font-size: 1.1em;
+  }
+
+  @media (min-width: 600px) {
+    margin-right: ${({ marginright }) => (marginright ? marginright : "30px")};
   }
 `;
 

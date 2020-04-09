@@ -60,7 +60,7 @@ const ContentService = {
     });
   },
 
-  postTopic(title, desc, thoughts, connections) {
+  postTopic(title, desc) {
     return fetch(`${config.API_ENDPOINT}/topic`, {
       method: "POST",
       headers: {
@@ -68,11 +68,8 @@ const ContentService = {
         authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        //topic inputs
         topic_title: title,
         topic_content: desc,
-        // thoughts: thoughts,
-        // connections: connections
       }),
     })
       .then((res) => {
@@ -227,7 +224,7 @@ const ContentService = {
         thought_title,
         thought_content,
         thought_topic,
-        date_modified
+        date_modified,
       }),
     })
       .then((res) => {
@@ -239,13 +236,13 @@ const ContentService = {
       .catch((err) => console.error(err.message));
   },
 
-  getSharedUsers(thoughtId){
+  getSharedUsers(thoughtId) {
     return fetch(`${config.API_ENDPOINT}/thought/share/${thoughtId}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${TokenService.getAuthToken()}`,
-      }
+      },
     })
       .then((res) => {
         if (!res.ok) {

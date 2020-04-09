@@ -337,7 +337,7 @@ export default class Thought extends Component {
             <FormButton
               className="edit-button"
               type="submit"
-              color={colors.darkgrey}
+              color={colors.blue}
               disabled={!this.state.editted || sharedLevel > 2}
               margintop="0px"
               shared={sharedLevel > 2 ? "none" : null}

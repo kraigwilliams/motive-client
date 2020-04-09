@@ -10,9 +10,9 @@ import {
 } from "./LandingPage.style";
 import { colors } from "../constants";
 import { AngleDown } from "../Button/Button";
-import dashboard from "./Assets/dashboard.png";
-import topic from "./Assets/topic.png";
-import add from "./Assets/add.png";
+import dashboard from "./Assets/DASHBOARD.gif";
+import comments from "./Assets/COMMENTS.gif";
+import connections from "./Assets/CONNECTIONS.gif";
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
@@ -58,20 +58,20 @@ export default function LandingPage() {
           sharing.
         </h2>
 
-        <img src={topic} className="img" alt="topic-view" />
+        <img src={comments} className="img" alt="topic-view" />
 
         <p>
-          Here you can edit your content, share with your connections and see
-          all the comments for a specific thought.
+          Edit your content, share with your connections and see all the
+          comments for a specific thought.
         </p>
       </ContentSection>
       <ContentSection style={{ backgroundColor: colors.coral }}>
         <h2>Add Connections to your Folkul network</h2>
 
-        <img src={add} className="img" alt="add-thought-view" />
+        <img src={connections} className="img" alt="add-thought-view" />
 
         <p>
-          Here you can add new connections and see exisitng ones. Adding
+          Here you can add new connections and see existing ones. Adding
           connections allows you to share your content for collaboration or
           viewing.{" "}
         </p>

@@ -28,14 +28,14 @@ export const ThoughtHeader = styled.input`
   height: 100%;
   @media (min-width: 600px) {
     text-align: center;
-    font-size: 22px;
+    font-size: 28px;
     border: none;
     height: fit-content;
     margin: 0px auto 0px auto;
   }
   @media (min-width: 500px) {
     text-align: center;
-    font-size: 22px;
+    font-size: 28px;
     border: none;
     height: fit-content;
     margin: 0px auto 0px auto;
@@ -63,7 +63,7 @@ export const ContentWrapper = styled.form`
 
 export const ThoughtTextarea = styled.textarea`
   padding: 40px;
-  color: ${colors.slategrey};
+  color: ${colors.darkergrey};
   font-size: 16px;
   display: block;
   margin-left: auto;
@@ -102,13 +102,13 @@ export const StyledDeleteDiv = styled.div`
 export const ThoughtDropdown = styled.select`
   background: transparent;
   font-size: 16px;
-  color: ${colors.white};
+  color: ${colors.darkergrey};
   /* width: 40%; */
   padding: 20px 30px;
   margin: 40px auto;
   text-align: center;
   width: 100%;
-
+  border-color: ${colors.darkgrey};
   > span {
     text-align: center;
   }
