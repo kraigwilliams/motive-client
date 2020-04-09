@@ -28,10 +28,12 @@ class Dashboard extends Component {
   }
 
   //make get requests to get all thoughts and topics for the logged in user
+
   async componentDidMount() {
+    document.title = "Dashboard - Folkul";
     const topics = await ContentService.getTopics();
     if (topics) {
-      this.context.setUserTopics(topics)
+      this.context.setUserTopics(topics);
       this.setState({
         topics,
       });
@@ -39,7 +41,7 @@ class Dashboard extends Component {
 
     const allThoughts = await ContentService.getThoughts();
     if (allThoughts) {
-      this.context.setUserThoughts(allThoughts)
+      this.context.setUserThoughts(allThoughts);
       this.setState({
         allThoughts,
       });

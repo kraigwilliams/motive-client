@@ -19,7 +19,6 @@ export default class SignUp extends Component {
   handleRegistrationSuccess() {
     const { history } = this.props;
     history.push("/login");
- 
   }
 
   firstInput = React.createRef();
@@ -46,6 +45,7 @@ export default class SignUp extends Component {
   };
 
   componentDidMount() {
+    document.title = "Sign Up - Folkul";
     this.firstInput.current.focus();
   }
 

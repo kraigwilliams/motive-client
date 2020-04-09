@@ -38,6 +38,7 @@ export default class Topic extends Component {
   }
 
   async componentDidMount() {
+    document.title = "Topics - Folkul";
     //get the topic id and auth token of the user
     const topicId = await this.props.match.params.topic_id;
     this.setState({
