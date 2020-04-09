@@ -39,7 +39,16 @@ Our server repo can be found [here](https://github.com/kraigwilliams/motive-api)
 <br />
 
 ### Screenshots 
+#### Dashboard
 ![Dashboard](ReadMe_assets/Dashboard.png)
+#### Topic View
+![Topic View](ReadMe_assets/TopicView.png)
+#### Thought View
+![Thought View](ReadMe_assets/ThoughtView.png)
+#### Connections 
+![Connections](ReadMe_assets/Connections.png)
+#### Comments View
+![Comments](ReadMe_assets/Comments.png)
 
 
 - - - - 
