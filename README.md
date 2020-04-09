@@ -7,6 +7,9 @@
 
 ### LIVE LINK 
 Check out Folkul live [here](https://folkul.now.sh/) 
+Login and take a look around with: 
+- Username: admin
+- Password: pass
 <br />
 
 ### What is Folkul?
