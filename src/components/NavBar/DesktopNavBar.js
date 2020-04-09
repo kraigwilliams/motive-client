@@ -12,7 +12,7 @@ const DesktopNav = styled.nav`
   color: ${colors.white};
 
   .nav-links {
-    margin-left: 20px;
+    margin-left: 10px;
 
     @media screen and (max-width: 768px) {
       display: none;

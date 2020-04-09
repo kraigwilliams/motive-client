@@ -69,7 +69,7 @@ export const MenuLink = styled(Link)`
   font-size: 16px;
   color: ${colors.white};
   text-decoration: none;
-  margin-left: 25px;
+  margin-left: 20px;
   align-self: center;
   height: fit-content;
 
