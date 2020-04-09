@@ -21,6 +21,7 @@ export default class AddTopic extends Component {
   };
 
   render() {
+    document.title = "Add Topic - Folkul";
     return (
       <PageWrapper padding="40px 0" bgcolor={colors.darkgrey}>
         <FormWrapper

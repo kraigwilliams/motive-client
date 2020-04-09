@@ -61,6 +61,7 @@ export default class Thought extends Component {
   }
 
   async componentDidMount() {
+    document.title = "Thoughts - Folkul";
     const thoughtId = this.props.match.params.thought_id;
     this.setState({
       thoughtId,
@@ -77,13 +78,12 @@ export default class Thought extends Component {
       currentThought,
       thought_owner: currentThought.first_name,
     });
- 
 
     const sharedUsers = await ContentService.getSharedUsers(thoughtId);
     this.setState({
       sharedUsers,
     });
- 
+
     // Check if this thought is shared (if current user is the owner or if it has been sahred with the user)
     const sharedThoughts = await ContentService.getSharedThoughts();
 
@@ -188,7 +188,6 @@ export default class Thought extends Component {
     ev.preventDefault();
     const { content } = ev.target;
     const comment_content = content.value;
-
 
     const thoughtId = this.state.thoughtId;
 

@@ -24,6 +24,7 @@ export default class AddThought extends Component {
   }
 
   async componentDidMount() {
+    document.title = "Add Thought - Folkul";
     const availTopics = await ContentService.getTopics();
     if (availTopics) {
       this.setState({

@@ -20,6 +20,7 @@ export default function LandingPage() {
   const myRef = useRef(null);
   const executeScroll = () => scrollToRef(myRef);
 
+  document.title = "Home - Folkul";
   return (
     <PageWrapper>
       <ContentHeader>

@@ -68,6 +68,7 @@ export default class Connections extends Component {
 
   //this will update the connections list when user adds new connection from search
   async componentDidMount() {
+    document.title = "Connections - Folkul";
     this.getData();
   }
 

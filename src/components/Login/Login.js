@@ -81,6 +81,7 @@ export default class Login extends Component {
   };
 
   componentDidMount() {
+    document.title = "Login - Folkul";
     this.firstInput.current.focus();
   }
 
