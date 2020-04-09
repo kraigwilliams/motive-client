@@ -52,6 +52,10 @@ const UserLogoContainer = styled.div`
   .logo {
     fill: white;
     width: 65px;
+    :hover {
+      cursor: pointer;
+      fill: ${colors.teal};
+    }
   }
 
   @media (min-width: 500px) {
@@ -80,18 +84,7 @@ const UserLogoContainer = styled.div`
 export const UserLogo = (props) => {
   return (
     <UserLogoContainer>
-      <h1
-      // style={{
-      //   fontStyle: "italic",
-      //   fontSize: "25px",
-      //   marginRight: "10px",
-      //   alignSelf: "center",
-      //   height: "33px",
-      //   color: colors.lightblue,
-      // }}
-      >
-        {props.username.toUpperCase()}'S
-      </h1>
+      <h1>{props.username.toUpperCase()}'S</h1>
 
       <FokulLogo
         aria-label="Folkul logo, click to go to landing page"

@@ -21,10 +21,13 @@ const MobileNav = styled.nav`
 
 const MobileNavBar = (props) => {
   return (
-    <MobileNav displayMobileNavBar={props.displayMobileNavBar}>
+    <MobileNav
+      onClick={props.toggleNav}
+      displayMobileNavBar={props.displayMobileNavBar}
+    >
       <Navigation
         direction="column"
-        color={colors.darkgrey}
+        color={colors.white}
         linkmargin="50px 0px"
       />
     </MobileNav>

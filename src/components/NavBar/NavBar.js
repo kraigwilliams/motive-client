@@ -50,7 +50,7 @@ class NavBar extends Component {
 
   renderLoginLink() {
     return (
-      <div style={{ alignSelf: "center" }}>
+      <div className="logged-out" style={{ alignSelf: "center" }}>
         <MenuLink to="/login">Login</MenuLink>{" "}
         <MenuLink to="/signup">Sign up</MenuLink>
       </div>
@@ -83,7 +83,10 @@ class NavBar extends Component {
             : this.renderLoginLink()}
 
           {this.state.mobileNav && TokenService.hasAuthToken() ? (
-            <MobileNavBar displayMobileNavBar={this.state.mobileNav} />
+            <MobileNavBar
+              toggleNav={this.toggleMobileNavBar}
+              displayMobileNavBar={this.state.mobileNav}
+            />
           ) : null}
         </NavWrapper>
       </>
