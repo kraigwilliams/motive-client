@@ -22,10 +22,6 @@ class NavBar extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(this.context.user, "users name in context");
-  }
-
   toggleMobileNavBar = () => {
     this.setState({
       mobileNav: !this.state.mobileNav,
