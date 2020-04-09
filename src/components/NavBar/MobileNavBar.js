@@ -7,8 +7,8 @@ const MobileNav = styled.nav`
   width: fit-content;
   margin: 0px;
   padding: 10px;
-  background: ${colors.lightblue};
-  color: ${colors.darkgrey};
+  background: ${colors.blue};
+  color: ${colors.darkergrey};
   align-self: flex-end;
   position: absolute;
   top: 60px;

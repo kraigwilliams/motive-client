@@ -27,7 +27,7 @@ const NavItem = styled(Link)`
   /* margin-left: ${(props) => (props ? props.marginLeft : "0px")}; */
   :hover {
     cursor: pointer;
-    color: ${colors.coral};
+    color: ${colors.offwhite};
   } 
 `;
 

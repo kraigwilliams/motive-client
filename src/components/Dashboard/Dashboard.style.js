@@ -4,8 +4,10 @@ import { colors } from "../constants";
 export const PageWrapper = styled.div`
   background-color: ${colors.darkgrey};
   padding: 0;
-  height: auto;
+  min-height: 100vh;
+  /* max-height: fit-content; */
   display: flex;
+  /* flex: 1; */
   flex-direction: column;
 `;
 
@@ -29,7 +31,7 @@ export const ContentWrapper = styled.div`
   background-color: ${colors.darkgrey};
   padding: 30px;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   align-content: center;
 
   @media (min-width: 1000px) {

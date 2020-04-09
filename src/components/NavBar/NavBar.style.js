@@ -35,23 +35,60 @@ export const Logo = styled(Link)`
   }
 `;
 
+const UserLogoContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+
+  flex-wrap: wrap;
+
+  > h1 {
+    font-style: italic;
+    font-size: 16px;
+    margin-right: 10px;
+    align-self: center;
+    color: ${colors.lightblue};
+  }
+
+  .logo {
+    fill: white;
+    width: 65px;
+  }
+
+  @media (min-width: 500px) {
+    > h1 {
+      font-size: 18px;
+    }
+
+    .logo {
+      width: 73px;
+    }
+  }
+
+  @media (min-width: 800px) {
+    > h1 {
+      font-size: 25px;
+      height: 33px;
+      align-self: center;
+    }
+
+    .logo {
+      width: 100px;
+    }
+  }
+`;
+
 export const UserLogo = (props) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "flex-end",
-      }}
-    >
+    <UserLogoContainer>
       <h1
-        style={{
-          fontStyle: "italic",
-          fontSize: "25px",
-          marginRight: "10px",
-          alignSelf: "center",
-          height: "33px",
-          color: colors.lightblue,
-        }}
+      // style={{
+      //   fontStyle: "italic",
+      //   fontSize: "25px",
+      //   marginRight: "10px",
+      //   alignSelf: "center",
+      //   height: "33px",
+      //   color: colors.lightblue,
+      // }}
       >
         {props.username.toUpperCase()}'S
       </h1>
@@ -59,9 +96,9 @@ export const UserLogo = (props) => {
       <FokulLogo
         aria-label="Folkul logo, click to go to landing page"
         className="logo"
-        style={{ fill: "white", width: "100px" }}
+        // style={{ fill: "white", width: "100px" }}
       />
-    </div>
+    </UserLogoContainer>
   );
 };
 

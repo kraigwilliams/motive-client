@@ -22,6 +22,10 @@ class NavBar extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log(this.context.user, "users name in context");
+  }
+
   toggleMobileNavBar = () => {
     this.setState({
       mobileNav: !this.state.mobileNav,
@@ -63,7 +67,7 @@ class NavBar extends Component {
         <NavWrapper>
           <Logo to="/">
             {TokenService.hasAuthToken() ? (
-              <UserLogo username={this.context.user.username} />
+              <UserLogo username={this.context.user.firstname} />
             ) : (
               <FokulLogo
                 aria-label="Folkul logo, click to go to landing page"
