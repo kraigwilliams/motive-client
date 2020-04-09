@@ -31,6 +31,7 @@ class Dashboard extends Component {
   async componentDidMount() {
     const topics = await ContentService.getTopics();
     if (topics) {
+      this.context.setUserTopics(topics)
       this.setState({
         topics,
       });
@@ -38,6 +39,7 @@ class Dashboard extends Component {
 
     const allThoughts = await ContentService.getThoughts();
     if (allThoughts) {
+      this.context.setUserThoughts(allThoughts)
       this.setState({
         allThoughts,
       });

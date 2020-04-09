@@ -7,6 +7,8 @@ const UserContext = React.createContext({
   user: {},
   error: null,
   addedConnection: null,
+  userTopics: [],
+  userThoughts: [],
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -24,6 +26,8 @@ export class UserProvider extends Component {
       user: {},
       error: null,
       addedConnection: null,
+      userTopics: [],
+      userThoughts: [],
     };
 
     const jwtPayload = TokenService.parseAuthToken();
@@ -53,6 +57,14 @@ export class UserProvider extends Component {
     IdleService.unRegisterIdleResets();
     TokenService.clearCallbackBeforeExpiry();
   }
+
+  setUserTopics = (userTopics) => {
+    this.setState({ userTopics });
+  };
+
+  setUserThoughts = (userThoughts) => {
+    this.setState({ userThoughts });
+  };
 
   setError = (error) => {
     this.setState({ error });
@@ -119,12 +131,16 @@ export class UserProvider extends Component {
       user: this.state.user,
       error: this.state.error,
       addedConnection: this.state.addedConnection,
+      userTopics: this.state.userTopics,
+      userThoughts: this.state.userThoughts,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
       setAddedConnection: this.setAddedConnection,
+      setUserTopics: this.setUserTopics,
+      setUserThoughts: this.setUserThoughts,
     };
     return (
       <UserContext.Provider value={value}>

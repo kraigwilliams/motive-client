@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { Component } from "react";
 import UserContext from "../../contexts/UserContext";
 import {
@@ -9,6 +10,7 @@ import {
   LoginWrapper,
 } from "../Form/Form";
 import AuthApiService from "../../services/auth-api-service";
+import ContentService from "../../services/content-service";
 import { FormButton, GoBack } from "../Button/Button";
 import Loader from "react-loader-spinner";
 import { colors } from "../constants";
@@ -28,6 +30,30 @@ export default class Login extends Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
+    if (
+      this.context.userTopics.length == 0 &&
+      this.context.userThoughts.length == 0
+    ) {
+      //function that makes a post request to create a new sample topic & thought
+      //hardcoding of posts
+      ContentService.postTopic(
+        "I Am A Topic",
+        "I contain one or many thoughts grouped together"
+      ).then((topic) => {
+        const topicId = topic.id;
+        ContentService.postThought(
+          "I am a Thought Inside A Topic",
+          "I am a thought inside this topic, you can change which topic I belong to, or make me a free thought by selecting 'Free Thought'",
+          `${topicId}`
+        );
+      });
+      ContentService.postThought(
+        "I Am A Free Thought",
+        "A free thought does not belong to any topic, you can edit me or select a topic to group me in",
+        0
+      );
+    }
+
     const destination = (location.state || {}).from || "/dashboard";
     history.push(destination);
   };

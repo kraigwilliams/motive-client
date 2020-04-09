@@ -4,7 +4,7 @@ import AuthApiService from "../../services/auth-api-service";
 import { FormButton, GoBack } from "../Button/Button";
 import { FormWrapper, SignUpWrapper } from "./SignUp.style";
 import { colors } from "../constants";
-// import ContentService from "../../services/content-service";
+
 export default class SignUp extends Component {
   static defaultProps = {
     history: {
@@ -19,22 +19,7 @@ export default class SignUp extends Component {
   handleRegistrationSuccess() {
     const { history } = this.props;
     history.push("/login");
-    //function that makes a post request to create a new sample topic & thought
-    //hardcoding of posts
-    // ContentService.postTopic("I Am A Topic", "TI contain one or many thoughts grouped together").then((topic) => {
-    //   const topicId = topic.id;
-    //   ContentService.postThought(
-    //     "I am a Thought Inside A Topic",
-    //     "I am a thought inside this topic, you can change which topic I belong to, or make me a free thought by selecting 'Free Thought'",
-    //     `${topicId}`
-    //   );
-    // });
-
-    // ContentService.postThought(
-    //   "I Am A Free Thought",
-    //   "A free thought does not belong to any topic, you can edit me or select a topic to group me in",
-    //   0
-    // );
+ 
   }
 
   firstInput = React.createRef();
