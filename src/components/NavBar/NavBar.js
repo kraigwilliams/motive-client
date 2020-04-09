@@ -4,7 +4,13 @@ import MobileNavBar from "./MobileNavBar";
 import TokenService from "../../services/token-service";
 import UserContext from "../../contexts/UserContext.js";
 import Burger from "./Burger";
-import { NavWrapper, Logo, MenuLink, MobileButton } from "./NavBar.style";
+import {
+  NavWrapper,
+  Logo,
+  UserLogo,
+  MenuLink,
+  MobileButton,
+} from "./NavBar.style";
 import { ReactComponent as FokulLogo } from "./FOLKUL.svg";
 
 class NavBar extends Component {
@@ -56,11 +62,20 @@ class NavBar extends Component {
       <>
         <NavWrapper>
           <Logo to="/">
-            <FokulLogo
+            {TokenService.hasAuthToken() ? (
+              <UserLogo username={this.context.user.username} />
+            ) : (
+              <FokulLogo
+                aria-label="Folkul logo, click to go to landing page"
+                className="logo"
+                style={{ fill: "white", width: "100px" }}
+              />
+            )}
+            {/* <FokulLogo
               aria-label="Folkul logo, click to go to landing page"
               className="logo"
               style={{ fill: "white", width: "100px" }}
-            />
+            /> */}
           </Logo>
 
           {TokenService.hasAuthToken()

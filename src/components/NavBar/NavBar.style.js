@@ -1,6 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import { colors } from "../constants";
 import { Link } from "react-router-dom";
+import { ReactComponent as FokulLogo } from "./FOLKUL.svg";
 
 export const NavWrapper = styled.header`
   background-color: ${colors.darkgrey};
@@ -32,6 +34,36 @@ export const Logo = styled(Link)`
     fill: ${colors.teal};
   }
 `;
+
+export const UserLogo = (props) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "flex-end",
+      }}
+    >
+      <h1
+        style={{
+          fontStyle: "italic",
+          fontSize: "25px",
+          marginRight: "10px",
+          alignSelf: "center",
+          height: "33px",
+          color: colors.lightblue,
+        }}
+      >
+        {props.username.toUpperCase()}'S
+      </h1>
+
+      <FokulLogo
+        aria-label="Folkul logo, click to go to landing page"
+        className="logo"
+        style={{ fill: "white", width: "100px" }}
+      />
+    </div>
+  );
+};
 
 export const MenuLink = styled(Link)`
   font-size: 16px;

@@ -64,6 +64,7 @@ class Dashboard extends Component {
         sharedTopics,
       });
     }
+    console.log(sharedTopics, "shared topics!");
   }
 
   //this displays the # of thoughts within a topic for the condensed topic view
@@ -78,7 +79,7 @@ class Dashboard extends Component {
     const { topics, freeThoughts, sharedThoughts, sharedTopics } = this.state;
     return (
       <PageWrapper style={{ bgColor: colors.darkgrey }}>
-        <DBHeader>{this.context.user.username.toUpperCase()}'S FOLKUL</DBHeader>
+        {/* <DBHeader>{this.context.user.username.toUpperCase()}'S FOLKUL</DBHeader> */}
 
         <ContentWrapper>
           <Section>
@@ -104,6 +105,23 @@ class Dashboard extends Component {
                 />
               );
             })}
+
+            <SectionTitle>
+              <h2 style={{ color: colors.coral, fontSize: "16px" }}>
+                Shared Topics
+              </h2>
+            </SectionTitle>
+            {/* map through all shared topics and thoughts for shared section */}
+            {sharedTopics.map((topic, idx) => {
+              return (
+                <CondensedTopic
+                  key={idx}
+                  id={topic.topic_id}
+                  title={topic.topic_title}
+                  shared="isShared"
+                />
+              );
+            })}
           </Section>
           <Section>
             <SectionTitle>
@@ -126,22 +144,11 @@ class Dashboard extends Component {
                 />
               );
             })}
-          </Section>
-          <Section>
             <SectionTitle>
-              <h2 style={{ color: colors.coral }}>Shared</h2>
+              <h2 style={{ color: colors.coral, fontSize: "16px" }}>
+                Shared Thoughts
+              </h2>
             </SectionTitle>
-            {/* map through all shared topics and thoughts for shared section */}
-            {sharedTopics.map((topic, idx) => {
-              return (
-                <CondensedTopic
-                  key={idx}
-                  id={topic.id}
-                  title={topic.topic_title}
-                  shared="isShared"
-                />
-              );
-            })}
             {sharedThoughts.map((thought, idx) => {
               return (
                 <CondensedThought
@@ -153,6 +160,40 @@ class Dashboard extends Component {
               );
             })}
           </Section>
+
+          {/* <Section> */}
+          {/* <SectionTitle>
+              <h2 style={{ color: colors.coral, fontSize: "16px" }}>
+                Shared Topics
+              </h2>
+            </SectionTitle>
+            {/* map through all shared topics and thoughts for shared section */}
+          {/* {sharedTopics.map((topic, idx) => {
+              return (
+                <CondensedTopic
+                  key={idx}
+                  id={topic.topic_id}
+                  title={topic.topic_title}
+                  shared="isShared"
+                />
+              );
+            })} */}
+          {/* <SectionTitle>
+              <h2 style={{ color: colors.coral, fontSize: "16px" }}>
+                Shared Thoughts
+              </h2>
+            </SectionTitle>
+            {sharedThoughts.map((thought, idx) => {
+              return (
+                <CondensedThought
+                  key={idx}
+                  id={thought.thought_id}
+                  title={thought.thought_title}
+                  shared="isShared"
+                />
+              ); */}
+          {/* })} */}
+          {/* </Section> */}
         </ContentWrapper>
       </PageWrapper>
     );
