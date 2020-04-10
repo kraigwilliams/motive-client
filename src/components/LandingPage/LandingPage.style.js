@@ -96,7 +96,7 @@ export const ContentSection = styled.div`
   }
 
   > p {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   @media (min-width: 600px) {
@@ -116,7 +116,7 @@ export const ContentSection = styled.div`
     }
 
     > p {
-      font-size: 20px;
+      font-size: 22px;
       width: 60%;
     }
   }
