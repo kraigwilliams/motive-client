@@ -17,7 +17,7 @@ export const PageWrapper = styled.div`
 export const LandingHeader = styled.h1`
   text-align: center;
   padding: 50px 10px 30px 10px;
-  color: ${colors.coral};
+  color: ${colors.teal};
   font-size: 35px;
   width: 100vw;
   opacity: 100%;
