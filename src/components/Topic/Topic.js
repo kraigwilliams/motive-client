@@ -126,9 +126,7 @@ export default class Topic extends Component {
           />
 
           <TopicHeader>
-            <h1 style={{ marginBottom: "20px" }}>
-              {currentTopic.topic_title}!
-            </h1>
+            <h1 style={{ marginBottom: "20px" }}>{currentTopic.topic_title}</h1>
             <p style={{ color: colors.darkgrey }}>
               {currentTopic.topic_content}
             </p>

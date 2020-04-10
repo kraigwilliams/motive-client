@@ -46,10 +46,9 @@ export default function LandingPage() {
         <img src={dashboard} className="img" alt="dashboard-view" />
 
         <p>
-          Topics are the containers for your Thoughts. Thoughts can live within
-          a topic or on their own as a Free Thought. The Dashboard view shows
-          all of your personal Topics and Thoughts, as well as any content that
-          has been shared by one of your Connections.
+          The Dashboard view shows all of your personal Topics and Thoughts, as
+          well as any content that has been shared by one of your Connections.
+          This is also where you can create a new Topic or Thought.
         </p>
       </ContentSection>
       <ContentSection
@@ -63,11 +62,8 @@ export default function LandingPage() {
         <img src={comments} className="img" alt="topic-view" />
 
         <p>
-          The title for your Thought, as well as the content can be edited and
-          saved. When sharing your Thought with any of your Connections, you
-          have the option to choose if they are allowed to collaborate or simply
-          view. Anyone connected to the Thought has the ability to leave
-          comments.
+          Here you can edit your content, share with your Connections and see
+          all the comments for a specific Thought.
         </p>
       </ContentSection>
       <ContentSection style={{ backgroundColor: colors.coral }}>
@@ -76,9 +72,9 @@ export default function LandingPage() {
         <img src={connections} className="img" alt="add-thought-view" />
 
         <p>
-          This is where you can add new Connections and see existing ones. Once
-          a user adds someone else in the Folkul network, they are able to share
-          between each other.{" "}
+          Here you can add new Connections and see exisitng ones. Adding
+          Connections allows you to share your content for collaboration or
+          viewing.{" "}
         </p>
         {TokenService.hasAuthToken() ? (
           ""
