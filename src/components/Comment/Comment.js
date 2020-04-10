@@ -110,7 +110,7 @@ export const ReplyForm = styled.form`
   }
 `;
 
-export const ReplyInput = styled.textarea`
+export const ReplyInput = styled.input`
   border: 1px solid ${colors.blue};
   background: transparent;
   border-radius: 50px;
