@@ -1,18 +1,18 @@
-## FOLKUL 
-### Team 
+# FOLKUL 
+## Team 
 - Jordan Castillo
 - Kraig Williams 
 - Scott Lingner
 <br />
 
-### LIVE LINK 
+## LIVE LINK 
 Check out Folkul live [here](https://folkul.now.sh/) 
 Login and take a look around with: 
 - Username: admin
 - Password: pass
 <br />
 
-### What is Folkul?
+## What is Folkul?
 - Fokul is a place where you can privately gather your thoughts - this can be small ideas to the next greatest invention. You can connect to other users and then share this idea with them - getting criticism, feedback and overall collaboration.
 
 - Current social media platforms we have today are based around trivial concepts - from overly saturated selfies to fleeting content with no true substance. The only value this brings to the user is distraction. 
@@ -24,7 +24,7 @@ Login and take a look around with:
 Check out our presentation deck [here](https://docs.google.com/presentation/d/15DgrTv6ElXifnbfJY-NHIvDcf96xv8qaSqzbs-DXWkQ/edit?usp=sharing) 
 <br />
 
-### Technology behind Folkul
+## Technology behind Folkul
 #### Frontend Tech
 - React.js
 - Styled Components 
@@ -34,11 +34,11 @@ Check out our presentation deck [here](https://docs.google.com/presentation/d/15
 - Enzyme
 <br />
 
-### API Documentation
+## API Documentation
 Our server repo can be found [here](https://github.com/kraigwilliams/motive-api) 
 <br />
 
-### Screenshots 
+## Screenshots 
 #### Dashboard
 ![Dashboard](ReadMe_assets/Dashboard.png)
 #### Topic View
