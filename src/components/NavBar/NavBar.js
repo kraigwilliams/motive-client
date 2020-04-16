@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import DesktopNavBar from "./DesktopNavBar";
-import MobileNavBar from "./MobileNavBar";
-import TokenService from "../../services/token-service";
-import UserContext from "../../contexts/UserContext.js";
-import Burger from "./Burger";
+import React, { Component } from 'react';
+import DesktopNavBar from './DesktopNavBar';
+import MobileNavBar from './MobileNavBar';
+import TokenService from '../../services/token-service';
+import UserContext from '../../contexts/UserContext.js';
+import Burger from './Burger';
 import {
   NavWrapper,
   Logo,
   UserLogo,
   MenuLink,
   MobileButton,
-} from "./NavBar.style";
-import { ReactComponent as FokulLogo } from "./FOLKUL.svg";
+} from './NavBar.style';
+import { ReactComponent as FokulLogo } from './FOLKUL_1.svg';
 
 class NavBar extends Component {
   static contextType = UserContext;
@@ -50,8 +50,8 @@ class NavBar extends Component {
 
   renderLoginLink() {
     return (
-      <div className="logged-out" style={{ alignSelf: "center" }}>
-        <MenuLink to="/login">Login</MenuLink>{" "}
+      <div className="logged-out" style={{ alignSelf: 'center' }}>
+        <MenuLink to="/login">Login</MenuLink>{' '}
         <MenuLink to="/signup">Sign up</MenuLink>
       </div>
     );
@@ -68,7 +68,7 @@ class NavBar extends Component {
               <FokulLogo
                 aria-label="Folkul logo, click to go to landing page"
                 className="logo"
-                style={{ fill: "white", width: "100px" }}
+                style={{ fill: 'white', width: '100px' }}
               />
             )}
             {/* <FokulLogo

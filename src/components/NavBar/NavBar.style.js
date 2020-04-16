@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { colors } from "../constants";
-import { Link } from "react-router-dom";
-import { ReactComponent as FokulLogo } from "./FOLKUL.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { colors } from '../constants';
+import { Link } from 'react-router-dom';
+import { ReactComponent as FokulLogo } from './FOLKUL_1.svg';
 
 export const NavWrapper = styled.header`
   background-color: ${colors.darkgrey};
@@ -38,7 +38,6 @@ export const Logo = styled(Link)`
 const UserLogoContainer = styled.div`
   display: flex;
   align-items: flex-end;
-
   flex-wrap: wrap;
 
   > h1 {
@@ -52,6 +51,7 @@ const UserLogoContainer = styled.div`
   .logo {
     fill: white;
     width: 65px;
+    align-self: center;
     :hover {
       cursor: pointer;
       fill: ${colors.teal};
@@ -65,6 +65,7 @@ const UserLogoContainer = styled.div`
 
     .logo {
       width: 73px;
+      align-self: center;
     }
   }
 
@@ -77,6 +78,7 @@ const UserLogoContainer = styled.div`
 
     .logo {
       width: 100px;
+      align-self: center;
     }
   }
 `;
